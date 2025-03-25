@@ -1,3 +1,4 @@
 .rasa/cache/
 models/
 __pycache__/
+mental-health-backend/firebase-service-account.json
