@@ -1,0 +1,87 @@
+/* Sidebar container */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-right: 1px solid var(--border-color);
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+/* Sidebar title */
+.sidebar h3 {
+  color: var(--accent-color);
+  font-size: 30px;
+}
+
+/* Navigation list */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 10px 0;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Rating section */
+.rating {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.rating p {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+/* Star rating layout */
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Individual star button */
+.star {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: color 0.2s ease, transform 0.1s ease;
+  padding: 0;
+  margin: 0;
+}
+
+/* Filled (selected) star */
+.star.filled {
+  color: var(--accent-color);
+}
+
+/* Remove browser outline */
+.star:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Optional: hover effect for nice interaction */
+.star:hover {
+  transform: scale(1.2);
+  color: var(--accent-color);
+}

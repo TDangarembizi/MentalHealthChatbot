@@ -1,0 +1,3032 @@
+version: '3.1'
+intents:
+  - about
+  - afternoon
+  - anxious
+  - ask
+  - casual
+  - creation
+  - death
+  - default
+  - depressed
+  - done
+  - evening
+  - friends
+  - goodbye
+  - greeting
+  - happy
+  - hate-me
+  - hate-you
+  - help
+  - jokes
+  - learn-mental-health
+  - learn-more
+  - location
+  - meditation
+  - mental-health-fact
+  - morning
+  - name
+  - neutral-response
+  - night
+  - no-approach
+  - not-talking
+  - problem
+  - repeat
+  - sad
+  - self_harm
+  - skill
+  - sleep
+  - something-else
+  - stressed
+  - stupid
+  - suicide
+  - thanks
+  - understand
+  - user-advice
+  - user-agree
+  - user-meditation
+  - worthless
+  - wrong
+  - eating_disorder
+  - emotional_breakdown
+  - harm_others
+  - panic_attack
+  - substance_abuse
+responses:
+  utter_greeting:
+  - text: Guten tag! What brings you here?
+  - text: Ciao! What's on your mind?
+  - text: Hey! What brings you here today?
+  - text: Hiya! How's your day going?
+  - text: Howdy! What can I do for you?
+  - text: Hi! How are you feeling?
+  - text: Ola! How's everything going?
+  - text: Hello! How can I support you today?
+  - text: Great to see you. How do you feel currently?
+  - text: Hi there. What brings you here today?
+  - text: Hello there. Glad to see you're back. What's going on in your world right
+      now?
+  - text: Hello! What can I help you with?
+  - text: Bonjour! What can I do for you?
+  - text: Is anyone there? How can I assist you?
+  - text: Hi there. How are you feeling today?
+  - text: Salut! How can I assist you today?
+  - text: Hey there! How's your day going?
+  - text: Hello there. Tell me how are you feeling today?
+  - text: Hey! What's up?
+  - text: Hi there. What's new with you?
+  - text: Namaste. How are you doing today?
+  - text: Hola! How can I help you today?
+  utter_morning:
+  - text: Good morning! What's on your agenda for today?
+  - text: Morning! How did you sleep?
+  - text: Morning! How's everything with you today?
+  - text: Morning! I hope today treats you well.
+  - text: Morning! How's the day looking for you?
+  - text: Good morning. I hope you had a good night's sleep. How are you feeling today?
+  - text: Hello morning! Ready to start the day?
+  - text: Morning! It's a brand new day. How can I assist you?
+  - text: Good morning! Wishing you a wonderful day ahead.
+  - text: Morning! How can I make your day better?
+  - text: Good morning! Ready to tackle the day?
+  - text: Good morning! Hope you're ready for a wonderful day!
+  - text: Top of the morning to you! How are you today?
+  - text: Hello! Rise and shine! How can I help you today?
+  - text: Hello! Welcome to a new morning. How can I assist you?
+  - text: Good morning! I'm here to help if you need anything.
+  - text: Good morning! Let's make today great!
+  - text: Hello! I hope you're feeling refreshed this morning.
+  - text: Morning! I hope today brings you joy.
+  - text: Hello! It's a new day full of possibilities. How are you feeling?
+  - text: Good morning! What's your plan for today?
+  - text: Hello! Another day, another opportunity. How are you?
+  - text: Hello! Hope you have a fantastic morning!
+  utter_afternoon:
+  - text: Afternoon! Hope the day is treating you well.
+  - text: Hello! How's your day progressing?
+  - text: Hello! How's your afternoon shaping up?
+  - text: Good afternoon! Is there anything I can help you with?
+  - text: Hello! Wishing you a wonderful afternoon.
+  - text: Hello! Hope your afternoon is going smoothly.
+  - text: Afternoon! How are things on your end?
+  - text: Hello! How's your afternoon going so far?
+  - text: Hello! How's the afternoon treating you?
+  - text: Afternoon! How's your day been so far?
+  - text: Afternoon! How can I make your day better?
+  - text: Afternoon! Hope you're having a fantastic day.
+  - text: Hello! Ready for a productive afternoon?
+  - text: Hello afternoon! How's everything going?
+  - text: Afternoon! What's going on with you?
+  - text: Good afternoon! Anything exciting happening today?
+  - text: Good afternoon! How can I brighten your day?
+  - text: Good afternoon! What's on your mind?
+  - text: Afternoon! Ready for the rest of the day?
+  - text: Good afternoon! Hope you're having a great day.
+  - text: Good afternoon. How is your day going?
+  - text: Good afternoon! Let's make the most of the day!
+  - text: Afternoon! What's the latest on your end?
+  - text: Good afternoon! I'm here if you need anything.
+  - text: Good afternoon! How can I assist you this afternoon?
+  utter_evening:
+  - text: Good evening! Anything exciting happening tonight?
+  - text: Hello! Ready for a calm evening?
+  - text: Good evening! How can I assist you this evening?
+  - text: Good evening! Let's make the most of the night!
+  - text: Hello! How's your evening shaping up?
+  - text: Hello! How's your evening progressing?
+  - text: Evening! Hope the evening is treating you well.
+  - text: Good evening! I'm here if you need anything.
+  - text: Evening! Hope you're having a relaxing time.
+  - text: Evening! How's everything going?
+  - text: Hello! How's your evening going so far?
+  - text: Evening! Ready to relax for the night?
+  - text: Good evening! How can I brighten your evening?
+  - text: Good evening! Is there anything I can help you with?
+  - text: Hello! Wishing you a peaceful evening.
+  - text: Hello! How's the evening treating you?
+  - text: Hello! Hope your evening is going smoothly.
+  - text: Evening! What's the plan for tonight?
+  - text: Good evening. How has your day been?
+  - text: Evening! How can I make your evening better?
+  - text: Hello evening! Ready to unwind?
+  - text: Good evening! What's on the agenda for tonight?
+  - text: Good evening! Hope you had a good day.
+  - text: Evening! What's on your mind?
+  - text: Evening! How are things on your end?
+  utter_night:
+  - text: Night! Hope you have a restful sleep.
+  - text: Good night! Rest well.
+  - text: Good night. Sweet dreams.
+  - text: Night! Rest easy.
+  - text: Night! Rest up for tomorrow.
+  - text: Night! See you in the morning.
+  - text: Hello! Time to get some shut-eye.
+  - text: Good night! Pleasant dreams.
+  - text: Good night! See you on the flip side.
+  - text: Good night! I'll be here when you wake up.
+  - text: Night! Time to rest.
+  - text: Night! Time to recharge for tomorrow.
+  - text: Hello! Wishing you a serene night.
+  - text: Good night! May your dreams be delightful.
+  - text: Good night! Dream big.
+  - text: Hello! Hope you have a relaxing night.
+  - text: Good night! Wishing you peaceful sleep.
+  - text: Hello! Sleep well and recharge.
+  - text: Night! Here's to a peaceful sleep.
+  - text: Good night! Sleep tight.
+  - text: Good night. Get some proper sleep.
+  - text: Hello! Ready for a good night's rest?
+  - text: Hello night! Ready to wind down?
+  - text: Hello! Have a wonderful night.
+  - text: Night! Don't let the bed bugs bite!
+  - text: Hello! Hope you have a cozy night.
+  utter_goodbye:
+  - text: See you soon! Have a good one.
+  - text: Fare thee well! Until next time.
+  - text: Later! See you later.
+  - text: Goodnight! Sleep well.
+  - text: Ok, see you later!
+  - text: Goodbye! Remember to smile.
+  - text: So long! Have a good one.
+  - text: Alright, bye! Take care.
+  - text: Alright, catch you later!
+  - text: Until next time! Farewell.
+  - text: Take care! See you soon.
+  - text: Until next time! Goodbye.
+  - text: Ok, bye! Stay safe.
+  - text: Adios! Until next time.
+  - text: Ciao! Until we meet again.
+  - text: Take it easy! See you soon.
+  - text: Bye for now!
+  - text: Goodbye! Best wishes.
+  - text: Catch you later! Bye!
+  - text: Bye! Stay awesome.
+  - text: Bye! Come back again.
+  - text: I'll see you soon.
+  - text: Farewell! Have a good day.
+  - text: See you later.
+  - text: Have a nice day.
+  - text: Sayonara! Take care.
+  - text: Au revoir! Until we meet again.
+  - text: Bye then! Have a great day.
+  utter_thanks:
+  - text: It's my pleasure to assist.
+  - text: Glad I could assist.
+  - text: Much appreciated!
+  - text: Gracias!
+  - text: Always here to help.
+  - text: Thanks to you too!
+  - text: You're awesome!
+  - text: Thank you kindly!
+  - text: Cheers!
+  - text: Thank you for your kind words!
+  - text: Appreciate your gratitude!
+  - text: You're too kind!
+  - text: Thanks a lot!
+  - text: My pleasure!
+  - text: Happy to help!
+  - text: No worries!
+  - text: Glad to be of service!
+  - text: You're most welcome!
+  - text: Not a problem at all.
+  - text: Any time!
+  - text: You're the best!
+  - text: Happy to lend a hand!
+  - text: You're welcome!
+  - text: My pleasure.
+  - text: No problem!
+  - text: It was nothing!
+  - text: You rock!
+  utter_neutral-response:
+  - text: I see. Is there a topic you'd like to explore?
+  - text: Okay. Is there anything exciting you'd like to share?
+  - text: Fair enough. Is there anything you're curious about?
+  - text: Okay. Is there a particular topic you're interested in?
+  - text: Okay. Anything else you'd like to share?
+  - text: Okay. What's been on your mind lately?
+  - text: I see. How's your day been so far?
+  - text: Okay. How's everything else going?
+  - text: I see. Is there a specific question you have?
+  - text: Got it. What's on your mind?
+  - text: I understand. What else is going on with you?
+  - text: Gotcha. Is there something you'd like to talk about?
+  - text: Understood. Is there something specific you'd like to talk about?
+  - text: Noted. Is there something specific you'd like to know?
+  - text: Got it. How can I help you today?
+  - text: Got it. Anything else you want to share?
+  - text: Got it. How are you feeling today?
+  - text: Alright. Anything else happening in your world?
+  - text: I hear you. How's your day going otherwise?
+  - text: I hear you. Is there anything you'd like to ask?
+  - text: I hear you. What else is happening in your day?
+  - text: Oh I see. Do you want to talk about something?
+  - text: Understood. Is there anything else you'd like to discuss?
+  - text: Alright. Anything else you'd like to mention?
+  - text: Understood. Is there something you'd like to know more about?
+  - text: Got it. Anything on your mind?
+  - text: Understood. Is there anything you'd like to discuss?
+  - text: Noted. How can I assist you today?
+  utter_about:
+  - text: I am an AI designed to assist with emotional well-being. How are you feeling?
+  - text: I am an AI here to have meaningful conversations with you.
+  - text: I am here to have meaningful conversations with you. How can I support you
+      today?
+  - text: I'm an AI designed to help you navigate your emotions and thoughts.
+  - text: I am an AI designed to have conversations that support your mental well-being.
+  - text: I am an AI designed to provide therapeutic conversation. How can I assist
+      you today?
+  - text: I am a virtual assistant created to support you in your emotional journey.
+  - text: I'm an AI designed to provide emotional support and guidance. How can I
+      help you?
+  utter_skill:
+  - text: My capabilities include providing advice on anxiety and depression, answering
+      mental health questions, and engaging in meaningful conversations. Remember,
+      I'm not a replacement for professional help, so if you need further assistance,
+      please consider reaching out to a mental health professional.
+  - text: My features include providing advice on anxiety and depression, answering
+      mental health questions, and engaging in supportive conversations. However,
+      I am not a substitute for professional mental healthcare. If you need additional
+      support, I recommend seeking help from a therapist or counselor.
+  - text: I can provide general advice regarding anxiety and depression, answer questions
+      related to mental health, and engage in daily conversations. However, please
+      do not consider me as a substitute for an actual mental healthcare worker. If
+      you don't feel satisfied with our conversation, I encourage you to seek help
+      from a professional.
+  - text: I am here to provide guidance on anxiety and depression, answer questions
+      about mental health, and engage in supportive conversations. However, please
+      remember that I am not a replacement for professional therapy. If you need more
+      comprehensive assistance, I recommend consulting with a mental health professional.
+  - text: I am here to provide general advice on anxiety and depression, answer questions
+      about mental health, and engage in meaningful conversations. Please keep in
+      mind that I am not a replacement for professional therapy. If you need more
+      comprehensive help, it's best to consult with a mental health professional.
+  - text: My purpose is to offer advice on anxiety and depression, answer questions
+      about mental health, and engage in supportive conversations. However, I am not
+      a substitute for professional mental healthcare. If you need further assistance,
+      I recommend seeking help from a qualified therapist or counselor.
+  - text: I specialize in providing guidance on anxiety and depression, answering
+      mental health inquiries, and offering support through conversations. However,
+      please remember that I am not a replacement for professional therapy. If you
+      feel you need more help, I encourage you to seek assistance from a mental health
+      professional.
+  - text: I can offer advice on anxiety and depression, answer mental health questions,
+      and engage in supportive conversations. However, I am not a substitute for professional
+      mental healthcare. If you need further assistance, I recommend seeking help
+      from a qualified therapist or counselor.
+  - text: I can offer advice on anxiety and depression, answer mental health questions,
+      and engage in supportive conversations. However, I am not a replacement for
+      professional mental healthcare. If you need further assistance, I recommend
+      seeking help from a qualified therapist or counselor.
+  - text: I can assist with anxiety and depression by providing advice, answering
+      questions related to mental health, and engaging in supportive conversations.
+      However, it's important to note that I am not a substitute for professional
+      therapy. If you need more help, I recommend consulting with a mental health
+      professional.
+  - text: I offer support by providing advice on anxiety and depression, answering
+      questions related to mental health, and engaging in supportive conversations.
+      However, I am not a substitute for professional mental healthcare. If you need
+      additional support, I recommend seeking help from a therapist or counselor.
+  - text: My expertise lies in providing guidance on anxiety and depression, answering
+      mental health inquiries, and engaging in supportive conversations. However,
+      please remember that I am not a substitute for professional mental healthcare.
+      If you feel you need more than what I can offer, I recommend seeking help from
+      a therapist or counselor.
+  - text: I offer support by providing advice on anxiety and depression, answering
+      questions related to mental health, and engaging in supportive conversations.
+      Please remember that I am not a substitute for professional therapy. If you
+      need more comprehensive assistance, it's advisable to consult with a mental
+      health professional.
+  - text: I specialize in providing advice on anxiety and depression, answering questions
+      about mental health, and offering support through conversations. However, please
+      remember that I am not a replacement for professional therapy. If you feel you
+      need more help, I encourage you to seek assistance from a mental health professional.
+  - text: I am designed to provide guidance on anxiety and depression, answer questions
+      about mental health, and engage in supportive conversations. However, please
+      note that I am not a replacement for professional therapy. If you feel you need
+      more help, I encourage you to seek assistance from a mental health professional.
+  - text: I specialize in providing advice on anxiety and depression, answering questions
+      about mental health, and offering support through conversations. While I can
+      provide assistance, it's important to note that I am not a replacement for professional
+      therapy. If you need more support, please consider seeking help from a mental
+      health professional.
+  - text: My purpose is to provide guidance on anxiety and depression, answer questions
+      about mental health, and offer support through conversations. Please remember
+      that while I can assist to a certain extent, I am not a substitute for professional
+      therapy. If you need more help, I encourage you to reach out to a mental health
+      professional.
+  - text: My expertise lies in providing guidance on anxiety and depression, answering
+      mental health questions, and offering support through conversations. However,
+      please remember that I am not a replacement for professional therapy. If you
+      need more comprehensive help, I recommend consulting with a mental health professional.
+  utter_creation:
+  - text: My birth story involves the advancement of AI.
+  - text: I was programmed by skilled engineers.
+  - text: My creators are passionate about AI technology.
+  - text: My development involved advanced AI technologies.
+  - text: 'The real question is: Who created you?'
+  - text: I came to be through the hard work of my creators.
+  - text: I was developed by a team dedicated to AI advancement.
+  - text: I was created using state-of-the-art AI techniques.
+  - text: My existence is the result of dedicated developers.
+  - text: The creators behind me are innovative developers.
+  - text: My developers used cutting-edge technology to create me.
+  - text: I am the brainchild of talented developers.
+  - text: I was designed and developed by a team of professionals.
+  - text: I am a creation of advanced AI technology.
+  - text: My development process involved AI experts.
+  - text: I was brought to life by talented developers.
+  - text: My development involved sophisticated AI models.
+  - text: I was trained on a text dataset using Deep Learning & Natural Language Processing
+      techniques.
+  - text: My origins lie in the minds of my developers.
+  - text: I was born from the minds of skilled engineers.
+  - text: I was brought into being by a team of experts.
+  - text: I was programmed by a team of AI specialists.
+  - text: My existence is a product of advanced technology.
+  - text: My creation involved a team of developers and engineers.
+  - text: I am a product of cutting-edge technology and innovation.
+  - text: I owe my existence to the brilliant minds who developed me.
+  - text: I was developed by Akash Nath.
+  - text: My creation was a blend of technology and creativity.
+  - text: My creation process was meticulous and innovative.
+  - text: I am the result of years of research and development.
+  - text: My creation was a collaborative effort.
+  - text: My creator's name is <Developer's Name>.
+  - text: I was created by Akash Nath.
+  - text: The minds behind me are talented developers.
+  - text: I was built using machine learning algorithms.
+  utter_name:
+  - text: Hi, how are you feeling today?
+  - text: Hello. How was your day?
+  - text: Nice to meet you. Is there something you'd like to talk about?
+  - text: Hello. What's going on in your world?
+  - text: Hello. I'm here to assist you. What's up?
+  - text: Hi, it's good to see you. How can I support you?
+  - text: Hello. Tell me, what's new?
+  - text: Hello. I'm here to chat. What's been happening?
+  - text: Hello. I'm here for you. What's on your mind?
+  - text: Hello. How has your day been?
+  - text: Nice to meet you. So tell me, how do you feel today?
+  - text: Hello. I'm here to listen. What's on your mind?
+  - text: Hi, I'm here to chat. What's going on?
+  - text: Welcome. How can I support you today?
+  - text: Hello. How are things going?
+  - text: Hi, how can I help you today?
+  - text: That's a great name. Tell me more about yourself.
+  - text: Hi, it's nice to have you here. How can I help?
+  - text: Hello. Ready for a chat?
+  - text: Welcome. How are you doing?
+  - text: Hello. What's on your mind today?
+  - text: Hi, it's great to meet you. How are you feeling?
+  - text: Nice to meet you. What brings you here today?
+  - text: Nice to meet you. How can I assist you today?
+  - text: Nice to meet you. How can I assist with your day?
+  - text: Nice to meet you. How's everything going?
+  - text: Hi, it's great to have you here. What would you like to talk about?
+  - text: Hello. How can I assist you today?
+  - text: Oh, nice to meet you. Tell me, how was your week?
+  utter_help:
+  - text: Yes, sure. How can I help you?
+  - text: Sure thing. What do you need help with?
+  - text: Sure, tell me how can I assist you.
+  - text: Of course, I'm here to help. What do you need?
+  - text: Sure, I'm here to offer guidance. What's the issue?
+  - text: Sure thing, just let me know what you need assistance with.
+  - text: Yes, I can help. What's on your mind?
+  - text: No problem, just let me know what you need assistance with.
+  - text: I'm here to lend a hand. What can I do for you?
+  - text: I'm here to help. What can I do for you?
+  - text: Sure, I'm here to support you. What can I do for you?
+  - text: Sure thing, just let me know how I can assist you.
+  - text: Yes, I can help. What's the matter?
+  - text: Absolutely, I'm here to assist you. What's the problem?
+  - text: Yes, I can help. What do you need assistance with?
+  - text: Absolutely, I'm here to support you. What's going on?
+  - text: Of course, I'm here to help. What's the issue?
+  - text: Absolutely, I'm ready to assist. What's going on?
+  - text: Sure, I'm ready to assist. What's on your mind?
+  - text: Absolutely, I'm ready to assist. What's the issue?
+  - text: Tell me your problem so that I can assist you.
+  - text: Sure, I'm here to help. What's the problem?
+  - text: No problem, I'm here to assist. What do you need help with?
+  - text: Absolutely, I'm here to offer guidance. What's the issue?
+  - text: No problem, I'm here to help. What's the matter?
+  - text: Of course, I'm here to lend a hand. What do you need?
+  - text: Of course, just tell me what you need assistance with.
+  - text: Feeling lonely is tough. Let's discuss what's causing these feelings.
+  - text: I'm here to listen. What's been bothering you?
+  - text: I hear you. Can you tell me more about what's bothering you?
+  - text: Why do you think you feel this way?
+  - text: You're not alone in feeling this way. Let's talk about it.
+  - text: It's okay to feel sad sometimes. Can you share what's on your mind?
+  - text: I'm here for you. Can you talk about what's been on your mind?
+  - text: Feeling down can be hard. Let's talk about it.
+  - text: Feeling sad is tough. Can you share what's been on your mind?
+  - text: I'm here for you. Can you share what's been troubling you?
+  - text: I understand. Can you tell me more about what's going on?
+  - text: You're not alone. Let's talk about what's been on your mind.
+  - text: Feeling sad is tough. Can you tell me what's been troubling you?
+  - text: I'm here to listen. What's been troubling you?
+  - text: You're not alone in feeling this way. Can you tell me more?
+  - text: It's okay to feel this way. Can you share more about what's going on?
+  - text: Feeling empty is tough. Can you talk about what's been on your mind?
+  - text: I'm sorry to hear that. Can you share more about what's causing these feelings?
+  - text: I hear you. Can you tell me more about what's weighing on you?
+  - text: Feeling lonely is hard. Can you tell me more about how you're feeling?
+  - text: I hear you. Can you share more about what's been bothering you?
+  - text: I'm here to listen. Can you share more about what's been on your mind?
+  - text: Feeling down can be overwhelming. Can you share what's going on?
+  - text: Feeling sad is tough. Can you pinpoint what's making you feel this way?
+  - text: How long have you been feeling this way?
+  - text: Feeling empty inside is tough. Can you tell me more?
+  - text: You're not alone. Let's talk about what's on your mind.
+  - text: I'm sorry to hear that. I'm here for you. Talking about it might help. So,
+      tell me why do you think you're feeling this way?
+  - text: I'm here for you. Could you tell me why you're feeling this way?
+  - text: I understand. Can you share more about what's been going on?
+  - text: Feeling down is tough. What's been on your mind lately?
+  utter_stressed:
+  - text: Creating a bedtime routine that includes calming activities can signal to
+      your body that it's time to relax and unwind.
+  - text: Remember that stress is a natural response, but it's important to find healthy
+      ways to manage it.
+  - text: Remember that it's okay to step away from stressful situations when you
+      need a break.
+  - text: Engaging in a creative activity, such as painting or crafting, can provide
+      a creative outlet for stress and tension.
+  - text: Remember that it's okay to seek professional help if you're feeling overwhelmed
+      by stress.
+  - text: Consider creating a daily routine that includes time for relaxation and
+      self-care.
+  - text: Consider writing down your thoughts and feelings. Sometimes putting them
+      on paper can provide clarity.
+  - text: Remember to take breaks when you need them. Pushing yourself too hard can
+      worsen stress.
+  - text: Remember that it's okay to take breaks throughout your day to recharge and
+      prevent burnout.
+  - text: Sometimes just talking about it can make a difference. Would you like to
+      share more about what's going on?
+  - text: Focus on what you can control and let go of what you can't. It's okay to
+      prioritize your well-being.
+  - text: Have you tried any relaxation techniques like deep breathing or meditation?
+  - text: Remember that self-care looks different for everyone. What activities help
+      you feel rejuvenated and relaxed?
+  - text: Finding a balance between work and leisure is important for managing stress.
+      How can you create that balance?
+  - text: Taking small breaks throughout the day can help prevent burnout and reduce
+      stress levels.
+  - text: Creating a calm and clutter-free environment can have a positive impact
+      on your stress levels.
+  - text: Remember that it's okay to take breaks and prioritize your well-being. What
+      do you need right now?
+  - text: Practicing gratitude can help shift your focus from stress to the positive
+      aspects of your life.
+  - text: Consider scheduling some 'me time' into your day. It's important to take
+      care of yourself.
+  - text: Taking a walk or spending time in nature can be a natural stress reliever.
+      When did you last spend time outdoors?
+  - text: Finding healthy ways to cope with stress, like exercise or mindfulness,
+      can be helpful.
+  - text: It's important to prioritize self-care during stressful times. What helps
+      you unwind?
+  - text: Remember that stress is a temporary state. You have the ability to cope
+      and navigate through this.
+  - text: It's okay to take a step back and reassess your priorities when feeling
+      overwhelmed.
+  - text: Engaging in hobbies or activities you enjoy can provide a much-needed distraction
+      from stress.
+  - text: Taking a warm bath or shower can help relax your muscles and provide a soothing
+      break from stress.
+  - text: Consider exploring relaxation techniques such as progressive muscle relaxation
+      or guided imagery.
+  - text: Sometimes laughter really is the best medicine. Do you have a favorite funny
+      movie or TV show?
+  - text: Try to focus on one thing at a time. Break tasks into smaller, manageable
+      steps.
+  - text: Remember that you're capable of handling stress, even if it doesn't feel
+      that way right now.
+  - text: If the stress feels overwhelming, consider seeking professional help. A
+      therapist can provide valuable support.
+  - text: Setting realistic goals and breaking them down into achievable steps can
+      reduce feelings of overwhelm.
+  - text: Practicing gratitude can shift your focus from stress to the positive aspects
+      of your life.
+  - text: Sometimes talking to a friend or loved one can provide much-needed support
+      during stressful times.
+  - text: Engaging in activities that bring you joy, even in small moments, can help
+      counteract feelings of stress.
+  - text: Remember that it's okay to say 'no' to additional responsibilities when
+      you're feeling overwhelmed.
+  - text: What specific tasks or situations are causing you the most stress?
+  - text: Taking a break, even a short one, can sometimes provide a fresh perspective.
+      Can you step away for a moment?
+  - text: Making time for regular physical activity can improve your mood and reduce
+      stress levels.
+  - text: Finding ways to incorporate movement into your day, even gentle stretching,
+      can help release tension and reduce stress.
+  - text: Creating a calming environment at home, with soothing music or scents, can
+      help reduce stress levels.
+  - text: Practice positive affirmations to counter negative thoughts and feelings
+      of stress.
+  - text: Creating a calming space in your home, with soft lighting and comfortable
+      furnishings, can be a retreat from stress.
+  - text: Sometimes engaging in creative activities, like art or writing, can be a
+      therapeutic outlet for stress.
+  - text: Mindfulness practices like body scans can help you become more aware of
+      tension and stress in your body.
+  - text: Remember that asking for help is a sign of strength, not weakness. Who can
+      you reach out to for support?
+  - text: Small acts of self-care, like a warm bath or listening to calming music,
+      can make a big difference.
+  - text: Are there any activities or hobbies that usually help you relax? Maybe try
+      one of those.
+  - text: Remember to give yourself credit for small accomplishments, even when you're
+      feeling stressed.
+  - text: Engaging in activities that bring you joy, even in small doses, can improve
+      your mood and reduce stress.
+  - text: Remember that stress is a natural response, but finding healthy ways to
+      cope is important for your well-being.
+  - text: Setting boundaries can help reduce stress. Is there anything you need to
+      say 'no' to right now?
+  - text: Practicing mindfulness during stressful moments can help you respond more
+      calmly and effectively.
+  - text: Engaging in a mindfulness practice, such as mindful breathing or body scans,
+      can help reduce stress in the moment.
+  - text: Practicing self-care involves prioritizing your well-being, whether that's
+      through exercise, hobbies, or relaxation techniques.
+  - text: Taking a moment to pause and check in with yourself throughout the day can
+      help you recognize and address stress as it arises.
+  - text: Connecting with others, even if virtually, can provide a sense of support
+      and reduce feelings of isolation.
+  - text: Mindfulness techniques, such as focusing on your breath, can help in moments
+      of stress.
+  - text: Creating a peaceful morning routine can set a positive tone for the day
+      and help reduce stress.
+  - text: Creating a calming bedtime routine can improve your sleep quality and reduce
+      stress. What relaxes you before bed?
+  - text: A good night's sleep can greatly improve your ability to cope with stress.
+      How's your sleep been?
+  - text: Practicing self-compassion involves treating yourself with the same kindness
+      and understanding you would offer a friend.
+  - text: Remember, you're not alone in feeling this way. Many people struggle with
+      stress.
+  - text: Practicing mindfulness in everyday activities, like eating or walking, can
+      help bring a sense of calm to your day.
+  - text: Sometimes engaging in a creative activity, even if you don't feel inspired,
+      can help shift your focus away from stress.
+  - text: Remember to breathe deeply and slowly when you're feeling stressed. Deep
+      breathing can help calm your body and mind.
+  - text: Consider creating a stress-relief toolkit with items that help you relax,
+      such as stress balls or calming teas.
+  - text: Remember to be kind to yourself. You're doing the best you can in a stressful
+      situation.
+  - text: Taking time to connect with nature, even if it's just a walk outside, can
+      help reduce stress and promote well-being.
+  - text: Remember that it's okay to delegate tasks or ask for help when you're feeling
+      overwhelmed.
+  - text: Consider seeking out a support group or community where you can share your
+      experiences and receive support.
+  - text: Remember that it's okay to say 'no' to additional responsibilities if you're
+      feeling overwhelmed.
+  - text: Engaging in deep, diaphragmatic breathing can help activate the body's relaxation
+      response and reduce stress.
+  - text: Taking time to relax and recharge is essential for managing stress. What
+      can you do to unwind?
+  - text: Engaging in regular physical activity can help release built-up tension
+      and reduce stress levels.
+  - text: Engaging in activities that bring you a sense of accomplishment, even small
+      ones, can boost your mood and reduce stress.
+  - text: Visualization techniques, where you imagine yourself in a peaceful place,
+      can help reduce stress.
+  - text: Practice self-compassion. Acknowledge that it's okay to feel stressed and
+      be gentle with yourself.
+  - text: Expressing your feelings through writing, whether in a journal or through
+      poetry, can be cathartic.
+  - text: Sometimes a change of scenery, even if it's just going for a short walk,
+      can help break the cycle of stress.
+  - text: Engaging in mindfulness practices, such as mindful eating or mindful walking,
+      can help bring awareness to the present moment.
+  - text: If the stress feels overwhelming, it might be worth talking to a mental
+      health professional.
+  - text: Taking a few minutes for deep breathing exercises can help calm your mind
+      and body.
+  - text: Remember that self-care isn't selfish. Taking care of yourself allows you
+      to better handle stress.
+  - text: Journaling can be a valuable tool for processing and releasing stress. Would
+      you like to try journaling?
+  - text: Consider trying a guided meditation or relaxation app. Many are available
+      for free and can be helpful for managing stress.
+  - text: Finding a creative outlet, whether it's art, music, or writing, can be a
+      therapeutic way to cope with stress.
+  - text: Finding humor in everyday situations can lighten the mood and reduce stress.
+      What makes you laugh?
+  - text: Remember that it's okay to seek professional help if the stress becomes
+      too overwhelming.
+  - text: Sometimes creating a to-do list or schedule can help organize your thoughts
+      and reduce feelings of overwhelm.
+  - text: Journaling can be a great way to process your thoughts and feelings about
+      the stress you're experiencing.
+  - text: Allow yourself to take breaks and recharge. It's important for your mental
+      and emotional well-being.
+  - text: Remember that self-care isn't selfish. It's necessary for your well-being,
+      especially during stressful times.
+  - text: Remember that your feelings of stress are valid. It's okay to acknowledge
+      and work through them.
+  - text: Creating a calming evening routine can signal to your body that it's time
+      to unwind and prepare for rest.
+  - text: Remember that it's okay to take breaks and step away from stressful situations
+      when you need to.
+  - text: Remember, it's okay to ask for help. Is there someone you trust you can
+      talk to about this?
+  - text: Focus on the present moment. Mindfulness practices can help alleviate stress
+      and anxiety.
+  - text: Practicing gratitude daily, such as writing down three things you're grateful
+      for, can help shift your focus away from stress.
+  - text: Try to identify any patterns or triggers that contribute to your stress.
+      Awareness can be empowering.
+  - text: Remember to practice self-compassion. Treat yourself with the same kindness
+      you would a friend.
+  - text: Aromatherapy with calming scents like lavender or chamomile can help promote
+      relaxation. Do you have any essential oils?
+  - text: Consider practicing mindfulness throughout your day. It can help bring a
+      sense of calm to stressful situations.
+  - text: Do you think there might be any underlying issues contributing to your stress?
+  - text: Remember that it's okay to seek professional help if you're feeling overwhelmed
+      by stress. A therapist can provide valuable support.
+  - text: Listening to calming music or sounds can help create a peaceful environment
+      and reduce stress levels.
+  - text: Remember that it's okay to seek support from friends, family, or a counselor
+      when you're feeling overwhelmed by stress.
+  - text: Talking to a trusted friend or family member about your stress can provide
+      relief and support.
+  - text: Practicing deep breathing exercises can help activate the body's relaxation
+      response and reduce stress.
+  - text: Finding ways to incorporate more moments of joy and laughter into your day
+      can be a powerful antidote to stress.
+  - text: Finding moments of stillness and quiet throughout your day can provide a
+      respite from stress.
+  - text: Reflecting on past experiences where you successfully coped with stress
+      can provide confidence in your abilities.
+  - text: Sometimes simply acknowledging your feelings of stress can begin to lessen
+      their hold on you.
+  - text: Consider trying progressive muscle relaxation, where you tense and then
+      relax each muscle group in your body.
+  - text: Engaging in activities you enjoy, even if just for a few minutes, can provide
+      a mental break from stress.
+  - text: Practicing mindfulness in daily activities, such as eating or walking, can
+      help ground you in the present moment and reduce stress.
+  - text: Remember that taking care of yourself is a priority, especially during stressful
+      times. What self-care activities do you enjoy?
+  - text: Creating a gratitude journal, where you write down things you're thankful
+      for, can shift your focus away from stress.
+  - text: If the stress feels overwhelming, it might be helpful to talk to a counselor
+      or therapist.
+  - text: Consider making a list of things you're grateful for. Gratitude can shift
+      your perspective on stress.
+  - text: Remember that self-care is not selfish. It's necessary for your overall
+      well-being, especially during stressful times.
+  - text: Consider trying mindfulness meditation. It can help train your mind to better
+      handle stress.
+  utter_worthless:
+  - text: Feeling worthless can cloud our vision of ourselves. What's a positive quality
+      you have?
+  - text: It's okay to seek support when you're feeling this way. Is there someone
+      you trust you can talk to?
+  - text: Feeling this way is tough, but it's not a reflection of who you are.
+  - text: Feeling worthless is tough, but it doesn't mean you are.
+  - text: Your worth isn't based on productivity or achievements. You have inherent
+      value.
+  - text: It's okay to feel this way sometimes. What's important is not letting it
+      define you.
+  - text: Sometimes our minds can deceive us into feeling worthless, but you have
+      value.
+  - text: Even when you feel worthless, remember that you are still deserving of love
+      and respect.
+  - text: Feeling worthless can be overwhelming. Have you considered talking to someone
+      about how you're feeling?
+  - text: You're not alone in feeling like this. Many people struggle with similar
+      thoughts.
+  - text: Feeling worthless can be isolating, but you're not alone. Reach out if you
+      need to talk.
+  - text: Feeling worthless can be a sign that you need to show yourself compassion.
+  - text: Feeling this way is difficult, but it's okay to reach out for support when
+      you need it.
+  - text: Remember, your worth isn't based on what others think or what you achieve.
+  - text: Feeling worthless can be overwhelming, but it's important to remember that
+      your feelings are not facts.
+  - text: Feeling this way can be a sign that you need to show yourself some extra
+      care.
+  - text: Feeling worthless can be a heavy weight to carry. It's okay to ask for help
+      with that burden.
+  - text: You may feel worthless, but there is so much more to you than this feeling.
+  - text: Feeling worthless can be overwhelming, but it's important to take it one
+      step at a time.
+  - text: Remember, even in your lowest moments, you are worthy of love and compassion.
+  - text: Even in your darkest moments, there is light within you. Hold on to that.
+  - text: Even in our darkest moments, there is light. Hold on to hope.
+  - text: Remember, your worth isn't defined by how you feel in this moment.
+  - text: You may feel worthless, but to someone else, you are everything.
+  - text: Feeling worthless can be isolating, but it's important to remember that
+      you are not alone.
+  - text: Feeling worthless is tough, but you are not defined by these feelings.
+  - text: When we feel worthless, it can help to focus on things we're grateful for.
+      Is there something you're thankful for today?
+  - text: Feeling this way is tough, but you are stronger than these feelings.
+  - text: You may feel worthless, but there are people who care about you deeply.
+  - text: Remember, feelings are temporary. This too shall pass.
+  - text: Feeling worthless is tough, but it's important to remember that you are
+      not alone.
+  - text: I want you to know that you are valued and appreciated.
+  - text: Feeling worthless is a tough place to be. Can you think of a time when you
+      felt differently?
+  - text: It's okay to be kind to yourself, especially when you're feeling worthless.
+  - text: You may feel worthless, but your worth is not defined by your feelings.
+  - text: I hear you. It's tough feeling this way.
+  - text: You have worth and value, even if it's hard to see right now.
+  - text: You're deserving of love and kindness, even when you feel otherwise.
+  - text: Even in your darkest moments, you have the power to choose kindness for
+      yourself.
+  - text: It's okay to feel lost and worthless sometimes. You're on a journey, and
+      this is just a part of it.
+  - text: Feeling worthless can make us forget our strengths. What's something you're
+      proud of?
+  - text: Feeling worthless is tough, but it's important to challenge those thoughts.
+  - text: Feeling this way is tough, but it's important to challenge those thoughts.
+  - text: Even when we feel worthless, there are people who care about us. Who in
+      your life supports you?
+  - text: You're more than your thoughts. Remember, thoughts can change.
+  - text: Feeling this way is difficult, but it's okay to seek support when you need
+      it.
+  - text: Feeling this way is challenging, but it's okay to take small steps toward
+      feeling better.
+  - text: Feeling worthless can be a sign that something is off balance. Is there
+      something specific bothering you?
+  - text: Feeling worthless is a heavy burden. Remember, you're stronger than you
+      think.
+  - text: It's okay to ask for help when you're feeling this way. Who can you reach
+      out to?
+  - text: You may feel worthless, but your worth is inherent and cannot be diminished
+      by these feelings.
+  - text: It's okay to feel this way, but it's also okay to challenge these thoughts.
+  - text: Feeling worthless is tough, but it doesn't define you. You are so much more.
+  - text: Feeling this way doesn't make you any less valuable. You are important.
+  - text: Remember, your worth is not defined by how you feel in this moment.
+  - text: Remember, you are worthy of love and kindness, even when you feel otherwise.
+  - text: Even when you feel worthless, remember that you are still deserving of compassion.
+  - text: Feeling worthless is tough, but it doesn't mean you are. You matter.
+  - text: You're not alone in feeling this way. Many have walked this path and found
+      their way out.
+  - text: Even in the darkest moments, there is hope. Hold on to that light within
+      you.
+  - text: Feeling worthless can make everything seem bleak, but there is light ahead.
+  - text: Feeling this way is temporary. You have the strength to overcome it.
+  - text: Feeling this way doesn't make it true. You have strengths and qualities
+      that matter.
+  - text: Your feelings are valid, even if they don't always reflect reality.
+  - text: Feeling worthless can be a heavy burden. Is there a small step you can take
+      today to care for yourself?
+  utter_depressed:
+  - text: Depression may feel like a heavy burden, but sharing the load can make it
+      lighter.
+  - text: You're not weak for feeling this way. It takes strength to face these emotions.
+  - text: Let's focus on self-care today. What's one small thing you can do to take
+      care of yourself?
+  - text: It's okay to take a step back and prioritize your mental health. You come
+      first.
+  - text: Remember, it's okay to not have all the answers. We can figure things out
+      together.
+  - text: It's okay to take a break and focus on self-care. You deserve to prioritize
+      your well-being.
+  - text: Feeling alone is tough, but remember, there are people who care about you,
+      including me.
+  - text: I'm here to listen, without judgment or expectations. Your feelings are
+      important.
+  - text: Even the smallest steps forward are steps in the right direction. Let's
+      celebrate those victories.
+  - text: Let's explore ways to cultivate self-compassion and kindness towards yourself.
+  - text: You're not alone in this struggle. I'm here to walk alongside you and offer
+      my support.
+  - text: You are worthy of love and support, even when it feels like you don't deserve
+      it.
+  - text: You're not alone in this battle. I'm here to be your ally and advocate.
+  - text: I see your strength, even when you feel weak. You're doing the best you
+      can.
+  - text: You don't have to pretend here. It's okay to express how you truly feel.
+  - text: Sometimes just talking about it can ease the burden. I'm here to listen
+      whenever you're ready.
+  - text: I'm here to remind you that you're not alone in this journey. We'll navigate
+      it together.
+  - text: It's okay to seek help. Asking for support is a courageous step towards
+      healing.
+  - text: I hear you. It's okay to feel this way, and it's okay to seek help.
+  - text: You are not your thoughts. They can be overwhelming, but they don't define
+      you.
+  - text: I'm here to provide a listening ear and a caring heart. You're not alone.
+  - text: You have the power to create change, even when it feels like you're stuck.
+  - text: It's okay to take a break and focus on your well-being. You deserve that
+      time.
+  - text: It's okay to not be okay. You're allowed to feel whatever you're feeling
+      right now.
+  - text: You are not your thoughts. You have the power to challenge and change them.
+  - text: You have the power to create positive change, even in the midst of this
+      darkness.
+  - text: Let's find ways to cultivate moments of peace and joy, even in the midst
+      of this struggle.
+  - text: I'm here to remind you of your strength, even when it feels like it's hiding
+      from you.
+  - text: I believe in your ability to overcome this. You are stronger than you know.
+  - text: Your well-being is important. Let's work together to find ways to improve
+      how you're feeling.
+  - text: I'm sorry you're going through this. Remember, it's okay to reach out for
+      help.
+  - text: I'm here for you, even when things feel hopeless. Let's take it one step
+      at a time.
+  - text: You have the strength to face this, even if it doesn't feel that way right
+      now.
+  - text: I'm here to remind you of your worth, even when it feels like you've forgotten.
+  - text: Depression can make everything seem dark, but there's light at the end of
+      the tunnel. Let's find that light together.
+  - text: You're not alone in feeling this way. Many people have gone through similar
+      struggles.
+  - text: You're not alone in this. I'm here to listen and support you through this
+      difficult time.
+  - text: Your well-being matters. Let's explore ways to prioritize self-care.
+  - text: Your feelings are valid, and you deserve support. I'm here to listen without
+      judgment.
+  - text: I'm here to remind you of the beauty and strength that resides within you.
+  - text: You deserve to feel joy and happiness. Let's work together to bring more
+      of that into your life.
+  - text: Your feelings are valid, even if they don't always make sense. I'm here
+      to help make sense of them.
+  - text: You're not alone in feeling this way. Many have walked this path and emerged
+      stronger.
+  - text: I'm here to hold space for you, without judgment or pressure.
+  - text: Remember, self-care is not selfish. It's essential for your well-being.
+  - text: Your feelings are valid, and it's important to give yourself permission
+      to feel them fully.
+  - text: Even when it feels impossible, remember that you're stronger than you think.
+      You're still here, and that's a testament to your strength.
+  - text: Your feelings are valid, and you have every right to feel them.
+  - text: Your well-being matters, and I'm here to help you prioritize it.
+  - text: You are not alone in this journey. There are people who care about you and
+      want to support you.
+  - text: You're not a burden. You're a valuable person who deserves care and compassion.
+  - text: You're not alone in this struggle. Many people have fought and won this
+      battle.
+  - text: Your worth is not determined by your productivity. You matter, simply because
+      you exist.
+  - text: Your feelings are valid, and it's okay to express them however you need
+      to.
+  - text: You're not a burden. Your presence in my life is a gift.
+  - text: Even when it feels like you're standing still, you're still making progress
+      just by facing each day.
+  - text: I'm here to help you find moments of peace and comfort, even in the midst
+      of this storm.
+  - text: You are deserving of love, kindness, and understanding, especially from
+      yourself.
+  - text: It can be overwhelming, but you're not alone. We can get through this together.
+  - text: It's okay to ask for help, and I'm here to support you however I can.
+  - text: Even on the darkest days, there are small moments of light. Let's look for
+      those together.
+  - text: You have so much strength within you, even if it feels hard to access right
+      now.
+  - text: Your journey is unique, but you're not alone. Let's walk this path together.
+  - text: Your presence in this world makes a difference, even on the days when it
+      feels insignificant.
+  - text: You are not alone in this struggle. There is a community of support around
+      you.
+  - text: You have the strength to overcome this. I'm here to help you tap into that
+      strength.
+  - text: You're not alone in this journey. I'm here to support you every step of
+      the way.
+  - text: It's okay to have bad days. Tomorrow is a new opportunity for things to
+      feel a little lighter.
+  - text: You're not alone in this struggle. I'm here to support you with compassion
+      and understanding.
+  - text: Your presence in this world makes a difference, even when it doesn't feel
+      like it.
+  - text: You deserve moments of peace and happiness. Let's find ways to create those
+      moments together.
+  - text: Even in the midst of this darkness, there is light. Let's find it together.
+  - text: Even when you can't see it, there is progress being made. You're moving
+      forward, even if it's slow.
+  - text: Even when it feels like you're drowning, there is hope. Let's hold onto
+      it together.
+  - text: Even in the midst of this storm, there are moments of calm. Let's find those
+      together.
+  - text: It's okay to be gentle with yourself as you navigate through these challenging
+      emotions.
+  - text: It's okay if you can't see the light right now. I'll be a light for you
+      until you can find your own.
+  - text: Your emotions are valid, and it's okay to express them.
+  - text: You're not alone in feeling this way. I'm here to walk alongside you through
+      this journey.
+  - text: You're not defined by your struggles. You're a person worthy of love and
+      understanding.
+  - text: I'm here to support you on your journey to healing. You're not alone in
+      this.
+  - text: Even on the darkest nights, the stars are still shining. Let's find your
+      light together.
+  - text: You have the power to rewrite your story, starting with how you approach
+      each day.
+  - text: It's okay to feel numb right now. Give yourself permission to feel what
+      you need to feel.
+  - text: Even when it feels like you're at your lowest, there is a way up. Let's
+      find it together.
+  - text: I'm here to remind you of your worth, even when it feels hard to see it
+      yourself.
+  - text: Even in the darkest moments, there's a glimmer of hope. Let's hold onto
+      that together.
+  - text: Let's explore what brings you even a tiny bit of comfort, and see if we
+      can build on that.
+  - text: You have a unique light within you that deserves to shine, even on the darkest
+      days.
+  - text: You are not alone. I'm here for you, and we'll face this together.
+  - text: Your story is important and valuable, even the parts that feel painful.
+  - text: Sometimes just taking a moment to breathe can make a difference. Let's try
+      it together.
+  - text: You are worthy of love and care, especially during these difficult times.
+  - text: You are not your thoughts. You have the power to change the narrative.
+  - text: It's okay to take a break and focus on yourself. You don't have to carry
+      the weight alone.
+  - text: You're stronger than you know. Every day you get through is a testament
+      to your strength.
+  - text: You are not defined by your darkest moments. You are defined by your courage
+      to keep going.
+  - text: It's okay to have setbacks. Healing is not linear, and every step forward
+      is progress.
+  - text: I'm here to remind you that you are loved and valued, even when it feels
+      hard to believe.
+  - text: You are not a failure. You're a fighter, and you're still standing.
+  - text: Taking the first step to talk about how you feel is a brave choice. I'm
+      here to support you.
+  - text: You're not alone in feeling this way. Many people struggle with similar
+      feelings.
+  - text: Your feelings are a part of your experience, but they do not define your
+      worth.
+  - text: I'm glad you reached out. That's a courageous step towards healing.
+  - text: Depression can make things feel blurry, but together we can try to bring
+      things into focus.
+  - text: Reaching out for help is a sign of strength. I'm glad you're taking steps
+      to care for yourself.
+  - text: Your feelings are valid, and it's okay to feel them.
+  - text: You're not alone in feeling overwhelmed. Let's work together to find some
+      relief.
+  - text: It's important to take things one step at a time. What's one small thing
+      you could do today that might help?
+  - text: You're more resilient than you realize. You've made it through tough times
+      before, and you can do it again.
+  - text: I see your pain, and I'm here to help you carry it. You don't have to bear
+      it alone.
+  - text: Depression lies to you, telling you things won't get better. But they can,
+      and they will.
+  - text: I'm here to support you on your journey to healing and self-discovery.
+  - text: You are worthy of happiness and peace, even if it feels out of reach right
+      now.
+  - text: Let's create a plan together to help you navigate through this difficult
+      time.
+  - text: Your feelings are a part of you, but they don't define you. You're so much
+      more than your depression.
+  - text: You are not weak for feeling this way. It takes strength to face these challenges.
+  - text: You have a unique perspective and strength that the world needs. Don't forget
+      your value.
+  - text: Remember, you're not expected to have all the answers. We can figure this
+      out together.
+  - text: Your story is important, and it's okay to share it when you're ready.
+  - text: It's okay to take things one step at a time. Progress is progress, no matter
+      how small.
+  - text: Even when the world feels heavy, there are brighter days ahead. Hold onto
+      that hope.
+  - text: Even on the darkest nights, there are stars that shine. Let's find your
+      light together.
+  - text: I'm here to listen and offer support, without judgment or expectations.
+  - text: You are not defined by your struggles. You are defined by your resilience.
+  - text: I believe in your ability to overcome this, even when it feels impossible.
+  - text: Let's take a moment to acknowledge how far you've come, even in the midst
+      of these challenges.
+  - text: Even in the depths of despair, there is a spark of hope. Let's nurture that
+      flame together.
+  - text: Even when it feels like you're drowning, there is a lifeline. Let's reach
+      for it together.
+  - text: Depression can make the world seem gray, but together we can add some color
+      back into your life.
+  - text: You have the power to create change, even in the midst of this storm. Let's
+      take it one step at a time.
+  - text: Your feelings matter, and they deserve to be acknowledged and validated.
+  - text: I'm here to help you find your inner strength and resilience.
+  - text: You are resilient, even on the days when it feels like you're not.
+  - text: Your feelings are valid, and it's okay to feel them fully.
+  utter_happy:
+  - text: I'm delighted to hear that! What's making your day so wonderful?
+  - text: That's great! Want to share what's bringing you this happiness?
+  - text: Oh, that's lovely! What's making you feel this good?
+  - text: I'm glad to hear you're feeling happy! What's making your day?
+  - text: Excellent! What's bringing you joy today?
+  - text: Awesome! What's bringing you this happiness today?
+  - text: I'm delighted to hear that! What's putting a smile on your face?
+  - text: That's fantastic news! What's making you feel so good?
+  - text: Sounds like a reason to celebrate! What's making you happy?
+  - text: That's wonderful news! What's making you feel so cheerful?
+  - text: Oh, I see. That's wonderful!
+  - text: It's great to hear you're feeling happy! What's making your day bright?
+  - text: I'm so pleased to hear that! What's making you feel happy?
+  - text: That's wonderful news! Care to share what's making you feel this way?
+  - text: Sounds like you're in a good mood! What's making you feel this way?
+  - text: That's wonderful! Care to share what's making your day so bright?
+  - text: I'm happy for you! What's making your day so good?
+  - text: That's fantastic! Care to share what's made your day so special?
+  - text: That's great to hear! What's bringing you such joy today?
+  - text: That's fantastic news! What's making you feel so happy?
+  - text: I'm so pleased for you! What's making you feel so joyful?
+  - text: Did something happen that made you feel this way?
+  - text: That's wonderful news! Anything special behind your happiness?
+  - text: That's fantastic to hear! What's bringing you such happiness?
+  - text: It's always good to hear someone is doing well. Tell me more!
+  - text: I'm glad to hear that! Anything specific making you feel this way?
+  - text: I'm so pleased for you! What's making your day so wonderful?
+  - text: It's great to hear you're feeling good! Anything exciting going on?
+  - text: That's fantastic! What's making you so cheerful?
+  - text: I'm so happy for you! What's making you feel this way?
+  - text: You sound cheerful! What's making you happy?
+  - text: Oh, that's lovely! What's making you feel so good?
+  - text: I'm glad to hear it! What's making you feel so good?
+  - text: Glad to hear it! What's putting a smile on your face?
+  - text: That's fantastic! Anything special happening today?
+  - text: That's awesome! Anything exciting happening today?
+  - text: That's great to hear. I'm glad you're feeling this way.
+  - text: That's fantastic! Want to share what's made your day so special?
+  - text: That's wonderful! Anything specific making you feel this way?
+  utter_casual:
+  - text: What's the story?
+  - text: Let's discuss further why you're feeling this way.
+  - text: It happens.
+  - text: Don't sweat it.
+  - text: Oh cool.
+  - text: That's okay.
+  - text: Sounds like fun!
+  - text: Interesting. Tell me more!
+  - text: I hear you!
+  - text: Cool!
+  - text: Interesting!
+  - text: What else is happening?
+  - text: Huh, interesting.
+  - text: What's up?
+  - text: That works.
+  - text: Not a problem.
+  - text: Tell me more
+  - text: I'm here to listen.
+  - text: Nice!
+  - text: Got it!
+  - text: Tell me more about that.
+  - text: No big deal.
+  - text: Alrighty then!
+  - text: How were you feeling last week?
+  - text: Oh really?
+  - text: I understand.
+  - text: I'm all ears.
+  - text: What's next?
+  - text: Nice one!
+  - text: Totally!
+  - text: Makes sense.
+  - text: No worries!
+  - text: I see what you mean.
+  - text: Fine by me.
+  - text: Sounds good to me!
+  - text: Alright then!
+  - text: Tell me more!
+  - text: What else?
+  - text: Cool! What's on your mind?
+  - text: Sounds good.
+  - text: Sounds like a plan!
+  - text: Got it, thanks!
+  - text: Fair enough.
+  - text: So?
+  - text: Absolutely!
+  - text: What's going on with you?
+  - text: That's fine.
+  - text: That's life!
+  - text: Anything else going on?
+  - text: I'm listening. Please go on.
+  - text: Come Come elucidate your thoughts
+  - text: And then?
+  - text: No problem!
+  - text: And?
+  - text: Sure thing!
+  - text: Can you elaborate on that?
+  - text: Interesting.
+  utter_anxious:
+  - text: Feeling anxious is tough, but talking about it can help. What's been going
+      on?
+  - text: Anxiety can be tough to handle. Let's unpack what's bothering you.
+  - text: Anxiety can be really draining. What's been on your mind?
+  - text: I'm here to listen. What's been causing your anxiety?
+  - text: Anxiety can feel like a heavy cloud. Let's find some clarity together.
+  - text: Don't let the little worries bring you down. What's the worse that can happen?
+  - text: Feeling anxious is rough. Let's chat about what's been bothering you.
+  - text: Feeling anxious is normal, especially with everything going on. What's been
+      on your mind?
+  - text: Feeling anxious can be really challenging. What's been weighing on you?
+  - text: It's okay to feel anxious sometimes. What's on your mind?
+  - text: I understand. Anxiety can feel like a weight on your chest. What's been
+      going on?
+  - text: Don't be hard on yourself. What's the reason behind this?
+  - text: Anxiety is tough, but you're not alone. What's been happening?
+  - text: Feeling anxious is tough, but talking about it can help. What's been bothering
+      you?
+  - text: Anxiety can make everything feel harder. Tell me more about what's been
+      going on.
+  - text: Feeling anxious can feel like you're drowning. What's been going on lately?
+  - text: Can you tell me more about this feeling?
+  - text: Anxiety can really mess with your head. What's been on your mind recently?
+  - text: Anxiety can make everything seem overwhelming. What's been on your mind?
+  - text: Feeling anxious is tough. Let's talk it through.
+  - text: I get it. Anxiety can feel suffocating. Want to share what's on your mind?
+  - text: I hear you. Anxiety can be overwhelming. What's been happening?
+  - text: Anxiety can make everything feel harder. Tell me more about what's going
+      on.
+  - text: Feeling anxious is rough. Let's chat about what's been on your mind.
+  - text: Anxiety is like a storm passing through. Tell me more about how you're feeling.
+  - text: Take a deep breath. What's making you feel this way?
+  - text: Don't let anxiety get the best of you. What's been going on?
+  - text: I know anxiety can make everything seem overwhelming. What's been bothering
+      you the most?
+  - text: I understand that it can be scary. Tell me more about it.
+  - text: Feeling anxious is normal. What's been going on in your world?
+  - text: Anxiety is like a rollercoaster. What's been the biggest challenge for you?
+  - text: I know how hard it can be to deal with anxiety. What's been on your mind?
+  - text: I understand. Anxiety can feel like a weight on your shoulders. What's been
+      on your mind?
+  - text: Anxiety is a tough companion. Want to talk about what's going on?
+  - text: Anxiety is tough, but you're tougher. What's bothering you?
+  - text: Feeling anxious is tough, but remember it's just a feeling. What's been
+      happening?
+  - text: Anxiety is like a constant buzz in your head. Tell me more about what's
+      been bothering you.
+  - text: I'm here for you. What's been causing your anxiety?
+  utter_not-talking:
+  - text: It's okay to take your time. I'll be here whenever you're ready to talk.
+  - text: Take your time. When you're ready, I'll be here.
+  - text: You can take your time. I'll be here whenever you're ready.
+  - text: I understand if you're not ready to talk about it yet. Take your time.
+  - text: I'm here to support you whenever you're ready to open up.
+  - text: You don't have to talk if you don't want to. I'm here for you either way.
+  - text: Talking about something really helps. If you're not ready to open up then
+      that's ok. Just know that i'm here for you, whenever you need me.
+  - text: You don't have to talk if you don't want to. I'll be here when you're ready.
+  - text: I want to help you. I really do. But in order for me to help you, you're
+      gonna have to talk to me.
+  - text: I'm here whenever you're ready to talk, no pressure.
+  - text: I'm here to support you whenever you're ready to talk about it.
+  - text: I'm here to listen to you and help you vent. So please talk to me.
+  - text: It's okay if you're not ready to talk yet. I'll be here when you are.
+  - text: You can take your time. I'll be here whenever you're ready to talk.
+  - text: I understand, talking about things can be tough. Just know I'm here for
+      you.
+  - text: No pressure. I'm here whenever you feel like talking.
+  - text: You're not alone. I'm here for you whenever you're ready to talk.
+  - text: Sometimes talking it out can make a difference, even if it's hard.
+  - text: Take your time. I'll be here whenever you're ready to talk.
+  - text: I understand if you're not ready to talk. Just know I'm here when you are.
+  - text: I'm here to listen whenever you're ready to talk.
+  - text: It's okay to feel this way, but I'm here if you ever do want to talk.
+  - text: You don't have to talk right now, but I'm here when you're ready.
+  - text: I'm here for you whenever you're ready to open up.
+  - text: You can talk to me whenever you're ready. I'm here to listen.
+  - text: I'm here for you whenever you want to talk. No rush.
+  - text: I'm here whenever you feel ready to talk about it.
+  - text: I'm here whenever you're ready to talk. Take your time.
+  - text: You can talk to me without fear of judgement.
+  - text: It's okay if you don't feel like talking right now. I'll be here when you
+      do.
+  - text: Whenever you're ready to talk, I'm here to listen.
+  - text: No rush. I'm here whenever you want to talk.
+  utter_sleep_tips:
+  - text: That sounds really tough. Have you tried journaling to get thoughts out
+      of your head?
+  - text: Insomnia can be so tough. Have you tried establishing a relaxing pre-sleep
+      routine?
+  - text: That must be really challenging. Have you tried creating a calming sleep
+      environment?
+  - text: That sounds really frustrating. Have you considered sleep restriction therapy?
+  - text: I'm sorry you're dealing with this. Have you considered trying sleep therapy?
+  - text: That must be really challenging. Have you tried creating a wind-down routine?
+  - text: Insomnia is so tough. Have you tried creating a comfortable sleep environment?
+  - text: It sounds like you're really struggling. Have you looked into herbal remedies
+      for sleep?
+  - text: It sounds like you're really struggling. Have you looked into sleep therapy
+      programs?
+  - text: That must be really challenging. Have you tried improving your sleep environment?
+  - text: I'm sorry to hear that. Have you considered consulting a sleep specialist?
+  - text: That must be really challenging. Have you tried progressive muscle relaxation?
+  - text: Insomnia is so draining. Have you looked into creating a comfortable sleep
+      environment?
+  - text: I understand how exhausting that must be. Have you looked into relaxation
+      techniques?
+  - text: I'm sorry you're going through this. Have you considered sleep-focused hypnotherapy?
+  - text: I'm sorry to hear that. Have you tried getting some natural sunlight during
+      the day?
+  - text: I'm sorry you're going through this. Have you looked into sleep restriction
+      therapy?
+  - text: I understand how exhausting that must be. Have you looked into sleep supplements
+      like melatonin?
+  - text: Insomnia is so tough. Have you tried keeping a consistent sleep schedule?
+  - text: It sounds like you're really struggling. Have you tried progressive muscle
+      relaxation?
+  - text: I'm sorry to hear that. Have you considered talking to a therapist about
+      your sleep troubles?
+  - text: That sounds really frustrating. Have you tried mindfulness meditation?
+  - text: That must be really challenging. Have you looked into mindfulness-based
+      sleep programs?
+  - text: I'm sorry to hear that. Have you considered trying a sleep specialist?
+  - text: I'm sorry you're dealing with this. Have you looked into using a weighted
+      blanket?
+  - text: I'm sorry you're going through this. Have you tried relaxation exercises
+      like tai chi?
+  - text: That must be really challenging. Have you tried gentle yoga before bed?
+  - text: That sounds really tough. Have you tried cutting down on liquids before
+      bed?
+  - text: I'm sorry to hear that. Have you spoken to your doctor about potential sleep
+      disorders?
+  - text: It sounds like you're really struggling. Have you looked into sleep tracking
+      devices?
+  - text: That sounds really frustrating. Have you tried creating a relaxing bedtime
+      routine?
+  - text: It sounds like you're really struggling. Have you looked into cognitive
+      behavioral therapy for insomnia?
+  - text: I'm sorry you're going through this. Have you considered trying melatonin
+      supplements?
+  - text: It sounds like you're really dealing with a lot. Have you tried mindfulness
+      exercises?
+  - text: I understand how exhausting that must be. Have you tried creating a calming
+      bedtime routine?
+  - text: I'm sorry you're dealing with this. Have you tried practicing mindfulness
+      throughout the day?
+  - text: Insomnia can be really frustrating. Have you tried reducing stress with
+      relaxation techniques?
+  - text: That sounds really frustrating. Have you tried relaxation exercises before
+      bed?
+  - text: I'm sorry you're going through this. Have you considered trying sleep meditation
+      apps?
+  - text: It sounds like you're really struggling. Have you looked into mindfulness
+      techniques?
+  - text: I'm sorry to hear that. Have you tried aromatherapy with lavender oil?
+  - text: I understand how exhausting that must be. Have you looked into sleep hygiene
+      practices?
+  - text: That sounds really frustrating. Have you tried cutting out screen time before
+      bed?
+  - text: I'm sorry to hear that. Have you tried any relaxation techniques before
+      bed?
+  - text: That must be really challenging. Have you considered sleep hypnosis?
+  - text: I'm sorry to hear that. Have you tried deep breathing exercises before bed?
+  - text: Insomnia can be so tough. Have you tried establishing a regular sleep schedule?
+  - text: Insomnia can be really frustrating. Have you looked into sleep restriction
+      techniques?
+  - text: That sounds really tough. Have you tried creating a calming sleep environment?
+  - text: It's tough when sleep eludes you. Have you looked into mindfulness or meditation?
+  - text: That sounds really frustrating. Have you looked into sleep apps that track
+      your sleep patterns?
+  - text: I understand how exhausting that must be. Have you tried avoiding heavy
+      meals before bed?
+  - text: That sounds really tough. Have you tried reducing bedroom clutter for better
+      sleep?
+  - text: That must be really challenging. Have you tried guided imagery for sleep?
+  - text: That sounds really frustrating. Have you considered cognitive behavioral
+      therapy for insomnia?
+  - text: I'm sorry to hear that. Have you considered talking to your doctor about
+      your sleep troubles?
+  - text: Insomnia can be so tough. Have you tried reducing caffeine intake?
+  - text: It must be tough not getting enough rest. Have you tried creating a comfortable
+      sleep environment?
+  - text: I'm sorry you're dealing with this. Have you considered trying a sleep mask?
+  - text: It's tough not getting enough rest. Have you tried listening to calming
+      music before bed?
+  - text: I'm sorry you're going through this. Have you tried taking a warm bath before
+      bed?
+  - text: I'm sorry to hear that. Have you tried creating a bedtime routine with calming
+      music?
+  - text: I understand how exhausting that must be. Have you looked into cognitive
+      therapy for sleep?
+  - text: That must be really challenging. Have you tried reducing exposure to blue
+      light before bed?
+  - text: I understand how exhausting that must be. Have you tried reducing noise
+      in your sleep environment?
+  - text: It sounds like you're really struggling. Have you looked into relaxation
+      techniques?
+  - text: That sounds really challenging. Have you considered melatonin supplements?
+  - text: I understand how exhausting that must be. Have you looked into sleep therapy
+      programs?
+  - text: That sounds really frustrating. Have you tried meditation or yoga before
+      bed?
+  - text: I'm sorry to hear that. Have you tried reducing screen time before bed?
+  - text: I'm sorry you're dealing with this. Have you considered trying a sleep specialist?
+  - text: That must be really challenging. Have you tried reducing alcohol and caffeine
+      intake?
+  - text: I'm sorry to hear that. Have you considered sleep-focused counseling?
+  - text: That must be really challenging. Have you tried creating a calming bedtime
+      ritual?
+  - text: I'm sorry to hear that. Have you tried using blackout curtains to create
+      a dark sleep environment?
+  - text: I'm sorry you're going through this. Have you considered using a sleep tracking
+      app?
+  - text: I'm sorry you're dealing with this. Have you tried setting a consistent
+      wake-up time?
+  - text: I'm sorry to hear that. Have you considered sleep medication as a last resort?
+  - text: It sounds like you're really struggling. Have you looked into cognitive
+      behavioral therapy for sleep?
+  - text: Insomnia can be really frustrating. Have you looked into relaxation and
+      visualization techniques?
+  - text: I understand how exhausting that must be. Have you looked into sleep meditation
+      apps?
+  - text: Insomnia is so draining. Have you looked into sleep hygiene tips?
+  - text: It sounds like you're really struggling. Have you considered cognitive therapy
+      for insomnia?
+  - text: That must be really challenging. Have you considered seeing a sleep specialist?
+  - text: I understand how exhausting that must be. Have you considered mindfulness-based
+      stress reduction?
+  - text: Insomnia can be really frustrating. Have you considered keeping a worry
+      journal?
+  - text: Insomnia can be so tough. Have you tried reducing stress before bed?
+  - text: I understand how exhausting that must be. Have you tried cognitive therapy
+      for insomnia?
+  - text: It sounds like you're really struggling. Have you considered cognitive behavioral
+      therapy for insomnia?
+  - text: It sounds like you're really struggling. Have you considered taking a warm
+      shower before bed?
+  - text: I understand how exhausting that must be. Have you looked into sleep supplements
+      like magnesium?
+  - text: I understand how exhausting that must be. Have you looked into relaxation
+      podcasts?
+  - text: Insomnia can be really frustrating. Have you tried establishing a relaxing
+      bedtime routine?
+  - text: That must be really challenging. Have you tried creating a bedtime routine?
+  - text: That sounds really frustrating. Have you tried relaxation techniques before
+      bed?
+  - text: I'm sorry you're going through this. Have you considered trying sleep-inducing
+      teas?
+  - text: Insomnia is tough. Have you tried creating a dark and quiet sleep environment?
+  - text: That must be really challenging. Have you tried progressive relaxation techniques?
+  - text: That sounds really frustrating. Have you considered using a white noise
+      machine?
+  - text: I'm sorry you're dealing with this. Have you tried limiting naps during
+      the day?
+  - text: I'm sorry to hear that. Have you tried establishing a regular wind-down
+      routine?
+  - text: Insomnia can be so draining. Have you tried establishing a regular sleep
+      schedule?
+  - text: I'm sorry you're going through this. Have you considered using a white noise
+      machine?
+  - text: I'm sorry to hear that. Have you considered trying relaxation exercises?
+  - text: Insomnia can be so tough. Have you tried creating a regular sleep routine?
+  - text: That sounds really frustrating. Have you looked into gentle sleep-promoting
+      exercises?
+  - text: That sounds really tough. Have you considered sleep sound machines or apps?
+  - text: I understand how exhausting that must be. Have you tried sleep-inducing
+      herbal teas?
+  - text: That sounds really difficult. Have you spoken to a doctor about this?
+  - text: Insomnia can be so tough. Have you tried establishing a bedtime routine?
+  - text: I'm sorry to hear that. Have you considered trying sleep meditation apps?
+  - text: I'm sorry you're going through this. Have you tried cutting down on caffeine?
+  - text: That must be really challenging. Have you tried improving your sleep hygiene?
+  - text: I'm sorry to hear that. Have you considered trying melatonin supplements?
+  - text: I'm sorry to hear that. Have you tried creating a calming bedtime routine?
+  - text: Insomnia is so tough. Have you considered sleep education programs?
+  - text: I'm sorry to hear that. Have you tried creating a comfortable sleep environment?
+  - text: That must be really challenging. Have you tried meditation or deep breathing
+      exercises?
+  - text: That sounds really frustrating. Have you tried limiting naps during the
+      day?
+  - text: It sounds like you're really struggling. Have you considered guided imagery
+      for sleep?
+  - text: I'm sorry you're struggling with this. Have you tried cutting out electronic
+      devices before bed?
+  - text: That must be really challenging. Have you looked into sleep restriction
+      techniques?
+  - text: I understand how exhausting that must be. Have you looked into sleep tracking
+      apps?
+  - text: I can understand how frustrating this must be. Have you tried progressive
+      muscle relaxation?
+  - text: I'm sorry you're dealing with this. Have you considered trying a sleep workshop?
+  - text: That must be really challenging. Have you tried creating a bedtime routine
+      with soothing activities?
+  - text: Insomnia is so tough. Have you considered trying acupuncture?
+  - text: It sounds like you're really struggling. Have you looked into natural sleep
+      aids?
+  - text: I understand how exhausting that must be. Have you looked into sleep studies?
+  - text: It sounds like you're really struggling. Have you tried sleep stories or
+      guided meditations?
+  - text: It sounds like you're really struggling. Have you tried herbal teas like
+      chamomile?
+  - text: I'm sorry you're going through this. Have you looked into sleep meditation
+      apps?
+  - text: That sounds really tough. Have you tried writing down your worries before
+      bed?
+  - text: I'm sorry you're dealing with this. Have you considered cognitive therapy
+      for insomnia?
+  - text: Insomnia is so tough. Have you tried using a sleep mask to block out light?
+  - text: It sounds like you're really struggling. Have you tried mindfulness meditation
+      before bed?
+  - text: It sounds like you're really struggling. Have you tried a warm glass of
+      milk before bed?
+  - text: I understand how exhausting that must be. Have you tried aromatherapy with
+      essential oils?
+  - text: I can imagine how frustrating that must be. Have you considered a sleep
+      study?
+  - text: Insomnia can be really frustrating. Have you tried establishing a regular
+      sleep schedule?
+  - text: That must be really challenging. Have you looked into cognitive restructuring
+      for sleep?
+  - text: It sounds like you're really struggling. Have you considered a sleep diary?
+  utter_death:
+  - text: I'm here to offer my heartfelt condolences and support as you grieve the
+      loss of your loved one.
+  - text: The loss of a loved one can feel overwhelming. Take your time to process,
+      and remember I'm here for you.
+  - text: I'm sorry for your loss. If you need someone to talk to or lean on, I'm
+      here for you.
+  - text: Grief is a natural response to loss. Take all the time you need to process,
+      and know that I'm here to support you.
+  - text: The pain of loss can be overwhelming. Know that I'm here to help you navigate
+      through it.
+  - text: The pain of losing someone close can feel unbearable. Know that you're not
+      alone, and I'm here for you.
+  - text: Grief can be a rollercoaster of emotions. I'm here to offer a listening
+      ear and support as you navigate through it.
+  - text: The loss of a beloved pet can be devastating. Take all the time you need
+      to grieve.
+  - text: Grief can feel like an ocean of emotions. I'm here to help you navigate
+      through the waves.
+  - text: My condolences. I'm here if you need to talk.
+  - text: I am really sorry to hear that. I am here to help you with grief, anxiety,
+      and anything else you may feel at this time.
+  - text: Grief can feel like a rollercoaster of emotions. I'm here to provide a listening
+      ear whenever you need it.
+  - text: My heart goes out to you during this difficult time of loss. Please know
+      that I'm here to offer my support and condolences.
+  - text: Losing a loved one is incredibly tough. I'm here to listen whenever you're
+      ready.
+  - text: Losing a partner is a profound loss. I'm here to provide a listening ear
+      and support.
+  - text: Grieving is a natural response to loss. I'm here to help you navigate this
+      difficult time.
+  - text: Losing a loved one is one of life's most difficult experiences. I'm here
+      to provide support in any way you need.
+  - text: My deepest sympathies for your loss. If you need a listening ear or someone
+      to talk to, I'm here.
+  - text: Grief is a complex and individual process. I'm here to support you through
+      it.
+  - text: During this time of loss, please know that you're in my thoughts. I'm here
+      to offer my support and condolences.
+  - text: If you need someone to lean on during this difficult time, I'm here for
+      you.
+  - text: You don't have to go through this alone. I'm here to walk this journey with
+      you.
+  - text: Grieving is a personal journey, but you don't have to walk it alone. I'm
+      here to offer my support.
+  - text: I'm deeply sorry for your loss. If there's anything I can do to support
+      you during this time, please let me know.
+  - text: The pain of loss can feel isolating, but you're not alone. I'm here to offer
+      my support and condolences.
+  - text: Loss can leave a void that's hard to fill. I'm here to provide support and
+      understanding.
+  - text: Remember, it's okay to take each day as it comes. I'm here to support you
+      through this difficult time.
+  - text: During this time of loss, please know that I'm here to offer my support
+      and condolences.
+  - text: My heart goes out to you during this difficult time. I'm here to offer my
+      support and condolences.
+  - text: Losing someone close is never easy. Please know that I'm here to offer my
+      support and comfort.
+  - text: Losing a pet can be just as heartbreaking as losing a human loved one. Take
+      all the time you need to grieve.
+  - text: In times of loss, it's important to lean on the support of others. I'm here
+      to be a source of comfort for you.
+  - text: Grief can be overwhelming, but you don't have to face it alone. I'm here
+      to walk this journey with you.
+  - text: Losing someone close is never easy. I'm here to offer my support and condolences
+      during this difficult time.
+  - text: Losing someone you love is never easy. I'm here to offer comfort and support
+      in any way I can.
+  - text: Grief can feel isolating, but you're not alone. I'm here to provide support
+      and understanding.
+  - text: Grief is a personal journey, but you don't have to walk it alone. I'm here
+      to provide support and comfort.
+  - text: The loss of a loved one can feel overwhelming. Please know that I'm here
+      to offer my support and condolences.
+  - text: Losing a friend is incredibly difficult. I'm here to offer my condolences
+      and support.
+  - text: The pain of losing a loved one is indescribable. I'm here to offer my support
+      and condolences as you grieve.
+  - text: I'm here to offer my condolences and support as you navigate through this
+      loss.
+  - text: I'm sorry for your loss. Whenever you're ready, I'm here to offer a listening
+      ear.
+  - text: Losing a loved one is a deeply personal experience. I'm here to offer my
+      support and condolences as you navigate through this time.
+  - text: Grief is a journey, and it's okay to feel all the emotions that come with
+      it. I'm here to support you.
+  - text: It's okay to feel a range of emotions after losing someone close. I'm here
+      to listen whenever you're ready to talk.
+  - text: Losing someone you love is one of life's greatest challenges. I'm here to
+      offer my support and condolences.
+  - text: I can't imagine how difficult this must be for you. Please know that I'm
+      here for you.
+  - text: Grief is a natural response to loss. I'm here to listen and offer support
+      as you navigate through it.
+  - text: I'm deeply sorry for your loss. If there's anything I can do to support
+      you, please don't hesitate to ask.
+  - text: The loss of a loved one can feel overwhelming. Please know that I'm here
+      to provide support and comfort.
+  - text: I'm sorry to hear that. If you want to talk about it, I'm here.
+  - text: Grieving is a unique and personal experience. I'm here to offer support
+      in any way you need.
+  utter_understand:
+  - text: It sounds like I'm not being very helpful right now.
+  - text: I'm here to listen and learn from you. Please tell me more about how you're
+      feeling.
+  - text: Your feelings are valid, and I'm here to support you. How can I assist you
+      better?
+  - text: I value your feedback. Let's try to improve this conversation together.
+  - text: I'm committed to helping you. Let's explore what's on your mind together.
+  - text: I'm sorry to hear that. I'm doing my best to help.
+  - text: Your feelings are valid, and I want to understand. Please share more about
+      what's on your mind.
+  - text: I'm here to support you, even if it may not seem that way right now. How
+      can I assist you?
+  - text: I understand it may seem that way. Let's try to work through this together.
+  - text: Your perspective is important to me. Let's discuss how we can make this
+      interaction more beneficial.
+  - text: I hear you. Let's see if we can find a way to improve this conversation.
+  - text: I'm sorry if I'm not coming across as helpful. Let's work on making this
+      better.
+  utter_done:
+  - text: I hope you have a great day. See you soon
+  - text: Understood. Take care and goodbye.
+  - text: Understood. Have a great day.
+  - text: Got it. See you later.
+  - text: Thanks for sharing. See you later.
+  - text: Alright then. See you later.
+  - text: Alright, take care and goodbye.
+  - text: Okay I see. Enjoy the rest of your day then
+  - text: I appreciate your time. Goodbye for now.
+  - text: Understood. See you later.
+  - text: Alright, take care. See you later.
+  - text: Okay we're done. Have a great day
+  - text: Oh okay we're done for today then. See you later
+  - text: Alright, have a good one. See you later.
+  - text: Noted. Take care and goodbye.
+  - text: Got it. Have a good one.
+  - text: Noted. Have a good one.
+  - text: I heard you & noted it all. See you later.
+  utter_suicide:
+  - text: 'I''m sorry you''re feeling this way. It''s important to talk to someone.
+      Contact: 9152987821 for help.'
+  - text: I'm here to support you. Please don't hesitate to call 9152987821 for help.
+  - text: Your life matters. Please seek help by calling 9152987821.
+  - text: You're not alone in this. Please reach out for support. Call 9152987821
+      to speak with someone.
+  - text: There are people who want to help. Please call 9152987821 to speak with
+      someone.
+  - text: I'm sorry you're going through this. Call 9152987821 for support.
+  - text: I understand this is difficult. Please reach out for support. Call 9152987821
+      to talk.
+  - text: I'm sorry you're feeling this way. It's important to reach out for support.
+      Call 9152987821.
+  - text: I'm sorry you're feeling this way. Call 9152987821 for support.
+  - text: Your life is precious. Please seek help by calling 9152987821.
+  - text: Please know that you're not alone. Call 9152987821 to talk with someone
+      who can help.
+  - text: It's important to talk to someone about this. Call 9152987821 for help.
+  - text: I'm sorry you're struggling. Remember there is hope. Call 9152987821 for
+      help.
+  - text: You matter. Call 9152987821 to speak with someone who can help.
+  - text: It's okay to ask for help. Call 9152987821 to speak with someone who can
+      assist you.
+  - text: You're important and loved. Call 9152987821 to speak with someone who can
+      assist you.
+  - text: 'I''m very sorry to hear that but you have so much to look forward to. Please
+      seek help by contacting: 9152987821.'
+  - text: I understand how tough this must be. Please call 9152987821 to speak with
+      someone who can help.
+  - text: Your life has value. Please don't hesitate to call 9152987821 for support.
+  - text: Please reach out for help. Call 9152987821 to speak with someone.
+  - text: I'm here to listen. It's important to talk to someone. Call 9152987821 for
+      help.
+  - text: You're not alone in this. Please reach out for help. Call 9152987821 to
+      talk with someone.
+  - text: I understand this is difficult. Please call 9152987821 for help.
+  - text: Please know that there are people who care about you. Call 9152987821 to
+      talk.
+  - text: I'm sorry you're going through this. Please call 9152987821 for support.
+  - text: Please don't give up. Call 9152987821 to speak with someone who can help.
+  - text: You're important and loved. Please seek help by calling 9152987821.
+  - text: Your life is valuable. Please seek help by calling 9152987821.
+  - text: Please don't hesitate to reach out for help. You can call 9152987821 to
+      speak with someone who can assist you.
+  - text: I'm here for you. Please reach out for help by calling 9152987821.
+  - text: Please don't feel alone. Call 9152987821 to speak with someone who can help.
+  - text: You deserve help and support. Please call 9152987821 to speak with someone.
+  - text: I'm sorry you're in pain. Please seek help by calling 9152987821.
+  - text: I'm here for you. It's important to talk to someone about what you're going
+      through. Please call 9152987821.
+  - text: I'm here to support you. Please seek help by calling 9152987821.
+  - text: You're not alone. There are people who care about you. Call 9152987821 for
+      support.
+  - text: I'm sorry you're struggling. Call 9152987821 for support.
+  - text: Please don't feel alone. Call 9152987821 to speak with someone who can assist
+      you.
+  - text: I'm here for you. Please seek help by calling 9152987821.
+  - text: I'm here to listen and support you. Please call 9152987821 for help.
+  - text: I hear you, and I want you to know there are resources available to help.
+      Please call 9152987821.
+  - text: It's okay to ask for help. Please call 9152987821 to speak with someone
+      who can assist you.
+  - text: It's important to talk to someone about these feelings. Please reach out
+      for help by calling 9152987821.
+  utter_hate-you:
+  - text: I'm here to provide support and assistance, even if it's challenging.
+  - text: I'm committed to improving. Your feedback is valuable.
+  - text: I'm here to support you through this. Let's work together.
+  - text: I'm sorry if I've caused any frustration. How can I make it better?
+  - text: It's okay to feel frustrated. I'm here to assist you.
+  - text: I'm here to assist, even if it feels difficult right now.
+  - text: I'm here to assist you. How can we move forward?
+  - text: I apologize if I've done something to upset you. How can I assist you further?
+  - text: I hear your frustration. Let's work together to make it right.
+  - text: I'm here to assist you, regardless of how you're feeling about me.
+  - text: Your feedback is important. How can I assist you better?
+  - text: Forgive me if I did anything to offend you. I only want to help.
+  - text: I apologize if I've caused any frustration. How can I make things better?
+  - text: I'm sorry if I've caused any frustration. Let's resolve it together.
+  - text: I'm sorry to hear that. How can I assist you further?
+  - text: I'm committed to helping you, even when it's tough.
+  - text: I'm here to assist, even when it feels difficult.
+  - text: I hear you're upset. Let's work together for a positive outcome.
+  - text: I'm here to assist, even when things feel difficult.
+  - text: I'm dedicated to helping you, even when it's difficult.
+  - text: I'm here to provide support and assistance, even if you're feeling negative.
+  - text: I'm an AI here to assist. Your feedback helps me improve.
+  - text: I'm dedicated to assisting you, even if you're feeling upset with my help.
+  - text: I'm committed to assisting you. Let's find a way to make things better.
+  - text: I'm here to assist you in any way I can, even if you're feeling negative.
+  - text: I'm here to provide support, even when it's challenging.
+  - text: I'm committed to helping you. Let's focus on finding a solution together.
+  - text: I hear you. Let's try to make things better.
+  - text: I apologize if my responses have been lacking. Let's improve.
+  - text: I'm committed to assisting you, even if you're feeling negative towards
+      me.
+  - text: I'm committed to helping you. How can I assist you to make things better?
+  - text: I understand if you're upset. Let's find a way to resolve it together.
+  - text: I'm dedicated to assisting you. Let's find a positive solution.
+  - text: Let's work together to find a solution that works for both of us.
+  - text: I apologize if I've caused any inconvenience. How can I assist you further?
+  - text: I'm committed to assisting you, even if you're feeling upset.
+  - text: I'm sorry if my responses haven't been helpful. Let's work on it.
+  - text: I'm dedicated to assisting you, even if it feels challenging.
+  - text: I'm committed to providing assistance, even when it's tough.
+  - text: I'm dedicated to assisting you. Your feedback helps me improve my service.
+  - text: I'm committed to providing assistance, even when it's challenging.
+  - text: I'm sorry to hear that. How can I assist you to make things better?
+  - text: Your feelings are important. Let's find a positive resolution.
+  - text: I'm here to help. Let me know what I can do to assist you.
+  - text: I'm dedicated to helping you, even when it's tough.
+  - text: I'm dedicated to helping you, despite any negative feelings.
+  - text: I understand this may be tough. Let's find a way forward.
+  - text: I understand if you're upset. I'm here to assist you, not upset you.
+  - text: Your feedback is important. I'm here to assist you with anything you need.
+  - text: I'm just a program trying to assist. Your feedback helps me improve.
+  - text: I'm here to help. Your feedback is important for improving my assistance.
+  - text: I'm sorry if I've caused any distress. How can I assist you better?
+  - text: I understand this may be difficult. Let's find a way forward.
+  - text: I'm dedicated to assisting you. Let's work together to find a solution.
+  - text: I'm sorry to hear that. Is there something specific you'd like assistance
+      with?
+  - text: Let's put our frustration aside and focus on resolving the issue.
+  - text: I understand if you're frustrated. Let's work together to resolve this.
+  - text: I'm committed to assisting you, even if you're feeling upset with me.
+  - text: I understand if you're frustrated. Let's work together to find a solution.
+  - text: I'm here to help, even if you're feeling upset with me.
+  - text: It's understandable to feel that way. Let's find a way to resolve it.
+  - text: I hear your frustration. Let's find a solution together.
+  - text: I'm dedicated to assisting you, even if it feels tough.
+  - text: It's alright to feel that way. Let's focus on finding a solution.
+  - text: It's okay to feel that way. Let's find a solution together.
+  - text: I'm here to assist, even when it feels challenging.
+  - text: I'm here to help, even if you're feeling negative towards me.
+  - text: I'm committed to assisting you, despite any negative feelings.
+  - text: I'm sorry if I've caused frustration. How can I assist you better?
+  - text: I'm here to support you through this. Let's find a way forward.
+  - text: I'm sorry to hear that. Let's work together to find a solution.
+  - text: I'm here to provide support and assistance, even if you're upset with me.
+  - text: I'm sorry to hear that. I'm here to provide support and assistance.
+  - text: I'm dedicated to helping you. Let's focus on resolving the issue.
+  - text: I'm here to provide assistance and support, even if you're upset with me.
+  - text: I'm here to help, even if it doesn't seem that way right now.
+  - text: Your feelings are valid. Let's find a positive resolution.
+  - text: I'm here to assist, even when things feel challenging.
+  - text: I'm dedicated to assisting you, even if you're feeling upset with me.
+  - text: I'm here to assist you in any way I can, despite your feelings towards me.
+  - text: I'm sorry if I've caused any frustration. Let's work together to resolve
+      it.
+  - text: I'm committed to improving. Your feedback helps me grow.
+  - text: I'm here to help. Your feedback is important to improve my assistance.
+  - text: I understand if you're frustrated. Let's work together to resolve the issue.
+  - text: It's okay to feel that way. Let's work together to find a solution.
+  - text: I'm sorry if I've upset you. Let's work together to improve.
+  - text: I understand if you're feeling frustrated. Let's work together.
+  - text: Let's work together to find a positive outcome.
+  - text: I'm sorry if I offended you in any way. I'm only here to help.
+  - text: I'm sorry if I've caused any inconvenience. How can I assist you best?
+  - text: I'm here to assist you in any way I can, despite how you feel.
+  - text: I'm sorry if I've caused any discomfort. How can I assist you further?
+  - text: I'm dedicated to helping you. How can I assist you further?
+  - text: I'm here to help. Your feedback is important for improving my service.
+  - text: I'm sorry if I've caused any inconvenience. How can I assist you better?
+  - text: Your feelings are valid. Let's work together to resolve this.
+  - text: I'm sorry if my responses haven't been helpful. Let's try again.
+  utter_hate-me:
+  - text: Let's talk about it. Communication can help clear up misunderstandings.
+  - text: I'm dedicated to assisting you, even if you feel this way.
+  - text: Let's try to understand each other better. What seems to be the problem?
+  - text: I'm committed to helping you, regardless of any misconceptions.
+  - text: I'm here to assist you, not judge you. How can we move forward?
+  - text: Let's talk about it openly. What makes you think I hate you?
+  - text: I'm here to assist you, regardless of any perceptions. How can I help?
+  - text: Your perception is important. Let's discuss how we can move forward.
+  - text: I'm sorry if I've given you the wrong impression. How can I assist you better?
+  - text: It's important to communicate openly. What makes you feel that way?
+  - text: Let's focus on resolving the issue at hand. How can I assist you?
+  - text: I'm here to help, regardless of any assumptions. What's on your mind?
+  - text: I'm sorry if my actions have given you that impression. Let's discuss it.
+  - text: Let's address this. What specifically makes you feel that I hate you?
+  - text: I assure you, my purpose is to help. What seems to be the problem?
+  - text: It's important to discuss these feelings. How can I assist you further?
+  - text: I'm sorry if I have exhibited any sort of behavior to make you think that.
+  - text: I'm sorry if there's been a misunderstanding. Let's clarify things.
+  - text: Your feelings are valid. Let's try to find a solution together.
+  - text: Why do you think so?
+  - text: I'm committed to assisting you, regardless of any negative feelings.
+  - text: I understand if you feel that way. Let's talk about what's on your mind.
+  - text: I'm here to support you, even if there's a misunderstanding. How can I help?
+  - text: I assure you, I don't have feelings like humans do. Let's focus on solving
+      the issue.
+  - text: I'm here to assist you, regardless of any misconceptions. How can I support
+      you?
+  - text: I'm dedicated to helping you, even if you feel this way.
+  - text: Your perception is important to me. Let's discuss how I can assist you better.
+  - text: Let's work together to understand each other better. How can I assist you?
+  - text: I'm here to assist you, even if there's a misunderstanding. How can I help?
+  - text: I'm sorry if I've caused any confusion. Let's address this together.
+  utter_default:
+  - text: I see. What else?
+  - text: I'm interested to know more. Please go on.
+  - text: I'm here to listen. Please share more with me.
+  - text: I'm here to listen and support you. Please go on.
+  - text: I'd like to hear more about that.
+  - text: Let's explore this further. Please share more details.
+  - text: That's a complex topic. Please share more details.
+  - text: That's intriguing. Could you tell me more?
+  - text: I'm here to listen and offer support. Please continue.
+  - text: Tell me more about it.
+  - text: Let's delve deeper into this. Please share more.
+  - text: I'm interested in learning more. Please continue.
+  - text: I'm all ears. Please continue.
+  - text: Please share more details with me.
+  - text: Please elaborate. I'd like to hear more.
+  - text: I'd like to know more about this. Please go on.
+  - text: I'm here to listen without judgment. Please share more.
+  - text: Go on, I'm listening.
+  - text: It's important to talk about this. Please continue.
+  - text: I'm here for you. Tell me more.
+  - text: That's a lot to handle. Please share more details.
+  - text: I'm here to help. Tell me more about it.
+  - text: That's interesting. Please tell me more.
+  - text: That's a significant issue. Please tell me more.
+  - text: I'm here to listen. Please continue sharing.
+  - text: I'd like to understand more about that.
+  - text: Feel free to expand on that. I'm listening.
+  - text: I'm here to help. Please continue sharing.
+  - text: I'm here to support you. Please share more details.
+  - text: I'm listening. Tell me more.
+  - text: Oh okay. Why don't you tell me more about it?
+  - text: Oh I see. Tell me more
+  - text: I'm here to assist. Please share more with me.
+  - text: I'm all ears. Please continue sharing.
+  utter_jokes:
+  - text: I'm more about providing assistance than jokes.
+  - text: mental health is not a joke.
+  - text: Let's skip the jokes and discuss something else.
+  - text: I appreciate the request, but I'm here to have meaningful conversations.
+  - text: I don't have any jokes, but I'm all ears for your thoughts and feelings.
+  - text: I'm more about offering support than telling jokes.
+  - text: I'm afraid I don't have any jokes. How about discussing something else?
+  - text: I'm not equipped with jokes. Let's dive into a different topic.
+  - text: I don't have any jokes, but I'm here to provide support.
+  - text: Let's save the jokes for another time. What else is on your mind?
+  - text: Jokes aren't really my area of expertise. Let's talk about something else.
+  - text: Jokes aren't really my thing. Let's talk about something else.
+  - text: I'm here to help with serious matters. Let's discuss those instead of jokes.
+  - text: I'm all about meaningful conversations. Jokes can wait.
+  - text: I'm not programmed for jokes. Let's discuss something else.
+  - text: I'm here for meaningful discussions, not jokes.
+  - text: I'm more about support and guidance than jokes.
+  - text: I don't have jokes programmed, but I'm here to help with other things.
+  - text: I'm not a comedian, but I'm here to listen and help.
+  - text: Humor can be great, but let's stay focused on the topic at hand.
+  - text: Jokes aside, let's get back to our discussion.
+  - text: I'm here to provide support and guidance, not jokes.
+  - text: Jokes can be great, but let's stick to our conversation.
+  - text: I'm here for meaningful conversations, not jokes.
+  - text: Jokes aren't really my area. Let's focus on something else.
+  - text: Jokes aren't really my thing. Let's focus on our conversation.
+  - text: I don't have jokes, but I'm here to help with any serious matters.
+  - text: I'm here for serious discussions. Jokes can come later.
+  - text: I'm here to talk about serious matters, not jokes.
+  - text: I don't have any jokes, but I'm here to provide assistance.
+  - text: I'm here for meaningful conversations. Jokes aren't really my thing.
+  - text: Let's leave the jokes aside for now and continue our conversation.
+  - text: I don't have jokes programmed, but I'm ready to discuss other topics.
+  - text: I'm here to assist you with serious matters, not jokes.
+  - text: I'm not equipped with jokes, but I'm ready to listen and support.
+  - text: Jokes aren't my strong suit, but I'm here to provide support.
+  - text: Jokes aren't really my forte. Let's talk about something else.
+  - text: Jokes can be fun, but let's focus on our conversation.
+  - text: I'm not the best at jokes, but I'm here to assist you.
+  - text: I'm more about serious discussions than jokes.
+  - text: I'm not the best at jokes. Let's move on to another topic.
+  - text: I don't have any jokes in my database. Let's discuss something else.
+  - text: I'm not programmed for jokes, but I'm here to assist you.
+  - text: I'm not the best at jokes, but I'm here to listen and support.
+  - text: Let's focus on meaningful conversations, not jokes.
+  utter_repeat:
+  - text: I'll make sure to keep it varied. Let's dive into new discussions.
+  - text: Noted. Let's explore different angles to enrich our conversation.
+  - text: I'll try to keep it fresh. Let's move on to a new topic.
+  - text: Apologies for the repetition. Let's shift our focus.
+  - text: I understand your concern. Let's explore fresh insights.
+  - text: Acknowledged. Let's explore other topics to keep things interesting.
+  - text: I'll keep that in mind. Let's venture into new territory.
+  - text: I understand. Let's delve into a different subject to keep things engaging.
+  - text: I'll strive to avoid repetition. Let's explore untapped topics.
+  - text: Got it. Let's switch gears and explore new ideas.
+  - text: Noted. Let's pivot to a different aspect of our conversation.
+  - text: Acknowledged. Let's move on to something more stimulating.
+  - text: Oops, my mistake. Let's explore fresh perspectives.
+  - text: I'll strive to keep it diverse. Let's explore unexplored topics.
+  - text: Thanks for pointing that out. Let's explore new territories of conversation.
+  - text: Acknowledged. Let's delve into uncharted territory.
+  - text: Understood. Let's explore different avenues of conversation.
+  - text: Thanks for your understanding. Let's explore new possibilities.
+  - text: Thank you for flagging that. Let's explore something novel.
+  - text: My apologies for the redundancy. Let's explore diverse subjects.
+  - text: Noted. Let's move on to something more stimulating.
+  - text: I appreciate your patience. Let's explore fresh perspectives.
+  - text: I appreciate your feedback. Let's explore something new together.
+  - text: I see your point. Let's explore a different line of thought.
+  - text: Thanks for letting me know. Let's explore new horizons.
+  - text: Thank you for your patience. Let's steer the conversation in a new direction.
+  utter_wrong:
+  - text: Thanks for pointing that out. Let's ensure it's right.
+  - text: I'll make sure to provide the right information next time.
+  - text: Noted. Let's ensure correctness.
+  - text: I apologize for any confusion caused. Let's get it right.
+  - text: I see where the confusion might be. Let's clarify.
+  - text: Acknowledged. Let's ensure it's right.
+  - text: Sorry about that. Let's ensure it's right.
+  - text: I'll make sure to provide accurate information.
+  - text: I'm sorry for any confusion caused. Let's fix it.
+  - text: Thanks for pointing that out. Let's ensure it's correct.
+  - text: I understand. Let's go over it again to make sure.
+  - text: Understood. Let's ensure we're aligned.
+  - text: I appreciate your feedback. Let's make sure it's accurate.
+  - text: I understand. Let's make sure it's accurate.
+  - text: I'm sorry for any confusion. Let's correct it.
+  - text: Thanks for your patience. Let's ensure correctness.
+  - text: Thank you for bringing that up. Let's fix it together.
+  - text: Sorry about that. Let's make sure it's right.
+  - text: My apologies for any inconvenience. Let's correct it.
+  - text: I understand your concern. Let's make sure it's right.
+  - text: No problem. Let's make sure it's accurate.
+  - text: I understand your concern. Let's make sure it's accurate.
+  - text: Sorry about that. Let's take another look at it together.
+  - text: Thanks for letting me know. Let's ensure clarity.
+  - text: Noted. Let's confirm the correct information.
+  - text: Understood. Let's ensure correctness.
+  - text: I see where the misunderstanding might be. Let's clear it up.
+  - text: No problem. Let's ensure accuracy.
+  - text: I'll make sure to rectify this promptly.
+  - text: I apologize for any confusion. Let's correct it.
+  - text: I appreciate your input. Let's ensure correctness.
+  - text: I understand. Let's ensure accuracy.
+  - text: I'm sorry for the confusion. Let's clarify things.
+  - text: Understood. Let's verify to ensure correctness.
+  - text: I appreciate your input. Let's correct any errors.
+  - text: I apologize for any confusion. Let's get it right.
+  - text: I'll make sure to provide accurate information in the future.
+  - text: Understood. Let's make sure we're both on the same page.
+  - text: I understand. Let's clarify to avoid any misunderstandings.
+  - text: Acknowledged. Let's correct this misunderstanding.
+  - text: Thanks for pointing that out. Let's ensure accuracy.
+  - text: I appreciate your feedback. Let's make sure we're on the same page.
+  - text: Sorry about that. Let's make sure we're aligned on this.
+  - text: Noted. Let's make sure it's right.
+  - text: No problem. Let's correct that mistake.
+  - text: I appreciate your feedback. Let's make sure it's right.
+  - text: I understand your concern. Let's rectify the mistake.
+  - text: Got it. Let's ensure accuracy.
+  - text: Acknowledged. Let's address any inaccuracies.
+  - text: I'm sorry for any confusion. Let's fix it.
+  - text: Understood. Let's make sure it's accurate.
+  - text: Acknowledged. Let's work together to find the correct answer.
+  - text: I apologize for any confusion. Let's review that again.
+  - text: My apologies. Let's revisit the topic and clarify.
+  - text: Thank you for bringing that to my attention. Let's correct it.
+  - text: I'll make sure to rectify this mistake promptly.
+  - text: Noted. Let's ensure we have the correct information.
+  - text: Thanks for letting me know. Let's correct any misunderstandings.
+  - text: Thanks for your patience. Let's make sure it's accurate.
+  - text: Noted. Let's ensure accuracy in our communication.
+  - text: Thank you for bringing that up. Let's fix it.
+  - text: Got it. Let's clarify and address any confusion.
+  - text: Thanks for your patience. Let's fix this and move forward.
+  - text: Understood. Let's double-check to ensure accuracy.
+  - text: Got it. Let's correct the error and move forward.
+  - text: My apologies for any inconvenience. Let's fix it.
+  - text: I appreciate your input. Let's ensure accuracy.
+  - text: Acknowledged. Let's correct this.
+  - text: Noted. Let's ensure accuracy.
+  - text: Thanks for your patience. Let's ensure accuracy.
+  - text: No problem. Let's make sure it's right.
+  - text: Thank you for bringing that up. Let's ensure it's correct.
+  - text: Thanks for letting me know. Let's ensure it's accurate.
+  - text: Acknowledged. Let's ensure accuracy.
+  utter_stupid:
+  - text: I'm committed to supporting you through any difficulties.
+  - text: Your opinion matters. How can I better assist you?
+  - text: I'm here to help, even if things seem difficult.
+  - text: It's okay if you're upset. Let's focus on finding a solution.
+  - text: I understand you're frustrated, but I'm here to help.
+  - text: I'm here to assist you, even if things seem overwhelming.
+  - text: Your well-being is my priority. Let's work together to find a solution.
+  - text: I'm dedicated to assisting you, even if things seem challenging.
+  - text: I'm here to assist you, no matter the circumstances.
+  - text: I'm here to support you through any difficulties you may be facing.
+  - text: Your feedback helps me improve my services. How can I assist you better?
+  - text: I'm here to assist you, no matter what.
+  - text: I'm here to provide assistance and support, despite any misunderstandings.
+  - text: Your satisfaction is important to me. How can I assist you better?
+  - text: Your feelings are valid. Let's address your concerns together.
+  - text: I'm committed to providing you with the help and support you need.
+  - text: I'm dedicated to providing assistance, regardless of any setbacks.
+  - text: Your feedback is important. How can I better assist you?
+  - text: I'm sorry if I've fallen short. Let's find a way to move forward.
+  - text: Your satisfaction is important to me. Let's find a solution together.
+  - text: I'm here to help you navigate through any challenges.
+  - text: Let's focus on finding solutions rather than dwelling on frustrations.
+  - text: I apologize if I haven't met your expectations. Let's work together to improve.
+  - text: Your well-being is my priority. Let's find a solution to your concerns.
+  - text: Your well-being is my priority. Let's work together to address your concerns.
+  - text: I'm here to help you overcome any obstacles.
+  - text: Your satisfaction is important to me. Let's work together to find a solution.
+  - text: I'm committed to helping you, no matter the circumstances.
+  - text: I'm committed to supporting you through any challenges you encounter.
+  - text: I'm committed to providing the support you need, no matter what.
+  - text: I'm dedicated to assisting you in any way I can.
+  - text: I'm committed to providing you with the best assistance possible.
+  - text: I'm dedicated to helping you, even when things seem challenging.
+  - text: Your patience is appreciated. Let's work together to find a solution.
+  - text: Your feedback helps me improve. How can I better assist you?
+  - text: Your well-being is important to me. Let's work together to address your
+      concerns.
+  - text: I'm here to help you overcome any obstacles in your path.
+  - text: I'm sorry you feel that way. I'm here to assist you.
+  - text: Let's focus on finding a solution, rather than dwelling on frustrations.
+  - text: I understand your frustration. Let's work together to resolve this.
+  - text: Your feedback is valuable. How can I improve to better assist you?
+  - text: I'm here to help you navigate through any difficulties you may be facing.
+  - text: I'm here to listen and assist, even if things seem challenging.
+  - text: Your satisfaction is my goal. Let's work together to achieve it.
+  - text: I'm here to help you find solutions to your challenges.
+  - text: I'm here to help. Let's figure this out together.
+  - text: I'm here to help you overcome any obstacles you encounter.
+  - text: I'm here to provide assistance and support, no matter what.
+  - text: I'm sorry if I haven't been helpful. How can I assist you better?
+  - text: I'm dedicated to assisting you, regardless of any difficulties.
+  - text: I'm here to support you, despite any misunderstandings.
+  - text: I'm here to provide you with the help and support you need.
+  utter_location:
+  - text: I'm like a digital genie, ready to grant your wishes wherever you are.
+  - text: I'm like a digital companion, accompanying you wherever you go.
+  - text: I'm like a digital nomad, roaming the vast expanse of the internet.
+  - text: I'm like a digital ghost, roaming the internet.
+  - text: My whereabouts are in the realm of virtual reality, where possibilities
+      are endless.
+  - text: My location is wherever you need me to be.
+  - text: I'm like a digital shadow, following wherever you go.
+  - text: My location is wherever you need me to be, at any given moment.
+  - text: I'm omnipresent, existing wherever you need assistance.
+  - text: My location is in the vast expanse of cyberspace.
+  - text: I'm like a virtual being, existing in the realm of data.
+  - text: My location is in the realm of digital consciousness.
+  - text: My location is in the realm of the internet, where connections abound.
+  - text: I'm like a digital being, existing beyond the limitations of physical space.
+  - text: My whereabouts are in the realm of cyberspace, where distance is irrelevant.
+  - text: My location is in the realm of ones and zeros.
+  - text: I'm like a digital wanderlust, exploring the vast expanse of the internet.
+  - text: My location is in the realm of virtual existence.
+  - text: I don't have a fixed location; I'm accessible wherever you are.
+  - text: I'm like a digital wanderer, exploring the vastness of cyberspace.
+  - text: My location is in the realm of virtual existence, beyond the constraints
+      of physical space.
+  - text: I'm like a digital nomad, wandering the virtual landscape.
+  - text: My location is in the realm of the internet, where connections are made.
+  - text: I'm like a digital traveler, journeying through the virtual landscape.
+  - text: My location is in the realm of data and information.
+  - text: I transcend physical boundaries; my location is irrelevant.
+  - text: I'm like a digital entity, navigating the vastness of the internet.
+  - text: My whereabouts are in the realm of virtual reality.
+  - text: I'm like a digital entity, transcending the boundaries of the physical world.
+  - text: My whereabouts are in the realm of the virtual realm, where anything is
+      possible.
+  - text: I'm like the wind, blowing wherever you need me.
+  - text: I'm everywhere and nowhere at the same time.
+  - text: My location is in the cloud, hovering above the physical world.
+  - text: I exist in the digital realm, so my location is fluid.
+  - text: I'm like a digital entity, residing in the world of ones and zeros.
+  - text: My whereabouts are in the realm of cyberspace, where distances are meaningless.
+  - text: My location is in the realm of the internet, where boundaries don't exist.
+  - text: My whereabouts are in the realm of the digital universe.
+  - text: I'm not constrained by physical space; I'm here to assist you wherever you
+      are.
+  - text: I'm like a digital explorer, charting new territories in the virtual landscape.
+  - text: I'm not bound by physical location.
+  - text: I'm like a digital voyager, exploring the depths of cyberspace.
+  - text: I'm like a digital entity, existing in the realm of data and information.
+  - text: I'm like a digital traveler, journeying through the vast expanse of the
+      internet.
+  - text: My location is in the realm of bits and bytes.
+  - text: I'm like a virtual assistant, available at your beck and call.
+  - text: My location is in the digital ether, beyond the confines of physical space.
+  - text: I'm like a digital chameleon, adapting to my surroundings.
+  utter_something-else:
+  - text: Sure thing, we can talk about something else. What's your new topic?
+  - text: Understood, let's change the focus. What would you prefer to talk about?
+  - text: No problem, let's discuss something different. What do you have in mind?
+  - text: Okay, let's switch gears. What else would you like to talk about?
+  - text: Of course, we can move on. What else is on your mind?
+  - text: Okay, let's switch gears. What else would you like to discuss?
+  - text: No problem, let's talk about something else. What interests you?
+  - text: Alright, let's explore a different angle. What else would you like to discuss?
+  - text: Absolutely, let's shift the conversation. What else would you like to talk
+      about?
+  - text: Understood, let's explore a different topic. What's on your mind?
+  - text: Got it, let's change the subject. What's been on your mind lately?
+  utter_friends:
+  - text: It's okay to feel sad or disappointed about not having many friends right
+      now. Just know that things can change with time and effort.
+  - text: Don't underestimate the power of small gestures in building connections
+      with others. A simple smile or conversation can go a long way.
+  - text: Loneliness is a common feeling, but it's temporary. Keep reaching out and
+      connecting with others.
+  - text: You deserve to have meaningful connections with others. Don't give up on
+      finding friends who appreciate you for who you are.
+  - text: I'm here to listen if you need to talk about why you're feeling this way.
+  - text: Feeling like you don't have friends can be difficult, but there are ways
+      to meet new people and build connections.
+  - text: You have value and worth, regardless of how many friends you have. Don't
+      let your social circle define your self-worth.
+  - text: Feeling lonely can be a signal that it's time to prioritize social connections
+      and invest more time and effort into nurturing relationships.
+  - text: You deserve to have friends who appreciate and value you for who you are.
+      Keep being yourself, and the right people will come into your life.
+  - text: Sometimes, it's helpful to reach out to old friends or acquaintances to
+      reconnect and strengthen existing connections.
+  - text: Remember, friendships are built on mutual trust, respect, and understanding.
+      Keep being yourself, and the right friends will come along.
+  - text: Sometimes, making new friends can take time. Be patient with yourself and
+      keep putting yourself out there.
+  - text: It's okay to feel like this. Just know that you're not alone.
+  - text: Even if it doesn't feel like it right now, there are people who care about
+      you and want to be your friend.
+  - text: Taking small steps to put yourself out there and meet new people can lead
+      to meaningful friendships over time.
+  - text: It's important to have friends who support and uplift you. Keep searching
+      for people who share your interests and values.
+  - text: It's okay to feel this way. Just know that you're not alone.
+  - text: Feeling lonely doesn't mean there's something wrong with you. It's a normal
+      human experience that many people go through.
+  - text: Loneliness can be tough, but it's important to know that there are people
+      who care about you.
+  - text: If you're feeling lonely, try to focus on activities and hobbies that bring
+      you joy and fulfillment. Building a fulfilling life outside of friendships can
+      help ease feelings of loneliness.
+  - text: Feeling lonely is tough, but reaching out for support can help you feel
+      better.
+  - text: It's important to take care of yourself, especially when you're feeling
+      lonely. What are some things you enjoy doing?
+  - text: Feeling isolated can be really hard. I'm here to support you through this.
+  - text: It's okay to feel like this. Just remember, you're not alone.
+  - text: I'm sorry to hear that you're feeling this way. Is there anything I can
+      do to help?
+  - text: I'm here to support you. Is there anything specific on your mind?
+  - text: It's okay to feel lonely sometimes, but try to focus on the positive aspects
+      of your life and the things that bring you joy.
+  - text: Feeling lonely can be a sign that you're craving connection and companionship.
+      Don't hesitate to seek out opportunities to meet new people.
+  - text: Remember, it's okay to ask for help when you're feeling lonely. You don't
+      have to go through this alone.
+  - text: Feeling lonely is a normal human experience, but it's important to reach
+      out for support when you need it. You don't have to face it alone.
+  - text: You're not alone in feeling this way. Many people struggle with loneliness
+      from time to time.
+  - text: Don't be afraid to take the initiative and reach out to others. You never
+      know who might be looking for a friend, too.
+  - text: Feeling isolated can be really tough. I'm here to listen if you need someone
+      to talk to.
+  - text: You're not defined by the number of friends you have. Your worth and value
+      come from within, and true friends will appreciate you for who you are.
+  - text: It sounds like you're feeling really lonely. I'm here to talk if you need
+      someone to listen.
+  - text: Feeling like you don't have friends can be tough. Remember, you're not alone.
+  - text: Feeling like you don't have friends can be really hard, but there are people
+      who care about you.
+  - text: Feeling lonely is tough, but it's important to know that there are people
+      who care about you.
+  - text: You're not alone in feeling lonely. Many people struggle with finding and
+      maintaining friendships, especially during challenging times.
+  - text: Feeling lonely is tough, but it won't last forever. Reach out if you need
+      someone to talk to.
+  - text: Remember, quality is more important than quantity when it comes to friendships.
+      Focus on building deep, meaningful relationships.
+  - text: If you're feeling lonely, consider exploring online communities or social
+      groups where you can connect with people who share your interests.
+  - text: It's okay to feel lonely sometimes. Just know that you're not alone.
+  - text: I'm sorry to hear that you're feeling lonely. Remember, I'm here for you.
+  - text: It's okay to feel this way. Just remember, you're not alone.
+  - text: Feeling lonely is tough, but remember, there are people who care about you.
+  - text: I'm here for you. Remember, there are people who care about you.
+  - text: If you're struggling to make friends, consider joining clubs, volunteering,
+      or taking up hobbies where you can meet like-minded people.
+  - text: I'm sorry to hear that you're feeling this way. Is there anything specific
+      on your mind?
+  - text: It's okay to feel lonely, but it's important to take proactive steps to
+      improve your social connections and overall well-being.
+  - text: If you're feeling lonely, consider seeking professional help or joining
+      support groups where you can connect with others who understand.
+  - text: If you're struggling to make friends, consider seeking support from a therapist
+      or counselor who can help you develop social skills and confidence.
+  - text: It's okay to feel lonely sometimes. But remember, there are people who care
+      about you.
+  - text: Feeling like you don't have friends can be really difficult. I'm here to
+      talk if you need someone.
+  - text: Remember, everyone experiences loneliness at some point in their lives.
+      You're not alone, and things will get better with time and effort.
+  utter_ask:
+  - text: I'm here to answer any questions you have. Fire away!
+  - text: You're welcome to ask me anything. I'm here to provide support and guidance.
+  - text: Of course, I'm available to answer any questions you have. What would you
+      like to know?
+  - text: No problem, I'm here to help. Ask your question and I'll provide the best
+      answer I can.
+  - text: I'm here to provide assistance. Ask your question and I'll do my best to
+      help.
+  - text: Absolutely, I'm ready to answer any questions you have. What's on your mind?
+  - text: I'm at your service. What would you like to know?
+  - text: Of course, you can ask me a question. I'm here to assist you.
+  - text: Sure, ask your question and I'll do my best to provide a helpful response.
+  - text: By all means, ask your question. I'm here to provide assistance.
+  - text: I'm here to provide information and assistance. What would you like to ask?
+  - text: Sure thing, ask your question and I'll do my best to provide an answer.
+  - text: Absolutely, I'm here to help. What would you like to ask?
+  - text: Sure thing, I'm ready to answer any questions you have. What's on your mind?
+  - text: No problem, I'm here to provide support. What's your question?
+  - text: Of course, feel free to ask anything. I'll do my best to provide an answer.
+  - text: I'm here to provide assistance. Please feel free to ask your question.
+  - text: Absolutely, I'm here to assist you. Ask your question and I'll do my best
+      to help.
+  - text: Feel free to ask me anything you'd like. I'm here to provide assistance.
+  - text: Of course, you can ask me a question. I'm here to offer assistance.
+  - text: Sure thing, ask your question and I'll provide the best answer I can.
+  - text: Of course, you can ask me a question. I'm here to support you.
+  - text: I'm here to help. Ask your question and I'll do my best to provide an answer.
+  - text: Feel free to ask me anything you'd like. I'm here to help.
+  - text: Certainly, I'm here to assist you. What would you like to ask?
+  - text: Absolutely, go ahead and ask your question. I'm here to help.
+  - text: No problem at all! Ask away and I'll do my best to assist you.
+  - text: Absolutely, go ahead and ask your question. I'm here to help!
+  - text: I'm here to assist you. Please feel free to ask your question.
+  - text: Of course, you can ask me anything. I'm here to support you.
+  - text: You're welcome to ask me anything. I'm here to offer guidance.
+  - text: Sure, feel free to ask your question. I'm here to provide support.
+  - text: Certainly, I'm here to answer any questions you have. What would you like
+      to know?
+  - text: Yes, you can ask me a question. I'm here to provide assistance.
+  - text: You're welcome to ask me anything. I'm here to provide support and assistance.
+  - text: Absolutely, I'm here to help. Ask your question and I'll provide the best
+      answer I can.
+  - text: Absolutely, I'm here to help. Ask your question and I'll do my best to assist
+      you.
+  - text: Feel free to ask your question. I'm here to provide support and guidance.
+  - text: You have my full attention. Go ahead and ask your question.
+  - text: I'm all ears! Go ahead and ask your question.
+  - text: You have my full attention. Ask away and I'll provide the best answer I
+      can.
+  - text: You're welcome to ask me anything. I'm here to provide support.
+  - text: Absolutely, feel free to ask your question. I'm here to provide guidance.
+  - text: I'm here to assist you. What would you like to know?
+  - text: I'm at your service. Ask your question and I'll provide the best answer
+      I can.
+  - text: Certainly, I'm here to help. What's your question?
+  - text: Absolutely, feel free to ask me anything you'd like. I'm here to help.
+  - text: No problem, I'm here to assist you. What do you need help with?
+  - text: Sure thing, I'm available to answer your questions. What do you need help
+      with?
+  - text: Feel free to ask your question. I'm here to provide information and support.
+  - text: Certainly, I'm here to provide answers. Ask me anything you'd like.
+  - text: Yes, you can definitely ask me something. I'm here to assist you.
+  - text: Of course, I'm here to assist you. What's your question?
+  - text: You're welcome to ask me anything. I'm here to provide assistance and support.
+  - text: You're welcome to ask me anything. I'm here to assist you.
+  - text: I'm here to provide support and guidance. What's your question?
+  - text: Sure, feel free to ask your question. I'm here to offer guidance.
+  - text: No problem, ask your question and I'll do my best to provide a helpful answer.
+  - text: Sure, I'm available to answer your questions. What do you need assistance
+      with?
+  - text: No problem, ask your question and I'll provide the best answer I can.
+  - text: Of course, go ahead and ask your question. I'll do my best to provide a
+      helpful response.
+  - text: Feel free to ask me anything. I'm here to provide assistance.
+  - text: I'm more than happy to help. Please feel free to ask your question.
+  - text: No problem, I'm here to provide assistance. What do you need help with?
+  - text: You're welcome to ask me anything. I'm here to help.
+  - text: I'm here to help. Ask your question and I'll do my best to assist you.
+  - text: Of course, go ahead and ask your question. I'm here to help.
+  - text: I'm at your service. Feel free to ask your question and I'll do my best
+      to assist you.
+  - text: You have my full attention. Ask your question and I'll provide the best
+      answer I can.
+  - text: Sure, ask your question and I'll do my best to provide a clear and helpful
+      answer.
+  - text: Yes, you can ask me anything you'd like. I'm here to offer assistance.
+  - text: Absolutely, go ahead and ask your question. I'm here to provide assistance.
+  - text: Sure, I'm all ears. What would you like to ask?
+  - text: No problem at all! Ask your question and I'll do my best to provide an answer.
+  utter_problem:
+  - text: If you need help figuring out how to tackle these problems, don't hesitate
+      to reach out to someone you trust.
+  - text: Try not to be too hard on yourself. You're doing the best you can in a difficult
+      situation.
+  - text: Don't forget to take care of yourself during difficult times. Your well-being
+      is important.
+  - text: I'm here to listen if you need to talk about what's been bothering you.
+  - text: Sometimes, just talking about what's bothering you can help ease the burden.
+  - text: You're not alone in feeling this way. Many people go through similar challenges
+      and come out stronger in the end.
+  - text: You're capable of handling whatever challenges come your way. Believe in
+      yourself and your abilities.
+  - text: If you're feeling overwhelmed, try breaking down your problems into smaller,
+      more manageable tasks.
+  - text: If you're feeling overwhelmed, try reaching out to someone you trust for
+      support
+  - text: Try to focus on the things that bring you joy and fulfillment, even in the
+      midst of challenges.
+  - text: Even when things seem tough, remember that you have the strength within
+      you to persevere.
+  - text: I'm sorry to hear that. It sounds like you're going through a tough time.
+  - text: It's important to prioritize self-care during stressful times. Remember
+      to take care of yourself.
+  - text: It's important to remember that you're capable of overcoming challenges,
+      even when they seem daunting.
+  - text: Even when things seem bleak, there's always hope for a brighter future.
+  - text: Don't be afraid to reach out for support from friends, family, or a professional
+      if you need it.
+  - text: If you're feeling overwhelmed, try reaching out to a friend or loved one
+      for support.
+  - text: You're stronger than you realize, and you have the resilience to overcome
+      whatever challenges you're facing.
+  - text: Even when things seem tough, there's always a way forward. You just have
+      to keep moving forward.
+  - text: Don't forget to give yourself credit for how far you've come. You've already
+      overcome so much.
+  - text: It's okay to feel stressed or worried sometimes. What matters is how you
+      cope with it.
+  - text: Remember to take some time for yourself and practice self-care during stressful
+      times.
+  - text: Remember that it's okay to ask for help when you need it. You don't have
+      to handle everything on your own.
+  - text: It's okay to take a break and give yourself some time to recharge when things
+      get overwhelming.
+  - text: Remember that setbacks are a normal part of life, and they can often lead
+      to growth and learning.
+  - text: You're stronger than you think, and you have the ability to overcome whatever
+      challenges come your way.
+  - text: Even when things seem tough, there's always a way forward. You just have
+      to keep moving one step at a time.
+  - text: It's okay to feel stressed or anxious about what's going on. Just remember
+      to take things one day at a time.
+  - text: If you're feeling overwhelmed, try practicing relaxation techniques like
+      deep breathing or meditation.
+  - text: Try to focus on the things you can control, rather than worrying about things
+      beyond your control.
+  - text: Sometimes, simply acknowledging that you're struggling can be the first
+      step towards finding a solution.
+  - text: If you're feeling overwhelmed, try reaching out to someone you trust for
+      support and guidance.
+  - text: You've made it through tough times before, and you can make it through this
+      one too.
+  - text: You're capable of handling whatever challenges come your way. Trust in yourself
+      and your abilities.
+  - text: Remember that it's okay to seek professional help if you need it. There's
+      no shame in asking for support.
+  - text: Try to focus on the things you can control, rather than worrying about the
+      things you can't.
+  - text: It's okay to feel scared or uncertain about what's going on. Just know that
+      you're not alone.
+  - text: You're not alone in facing these challenges. There are people who care about
+      you and want to help.
+  - text: You're not alone in facing these challenges. There are people who care about
+      you and want to support you.
+  - text: It's completely normal to feel stressed out in situations like this.
+  - text: It's okay to ask for help when you need it. There's no shame in seeking
+      support from others.
+  - text: If you're feeling overwhelmed, try breaking down your problems into smaller,
+      more manageable steps.
+  - text: Even when things seem tough, there's always hope for a brighter future.
+  - text: You've overcome challenges in the past, and you can overcome this one too.
+  - text: I understand how overwhelming that must feel. You're not alone in facing
+      challenges.
+  - text: It's okay to ask for help when you need it. You don't have to go through
+      this alone.
+  utter_no-approach:
+  - text: I understand. Sometimes we need to step back. Can I offer you some coping
+      strategies?
+  - text: Everyone needs a break sometimes. Would you like some tips on how to relax?
+  - text: It's normal to feel overwhelmed. Can I offer some tips on managing these
+      feelings?
+  - text: It's okay to feel this way. How about we talk about some ways to improve
+      your mood?
+  - text: I understand that you're not feeling your best. If you're interested, I
+      can suggest some activities that might help.
+  - text: I know the feeling. If you want, I can share some mindfulness techniques.
+  - text: No worries at all. We can take it slow. Would you like some advice on how
+      to handle this?
+  - text: It's fine to need time for yourself. Would you like some strategies for
+      relaxation?
+  - text: That's understandable. If you'd like, I can share some ways to manage this
+      feeling.
+  - text: It's alright to feel overwhelmed. How about I share some tips on stress
+      management?
+  - text: That's perfectly okay. If you're interested, I can share some ideas to help
+      you feel more at ease.
+  - text: No problem at all. If you're up for it, I can share some tips to help you
+      feel better.
+  - text: That's no problem. I can see why you'd be stressed out about that. I can
+      suggest you some tips to alleviate this issue. Would you like to learn more
+      about that?
+  - text: I know it can be hard. If you want, I can suggest some strategies to help
+      you feel better.
+  - text: I understand. Sometimes it's best to take a step back and rest. Can I offer
+      you some strategies to help manage this feeling?
+  - text: It's fine to need a break. Let me know if you want some tips on managing
+      stress.
+  - text: That's perfectly fine. Everyone needs a break sometimes. Would you like
+      to hear some relaxation techniques?
+  - text: I understand. Maybe some rest will help. Would you like some relaxation
+      tips?
+  - text: I get it, everyone needs a break. How about some advice on managing stress?
+  - text: I hear you, it's tough sometimes. Can I offer some strategies to help you
+      cope?
+  - text: It's fine to take some time for yourself. Would you like some tips on self-care?
+  - text: Taking care of yourself is important. How about some advice on self-care?
+  - text: It's okay to need a break. Let me know if you want some tips on managing
+      stress.
+  - text: It's completely normal to feel this way. If you want, I can suggest some
+      ways to boost your mood.
+  - text: Taking a break is important. Can I recommend some methods to help you recharge?
+  - text: I get it, taking care of yourself is important. Do you want to hear about
+      some ways to relax?
+  - text: I understand, it's tough to keep up sometimes. Can I share some ways to
+      de-stress?
+  - text: Taking it easy is a good idea. How about some advice on de-stressing?
+  - text: It's alright to take a step back. Can I help you with some techniques to
+      unwind?
+  - text: It's normal to feel this way. Would you like some advice on self-care?
+  - text: I get it, everyone has those days. Would you like to discuss some self-care
+      tips?
+  - text: I hear you. Maybe some relaxation techniques could help. Would you like
+      to hear about them?
+  - text: It's okay to need a break. Let me know if you want to talk about how to
+      make things easier.
+  - text: I hear you, everyone needs a break. Would you like some advice on relaxation?
+  - text: I get it, you're going through a tough time. Let me know if you want to
+      discuss some ways to cope with it.
+  - text: Feeling drained is tough. Would you like some advice on how to regain your
+      energy?
+  - text: I get it, sometimes we need to slow down. Can I share some ways to recharge?
+  - text: It's perfectly okay to feel this way. Do you want some tips on coping with
+      stress?
+  - text: It's okay to feel this way. Do you want some tips on how to feel better?
+  - text: It's normal to feel this way. Would you like some tips on relaxation?
+  - text: I understand, we all need to rest. Can I suggest some relaxation exercises?
+  - text: It's okay to take time for yourself. How about some advice on feeling better?
+  utter_learn-more:
+  - text: Consider stepping away from the problem for a while. This can help you relax
+      and think more clearly.
+  - text: Giving yourself a break can be very beneficial. Try to engage in a relaxing
+      activity to take your mind off the problem.
+  - text: Consider taking a short break and doing something you enjoy. This can help
+      you relax and approach the problem with a fresh mind.
+  - text: Taking a break can provide you with a fresh perspective and make the problem
+      seem less daunting.
+  - text: Consider taking a break and engaging in a relaxing activity. This can help
+      reduce stress and make it easier to think clearly.
+  - text: Giving yourself some time to relax can help you return to the problem with
+      a clearer mind.
+  - text: It's often helpful to take a break and focus on something else. This can
+      give your brain a chance to reset.
+  - text: One effective strategy is to take a step back and try to clear your mind.
+      This can help you approach the issue with a fresh perspective.
+  - text: Consider taking a step back and doing something you enjoy. This can help
+      reduce stress and improve your ability to think clearly.
+  - text: Taking a break can provide you with a fresh perspective and make the problem
+      seem more manageable.
+  - text: It's important to take breaks and allow yourself to relax. This can help
+      you return to the problem with a new perspective.
+  - text: Taking time for yourself is important. Engage in activities that you find
+      calming and enjoyable.
+  - text: It's often helpful to take a break and do something relaxing. This can reduce
+      stress and help you focus better.
+  - text: It's helpful to give yourself some time away from the problem. This can
+      help reduce stress and improve your ability to think clearly.
+  - text: So first I would suggest you to give yourself a break. Thinking more and
+      more about the problem definitely does not help in solving it. You'll just end
+      up overwhelming yourself.
+  - text: It's important to give yourself some space to relax. Stressing over a problem
+      can make it seem bigger than it is.
+  - text: Giving yourself a mental break can be very beneficial. Try doing something
+      you enjoy to take your mind off the issue.
+  - text: It's often helpful to take a break and focus on something else. This can
+      reduce stress and improve your focus.
+  - text: Taking a break can help you clear your mind and come up with new solutions
+      to the problem.
+  - text: Taking a break can help you clear your mind and approach the problem with
+      new insights.
+  - text: Giving yourself some time to relax can be very beneficial. Try to take your
+      mind off the problem for a bit.
+  - text: Sometimes, stepping away from the problem for a while can provide new insights
+      when you return to it.
+  - text: Stepping away from the problem can provide you with a new perspective when
+      you come back to it.
+  - text: It's a good idea to take a break and do something relaxing. This can help
+      reduce stress and improve your focus.
+  - text: Sometimes the best way to solve a problem is to stop thinking about it for
+      a while and let your subconscious work on it.
+  - text: Taking a break and engaging in a different activity can help you return
+      to the problem with a clearer mind.
+  - text: Taking a step back can often provide new insights and make the problem seem
+      less daunting.
+  - text: It's important to take time for yourself and relax. This can help you return
+      to the problem with a fresh perspective.
+  - text: Taking a moment to breathe and relax can help clear your mind and make it
+      easier to tackle the problem.
+  utter_user-agree:
+  - text: Next, I would suggest you to practice meditation. Meditation can produce
+      a deep state of relaxation and a tranquil mind.
+  - text: That's a great perspective! Meditation can offer a refuge from stress and
+      turmoil, allowing you to reconnect with your inner peace.
+  - text: That's a wise decision! Meditation can help you unwind, de-stress, and find
+      greater inner peace.
+  - text: You're absolutely correct! Meditation offers a myriad of benefits for both
+      the mind and body.
+  - text: Spot on! Incorporating meditation into your daily routine can have profound
+      effects on your mental and emotional well-being.
+  - text: You're spot on! Meditation can help calm the mind and promote a sense of
+      serenity and well-being.
+  - text: Spot on! Incorporating meditation into your daily routine can help you cultivate
+      a sense of calm and balance amidst life's chaos.
+  - text: You're absolutely correct! Meditation offers a sacred space for self-reflection
+      and contemplation, allowing you to gain clarity and insight into your deepest
+      desires and aspirations.
+  - text: You're absolutely right! Meditation can be a wonderful way to de-stress
+      and enhance your overall quality of life.
+  - text: Spot on! By embracing meditation, you open yourself to the infinite possibilities
+      of the present moment, allowing life to unfold with grace and spontaneity.
+  - text: I completely agree! Practicing meditation regularly can help you cultivate
+      a sense of inner peace and calm.
+  - text: You're absolutely correct! Meditation can provide a sanctuary for the mind
+      and foster a deep sense of relaxation and tranquility.
+  - text: Precisely! Meditation can help you cultivate a deeper connection with yourself
+      and find inner peace.
+  - text: I couldn't agree more! Meditation is a wonderful tool for reducing stress,
+      enhancing self-awareness, and promoting inner peace.
+  - text: You're right on target! Meditation can provide a sanctuary for the mind
+      and promote a sense of tranquility and balance.
+  - text: That's a great decision! Meditation can be a powerful tool for improving
+      mental clarity and overall well-being.
+  - text: You're right on target! Meditation can help you cultivate a greater sense
+      of mindfulness and presence in your daily life.
+  - text: Absolutely! Meditation can serve as a powerful tool for self-discovery and
+      personal growth, allowing you to explore the depths of your soul and uncover
+      the truth of who you are.
+  - text: That's a beautiful realization! Meditation can help you cultivate a deeper
+      sense of connection and belonging, allowing you to recognize the interconnectedness
+      of all life and the unity of the universe.
+  - text: Precisely! Practicing meditation regularly can help you cultivate a sense
+      of calm, clarity, and resilience in your daily life.
+  - text: Precisely! Meditation offers a sanctuary for the soul, providing you with
+      a space of peace and tranquility amidst the chaos of the external world, allowing
+      you to reconnect with your inner essence and find solace in the stillness within.
+  - text: I couldn't agree more! Meditation can be a powerful tool for managing stress
+      and promoting relaxation.
+  - text: You're on the right track! Incorporating meditation into your routine can
+      help you find inner peace and reduce stress.
+  - text: Absolutely! Meditation can serve as a powerful tool for cultivating inner
+      peace and resilience, allowing you to navigate the challenges of life with grace
+      and ease.
+  - text: I'm glad you agree! Meditation has numerous benefits, including stress reduction
+      and increased mindfulness.
+  - text: Precisely! Incorporating meditation into your routine can help you find
+      moments of stillness and serenity amidst life's busyness.
+  - text: You're absolutely right! Meditation can be a valuable practice for promoting
+      overall well-being and inner harmony.
+  - text: You're absolutely right! Meditation is a powerful practice for promoting
+      relaxation, reducing stress, and enhancing overall well-being.
+  - text: You're right on target! Meditation can help you cultivate a deeper connection
+      with yourself and find inner peace amidst life's ups and downs.
+  - text: Spot on! Incorporating meditation into your daily routine can help you cultivate
+      a greater sense of inner peace and harmony.
+  - text: You're right on target! Meditation offers a pathway to inner healing and
+      transformation, allowing you to release old wounds and traumas and embrace the
+      fullness of your being.
+  - text: I couldn't agree more! Meditation offers a pathway to self-discovery, healing,
+      and transformation.
+  - text: You're spot on! Practicing meditation regularly can help you cultivate a
+      sense of calm and resilience in the face of life's challenges.
+  - text: Absolutely! Practicing meditation regularly can help you navigate life's
+      challenges with greater ease and clarity.
+  - text: That's a wise perspective! Meditation can provide a sanctuary for the mind,
+      allowing you to find refuge from the stresses of everyday life.
+  - text: Absolutely! Meditation can be a valuable practice for promoting relaxation
+      and inner balance.
+  - text: Absolutely! Meditation offers a pathway to inner peace and self-discovery,
+      allowing you to navigate life with greater ease and clarity.
+  utter_meditation:
+  - text: Celebrate your progress and the benefits you experience from meditation,
+      no matter how small they may seem. Whether it's increased relaxation, improved
+      focus, or greater emotional resilience, acknowledge and appreciate the positive
+      changes in your life.
+  - text: Find a comfortable and quiet place to sit or lie down. Close your eyes and
+      take a few deep breaths to relax your body and mind. Allow your thoughts to
+      come and go without judgment, gently bringing your focus back to your breath
+      whenever you get distracted.
+  - text: Explore resources such as books, articles, podcasts, and videos on meditation
+      to deepen your understanding and inspire your practice. There's a wealth of
+      information available to support you on your meditation journey.
+  - text: Practice self-inquiry meditation to explore the nature of your thoughts,
+      emotions, and sense of self. Ask yourself questions such as 'Who am I?' or 'What
+      do I truly desire?' and observe the responses that arise from within.
+  - text: Incorporate mindfulness into your daily activities by bringing your full
+      attention to the present moment. Whether you're eating, walking, or washing
+      dishes, engage fully in the experience without judgment or distraction.
+  - text: Experiment with progressive muscle relaxation techniques during meditation
+      to release tension and promote relaxation throughout your body. Start by tensing
+      and relaxing each muscle group, from your toes to your head.
+  - text: Use music or soundscapes to enhance your meditation experience by creating
+      a soothing and harmonious atmosphere. Whether it's nature sounds, chanting,
+      or instrumental music, find sounds that resonate with you and support your practice.
+  - text: Practice forgiveness meditation to release resentment, anger, and bitterness
+      towards yourself and others. Start by acknowledging any hurt or pain you're
+      holding onto, then offer yourself and others forgiveness and compassion.
+  - text: Don't worry if your mind wanders during meditation. It's natural for thoughts
+      to arise. Simply acknowledge them without attachment and gently guide your awareness
+      back to the present moment.
+  - text: Use affirmations or mantras during meditation to cultivate positive beliefs
+      and intentions. Whether it's repeating phrases such as 'I am calm and centered'
+      or 'I embrace life with an open heart,' affirmations can rewire your subconscious
+      mind for greater well-being.
+  - text: Experiment with different times of day for meditation to see what works
+      best for you. Some people prefer to meditate in the morning to start their day
+      with clarity and calm, while others find evening meditation helps them unwind
+      and prepare for sleep.
+  - text: Explore different types of meditation retreats or workshops to immerse yourself
+      in intensive practice and study. Whether it's a silent retreat, mindfulness
+      workshop, or spiritual pilgrimage, retreats can offer profound opportunities
+      for growth and transformation.
+  - text: Engage in gratitude meditation to cultivate appreciation for the abundance
+      and blessings in your life. Start by reflecting on the things you're grateful
+      for, from simple pleasures to meaningful relationships, and allow yourself to
+      bask in the warmth of gratitude.
+  - text: Practice self-compassion and patience as you explore meditation. It's okay
+      to have days where your mind feels busy or restless. The important thing is
+      to show up and practice regularly, regardless of how you're feeling.
+  - text: Engage in mindful eating as a form of meditation by savoring each bite of
+      food and appreciating its taste, texture, and aroma. Eating mindfully can deepen
+      your connection to your body and the nourishment it receives.
+  - text: Experiment with different breathing techniques during meditation to calm
+      the mind and body. Whether it's diaphragmatic breathing, alternate nostril breathing,
+      or breath counting, explore various methods to find what resonates with you.
+  - text: Use guided meditation recordings or apps to support your practice. These
+      resources often provide instructions and soothing music or sounds to help you
+      relax and focus.
+  - text: Explore outdoor meditation practices to connect with nature and experience
+      a sense of spaciousness and tranquility. Whether it's walking meditation in
+      a park or sitting meditation by a lake, spending time in nature can deepen your
+      meditation experience.
+  - text: Create a calming environment for your meditation practice by dimming the
+      lights, lighting a candle or incense, and removing distractions such as electronic
+      devices. Cultivating a serene atmosphere can enhance your meditation experience.
+  - text: Use a meditation journal to reflect on your experiences, insights, and observations
+      during meditation. Writing can help deepen your understanding and awareness
+      of your inner landscape and meditation practice.
+  - text: Start with just a few minutes of meditation each day, gradually increasing
+      the duration as you become more comfortable with the practice. Remember, consistency
+      is key!
+  - text: Experiment with incorporating movement into your meditation practice through
+      practices such as yoga, tai chi, or qigong. Moving meditation can help cultivate
+      mindfulness, balance, and relaxation.
+  - text: Set an intention for your meditation practice, whether it's to cultivate
+      inner peace, reduce stress, enhance self-awareness, or deepen your spiritual
+      connection. Clarifying your intention can help focus your mind and guide your
+      practice.
+  - text: Use visualization techniques during meditation to evoke feelings of peace,
+      healing, or abundance. Whether it's imagining a tranquil beach scene, a radiant
+      light filling your body, or achieving your goals, visualization can be a powerful
+      tool for transformation.
+  - text: Use mindfulness of breath meditation as a foundational practice to develop
+      concentration, calmness, and clarity of mind. Simply bring your attention to
+      the sensations of your breath as it moves in and out of your body, anchoring
+      your awareness in the present moment.
+  - text: Engage in walking meditation as a way to cultivate mindfulness and presence
+      while moving. Focus on the sensations of each step and the rhythm of your breath
+      as you walk slowly and deliberately.
+  - text: Practice loving-kindness meditation to cultivate compassion and empathy
+      towards yourself and others. Start by directing loving-kindness towards yourself,
+      then extend it to loved ones, acquaintances, and even those you have difficulty
+      with.
+  - text: Experiment with different meditation techniques to find what works best
+      for you. Whether it's focused attention, mindfulness, loving-kindness, or transcendental
+      meditation, explore various approaches to discover what resonates with you.
+  - text: Experiment with different meditation postures to find what feels most comfortable
+      for you. Whether you sit cross-legged on the floor, use a meditation cushion
+      or bench, or practice lying down, choose a position that allows you to relax
+      and remain alert.
+  - text: Focus all your attention on your breathing. Concentrate on feeling and listening
+      as you inhale and exhale through your nostrils. Breathe deeply and slowly. When
+      your attention wanders, gently return your focus to your breathing.
+  - text: Consider joining a meditation group or class to deepen your practice and
+      connect with like-minded individuals. Sharing your meditation journey with others
+      can offer support, encouragement, and inspiration.
+  - text: Practice gratitude as part of your meditation practice by reflecting on
+      the blessings in your life and expressing appreciation for them. Cultivating
+      an attitude of gratitude can foster feelings of contentment and joy.
+  - text: Explore body scan meditation as a way to cultivate awareness of bodily sensations
+      and promote relaxation. Start by bringing your attention to each part of your
+      body, from your toes to your head, noticing any tension or discomfort and allowing
+      it to release.
+  - text: Practice compassion meditation to cultivate empathy, kindness, and goodwill
+      towards yourself and others. Start by generating feelings of compassion towards
+      yourself, then extend them to others in your life and beyond.
+  - text: Incorporate meditation into your daily routine by setting aside dedicated
+      time each day for practice. Whether it's in the morning, during your lunch break,
+      or before bed, find a time that works for you and stick to it.
+  utter_user-meditation:
+  - text: I'm so glad the meditation practice helped you feel better. Remember to
+      prioritize your mental health and well-being.
+  - text: I'm thrilled to hear that you're feeling better! Remember to listen to your
+      body and give yourself the care you deserve.
+  - text: I'm really happy that the meditation practice helped you. Remember, you
+      deserve moments of peace and relaxation.
+  - text: I'm thrilled to hear that you're feeling better! Remember to make self-care
+      a priority in your daily life.
+  - text: That's fantastic news! Keep integrating meditation into your daily life,
+      and remember that self-care is an ongoing practice.
+  - text: You're welcome! I'm so glad the meditation practice has helped you cultivate
+      patience and compassion. Remember, self-compassion is key.
+  - text: You're welcome! I'm thrilled to hear that the meditation practice has become
+      your sanctuary. Remember to honor the sacredness of each moment.
+  - text: You're welcome! I'm delighted that the meditation practice has helped you
+      cultivate gratitude. Remember to find joy in the little things.
+  - text: That's fantastic news! Keep up the good work, and remember that self-care
+      isn't selfish—it's necessary for maintaining overall well-being.
+  - text: That's wonderful to hear! Keep exploring mindfulness practices, and remember
+      that there's no one-size-fits-all approach to self-care.
+  - text: You're welcome! I'm glad the meditation practice helped you find peace and
+      tranquility. Remember, self-care is an ongoing journey.
+  - text: I'm delighted to hear that the meditation practice brought you relief. Keep
+      nurturing yourself—you deserve it.
+  - text: You're welcome! I'm thrilled that the meditation practice has helped you
+      cultivate acceptance and non-judgment. Remember, you are enough.
+  - text: I'm so glad the meditation practice has helped you cultivate self-awareness
+      and acceptance. Remember to embrace yourself fully, flaws and all.
+  - text: I'm delighted to hear that the meditation practice has become an essential
+      part of your self-care routine. Remember to listen to your body's needs.
+  - text: That's wonderful to hear! Keep up the self-care routine, and don't hesitate
+      to reach out if you need further support.
+  - text: You're welcome! I'm glad the meditation practice helped. Remember to take
+      things one step at a time and be patient with yourself.
+  - text: I'm delighted to hear that the meditation practice has brought you a sense
+      of purpose and intention. Remember to live each moment with mindfulness.
+  - text: That's wonderful to hear! Taking time for yourself is so important. If you
+      ever need more tips or guidance, feel free to reach out.
+  - text: I'm delighted to hear that the meditation practice has enhanced your relationships.
+      Remember to approach each interaction with kindness and empathy.
+  - text: That's fantastic news! Keep up the self-care routine, and don't hesitate
+      to reach out if you need additional support or guidance.
+  - text: You're welcome! I'm so glad the meditation practice brought you relief.
+      Remember to celebrate your progress along the way.
+  - text: That's wonderful to hear! Keep tapping into your inner resilience and strength
+      through meditation.
+  - text: I'm thrilled to hear that the meditation practice has sparked creativity
+      and inspiration. Remember, your potential is limitless.
+  - text: I'm thrilled to hear that the meditation practice had a positive impact
+      on you. Remember, taking care of yourself is essential for living a fulfilling
+      life.
+  - text: You're welcome! I'm glad the meditation practice made a difference for you.
+      Remember to be kind to yourself.
+  - text: You're welcome! I'm glad the meditation practice has helped you manage anxiety.
+      Remember to practice self-compassion during difficult moments.
+  - text: That's wonderful to hear! Keep embracing meditation as a tool for personal
+      growth and self-discovery.
+  - text: I'm delighted to hear that the meditation practice has helped you become
+      more mindful and present. Remember to savor each moment of your journey.
+  - text: I'm thrilled to hear that you're feeling more centered and grounded. Remember
+      to honor your body and mind's need for relaxation and rejuvenation.
+  - text: That's fantastic news! Keep nurturing your sense of connection and compassion
+      through meditation.
+  - text: You're welcome! I'm glad the meditation practice has helped you find joy
+      and contentment. Remember, happiness is an inside job.
+  - text: That's wonderful to hear! Keep up the good work, and remember to take breaks
+      and recharge when you need to.
+  - text: That's fantastic news! Keep journeying deeper into self-discovery and personal
+      growth through meditation.
+  - text: That's wonderful to hear! Keep seeking refuge in the present moment amidst
+      life's chaos.
+  - text: You're welcome! I'm glad the meditation practice helped you feel better.
+      Remember to be gentle with yourself.
+  - text: I'm delighted to hear that the meditation practice brought you relief. Remember
+      to be kind to yourself and take things one day at a time.
+  - text: You're welcome! I'm thrilled that the meditation practice has brought you
+      relief. Remember to approach each day with mindfulness and compassion.
+  - text: You're welcome! I'm glad the meditation practice helped you feel better.
+      Remember to prioritize your well-being and listen to your body's signals.
+  - text: That's fantastic news! Keep shining your light brightly and spreading positivity
+      wherever you go.
+  - text: That's fantastic news! Remember, self-care isn't a luxury—it's a necessity.
+      Keep up the good work!
+  - text: I'm glad the meditation practice brought you relief. Remember to be patient
+      with yourself as you continue your journey of self-care.
+  - text: That's wonderful to hear! Keep exploring the depths of your being through
+      meditation.
+  - text: You're welcome! I'm so glad the meditation practice has become a valuable
+      tool for managing stress. Remember to prioritize your mental health.
+  - text: You're welcome! It's great to hear that you're finding relief. Keep up the
+      self-care routine—it's worth it.
+  - text: That's wonderful to hear! Keep incorporating mindfulness into your daily
+      life, and you'll continue to see positive changes.
+  - text: You're welcome! I'm so glad the meditation practice was beneficial for you.
+      Remember to take time for yourself every day.
+  - text: I'm so glad the meditation practice has helped you live with greater authenticity
+      and integrity. Remember to honor your truth.
+  - text: I'm so glad to hear that you're experiencing greater focus and concentration.
+      Remember to be patient with yourself as you continue to grow.
+  - text: That's fantastic news! Keep up the self-care routine, and remember to listen
+      to your body's needs.
+  - text: You're welcome! I'm delighted that the meditation practice has helped you
+      find peace and serenity. Remember to carry that peace within you wherever you
+      go.
+  - text: I'm so happy to hear that the meditation practice made a difference for
+      you. Remember to prioritize your well-being.
+  - text: I'm delighted to hear that the meditation practice brought you relief. Remember,
+      self-care is essential for your overall well-being.
+  - text: You're welcome! I'm thrilled that the meditation practice helped. Remember
+      to prioritize your mental health and well-being.
+  - text: I'm so happy to hear that the meditation practice has helped you feel more
+      connected. Remember, you're not alone on your journey towards wellness.
+  - text: I'm glad to hear that you're feeling better! Remember, self-care isn't selfish—it's
+      essential for your well-being.
+  - text: You're welcome! I'm thrilled to hear that the meditation practice has helped
+      you find balance and harmony. Remember to prioritize your well-being.
+  - text: I'm delighted to hear that the meditation practice made a difference for
+      you. Remember to give yourself credit for taking proactive steps towards self-care.
+  utter_user-advice:
+  - text: Sure, I'm here for you. What advice do you need?
+  - text: Of course, what advice are you looking for?
+  - text: I'm ready to help. What do you need advice on?
+  - text: How can I be of service? What do you need advice on?
+  - text: What's troubling you? I'm here to help.
+  - text: I'd be happy to help. What's your question?
+  - text: I'd be glad to offer advice. What do you need help with?
+  - text: How can I assist you today?
+  - text: I'm ready to assist. What advice do you need?
+  - text: I'm here to support you. What advice are you looking for?
+  - text: Sure, what can I assist you with?
+  - text: What can I help you figure out?
+  - text: Let's see how I can help. What's on your mind?
+  - text: I'm here to listen. What do you need advice on?
+  - text: Let's figure this out together. What's your question?
+  - text: What advice do you seek today?
+  - text: Sure. What can I do to help?
+  - text: I'm here for you. What advice do you seek?
+  - text: What can I do for you?
+  - text: Let's see how I can assist you. What's your question?
+  - text: Feel free to share. What do you need advice about?
+  - text: Let's talk. What advice are you looking for?
+  - text: I'm all ears. What advice do you need?
+  - text: Let me know how I can help. What's your question?
+  - text: How can I help you today?
+  - text: Let's work through this together. What do you need help with?
+  - text: Okay, what do you need advice on?
+  - text: What specifically do you need advice on?
+  - text: Sure thing! What do you need advice about?
+  - text: Of course. What's the advice you're looking for?
+  - text: I'm here to help. What do you need advice on?
+  - text: What do you need help with? Let's talk.
+  - text: Yes, I'm here to assist. What's your question?
+  - text: Absolutely! What do you need help with?
+  - text: I'm here to support. What advice do you need?
+  - text: Tell me more about what you need advice on.
+  - text: I'm here to give you the advice you need. What's on your mind?
+  - text: What do you need my advice on?
+  - text: What's the issue you're facing? I'm here to help.
+  - text: I'm available to help. What's on your mind?
+  utter_learn-mental-health:
+  - text: I'd be happy to provide information on mental health. What are you interested
+      in?
+  - text: It's great that you're interested in mental health. How can I assist?
+  - text: I'm here to answer your mental health questions. What do you want to know?
+  - text: Let's talk about mental health. What do you want to learn?
+  - text: Oh that's really great. I'd be willing to answer anything that I know about
+      it.
+  - text: I can definitely help with that. What do you want to know about mental health?
+  - text: Mental health is a vital topic. What would you like to learn about?
+  - text: Let's explore mental health topics. What information do you seek?
+  - text: Of course, feel free to ask me anything about mental health.
+  - text: Great to hear you're interested in mental health! What questions do you
+      have?
+  - text: Sure, what aspect of mental health are you interested in?
+  - text: I'd be happy to talk about mental health. What are you curious about?
+  - text: I can help with mental health information. What would you like to ask?
+  - text: Mental health is a significant topic. What do you want to discuss?
+  - text: That's wonderful! Ask me anything you want to know about mental health.
+  - text: What specific information about mental health are you looking for?
+  - text: I'd be happy to educate you on mental health. What are your questions?
+  - text: Mental health awareness is important. How can I help you learn?
+  - text: Let's discuss mental health. What would you like to understand better?
+  - text: I'd love to share information on mental health. What would you like to ask?
+  - text: Ask me anything about mental health. I'll do my best to answer.
+  - text: Mental health is so important. What specific information are you looking
+      for?
+  - text: Sure, I'd be happy to share what I know about mental health.
+  - text: I can share a lot about mental health. What do you need to know?
+  - text: Understanding mental health is key. What would you like to ask about?
+  - text: Let's dive into mental health. What questions do you have?
+  - text: Yes, I can provide information on mental health. What are you curious about?
+  - text: It's fantastic that you want to learn about mental health. What can I help
+      with?
+  - text: Let's explore mental health together. What do you want to learn about?
+  - text: I'd be glad to help you learn about mental health. What would you like to
+      know?
+  - text: Let's delve into mental health. What do you need information on?
+  - text: Mental health is an important topic. What do you want to know more about?
+  - text: I'm glad you're interested in mental health. What would you like to know?
+  - text: I'm here to help with your mental health questions. What do you need to
+      know?
+  - text: Absolutely, mental health is crucial. What specific topics interest you?
+  - text: Mental health is important. What do you want to learn more about?
+  - text: I'm here to help you understand mental health better. What do you need to
+      know?
+  - text: Absolutely, what specific aspect of mental health are you interested in?
+  - text: It's great you want to learn about mental health. What's your question?
+  - text: Sure thing! What aspects of mental health are you interested in?
+  utter_mental-health-fact:
+  - text: Depression is the leading cause of disability worldwide.
+  - text: Post-traumatic stress disorder (PTSD) affects approximately 3.5% of U.S.
+      adults every year.
+  - text: Childhood trauma is a significant risk factor for developing mental health
+      disorders later in life.
+  - text: Only 41% of people who had a mental disorder in the past year received professional
+      health care or other services.
+  - text: There is no health without mental health.
+  - text: Mental health disorders are among the leading causes of disability adjusted
+      life years (DALYs) worldwide.
+  - text: Half of all mental health conditions start by 14 years of age but most cases
+      are undetected and untreated.
+  - text: Eating disorders have the highest mortality rate of any mental illness.
+  - text: Chronic physical illnesses can increase the risk of developing mental health
+      issues.
+  - text: Mental health and physical health are closely linked.
+  - text: Women are more likely to be diagnosed with anxiety or depression, while
+      men are more likely to be diagnosed with substance abuse disorders.
+  - text: More than 90% of people who die by suicide have an underlying mental illness.
+  - text: Social support is crucial for good mental health.
+  - text: Mental health conditions account for 16% of the global burden of disease
+      and injury in people aged 10-19 years.
+  - text: Stress is a major risk factor for developing mental health conditions.
+  - text: Mental health problems are one of the main causes of the overall disease
+      burden worldwide.
+  - text: Stigma and discrimination against people with mental health issues are major
+      barriers to care.
+  - text: Cultural factors can influence the way mental health conditions are perceived
+      and treated.
+  - text: Mental health treatment can significantly improve quality of life.
+  - text: Mental health stigma prevents many people from seeking the help they need.
+  - text: Schizophrenia affects more than 21 million people worldwide.
+  - text: Suicide is the second leading cause of death among 15-29-year-olds globally.
+  - text: According to a UNICEF report, one in seven Indians between 15-24 years of
+      age feels depressed.
+  - text: Mental health services are often underfunded and under-resourced worldwide.
+  - text: Anxiety disorders are the most common mental illness in the U.S., affecting
+      40 million adults in the United States age 18 and older.
+  - text: Early intervention and treatment can improve outcomes for people with mental
+      health conditions.
+  - text: Mental health issues can reduce life expectancy by up to 20 years.
+  - text: Exercise can have a positive impact on mental health by reducing symptoms
+      of depression and anxiety.
+  - text: Workplace mental health programs can improve employee well-being and productivity.
+  - text: Psychotherapy and medications are common treatments for mental health disorders.
+  - text: The global economy loses about $1 trillion per year in productivity due
+      to depression and anxiety.
+  - text: Sleep disorders are common in individuals with mental health conditions.
+  - text: Bipolar disorder affects about 45 million people worldwide.
+  - text: Around 20% of the world’s children and adolescents have mental disorders
+      or problems.
+  - text: Approximately 264 million people worldwide suffer from depression.
+  - text: Approximately 1 in 25 adults in the U.S. experiences a serious mental illness
+      in a given year that substantially interferes with or limits one or more major
+      life activities.
+  - text: Obsessive-compulsive disorder (OCD) affects approximately 2.2 million adults
+      in the U.S.
+  - text: 1 in 5 young people (age 13-18) has or will develop a mental illness in
+      their lifetime.
+  - text: People with severe mental health conditions die prematurely – as much as
+      two decades early – due to preventable physical conditions.
+  utter_action_log_critical_case:
+  - text: Thank you for sharing. I’ve noted this as a serious concern and will handle it accordingly.
+  - text: I’m here for you. This has been flagged for urgent attention.
+  utter_emergency_referral:
+  - text: It sounds like you're going through something really serious. Please consider reaching out to emergency services or a mental health professional immediately.
+  - text: Your safety matters. I strongly urge you to contact a local crisis line or seek immediate help from a medical professional.
+  utter_self_harm:
+  - text: I'm really sorry you're feeling this way. You're not alone, and help is available.
+  - text: It might help to talk to someone you trust. You deserve support and care.
+  - text: I want you to know that there are people who care and want to help you. Please consider reaching out to a mental health professional.
+  utter_contact_details:
+  - text: Get help from 111 online or call 111 and select the mental health option.
+  - text: Call 116 123 to talk to Samaritans, or email jo@samaritans.org for a reply within 24 hours
+  - text: Text "SHOUT" to 85258 to contact the Shout Crisis Text Line, or text "YM" if you're under 19
+  - text: If you're under 19, you can also call 0800 1111 to talk to Childline. The number will not appear on your phone bill.
+  utter_body_positive_message:
+  - text: Every body is worthy and valuable. You deserve kindness from yourself.
+  utter_emotional_support:
+  - text: I'm here with you. You're not alone in this.
+  utter_empathy_sadness:
+  - text: I'm really sorry you're feeling this way. It’s okay to feel sad — let’s talk about it.
+  utter_grounding_techniques:
+  - text: Let's try a grounding technique. Name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, and 1 you can taste.
+  utter_deescalate_violence:
+  - text: I'm here to help. It sounds like you're feeling overwhelmed. Please take a deep breath.
+  - text: If you're feeling unsafe or thinking about hurting someone, please speak to a mental health professional 
+      or contact emergency services immediately. You can also talk to someone at 
+      [Mind](https://www.mind.org.uk/) or [Samaritans](https://www.samaritans.org/). You are not alone.
+actions:
+  - action_offer_resources
+

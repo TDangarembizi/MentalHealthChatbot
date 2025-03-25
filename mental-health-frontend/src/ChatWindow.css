@@ -1,0 +1,9 @@
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  overflow: hidden;
+}

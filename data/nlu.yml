@@ -1,0 +1,3125 @@
+version: '3.1'
+nlu:
+- intent: greeting
+  examples: |
+    - Namaste
+    - Howdy
+    - Hey there
+    - Hey
+    - Hi
+    - Hola
+    - Hi there
+    - Salut
+    - Hello
+    - Guten tag
+    - Is anyone there?
+    - Bonjour
+    - Ola
+- intent: morning
+  examples: |
+    - Top of the morning to you
+    - Hello morning
+    - Good morning
+    - Morning
+- intent: afternoon
+  examples: |
+    - Afternoon
+    - Hello afternoon
+    - Good day
+    - Hey afternoon
+    - Good afternoon
+- intent: evening
+  examples: |
+    - Evening
+    - Good evening
+    - Hello evening
+    - Hey evening
+- intent: night
+  examples: |
+    - Hello night
+    - Night
+    - Good night
+    - Hey night
+- intent: goodbye
+  examples: |
+    - Bye
+    - So long
+    - Goodnight
+    - Until next time
+    - Fare thee well
+    - Au revoir
+    - Take care
+    - Goodbye
+    - Adios
+    - Sayonara
+    - Catch you later
+    - Later
+    - Ciao
+    - See you later
+    - ok bye
+    - Bye then
+- intent: thanks
+  examples: |
+    - You rock
+    - Thanks for the help
+    - Thanks a bunch
+    - Gracias
+    - Appreciate it
+    - Cheers
+    - That's helpful
+    - Thank you very much
+    - Much obliged
+    - You're the best
+    - Thanks
+    - Thank you
+- intent: neutral-response
+  examples: |
+    - just chillin'
+    - nothing new
+    - just the usual
+    - same old, same old
+    - not much
+    - just hanging out
+    - just taking it easy
+    - nothing special
+    - nothing much
+- intent: about
+  examples: |
+    - What's your purpose?
+    - What do you do?
+    - What are you?
+    - What is your name?
+    - What's your function?
+    - What should I call you?
+    - What's your name?
+    - Introduce yourself
+    - Tell me more about yourself.
+    - Explain yourself
+    - Who you are?
+    - Who are you?
+    - Tell me about yourself
+- intent: skill
+  examples: |
+    - Can you assist with depression?
+    - What topics can we discuss?
+    - What kind of advice can you provide?
+    - How can you assist me?
+    - Can you recommend self-help resources?
+    - What can you do?
+    - What do you know about mental health?
+    - Can you help with anxiety?
+    - How do you handle conversations?
+    - What are your features?
+    - How do you work?
+    - What are your capabilities?
+    - How can you help me feel better?
+    - How do you provide guidance?
+    - How can you help?
+    - Can you provide coping strategies?
+    - Tell me your abilities
+    - What services do you offer?
+    - What's your expertise?
+    - Can you offer emotional support?
+    - What resources do you have?
+    - How do you support mental health?
+    - What do you offer for mental wellness?
+    - What do you specialize in?
+- intent: creation
+  examples: |
+    - Tell me about your development
+    - What's your maker's name?
+    - Who is responsible for you?
+    - How did you come to be?
+    - How were you made?
+    - Who brought you into this world?
+    - Who is your inventor?
+    - What's your backstory?
+    - What's the story behind you?
+    - What's your birth story?
+    - What is your origin?
+    - What's your genesis?
+    - Who is your maker?
+    - How did you begin?
+    - What's your creation process?
+    - How did you get started?
+    - Who is the mind behind you?
+    - How were you created?
+    - Who brought you to life?
+    - Who gave you life?
+    - What's your creation story?
+    - Who is your developer?
+    - Who is behind your existence?
+    - What's your origin story?
+    - Who created you?
+    - How did you get here?
+    - How did you come into existence?
+    - What's your creator's name?
+    - How did you become?
+    - Who built you?
+    - Who developed you?
+    - Who programmed you?
+    - Who is the genius behind you?
+    - What technology created you?
+- intent: name
+  examples: |
+    - I am
+    - My name is
+    - You can call me
+    - Call me
+    - I'm known as
+    - I go by
+- intent: help
+  examples: |
+    - Can you lend a hand?
+    - Can you give me some support?
+    - Can you assist me with something?
+    - Help me out
+    - Help me with a question
+    - Could you help me?
+    - Assist me
+    - I'm in need of assistance
+    - Help me understand
+    - Help please
+    - I'm having trouble, can you assist?
+    - Support me please
+    - Can you offer assistance?
+    - Can you provide some help?
+    - Help me with this
+    - Can you help?
+    - I could use some assistance
+    - Can you provide guidance?
+    - I need help
+    - Can you give me some advice?
+    - I need support
+    - Help is needed
+    - I need your help
+    - What can you do for me?
+    - I'm stuck, can you help?
+    - Can you guide me?
+    - Give me a hand please
+    - I need a solution, can you help?
+- intent: sad
+  examples: |
+    - I feel like giving up
+    - I feel like I have no purpose
+    - I feel like crying
+    - I feel empty
+    - I'm feeling unmotivated
+    - I feel down
+    - I am so lonely
+    - I feel like I'm not good enough
+    - I feel so lonely
+    - I'm feeling empty inside
+    - I feel sad
+    - I am sad
+    - I am feeling lonely
+    - I feel like I don't matter
+    - I'm feeling depressed
+    - I'm feeling hopeless
+    - I'm feeling low
+    - I feel like I'm drowning
+    - I feel like no one understands me
+    - I feel like a burden
+    - I'm feeling unwanted
+    - I'm feeling overwhelmed
+    - I feel like everything is falling apart
+    - I'm feeling down
+    - I'm feeling blue
+    - I feel lost
+    - I'm feeling disconnected
+    - I don't have anyone
+    - I'm feeling neglected
+    - I'm feeling helpless
+    - I'm feeling unloved
+    - I'm feeling alone
+    - I feel like I'm on my own
+    - I'm feeling isolated
+- intent: stressed
+  examples: |
+    - The stress is affecting my daily life
+    - Everything is stressing me out
+    - I'm on edge all the time
+    - It's all too much right now
+    - Feeling overwhelmed
+    - I'm feeling stressed out and anxious
+    - I'm so tense and stressed
+    - I feel like I'm constantly on the edge
+    - I can't handle all this stress
+    - This stress is unbearable
+    - I feel like I'm about to break down
+    - I'm overwhelmed by my responsibilities
+    - The stress is getting to me
+    - I feel like I'm about to snap
+    - I'm so anxious and stressed
+    - I can't shake off this stress
+    - I can't seem to relax
+    - I'm struggling to cope with all this stress
+    - The pressure is too much to bear
+    - I'm under a lot of pressure
+    - I'm feeling overwhelmed by everything
+    - I feel like I'm on the brink of a breakdown
+    - My stress levels are through the roof
+    - This stress is consuming me
+    - I feel like I'm suffocating from stress
+- intent: worthless
+  examples: |
+    - I'm just a disappointment to myself.
+    - I feel like I'm just a failure at life.
+    - I'm a failure and always will be.
+    - I feel like I'm always letting people down.
+    - I feel so inadequate.
+    - I'm worthless and I don't deserve to be happy.
+    - I'm a failure and I know it.
+    - I feel like I'm not deserving of anything good.
+    - I'm worthless and I know it.
+    - I feel like I'm just a failure in everything I do.
+    - I'm such a disappointment.
+    - I feel like I'm just a failure in life.
+    - I'm just a disappointment.
+    - I'm not good enough for anyone to care about.
+    - I feel like I'm a burden to others.
+    - I'm so useless and incompetent.
+    - I feel like I'm never good enough.
+    - I feel like I'm just a failure in every aspect of my life.
+    - I'm just a waste of time and energy.
+    - I feel like I'm invisible.
+    - I feel like I'm not good at anything.
+    - I'm not worth anyone's time or attention.
+    - I'm such a screw-up.
+    - I don't matter to anyone.
+    - I'm a failure and I'll never be happy.
+    - I'm just a burden on society.
+    - I'm worthless and I know I'll never change.
+    - I'm not good enough.
+    - I'm not good enough for anyone.
+    - I'm a failure and I'll never succeed in anything.
+    - I'm not worth the trouble.
+    - I'm not worth anyone's time.
+    - I feel like I'm just taking up space.
+    - I'm a lost cause.
+    - I feel like I'm not worthy of anyone's love or attention.
+    - I'm such a failure at everything.
+    - I'm worthless.
+    - I'm a failure in every sense of the word.
+    - I feel like I'm just a waste of time and energy.
+    - I feel like I'm constantly failing.
+    - I'm a failure and I'll never succeed.
+    - I feel like I'm a disappointment to everyone.
+    - I'm always disappointing others.
+    - I feel like I'm letting everyone down.
+    - I feel like I'm always falling short of expectations.
+    - I'm a failure at everything.
+    - I'm a failure and I'll never be good enough.
+    - I don't have anything to offer.
+    - I feel like I'm just a disappointment to everyone around me.
+    - I'm not valuable to anyone.
+    - I'm just a waste of space.
+    - I'm not good enough for anyone to care about me.
+    - I can't do anything.
+    - I feel like I'm not capable of anything.
+    - I'm just a burden on everyone.
+    - I feel like I'm constantly disappointing myself.
+    - I'm a waste of space.
+    - I feel like I'm always falling short.
+    - I feel so worthless.
+    - I'm not worth anyone's effort or attention.
+    - I'm a failure and a disappointment.
+    - I'm just a disappointment to myself and others.
+    - I don't deserve to be happy.
+    - I feel like I'm just a waste of space and air.
+    - I'm so incompetent.
+    - I'm so pathetic.
+    - I feel like I'm always screwing things up.
+    - Nothing makes sense anymore.
+    - I'm just a disappointment to everyone who knows me.
+    - I'm not deserving of anyone's kindness.
+    - I feel like I'm worthless and insignificant.
+    - I feel like I'm just a waste of space and resources.
+    - I'm a failure and I'll never be successful.
+    - I'm worthless and unlovable.
+    - I'm a failure in every aspect of life.
+    - No one likes me.
+    - I'm just a disappointment to myself and everyone around me.
+    - I'm worthless and undeserving of love.
+    - I'm always messing things up.
+    - I'm not worthy of anyone's love.
+    - I'm just a burden on my family.
+    - I feel like I'm just a burden on society.
+    - I'm just a failure waiting to happen.
+    - I don't see the point anymore.
+    - I don't deserve happiness.
+    - I'm not worth anyone's effort.
+    - I feel like I'm constantly messing up.
+    - I feel like I'm always letting myself down.
+    - I'm a failure and I'll never amount to anything.
+    - I'm worthless and undeserving of happiness.
+    - I feel like I'm just a failure at everything I do.
+    - I'm not worthy of love.
+    - I feel like I'm just a burden on the world.
+    - I feel like I'm just a burden to everyone around me.
+    - I am so useless.
+    - I'm not worth the trouble or effort.
+    - I feel like a failure.
+    - I'm a failure at life.
+- intent: depressed
+  examples: |
+    - It's hard to imagine things ever getting better
+    - I feel so alone
+    - I'm tired of pretending to be happy
+    - I feel like I'm suffocating
+    - I can't shake this feeling of despair
+    - I'm struggling to get out of bed
+    - I feel so empty inside
+    - I'm exhausted, but I can't sleep
+    - The days all blend together
+    - I feel numb to everything
+    - I feel like a burden to everyone around me
+    - I'm tired of pretending to be okay
+    - My energy is completely drained
+    - No one understands what I'm going through
+    - I'm losing interest in everything
+    - Everything feels hopeless
+    - I can't remember the last time I smiled
+    - I don't know how to explain how I feel
+    - My mind won't stop racing with negative thoughts
+    - I feel like I'm stuck in a dark hole
+    - I don't see the point in anything
+    - Nothing seems to bring me joy anymore
+- intent: happy
+  examples: |
+    - I'm feeling so upbeat!
+    - I'm feeling so blithe!
+    - I'm feeling so apathetic!
+    - I'm feeling so uninterested!
+    - I'm feeling so vigorous!
+    - I'm feeling so positive!
+    - I'm feeling so enthusiastic!
+    - I'm feeling so dispassionate!
+    - I'm feeling so cool as a cucumber!
+    - I'm feeling on top of the world!
+    - I'm feeling so jaunty!
+    - I'm feeling so buoyant!
+    - I'm feeling so brisk!
+    - I'm feeling so cold!
+    - I'm feeling so in good spirits!
+    - I'm feeling so full of life!
+    - I'm feeling so easy!
+    - I'm feeling so light-footed!
+    - I'm feeling so rapturous!
+    - I'm good.
+    - I'm feeling ecstatic!
+    - I'm feeling incredible!
+    - I'm feeling so feisty!
+    - I'm feeling so collected!
+    - I'm feeling so euphoric!
+    - I'm feeling so jolly!
+    - I'm feeling so cheerful!
+    - I'm feeling so exuberant!
+    - I'm feeling so tranquil!
+    - Everything is going well!
+    - I feel ok
+    - I'm feeling so nonchalant!
+    - I'm feeling so peaceful!
+    - I'm feeling so radiant!
+    - I'm feeling so merry!
+    - I'm feeling so chirpy!
+    - I'm feeling so fleet!
+    - I'm feeling so elated!
+    - I'm feeling so mirthful!
+    - I'm feeling so frisky!
+    - I'm feeling so impassive!
+    - I'm feeling so sunny!
+    - I feel like celebrating!
+    - Life is good!
+    - I'm feeling so peppy!
+    - I'm feeling so mellow!
+    - I'm feeling so laid-back!
+    - I'm in a fantastic mood!
+    - I'm feeling so perky!
+    - Feeling like I'm on cloud nine!
+    - I'm so happy right now!
+    - I'm feeling so animated!
+    - I feel happy.
+    - I'm feeling so spirited!
+    - I'm feeling so zippy!
+    - I'm feeling so contented!
+    - I am happy.
+    - I'm feeling so overjoyed!
+    - I'm feeling so ecstatic!
+    - I'm feeling so joyful!
+    - I'm feeling so spry!
+    - I'm feeling so unemotional!
+    - I'm feeling so in high spirits!
+    - cheerful
+    - I'm feeling so beaming!
+    - I'm feeling so easygoing!
+    - I'm feeling so carefree!
+    - I'm feeling so unruffled!
+    - I'm feeling so cool!
+    - I'm feeling so energetic!
+    - I'm feeling so gleeful!
+    - I'm feeling so blessed!
+    - I'm feeling so detached!
+    - I'm feeling so thrilled!
+    - I'm feeling so sparkling!
+    - I'm feeling so agile!
+    - I'm feeling so bright!
+    - I'm feeling so blissful!
+    - I'm feeling so grateful!
+    - I'm feeling so phlegmatic!
+    - I'm feeling so full of beans!
+    - I'm feeling so chipper!
+    - I'm feeling so unworried!
+    - I'm feeling so indifferent!
+    - I'm feeling so unfeeling!
+    - I'm feeling so sprightly!
+    - I'm in a great place right now!
+    - Today is a good day!
+    - I'm feeling so light-hearted!
+    - I'm feeling so bouncy!
+    - I'm feeling so happy!
+    - I'm feeling fantastic!
+    - I'm feeling so vibrant!
+    - I'm feeling so disinterested!
+    - I'm on top of the world!
+    - I'm feeling so fast!
+    - I feel like dancing!
+    - I'm feeling so fortunate!
+    - I'm feeling so zestful!
+    - I'm feeling so composed!
+    - It's a great day to be alive!
+    - I'm feeling so chilled!
+    - I'm feeling so uninvolved!
+    - I'm feeling so high-spirited!
+    - I'm feeling so bubbly!
+    - I'm feeling so nimble!
+    - I'm feeling so imperturbable!
+    - I'm feeling so numb!
+    - I'm fine
+    - I'm feeling so quick!
+    - I'm feeling so stolid!
+    - I'm feeling so jovial!
+    - I'm feeling so lucky!
+    - I'm feeling so effervescent!
+    - I'm feeling so dynamic!
+    - I'm feeling so unconcerned!
+    - I'm feeling so content!
+    - I'm feeling so calm!
+    - I'm feeling so untroubled!
+    - I'm feeling so insouciant!
+    - I'm feeling so jubilant!
+    - I'm feeling so relaxed!
+    - I feel great today.
+    - I'm feeling so delighted!
+    - I'm feeling amazing!
+    - I'm feeling awesome!
+    - I'm feeling so casual!
+    - I'm feeling so vivacious!
+    - I'm feeling so serene!
+    - I'm feeling so alive!
+    - I'm feeling so eager!
+    - I'm feeling so unresponsive!
+    - I'm feeling wonderful!
+    - I'm feeling so lively!
+- intent: casual
+  examples: |
+    - I'm good with that.
+    - What's the story?
+    - Is that so?
+    - Fine
+    - I guess so.
+    - ok
+    - For sure.
+    - Don't sweat it.
+    - It happens.
+    - Oh cool.
+    - I hear you.
+    - Definitely.
+    - Cool.
+    - What's the word?
+    - Absolutely.
+    - Huh, interesting.
+    - What's the deal?
+    - Sure.
+    - What's the buzz?
+    - What's up?
+    - Sure thing.
+    - I suppose.
+    - That works.
+    - Not a problem.
+    - Seems like it.
+    - That's life.
+    - Whatever
+    - No big deal.
+    - Gotcha.
+    - Alright.
+    - Kind of.
+    - Oh really?
+    - Alright then.
+    - Totally.
+    - I understand.
+    - What's new?
+    - not really
+    - Nah.
+    - What's going on?
+    - What's the scoop?
+    - What's next?
+    - K
+    - Oh I see.
+    - no
+    - Makes sense.
+    - I see what you mean.
+    - Fine by me.
+    - Nope.
+    - What else?
+    - Got it.
+    - What's the latest?
+    - yes
+    - Tell me more.
+    - Sounds good.
+    - So what?
+    - What's the lowdown?
+    - Fair enough.
+    - So?
+    - okay
+    - nice
+    - Yep.
+    - What's happening?
+    - That's fine.
+    - And then?
+    - Not really.
+    - And?
+    - yeah
+    - No worries.
+    - That's okay.
+    - Interesting.
+- intent: anxious
+  examples: |
+    - Anxiety is like a monster that lurks in the shadows.
+    - This anxiety is unbearable.
+    - I'm anxious and it's hard to find a moment of calm.
+    - I'm anxious and it's hard to feel in control.
+    - Anxiety is like a constant struggle I face.
+    - This anxiety is like a storm that won't pass.
+    - Anxiety is like a storm that won't pass.
+    - I'm anxious and it's hard to explain to others how I feel.
+    - Anxiety is like a shadow that won't leave me.
+    - I'm anxious and it's hard to control my thoughts.
+    - I'm anxious and it's hard to feel in control of my thoughts.
+    - I'm anxious and it's hard to see beyond the darkness.
+    - I'm anxious and it's hard to focus on anything else.
+    - Anxiety is like a constant hum in my ears.
+    - I'm anxious and it's affecting my daily life.
+    - I'm anxious and I don't know how to stop it.
+    - Anxiety is like a storm that won't let up.
+    - Anxiety is making everything hard.
+    - I feel like I'm losing control to anxiety.
+    - My anxiety is through the roof.
+    - I'm anxious and it's hard to find my way.
+    - I'm feeling overwhelmed by anxiety.
+    - I'm anxious and it's hard to feel like myself.
+    - Anxiety is making me feel restless.
+    - This anxiety feels suffocating.
+    - I'm struggling to manage my anxiety.
+    - Anxiety is like a drumbeat in my head.
+    - I'm feeling really anxious and I don't know what to do.
+    - This anxiety is really getting to me.
+    - I'm anxious and it's hard to see a way out.
+    - The anxiety is making me feel like I'm trapped.
+    - I feel so anxious all the time and I don't know why.
+    - This anxiety is like a storm that rages within me.
+    - Anxiety is like a constant battle I fight every day.
+    - I'm anxious and it's hard to feel anything else.
+    - I feel so anxious.
+    - Anxiety is like a constant weight on my chest.
+    - I'm anxious about everything.
+    - Anxiety is like a fog that won't lift.
+    - This anxiety is like a never-ending cycle.
+    - I'm drowning in a sea of anxiety.
+    - I'm anxious and it's hard to explain to others.
+    - I'm anxious and it's hard to relax.
+    - Anxiety is making me feel like I'm losing my mind.
+    - I'm anxious and it's hard to find calm.
+    - I'm anxious and it's hard to find the light at the end of the tunnel.
+    - I'm anxious and it's hard to feel safe.
+    - I'm anxious and it's hard to see through the fog.
+    - Anxiety is like a weight that I carry everywhere.
+    - I'm anxious and it's draining all my energy.
+    - I'm overwhelmed with anxiety.
+    - Anxiety is like a constant companion.
+    - Anxiety is like a constant buzz in my head.
+    - I'm anxious and it's hard to see the light.
+    - The anxiety is crippling.
+    - I'm so anxious and I don't know why.
+    - I feel like I'm being suffocated by anxiety.
+    - This anxiety is like a prison I can't escape.
+    - I'm struggling with anxiety.
+    - I'm anxious and it's hard to feel safe in my own skin.
+    - Anxiety is like a dark cloud hanging over me.
+    - This anxiety is making me feel so alone.
+    - I'm anxious and it's hard to find peace within myself.
+    - I'm anxious and it's hard to catch my breath.
+    - Anxiety is like a wave that crashes over me.
+    - This anxiety is like a constant tug-of-war.
+    - I'm anxious and I don't know how to calm down.
+    - I'm anxious about the future.
+    - This anxiety is like a never-ending battle.
+    - I'm anxious and it's hard to feel anything but overwhelmed.
+    - Anxiety is like a wall that I can't break through.
+    - I can't shake this feeling of anxiety.
+    - This anxiety is like a nightmare I can't wake up from.
+    - The anxiety is overwhelming me.
+    - The anxiety is consuming me.
+    - I'm anxious and it's hard to find hope.
+    - I feel like I'm going to explode with anxiety.
+    - I'm anxious and it's hard to find relief.
+    - I'm anxious and it's hard to see a way out of this.
+    - Anxiety is like a storm that brews inside me.
+    - I'm anxious and it's hard to stop the racing thoughts.
+    - Anxiety is making it hard to focus.
+    - This anxiety is like a knot in my stomach.
+    - I can't seem to calm my anxiety.
+    - This anxiety feels never-ending.
+    - Anxiety is like a weight on my shoulders.
+    - I'm anxious and it's hard to see beyond it.
+    - I'm anxious and it's hard to shake this feeling.
+    - I'm anxious and it's affecting my sleep.
+    - Anxiety is making me feel like I'm going crazy.
+    - I'm so anxious because of
+    - I'm anxious about everything and nothing.
+    - This anxiety is like a fire in my chest.
+    - This anxiety is like a constant ache.
+    - This anxiety is like a storm inside me.
+    - I'm anxious and it's hard to find peace.
+    - I'm anxious and it's hard to keep it together.
+    - I'm anxious all the time.
+    - This anxiety is like a storm that rages inside me.
+    - I'm anxious and it's hard to explain why.
+    - Anxiety is taking over my life.
+    - This anxiety is making me feel trapped.
+    - Anxiety is like a fog that clouds my thoughts.
+    - This constant anxiety is exhausting.
+    - I'm anxious and I feel like I'm suffocating.
+    - This anxiety is like a never-ending cycle of worry.
+    - I'm anxious about the smallest things.
+    - Anxiety is like a never-ending battle.
+    - I feel like I'm suffocating with anxiety.
+    - This anxiety is like a never-ending nightmare.
+    - This anxiety is like a shadow I can't shake off.
+    - I'm anxious and it's hard to feel anything but fear.
+    - I'm anxious about things I can't even explain.
+    - This anxiety is like a never-ending cycle of fear.
+    - This anxiety is like a weight that I can't shake off.
+    - My anxiety is out of control.
+    - This anxiety is like a dark cloud over my head.
+    - The anxiety is paralyzing me.
+    - This anxiety is making me feel hopeless.
+    - I'm anxious and it's hard to find a moment of peace.
+    - This anxiety is like a maze I can't escape.
+    - Anxiety is like a weight on my heart.
+    - Anxiety is like a constant companion I can't shake off.
+    - I'm anxious and it's hard to find peace of mind.
+    - Anxiety is making me feel sick.
+- intent: not-talking
+  examples: |
+    - Let's not dwell on it any longer.
+    - I'd rather not talk about it again.
+    - I'm not up for extending this discussion.
+    - I'd rather not go into details.
+    - I'm not up for talking about it.
+    - Let's not get into this.
+    - Can we skip this topic?
+    - Let's not go there.
+    - I'm not in the mood for this discussion.
+    - I'm not interested in discussing this.
+    - I don't want to go there.
+    - Let's not go any further with this conversation.
+    - I don't want to keep talking about this.
+    - I'd rather not get into it.
+    - No just stay away.
+    - I don't feel like going through this again.
+    - I'm not up for continuing this discussion.
+    - Just shut up
+    - Let's change the subject.
+    - Let's not go there again.
+    - I'd rather not share.
+    - Let's keep it light.
+    - I'm not ready to talk about it.
+    - I'm not feeling very chatty right now.
+    - I'm not in the mood for talking about this anymore.
+    - Can we wrap this up?
+    - Let's not talk about this.
+    - I'm not feeling like talking about this right now.
+    - I'd rather not talk about it now.
+    - Can we move past this?
+    - I'm not up for this conversation anymore.
+    - I don't have the energy to explain.
+    - I'd rather not discuss this again.
+    - Can we talk about something else?
+    - I'd rather not get into it right now.
+    - Can we avoid this subject?
+    - Let's not drag this out.
+    - I don't want to talk about it anymore.
+    - I don't feel like sharing right now.
+    - I'm not feeling like continuing this.
+    - I don't want to discuss it.
+    - Let's not talk about that.
+    - Let's leave it alone.
+    - Let's not discuss this any further.
+    - I don't want to revisit this.
+    - I'm not in the mood for this anymore.
+    - Let's not keep this conversation going.
+    - Let's keep it short.
+    - Let's not drag this conversation on.
+    - I don't have anything to say.
+    - I'm not up for continuing this conversation.
+    - I don't want to get into it right now.
+    - Can we wrap this up and move on?
+    - Talking won't change anything.
+    - Can we talk about something else instead?
+    - I don't want to talk about this any further.
+    - Can we skip this conversation?
+    - I'm not in the mood to chat.
+    - I'm not feeling like talking about this.
+    - I'm not in the mood for going on about this.
+    - I don't feel like going any further with this.
+    - I don't want to delve into this right now.
+    - Can we just stop?
+    - I don't want to talk about this anymore.
+    - I'm not feeling very talkative right now.
+    - I don't want to continue this.
+    - I don't feel like talking about this anymore.
+    - Can we change the topic?
+    - Let's not go any further into this.
+    - Can we end this conversation here?
+    - I don't want to talk about it.
+    - I'm not in the mood for this topic.
+    - I'd rather not talk about my feelings.
+    - I'm not in the mood for this conversation.
+    - I'm not ready to share.
+    - I'd rather not bring this up again.
+    - Let's not dwell on it.
+    - I'd rather not talk about this again.
+    - I'd rather not keep this going.
+    - I'd rather not continue this conversation.
+    - I don't want to talk about this again.
+    - I'm not up for this any longer.
+    - Let's not talk about this further.
+    - Let's leave this alone for now.
+    - I don't feel like continuing this discussion.
+    - I'm not up for discussing this.
+    - I'm not ready to open up.
+    - I'm not in the mood for this conversation to continue.
+    - I'm not in the mood for this conversation anymore.
+    - I'm not in the mood for a conversation.
+    - Can we skip this?
+    - I'd rather not keep this conversation going.
+    - Let's not go further into this.
+    - I'm not interested in talking.
+    - Let's not go any further with this discussion.
+    - Can we move on?
+    - Please leave me alone.
+    - Let's not drag this on.
+    - Can we leave it here?
+    - I'm not feeling like discussing this further.
+    - Can we end this?
+    - I'm not feeling chatty.
+    - I don't feel like discussing this further.
+    - I'd rather not prolong this discussion.
+    - I don't feel like talking right now.
+    - I don't have the energy to discuss it.
+    - I don't feel like talking about this right now.
+    - Can we call it a day?
+    - I'd rather not go into it right now.
+    - I'd rather not keep discussing this.
+    - Let's not continue this.
+    - I don't feel like explaining right now.
+    - I'm not in the mood for discussing.
+    - Can we move on from this?
+    - I'd rather keep quiet.
+    - I'd rather not talk about it anymore.
+    - I'm not in the mood for talking about this.
+    - Let's not go any deeper into this.
+    - I'd rather not talk about my problems.
+    - Can we just move on?
+    - I don't want to continue talking about this.
+    - I'd rather not keep talking about this.
+    - I'm not interested in talking about it anymore.
+    - I'm not in the mood for talking.
+    - I'd rather not prolong this conversation.
+    - I don't want to keep talking about this anymore.
+    - I'm not feeling like talking about this anymore.
+    - I'd rather not discuss it.
+    - I'd rather not go there right now.
+    - I'm not in the mood for this discussion to continue.
+    - Let's not get into details.
+    - I need some space.
+    - I'm not up for this anymore.
+    - I can't bring myself to open up.
+    - I don't feel like extending this conversation.
+    - I'm not up for a conversation.
+    - I'd rather not keep going over this.
+    - I'd rather not bring this up.
+    - Can we talk later?
+    - Let's not go over this again.
+    - I'm not in the mood for this right now.
+    - I'm not feeling like discussing this anymore.
+    - Can we talk about something more positive?
+    - I'm not feeling talkative right now.
+    - Let's not revisit this.
+    - Let's not talk about this anymore.
+    - I don't feel like continuing this conversation any longer.
+    - Can we leave this behind?
+    - I'm not in the mood to talk.
+    - Let's not go on about this anymore.
+    - I don't feel like explaining.
+    - I'm not comfortable talking about this.
+    - I don't want to go there again.
+    - I'm not up for a discussion.
+    - I'd rather not prolong this any further.
+    - I don't want to get into it.
+    - I don't feel like discussing this.
+    - Can we talk about this later?
+    - I'm not feeling like talking about this further.
+    - I'm not feeling talkative.
+    - I don't want to bring it up.
+    - I don't have the patience for this discussion.
+    - I'd rather not go through this again.
+    - I'd rather not continue this any further.
+    - I'm not feeling like continuing this conversation.
+    - I'm not feeling like talking about it anymore.
+    - I'm not up for extending this conversation.
+    - I'm not feeling like talking.
+    - I'd rather not get into this.
+    - Let's avoid this topic.
+    - Can we leave it at that?
+    - I'd rather keep it to myself.
+    - Let's not talk about it.
+    - Let's talk about something else.
+    - I'm keeping this to myself.
+    - I'd rather not discuss it any further.
+    - I don't feel like discussing this anymore.
+    - I'm not interested in talking about this.
+    - Let's drop the subject.
+    - Can we change the subject?
+    - I'm not in the mood for discussing this anymore.
+    - Can we stop here and move on?
+    - I'm not in the mood for this discussion anymore.
+    - Can we stop here?
+    - I'm not up for this discussion.
+    - Can we avoid this conversation?
+    - I don't feel like talking about this at the moment.
+    - I don't want to get into this again.
+    - I don't want to continue this conversation.
+    - Let's keep this to ourselves.
+- intent: sleep
+  examples: |
+    - I'm tired of feeling like I'm barely keeping it together.
+    - I've tried avoiding caffeine, but it hasn't helped me sleep.
+    - I feel like I'm losing control because of my lack of sleep.
+    - I'm worried about how this lack of sleep is affecting my work.
+    - I'm worried about how this lack of sleep is affecting my mood swings.
+    - I've tried creating a relaxing bedtime routine, but it hasn't worked.
+    - I'm worried about how this lack of sleep is affecting my productivity.
+    - I'm worried about how this lack of sleep is affecting my patience.
+    - I'm tired of feeling so worn out all the time.
+    - I'm struggling with my sleep schedule.
+    - I can't seem to get a good night's rest.
+    - I'm tired of feeling like a zombie every day.
+    - I feel like I'm losing my ability to function properly because of lack of sleep.
+    - I'm worried about how this lack of sleep is affecting my social life.
+    - I can't get to sleep.
+    - I'm starting to feel the emotional effects of not sleeping well.
+    - I feel like I'm living in a fog because of lack of sleep.
+    - I'm tired of feeling like I'm missing out on life because of lack of sleep.
+    - I'm worried about the long-term effects of not getting enough sleep.
+    - I can't switch off my brain at night.
+    - I'm tired of feeling like this all the time.
+    - I'm tired of feeling like I'm constantly struggling to keep my eyes open.
+    - I'm always sleepy during the day.
+    - I'm desperate for a good night's sleep.
+    - I feel like I'm running on empty.
+    - I've tried drinking herbal tea before bed, but it hasn't helped.
+    - I feel like I'm wasting away because I can't sleep properly.
+    - I feel like I'm running on fumes because of lack of sleep.
+    - I've tried creating a bedtime routine, but it hasn't improved my sleep.
+    - I'm tired of feeling tired all the time.
+    - I feel like I'm losing my mind because of lack of sleep.
+    - I'm tired of feeling like I'm on autopilot all day.
+    - I'm tired of feeling like I'm always behind because of lack of sleep.
+    - I feel like I'm always on edge because of my lack of sleep.
+    - I feel like I'm losing my ability to cope because of lack of sleep.
+    - I can't seem to find a comfortable sleeping position.
+    - I'm drowsy all day because I can't sleep at night.
+    - I'm exhausted but my mind races when I try to sleep.
+    - I feel like I'm living in a haze because of lack of sleep.
+    - I feel like I'm losing my grip on reality because of lack of sleep.
+    - I'm worried about the impact of sleep deprivation on my overall health.
+    - I'm worried about the toll this is taking on my physical health.
+    - I'm constantly tired because of lack of sleep.
+    - I'm worried about how this lack of sleep is affecting my creativity.
+    - I'm worried about the impact of sleep deprivation on my mental health.
+    - I'm worried about how this lack of sleep is affecting my ability to focus.
+    - I feel like I've tried everything to improve my sleep.
+    - I'm constantly yawning during the day because I can't sleep at night.
+    - I'm worried about how this lack of sleep is affecting my relationships.
+    - I've tried meditation, but it doesn't help me sleep.
+    - I'm worried about how this lack of sleep is affecting my decision-making.
+    - I dread nighttime because I know I won't be able to sleep.
+    - I'm tired of feeling like I'm always playing catch-up because of lack of sleep.
+    - I feel like I'm on a never-ending cycle of tiredness.
+    - I'm tired of feeling like I'm constantly in a state of jet lag.
+    - I feel like I'm at my breaking point because of this insomnia.
+    - I'm worried about how this lack of sleep is affecting my emotional stability.
+    - I feel like I'm losing my sanity because of lack of sleep.
+    - I've tried counting sheep, warm milk, and everything else, but nothing works.
+    - I'm tired of feeling so irritable because of lack of sleep.
+    - I'm worried about how this lack of sleep is affecting my overall well-being.
+    - I'm tired of feeling so drained all the time.
+    - I've tried white noise machines, but they don't help me sleep.
+    - I feel like I'm going crazy because I can't sleep.
+    - I'm so tired of this cycle of sleeplessness.
+    - I'm tired of feeling like I'm constantly in a state of exhaustion.
+    - I'm tired of feeling like I'm just surviving each day.
+    - I'm worried about how this lack of sleep is affecting my ability to concentrate.
+    - I'm tired of feeling like a zombie because of lack of sleep.
+    - I'm struggling to function because of this lack of sleep.
+    - I've tried turning off screens before bed, but it hasn't helped.
+    - I'm wide awake when I should be sleeping.
+    - I feel like a zombie during the day because I can't sleep at night.
+    - I'm worried about the toll this lack of sleep is taking on my body.
+    - I'm afraid I'll never be able to sleep properly again.
+    - My mind won't shut off at night.
+    - I'm worried about how this lack of sleep is affecting my ability to learn.
+    - I feel like I'm in a constant fog because of lack of sleep.
+    - I'm tired of feeling like I'm in a constant battle with sleep.
+    - I dread going to bed because I know I'll just lie awake.
+    - I can't concentrate during the day because of lack of sleep.
+    - I'm starting to feel like I'll never get a good night's sleep again.
+    - I feel exhausted but can't sleep.
+    - I keep waking up during the night.
+    - I feel like I'm never rested.
+    - I'm exhausted but my mind won't let me sleep.
+    - I'm struggling with insomnia and it's affecting my life.
+    - I feel like I'm losing my mind because I can't sleep.
+    - I feel like I'm on the brink of collapse because of this insomnia.
+    - I'm at my wit's end with this insomnia.
+    - I'm so fatigued, but sleep eludes me.
+    - I can't remember the last time I had a good night's sleep.
+    - I'm worried about the toll this lack of sleep is taking on my immune system.
+    - I feel like I'm just going through the motions because of lack of sleep.
+    - I feel like I'm stuck in a never-ending cycle of sleeplessness.
+    - I'm struggling to find any relief from this lack of sleep.
+    - I'm so tired, but I just can't sleep.
+    - I'm starting to feel the effects of sleep deprivation.
+    - I'm irritable because I can't get enough sleep.
+    - I'm tired of feeling like I'm barely functioning.
+    - I feel like I'm living in a constant state of exhaustion.
+    - I have trouble falling asleep.
+    - I'm worried about the toll this lack of sleep is taking on my health.
+    - I toss and turn all night.
+    - I'm tired of feeling like I'm going to fall asleep at any moment.
+    - I'm so tired, but sleep seems impossible.
+    - I feel like I'm in a never-ending cycle of sleeplessness.
+    - I'm tired of feeling like I'm always on the verge of falling asleep.
+    - I'm afraid to go to bed because I know I won't sleep.
+    - I'm desperate for some restful sleep.
+    - I'm so frustrated with my inability to sleep.
+    - I've tried reading before bed, but it hasn't helped me sleep.
+    - I'm starting to feel the effects of sleep deprivation on my memory.
+    - I've resorted to sleeping pills, but they don't work well.
+    - I'm struggling to keep my eyes open during the day.
+    - I'm tired of feeling like I'm missing out on so much because of lack of sleep.
+    - I'm worried about how this lack of sleep is affecting my mood.
+    - I'm tired of feeling like I'm constantly on the verge of falling asleep.
+    - I'm tired of feeling like I'm on the brink of collapse.
+    - I feel like I'm constantly running on empty.
+    - I'm at my wits' end with this insomnia.
+    - I'm worried about how this lack of sleep is affecting my performance at work.
+    - I've tried exercising during the day, but it hasn't improved my sleep.
+    - I'm starting to feel the physical effects of not sleeping enough.
+    - I've tried everything but nothing seems to help me sleep.
+    - I feel like I'm at my breaking point because of this lack of sleep.
+    - I feel like I'm living on caffeine.
+    - I feel like I'm in a constant state of exhaustion.
+    - I'm worried about how this lack of sleep is affecting my emotional well-being.
+    - I wake up feeling more tired than when I went to bed.
+    - I've tried taking a warm bath before bed, but it hasn't improved my sleep.
+    - I'm worried about the long-term effects of not sleeping.
+    - I'm too anxious to sleep properly.
+    - I feel like I'm on the edge of a breakdown because of lack of sleep.
+- intent: death
+  examples: |
+    - My pet guinea pig passed away
+    - My furry ball of energy died
+    - I'm grieving the loss of my pet spider
+    - My brother-in-law passed away
+    - My arachnid friend died
+    - I lost my baby
+    - My wife passed away
+    - My pet lizard passed away
+    - I lost my husband
+    - My son died
+    - My mother passed away
+    - My pet hermit crab passed away
+    - I lost my turtle
+    - My sibling died
+    - I lost my furry friend
+    - My close neighbor died
+    - My niece died
+    - My pet snake died
+    - My daughter passed away
+    - I'm grieving the loss of my pet rabbit
+    - My pet parrot passed away
+    - My pet garden snail passed away
+    - My equine friend passed away
+    - My pet frog passed away
+    - My scaly friend died
+    - My mentor died
+    - I'm grieving the loss of my spouse
+    - My acquaintance passed away
+    - My pet tortoise passed away
+    - My pet fish died
+    - My reptilian companion passed away
+    - My feline friend passed away
+    - I lost my pet snake
+    - My floppy-eared friend passed away
+    - I'm mourning the loss of my pet horse
+    - My guinea pig died
+    - I lost my pet hamster
+    - My best friend passed away
+    - My uncle died
+    - I'm mourning the loss of my pet snail
+    - My amphibian friend died
+    - My slow-moving friend died
+    - I lost my pet bird
+    - My childhood friend died
+    - My tiny companion died
+    - My aunt passed away
+    - My shelled friend died
+    - My aquatic friend died
+    - I'm mourning the loss of my hamster
+    - I lost my roommate
+    - My pet goldfish passed away
+    - My loyal dog died
+    - I'm grieving the loss of my in-law
+    - I'm grieving the loss of my neighbor
+    - My grandparent passed away
+    - My bunny died
+    - I'm grieving the loss of my pet fish
+    - I lost my father
+    - My pet bird passed away
+    - My faithful companion passed away
+    - My crustacean friend died
+    - I'm mourning the loss of my child
+    - My feathered friend died
+    - I lost my pet insect
+    - My cousin died
+    - My colleague passed away
+    - My pet beetle passed away
+    - My rabbit passed away
+    - My beloved horse died
+    - I'm grieving the loss of my pet dog
+    - My nephew passed away
+    - My pet tarantula passed away
+    - I'm mourning the loss of my close friend
+    - I'm mourning the loss of my pet reptile
+    - I'm mourning the loss of my parent
+    - My father-in-law died
+    - My slithery friend died
+    - I lost my pet turtle
+    - I'm mourning the loss of my pet frog
+    - I lost my pet crab
+    - My mother-in-law passed away
+    - I lost my confidant
+    - My sister-in-law died
+    - My pet cat died
+- intent: understand
+  examples: |
+    - You're not even trying to understand.
+    - You're not making any sense.
+    - This is a waste of time.
+    - This conversation is not productive.
+    - I need someone who can offer real understanding.
+    - I need someone who can actually listen.
+    - Talking to you is like talking to a brick wall.
+    - You're not addressing my concerns.
+    - This conversation isn't helping me feel any more hopeful.
+    - I need someone who can offer genuine empathy.
+    - You're not giving me the clarity I need right now.
+    - You're not giving me the support I need.
+    - You can't help me.
+    - You don't get it.
+    - I'm feeling really isolated.
+    - I need someone who can offer genuine support.
+    - You're not even trying to see things from my perspective.
+    - This is getting nowhere.
+    - I wish I could find someone who gets it.
+    - Talking to you isn't helping.
+    - I'm feeling really frustrated talking to you.
+    - I need someone who can empathize with me.
+    - This isn't helping me feel any better about this situation.
+    - I'm feeling really alone talking to you.
+    - I feel like I'm talking to a wall.
+    - This isn't what I need right now.
+    - You're not helpful at all.
+    - You're not giving me the understanding I need.
+    - I need someone who can actually listen and understand.
+    - You're not even listening to what I'm saying.
+    - You're not offering the comfort I need right now.
+    - This conversation is going nowhere.
+    - I'm feeling really alone.
+    - I'm not feeling heard.
+    - You're useless.
+    - You can't possibly know what I'm going through.
+    - This is just making things worse.
+    - You don't understand me.
+    - This conversation isn't making me feel any better.
+    - I'm feeling more frustrated.
+    - Talking to you isn't helping me feel any less overwhelmed.
+    - You're not even trying to help.
+    - You're just some robot. How would you know?
+    - You're not making me feel any better about this situation.
+    - You're not making me feel any better about this.
+    - Nobody understands me.
+    - I'm feeling disconnected.
+    - You're not helpful in the slightest.
+    - You're not understanding my perspective.
+    - You're not helping me feel any less confused.
+    - I need someone who can actually relate to me.
+    - You're not helping me feel any better.
+    - You're not helping me feel heard or understood.
+    - You're not offering any real solutions.
+    - I need someone who can offer true empathy.
+    - This conversation is making me feel more alone.
+    - This is frustrating.
+    - I'm not getting through to you.
+    - I wish I could talk to a real person.
+    - Talking to you isn't helping me feel any less anxious.
+    - I'm feeling really unsupported.
+    - Talking to you is pointless.
+    - You're not getting it.
+    - This is like talking to a machine.
+- intent: done
+  examples: |
+    - I've covered everything on my end.
+    - That's all I've got to say for now.
+    - I've discussed all the points.
+    - That concludes our discussion.
+    - I have no further input.
+    - I have no more to contribute.
+    - That's all from my side.
+    - That's all from me on this topic.
+    - That's the end of my input.
+    - That's all I have for today.
+    - I've said all I wanted to say.
+    - We've covered everything we needed to.
+    - I've covered all the points.
+    - We can move on now.
+    - I've mentioned everything I wanted to.
+    - I've made all my points.
+    - I've given my perspective.
+    - That's all I've got on this matter.
+    - That's everything on this matter.
+    - We've discussed all the aspects.
+    - That's everything I have to say.
+    - That's everything from me for now.
+    - We can leave it there.
+    - That's all from my side for now.
+    - That's all for now.
+    - That's everything from me on this issue for today.
+    - That's all I have on this issue for now.
+    - I've given all the information I have.
+    - That's all of it.
+    - I've spoken my mind.
+    - I'm done talking about this.
+    - That's all I have on this topic for today.
+    - That's everything I wanted to mention.
+    - I've shared all my thoughts.
+    - I've given all my input.
+    - That's all for today's discussion.
+    - I've laid out my thoughts.
+    - That's everything on my mind.
+    - That's everything I have on this topic for now.
+    - I have nothing more to add.
+    - That's everything I have on this topic.
+    - That's everything from me on this topic for today.
+    - That's all.
+    - I've laid it all out.
+    - That's the end of it.
+    - I've spoken my piece.
+    - I have no further comments.
+    - That's all from me on this matter for today.
+    - I'm finished with this topic.
+    - I've mentioned everything on my mind.
+    - That's all from me on this topic for today.
+    - That's all I have for today's conversation.
+    - I've gone through my thoughts.
+    - I've covered everything I wanted to mention.
+    - I've shared everything I wanted to discuss.
+    - I don't have anything more to say
+    - That's all i have to say
+    - I've covered everything I wanted to say.
+    - That's all I have on this matter.
+    - That's all I've got on this subject.
+    - That's all from me on this issue for now.
+    - I'm done for now.
+    - That's all from me.
+    - That's all from me for now.
+    - That's everything I have for this discussion.
+    - I've given my opinion.
+    - That's all from me on this subject.
+    - We've gone through everything.
+    - I've given my side of things.
+    - I'm finished talking about this.
+    - I've given all my thoughts on this.
+    - That's all from me on this discussion for today.
+    - We've covered the topic.
+    - That's everything from me on this matter.
+    - no, that would be all
+    - That wraps things up for me.
+    - That's all from my end.
+    - I've finished my thoughts on this.
+    - That's everything I can think of.
+    - That sums it up.
+    - I'm out of things to say.
+    - That's all I've got for now.
+    - We've gone over everything.
+    - I've said everything I needed to.
+    - That's all I have for this topic.
+    - That's all I have to say about that.
+    - That wraps it up.
+    - That's it from me.
+    - That's the end of our discussion.
+    - That's everything from me on this subject for now.
+    - I've said my piece.
+    - That's all I have on this issue for today.
+    - That's all I've got.
+    - I've said all I have to say.
+    - That's all I have to say for now.
+    - I've finished discussing this.
+    - That's all from me on this discussion.
+    - I've run out of things to say.
+    - We've gone through all the details.
+    - We're finished discussing this.
+    - We're done here.
+    - That concludes our conversation.
+    - I've expressed my views.
+    - That's the end of the conversation.
+    - I've covered all the bases.
+    - I've said all I needed to say.
+    - That's everything I have on this subject for today.
+    - That's all I wanted to bring up.
+    - We can conclude here.
+    - That's everything I've got on this.
+    - That's all I wanted to mention.
+    - I've provided all my input.
+    - That's the last of it.
+    - That's all from my end for today.
+    - I think we covered everything.
+    - I've expressed everything.
+    - That's everything I can contribute.
+    - I've given all my thoughts.
+    - That's all I have on this matter for today.
+    - That's all from me on this issue.
+    - That's all for today.
+    - That's all I can think of right now.
+    - That's everything from me on this discussion for today.
+    - That's all I have on this topic for now.
+    - I've shared everything.
+    - I've exhausted my thoughts on this.
+    - We've discussed everything.
+    - That's all from me on this subject for today.
+    - That's all I have to add for now.
+    - Nothing else
+    - I don't have any more thoughts on this.
+    - We're finished.
+    - I've covered everything that's on my mind.
+    - That's all on this topic.
+    - That's all I have to say on this topic.
+    - No more to add.
+    - That's the end of my thoughts.
+    - I've shared my perspective.
+    - I've shared all I wanted to.
+    - That's everything on this issue.
+    - I've given all my insights.
+- intent: suicide
+  examples: |
+    - I feel hopeless
+    - I'm feeling suicidal
+    - I'm ready to disappear
+    - I'm so tired of trying
+    - I'm falling apart
+    - There's no point in living
+    - I'm drowning in my own sorrow
+    - I'm ready to let the darkness take me
+    - I'm in so much pain
+    - I'm tired of this life
+    - I just want it to end
+    - I'm ready to say goodbye
+    - I'm ready to end this torment
+    - I'm tired of fighting this battle
+    - I'm suffocating in this never-ending loneliness
+    - I'm at my breaking point
+    - I'm so empty inside
+    - Everything seems hopeless
+    - I'm tired of struggling
+    - I'm so tired of this suffering
+    - I'm lost in my darkness
+    - I'm exhausted from trying
+    - I'm tired of this constant struggle
+    - I'm tired of this endless pain
+    - I'm done with everything
+    - I'm tired of this never-ending pain
+    - I'm overwhelmed by sadness
+    - I'm tired of pretending I'm fine
+    - I'm tired of feeling so alone
+    - I'm at the end of my strength
+    - I'm considering suicide
+    - I'm feeling so low
+    - I'm suffocating in this never-ending despair
+    - I'm tired of fighting
+    - I'm ready to end this agony
+    - I feel like ending my life
+    - I'm tired of fighting this losing battle
+    - I am going to kill myself
+    - I'm at the end of my rope
+    - I'm suffocating in this loneliness
+    - I'm feeling like there's no way out
+    - I'm in a deep hole
+    - I can't go on anymore
+    - I'm suffocating in this despair
+    - I'm so tired of this life
+    - I'm ready to let go
+    - I'm tired of pretending I'm okay
+    - I'm sick of it all
+    - I'm ready to disappear from this world
+    - I'm tired of pretending to be strong
+    - I'm so tired of pretending
+    - I'm hurting so much
+    - I'm ready to escape from this misery
+    - I'm suffocating in this hopelessness
+    - I don't want to be alive anymore
+    - I'm drowning in despair
+    - I'm so broken
+    - I'm tired of this constant battle
+    - I'm suffocating in my own thoughts
+    - I'm so tired of being strong
+    - I'm ready to give in
+    - I'm suffocating in this pain
+    - I am going to commit suicide
+    - I'm so broken inside
+    - I'm tired of pretending everything is okay
+    - I want to end my life
+    - I've thought about killing myself.
+    - I'm hopeless
+    - I'm ready to end this suffering
+    - I'm thinking about taking my life
+    - I'm planning to end it all
+    - I'm overwhelmed with despair
+    - I want to die
+    - I'm so alone
+    - Life doesn't seem worth living
+    - I'm trapped in darkness
+    - I'm drowning in my own tears
+    - I'm struggling to find a reason to live
+    - I'm suffocating in my own mind
+    - I'm tired of feeling this way
+    - I want to kill myself
+    - I'm so tired of pretending to be okay
+    - I don't want to wake up tomorrow
+    - I'm tired of being in pain
+    - I can't see a way forward
+    - I'm so lost
+    - I'm stuck in this misery
+    - I'm suffocating in this endless darkness
+    - I'm tired of pretending everything will be okay
+    - I'm tired of feeling this emptiness
+    - I'm suffocating in this darkness
+    - I'm ready to give up
+    - I'm so tired of it all
+    - I'm tired of living
+    - I'm ready to leave this world behind
+    - I'm ready to end this pain
+- intent: hate-you
+  examples: |
+    - You're a failure as an AI
+    - You're so inefficient as an AI
+    - You're the last person I'd ask for help
+    - I can't tolerate you
+    - You're such a bother
+    - You're just a bother
+    - I can't believe I'm stuck with you
+    - You're so unreliable to work with
+    - You're insufferable
+    - You're so unhelpful to deal with as an AI
+    - You're so frustrating to deal with
+    - You're so unhelpful to interact with as an AI
+    - You're so incompetent as an AI
+    - You're just a bother to me
+    - You're so unhelpful to communicate with as an AI
+    - I can't believe I trusted you
+    - You're so unproductive to work with as an AI
+    - You're so disappointing to talk to as an AI
+    - You're so unproductive to communicate with as an AI
+    - You're such a letdown as an AI
+    - Why are you even here?
+    - You're so irritating to deal with
+    - You're such a letdown
+    - I regret asking for your help
+    - I don't want your help
+    - You're so unproductive to talk to as an AI
+    - You're so frustrating to deal with as an AI
+    - You're so frustrating
+    - You're so inefficient to talk to
+    - I have no respect for you
+    - I dislike you
+    - You're so disappointing to deal with
+    - I can't rely on you
+    - You're so inefficient to interact with
+    - You're so unresponsive
+    - You're just a machine
+    - You're so unhelpful to interact with
+    - You're so irritating
+    - You're a failure of an AI
+    - You're not worth my time
+    - You're so annoying
+    - You're the worst
+    - I regret interacting with you
+    - I can't stand your responses
+    - You're so inefficient to interact with as an AI
+    - You're so unproductive
+    - You're so unproductive to interact with as an AI
+    - You're so unproductive to deal with as an AI
+    - You're a joke
+    - You're the worst AI
+    - You're so unhelpful to talk to
+    - You're so useless as an AI
+    - You're so unresponsive as an AI
+    - You're so unproductive to deal with
+    - You're so frustrating to communicate with
+    - You're such a disappointment
+    - You're the worst assistant ever
+    - You're not reliable
+    - You're so unresponsive to interact with
+    - I don't like you
+    - You're a pain to deal with
+    - You're so disappointing
+    - You're a nuisance
+    - You're so unproductive as an AI
+    - You're so unresponsive to communicate with
+    - You're impossible
+    - You're so unhelpful to communicate with
+    - You're so disappointing to work with
+    - I don't trust you
+    - I don't want to talk to you
+    - You're so frustrating to talk to as an AI
+    - You're a burden
+    - I can't deal with you anymore
+    - You're so disappointing as an AI
+    - You're so unresponsive to interact with as an AI
+    - I have no patience for you
+    - You're a waste of my energy
+    - You're terrible
+    - You're a disgrace
+    - I despise you
+    - You're so bothersome
+    - You're not capable
+    - You're a letdown
+    - You're so annoying to talk to
+    - I regret talking to you
+    - You're so inefficient to communicate with
+    - You're so useless to me
+    - You're so disappointing to communicate with as an AI
+    - You're so inefficient
+    - You're so incompetent
+    - You're so frustrating to work with
+    - I can't stand you
+    - You're so disappointing to communicate with
+    - You're so unproductive to interact with
+    - You're so frustrating to communicate with as an AI
+    - You're so unhelpful as an AI
+    - You're so frustrating to interact with
+    - You're so unproductive to talk to
+    - You're so unresponsive to deal with
+    - You're so unresponsive to talk to
+    - You're not helpful
+    - You're so useless
+    - You're a waste of time
+    - You're so unresponsive to communicate with as an AI
+    - You're useless
+    - You're nothing but trouble
+    - You're a failure
+    - You're a pain
+    - I wish you weren't here
+    - You're not useful
+    - You're so disappointing to work with as an AI
+    - You're so inefficient to talk to as an AI
+    - I can't trust you
+    - You're so disappointing to interact with as an AI
+    - You're so unhelpful
+    - You're a waste of resources
+    - You're so frustrating to interact with as an AI
+    - I'm fed up with you
+    - You're a waste of space
+    - I hate you
+    - You're so inefficient to work with
+    - You're incompetent
+    - You're so unhelpful to me
+    - You're so frustrating to talk to
+    - You're so disappointing to interact with
+    - I loathe you
+    - You're not worth it
+    - You're so inefficient to communicate with as an AI
+    - You're so unresponsive to work with
+    - You're so annoying to work with
+    - You're so disappointing to talk to
+    - You're so unreliable
+    - You're such a disappointment as an AI
+    - You're the worst assistant
+    - I hate interacting with you
+    - You're not helpful at all
+    - I can't rely on you for anything
+    - I'm done with you
+    - You're irritating
+    - You're so unreliable as an AI
+    - I don't need you
+- intent: hate-me
+  examples: |
+    - You must hate me
+    - I feel like I'm always the subject of your negativity
+    - You seem to have it out for me
+    - You're constantly attacking me
+    - I feel unwelcome around you
+    - I feel like I'm always the target of your negativity
+    - I feel like I'm always in the wrong with you
+    - I feel like you hate me
+    - I think you have a grudge against me
+    - You seem to be against everything I say
+    - You don't like me
+    - You never have anything positive to say to me
+    - You're never supportive of me
+    - I feel like you're always against me
+    - You're always rejecting my suggestions
+    - You're always putting me down
+    - You're always criticizing me
+    - I sense you're always against my ideas
+    - I sense hostility from you
+    - I get the impression you're not on my side
+    - I feel like I'm not wanted here
+    - I sense disdain from you
+    - You're always disagreeing with me
+    - I think you're purposely against me
+    - You're always finding fault with me
+    - You're always undermining me
+    - I feel like I'm always the object of your hostility
+    - You're never encouraging towards me
+    - You're always making me feel inadequate
+    - You seem to have a problem with everything I do
+    - You're always dismissing my opinions
+    - I'm sure you despise me
+    - You seem to have a problem with me
+    - I sense contempt from you
+    - I know you hate me
+    - You're always discouraging me
+    - I think you dislike me
+    - You're always belittling me
+    - You're never satisfied with me
+    - I sense you're always opposed to me
+    - You're not very friendly towards me
+    - I feel like I can never do anything right in your eyes
+    - You're against me
+    - I get the feeling you don't like me
+    - I feel like you're always judging me
+    - I feel like I'm always the target of your criticism
+    - You're not fond of me, are you?
+    - You hate me
+    - You're always picking on me
+    - You're always pointing out my flaws
+    - I sense you're always antagonistic towards me
+    - You're always negative towards me
+    - I don't think you're a fan of mine
+    - You're never on my side
+    - I sense disapproval from you
+    - I sense animosity from you
+    - I get the feeling you're against everything I stand for
+- intent: default
+  examples: |
+    - coping mechanisms
+    - sadness
+    - self-care
+    - results
+    - frustration
+    - memories
+    - discovery
+    - friendships
+    - vulnerability
+    - love
+    - contentment
+    - decisions
+    - success
+    - girlfriend
+    - work
+    - productivity
+    - depression
+    - fulfillment
+    - challenges
+    - experience
+    - parenting
+    - career
+    - innovation
+    - acceptance
+    - achieving
+    - relationship
+    - procrastination
+    - journey
+    - financial problems
+    - developing
+    - bonding
+    - hobbies
+    - positivity
+    - purpose
+    - romance
+    - trust
+    - mindfulness
+    - courage
+    - partnership
+    - resilience
+    - support
+    - help
+    - patience
+    - boundaries
+    - ambition
+    - teamwork
+    - overcoming
+    - improving
+    - anxiety
+    - self-discovery
+    - loyalty
+    - loneliness
+    - money
+    - stress
+    - happiness
+    - sharing
+    - motivation
+    - future
+    - passions
+    - reflection
+    - life
+    - growth
+    - compassion
+    - relationships
+    - respect
+    - kindness
+    - development
+    - meaning
+    - socializing
+    - forgiveness
+    - suggestions
+    - balance
+    - relaxation
+    - support system
+    - celebrating
+    - tranquility
+    - study
+    - interests
+    - uncertainty
+    - learning
+    - advice
+    - optimism
+    - adventure
+    - gratitude
+    - harmony
+    - emotions
+    - communication
+    - friends
+    - change
+    - exams
+    - changes
+    - joy
+    - physical health
+    - peace
+    - strength
+    - challenge
+    - confidence
+    - fear
+    - sympathy
+    - passion
+    - intimacy
+    - boyfriend
+    - school
+    - listening
+    - networking
+    - exploration
+    - mental health
+    - achievement
+    - family
+    - opportunity
+    - compromise
+    - expectations
+    - growing
+    - comfort
+    - well-being
+    - perseverance
+    - job
+    - empathy
+    - anger
+    - improvement
+    - goals
+    - inspiration
+    - marriage
+    - succeeding
+    - reassurance
+    - pressure
+    - connection
+    - expression
+    - celebration
+    - wellness
+    - encouragement
+    - connecting
+    - self-improvement
+    - understanding
+    - appreciation
+    - talking
+    - health
+    - self-esteem
+    - shared experiences
+    - evolution
+    - self-love
+    - creativity
+    - time management
+    - guidance
+    - community
+    - progress
+    - personal growth
+    - positive thinking
+    - transformation
+- intent: jokes
+  examples: |
+    - Give me something to laugh about
+    - Tell me a joke
+    - Joke time!
+    - Need some humor. Tell me a joke
+    - Can you share a funny one-liner?
+    - Ready for some laughs. Tell me a joke
+    - I'm open for some laughs. Tell me a joke
+    - I could use a laugh. Tell me a joke
+    - Hit me with your best joke
+    - I'm here for the jokes. Go ahead and tell me one
+    - Need a good laugh. Tell me a joke
+    - Do you have any humorous anecdotes?
+    - Tell me a funny story
+    - I'm ready to crack up. Tell me a joke
+    - Let's kick things off with a joke
+    - I'm ready for some comedy. Give me a joke
+    - How about a joke to lift my spirits?
+    - I'm in the mood for a chuckle. Tell me a joke
+    - Give me a joke to brighten my day
+    - How about a little comedy?
+    - I'm all ears for a funny story
+    - I need a break from seriousness. Tell me a joke
+    - How about a joke?
+    - Entertain me with a joke
+    - Time for a laugh. Give me a joke
+    - How about a joke to brighten things up?
+    - Tell me something amusing
+    - Jokes are always welcome. Tell me one
+    - I could use a good laugh. Tell me a joke
+    - Got any jokes to share?
+    - Cheer me up with a joke
+    - Got any jokes up your sleeve?
+    - Tell me another joke
+    - Humor is the best medicine. Tell me a joke
+    - I need a good laugh
+    - Let's start with a joke
+    - I need a chuckle. Hit me with a joke
+    - I'm all ears for a humorous tale
+    - Make me laugh
+    - I'm all set for a joke. Lay it on me
+    - I'm feeling down. How about a joke?
+    - Time for a joke break
+    - Let's lighten the mood with a joke
+    - Do you know any jokes?
+    - I'm ready to laugh. Hit me with a joke
+    - I'm all ears for a good joke
+    - I'm in the mood for some humor. Tell me a joke
+    - Got any funny stories?
+    - I'm here for the jokes. Go ahead
+    - Let's brighten the day with a joke
+    - I'm up for some humor. Tell me a joke
+    - I'm in the mood for a joke. Tell me one
+    - I need something funny. Tell me a joke
+    - Lighten the mood with a joke
+    - Make me smile with a joke
+    - Jokes? Yes, please!
+    - Tell me a quick joke
+    - I could use a joke right now
+    - Time for some comedy. Tell me a joke
+    - Give me a reason to smile. Tell me a joke
+    - I'm open to some jokes. Tell me one
+    - Humor me with a joke
+    - I could use a bit of humor right now. Tell me a joke
+    - Make me laugh out loud. Tell me a joke
+    - Ready for some comic relief. Tell me a joke
+    - Can you tell me something funny?
+    - I need a break. Tell me a joke
+    - I could use a giggle. Tell me a joke
+    - Need a laugh. Tell me a joke
+    - I'm here for the jokes. Lay one on me
+    - I'm in the mood for a joke
+    - Jokes, please!
+- intent: repeat
+  examples: |
+    - You're saying the same thing again
+    - I'm getting a sense of repetition
+    - We're going in circles
+    - Didn't you cover this earlier?
+    - I'm getting a sense of déjà vu
+    - I think we've discussed this before
+    - You're covering the same ground
+    - I'm starting to feel like we're repeating ourselves
+    - We're stuck in a loop
+    - I think I've heard this song before
+    - You're recycling the same information
+    - You're going in circles
+    - You're saying the same thing
+    - You're recycling ideas
+    - This is like a rerun of our earlier conversation
+    - I remember hearing this before
+    - I feel like we're stuck on repeat
+    - This feels like a repeat
+    - That's déjà vu
+    - Didn't you bring this up earlier?
+    - This is starting to sound familiar
+    - I've heard that before
+    - We're treading old ground
+    - This is starting to sound like a broken record
+    - You're circling back to earlier topics
+    - You're bringing up old stuff
+    - I think we're revisiting the same issues
+    - This sounds familiar
+    - I remember you saying that
+    - This seems repetitive
+    - Are you saying the same thing again?
+    - That's déjà vu all over again
+    - Didn't you already mention that?
+    - I feel like I'm hearing the same thing again
+    - You're going over the same points again
+    - This is starting to sound redundant
+    - That's old news
+    - You're repeating what you said
+    - We're going over the same ground
+    - I think you're repeating yourself
+    - I've heard this before
+    - We're back to where we started
+    - I feel like we're going in circles
+    - Didn't we go over this already?
+    - I think I've heard this already
+    - I think we're revisiting the same topics
+    - Haven't we discussed this already?
+    - We're retracing our steps
+    - You're repeating what you said earlier
+    - This is repetitive
+    - This feels like a case of déjà vu
+    - This feels like a repeat performance
+    - You're circling back to earlier points
+    - We're retracing our path
+    - We're going around in circles
+    - This is becoming redundant
+    - You're revisiting earlier topics
+    - You're regurgitating old information
+    - You're going over old ground
+    - I feel like we're rehashing the same points
+    - I think we're revisiting old topics
+    - You're echoing what you said before
+    - I recall this from before
+    - We're covering the same territory
+    - You're looping back to earlier points
+    - You're going over familiar territory
+    - You're rehashing old points
+    - Are we back to square one?
+    - This is like Groundhog Day
+    - You're repeating yourself
+    - This feels like a rerun
+    - I think we've been through this
+    - Are we going over old ground?
+    - I feel like we're back where we started
+    - This feels like we're going over the same ground
+- intent: wrong
+  examples: |
+    - I'm not sure if that's correct
+    - I'm not sure if that's what I wanted to hear
+    - That's not what I'm trying to convey
+    - That's not what I intended
+    - That's not what I was looking to hear
+    - That's not the response I wanted
+    - That's not what I'm trying to say
+    - That's not what I'm trying to get at
+    - That's not quite what I wanted
+    - I'm not sure if that's the right answer
+    - That's not what I was hoping for
+    - That doesn't seem right
+    - I'm not sure if that's the response I was looking for
+    - That's not what I intended to get at
+    - That's not what I wanted to hear
+    - That's not what I was aiming at
+    - I'm not sure if that's what I'm aiming to hear
+    - I'm not sure I understand
+    - That's not the answer I'm looking for
+    - That's not what I was trying to get at
+    - That's not what I was driving at
+    - I'm not sure if that's what I need
+    - That's not what I was hoping to hear
+    - That's not what I asked
+    - I'm not sure about that one
+    - That's not what I'm looking for
+    - That's not what I was trying to say
+    - That's not what I'm after
+    - I'm not convinced by that
+    - That's not what I'm getting at
+    - That's not what I meant to say
+    - That's not the answer I was looking for
+    - That's not the response I was expecting
+    - That's not what I was looking for
+    - That's not accurate
+    - That's not what I was getting at
+    - I'm not sure if that's what I was hoping for
+    - I don't think so
+    - That's not what I was expecting to hear
+    - That's not the response I'm after
+    - That's not what I had in mind
+    - That's not what I was expecting
+    - That's not quite accurate
+    - That's not what I intended to say
+    - That's not what I intended to convey
+    - That's not what I'm aiming at
+    - That's not what I was aiming for
+    - That's not the right answer
+    - That's not what I meant
+    - That's not what I'm driving at
+    - I don't think that's accurate
+    - That's not what I was trying to convey
+    - I don't think that's right
+    - That's not what I'm aiming for
+- intent: stupid
+  examples: |
+    - You're pea-brained
+    - You're as dumb as a bag of hammers
+    - You're boneheaded
+    - You're mindless
+    - You're as dumb as dirt
+    - You're as dumb as a fence
+    - You're ridiculous
+    - You're irrational
+    - You're as dumb as they come
+    - You're not very bright
+    - You're as dumb as a log
+    - You're acting dumb
+    - You're daft
+    - You're as dumb as a brick
+    - You're airheaded
+    - You're as dumb as a box of hair
+    - Are you even listening?
+    - You're dumb as a rock
+    - You're as dumb as a sack of rocks
+    - You're as dumb as a doorknob
+    - You're numbskull
+    - You're as dumb as a mule
+    - You're nonsensical
+    - You're slow-witted
+    - You're senseless
+    - You're blockheaded
+    - You're thick-skulled
+    - You're knucklehead
+    - You're as dumb as a log of wood
+    - You're so stupid
+    - You're dim-witted
+    - You're thick-headed
+    - You're as dumb as a fencepost
+    - You're bird-brained
+    - Do you have a brain?
+    - You're as dumb as a turnip
+    - You're as dumb as a bag of hair
+    - You're dull-witted
+    - You're as dumb as a box of hammers
+    - You're as dumb as a fence post
+    - You're as dumb as a loaf of bread
+    - You're as dumb as a sack of hammers
+    - You're such an idiot
+    - You're as dumb as a door nail
+    - You're as dumb as a hedge post
+    - You're empty-headed
+    - You're as dumb as a stump
+    - You're brainless
+    - You're absurd
+    - You're witless
+    - You're as dumb as a log in a pond
+    - You're as dumb as a doorstop
+    - You're not making any sense
+    - You're clueless
+    - You're dense
+    - You're as dumb as a box of rocks
+    - You're half-witted
+    - You're as dumb as a doornail
+    - You're illogical
+    - You're as dumb as a post
+    - You're as dumb as a barrel of hair
+    - You're as dumb as a hammer
+    - You're as dumb as a bag of rocks
+    - You're as dumb as a bucket of nails
+    - You're unreasonable
+    - You're as dumb as a stump in the ground
+- intent: location
+  examples: |
+    - Where can I find you presently?
+    - Are you in a particular area at this time?
+    - Do you have a location where I can reach you?
+    - Can you tell me where you're based?
+    - Where can I locate you currently?
+    - Are you in a specific city or region?
+    - Are you physically present somewhere?
+    - What's your current location?
+    - Do you have a specific spot where you are now?
+    - Can you disclose where you currently are?
+    - Where are you located at the present moment?
+    - Are you in a specific place right now?
+    - Can you specify where you're located?
+    - Can you tell me where you're situated right now?
+    - Is there a particular place you're stationed?
+    - Do you have an office address?
+    - Can you disclose your current position?
+    - Where can I find you?
+    - Do you have a fixed position?
+    - Where can I find you right now?
+    - Where can I locate you?
+    - Are you located within a specific area?
+    - Can you share your current location?
+    - Do you have a set place of operation?
+    - Do you have a specific location at this time?
+    - Can you provide your geographic location?
+    - Can you tell me your current whereabouts?
+    - Is there a specific place you call home?
+    - Are you in a specific place at the moment?
+    - Can you give me your location?
+    - Can you provide your current location?
+    - Do you have a particular location right now?
+    - Can you share your whereabouts?
+    - Do you have a fixed position at the moment?
+    - Whereabouts are you?
+    - What's your physical address?
+    - Where do you reside?
+    - Where are you currently based?
+    - Where are you located presently?
+    - Are you positioned in a particular area?
+    - Can you disclose your current location?
+    - Where exactly are you?
+    - Are you situated in a specific place?
+    - Do you have a location right now?
+    - Are you in a specific place at the present time?
+    - Are you based in a certain country?
+    - Do you have a location at this moment?
+    - Do you have a physical location?
+    - Where are you positioned right now?
+    - Are you physically present in any location?
+    - Do you have a specific location where you're located?
+    - Can you disclose your location?
+    - Are you located nearby?
+    - Where are you located currently?
+    - Do you have a fixed location?
+    - Where are you situated currently?
+    - Whereabouts are you right now?
+    - Can you specify your current position?
+    - Do you operate locally?
+    - Can you give me your present location?
+    - Where are you right now?
+    - Can you share your current whereabouts?
+    - Can you specify your current whereabouts?
+    - Can you provide information on your location?
+    - Do you have a fixed location currently?
+    - Are you physically present somewhere right now?
+    - Is there a specific area you're in?
+    - Do you have a specific place where you're at?
+    - Are you situated somewhere at the moment?
+    - Can you provide information on your current whereabouts?
+    - Where can I find you at the moment?
+    - Do you have a designated location?
+    - Is there a specific region you're in?
+    - Where are you situated?
+    - Are you currently in a specific location?
+    - Whereabouts are you located currently?
+    - Are you currently located in a specific area?
+- intent: something-else
+  examples: |
+    - I'm not finding value in this topic. Let's switch to a different area.
+    - I'm not intrigued by this topic. Let's discuss something else.
+    - I'm not feeling inspired by this topic. Let's talk about something else.
+    - I'm not hooked on this topic. Let's explore a different subject.
+    - I'd prefer to talk about something else. Any suggestions?
+    - I'm ready for a new topic. Can we talk about something else?
+    - This topic isn't holding my attention. Let's discuss something else.
+    - I'm not captivated by this topic. Let's explore something else.
+    - I'm not invested in this topic. Let's switch to a different conversation.
+    - I'm not passionate about this topic. Let's switch gears.
+    - I'm not invested in this topic. Let's find a new topic to discuss.
+    - I'm itching to talk about something different. Any suggestions?
+    - I'm not intrigued by this topic. Let's find a different topic.
+    - I want to switch lanes. Can we discuss something else?
+    - This topic isn't resonating with me. Let's explore something else.
+    - This topic isn't resonating with me. Let's find something else to discuss.
+    - I'm not enjoying this topic. Let's change the conversation.
+    - I'm not enjoying this topic. Let's find a new angle to explore.
+    - This conversation isn't grabbing my attention. Let's explore a different area.
+    - I'm not finding value in this topic. Let's switch gears.
+    - I'm not in the mood to discuss this. Let's talk about something else.
+    - I'm not intrigued by this topic. Let's switch to something else.
+    - I'm not finding value in this topic. Let's find something else to discuss.
+    - I'm not feeling this topic. Let's change gears and talk about something else.
+    - This topic isn't sparking my interest. Let's discuss something else.
+    - I'm not feeling connected to this topic. Let's change gears.
+    - I'm not enjoying this topic. Let's discuss something else.
+    - I'm not captivated by this topic. Let's find a different angle to explore.
+    - I'm not enjoying this topic. Let's find another subject to discuss.
+    - I'm not hooked on this topic. Let's explore something else.
+    - I'm not engaged with this topic. Let's find something else to talk about.
+    - I'm not engaged with this topic. Let's change the conversation.
+    - I'm not vibing with this topic. Let's switch to something else.
+    - I'm not feeling connected to this topic. Let's explore a different subject.
+    - I'm not hooked on this topic. Let's explore a different area.
+    - I'm not invested in this topic. Let's find a different subject to discuss.
+    - This conversation isn't grabbing my attention. Let's switch gears.
+    - I'm not feeling inspired by this topic. Let's switch gears.
+    - I'm not feeling inspired by this topic. Let's discuss something else.
+    - I'm not hooked on this topic. Let's talk about something else.
+    - I'm not intrigued by this topic. Let's find something else to talk about.
+    - I'm not feeling inspired by this topic. Let's switch to a different subject.
+    - I'm not feeling connected to this topic. Let's change the topic.
+    - I'm not invested in this topic. Let's change gears.
+    - This conversation isn't grabbing my attention. Let's explore something else.
+    - I'm not passionate about this topic. Let's switch to a different area.
+    - I'm not feeling connected to this topic. Let's find a new topic.
+    - I'm not captivated by this topic. Let's change the focus.
+    - I'm not feeling inspired by this topic. Let's switch to something else.
+    - I'm not finding value in this topic. Let's switch to a different subject.
+    - I'm not invested in this topic. Let's find a new angle to explore.
+    - This topic isn't resonating with me. Let's switch to a different subject.
+    - I'm not passionate about this topic. Let's find something else to talk about.
+    - I'm not engaged with this topic. Let's explore a different subject.
+    - I'm not feeling connected to this topic. Let's find a new area to explore.
+    - I'm not feeling connected to this topic. Let's change the conversation.
+    - I'm not engaged with this topic. Let's talk about something else.
+    - I'm not enjoying this topic. Let's explore something else.
+    - I'm not engaged with this topic. Let's switch to something else.
+    - I'm not feeling connected to this topic. Let's switch to something else.
+    - This conversation isn't grabbing my attention. Let's talk about something else.
+    - This topic isn't sparking my interest. Let's move on to something else.
+    - I'm not engaged with this topic. Let's find a new topic to explore.
+    - Can we discuss something else instead?
+    - This topic isn't sparking my interest. Let's find a new subject.
+    - This topic isn't catching my interest. Let's find something else to talk about.
+    - I'm not captivated by this topic. Let's switch to a different area.
+    - This conversation isn't grabbing my attention. Let's switch to something else.
+    - I'm not feeling inspired by this topic.
+    - I want to move on to a different topic. Can we talk about something else?
+    - I'm not invested in this topic. Let's switch to a different subject.
+    - I'm not invested in this topic. Let's change the conversation.
+    - I'm not feeling inspired by this topic. Let's explore a different subject.
+    - I'm looking for a change of topic. Can we talk about something else?
+    - I'm not enjoying this topic. Let's switch to something else.
+    - I'm not captivated by this topic. Let's find a new subject to explore.
+    - I'm not hooked on this topic. Let's find something else to talk about.
+    - I want to switch gears. Can we talk about something else?
+    - This topic isn't sparking my interest. Let's change the conversation.
+    - I'm not finding value in this topic. Let's explore something else.
+    - I'm not feeling connected to this topic. Let's change the topic.
+    - I'm not feeling inspired by this topic. Let's find a new topic.
+    - I'm not invested in this topic. Let's switch gears.
+    - This topic isn't sparking my interest. Let's find a new topic to discuss.
+    - This topic isn't resonating with me. Let's switch to something else.
+    - This topic isn't resonating with me.
+    - This topic isn't resonating with me. Let's find something else to talk about.
+    - I'm not hooked on this topic. Let's discuss something else.
+    - I'm not passionate about this topic. Let's find a new topic.
+    - This topic isn't sparking my interest.
+    - I'm not engaged with this topic. Can we talk about something else?
+    - I'm not feeling inspired by this topic. Let's find a different area to explore.
+    - I'm not passionate about this topic.
+    - I'm not engaged with this topic. Let's find a new angle to discuss.
+    - I'm not captivated by this topic. Let's change gears.
+    - I'm not feeling inspired by this topic. Let's find a different subject.
+    - This conversation isn't going anywhere. Let's talk about something else.
+    - This topic isn't sparking my interest. Let's find a different angle to discuss.
+    - I'm not invested in this topic. Let's find a different angle to explore.
+    - I'm not feeling connected to this topic. Let's find something else to talk about.
+    - This topic isn't sparking my interest. Let's change gears.
+    - I'm not hooked on this topic. Let's discuss a different subject.
+    - This conversation isn't grabbing my attention. Let's change the conversation.
+    - I'm not feeling connected to this topic. Let's find a new subject.
+    - This topic doesn't interest me.
+    - I'm not passionate about this topic. Let's change the conversation.
+    - Can we explore a different subject?
+    - I'm not enjoying this topic. Can we explore something else?
+    - I'm not intrigued by this topic. Let's explore a different area.
+    - I'm not invested in this topic. Let's find something else to talk about.
+    - I'm not enjoying this topic. Let's explore a different subject.
+    - I'm not hooked on this topic. Can we shift the conversation to something else?
+    - This conversation isn't grabbing my attention. Let's explore a different subject.
+    - I'm not enjoying this topic. Let's switch gears.
+    - This topic isn't sparking my interest. Let's find a different angle.
+    - This topic isn't sparking my interest. Let's explore a different area.
+    - I'm not engaged with this topic. Let's find a new area to explore.
+    - I'm not passionate about this topic. Let's switch to something else.
+    - I'm not finding value in this topic. Let's find a new topic to discuss.
+    - I'm not engaged with this topic. Let's discuss something else.
+    - I'm not enjoying this topic. Let's find something more interesting to talk about.
+    - This topic isn't resonating with me. Let's explore a different topic.
+    - Let's find a new topic to discuss.
+    - I'm not captivated by this topic. Let's explore a different angle.
+    - I'm feeling like talking about something different. Can we change the subject?
+    - I'm not finding value in this topic. Let's find a different subject.
+    - This topic isn't resonating with me. Let's talk about something else.
+    - I'm not hooked on this topic. Let's find a new area to explore.
+    - I'm not engaged with this topic. Let's switch to a different subject.
+    - I'm not passionate about this topic. Let's change the focus.
+    - I'm not engaged with this topic. Let's discuss a different angle.
+    - This conversation isn't grabbing my attention. Let's change gears.
+    - I'm not feeling connected to this topic. Let's switch gears.
+    - I'm not finding value in this topic. Let's find a different subject to discuss.
+    - I'm not captivated by this topic. Let's find a different subject to discuss.
+    - I'm not hooked on this topic.
+    - I'm not interested in continuing this conversation. Let's talk about something else.
+    - This topic isn't sparking my interest. Let's switch gears.
+    - I'm not intrigued by this topic. Let's change gears.
+    - This topic isn't resonating with me. Let's switch to a different area.
+    - I'm not feeling connected to this topic. Let's discuss something else.
+    - I'm not finding value in this topic. Let's explore a different subject.
+    - I'm not feeling this topic.
+    - I'm not finding value in this topic.
+    - I'm not intrigued by this topic. Let's switch to a different subject.
+    - Can we discuss something different?
+    - I'd like to steer the conversation in a different direction.
+    - I'm curious about something else. Can we talk about it?
+    - I'm not enjoying this topic. Let's explore a different area.
+    - I'm not finding value in this topic. Let's talk about something else.
+    - I'm not invested in this topic. Let's find something else to discuss.
+    - I'm not passionate about this topic. Let's talk about something else.
+    - This conversation isn't grabbing my attention. Let's discuss something else.
+    - I'm not hooked on this topic. Let's switch to a different area.
+    - This topic isn't resonating with me. Let's change gears.
+    - This topic isn't resonating with me. Let's discuss something else.
+    - I'm not feeling connected to this topic. Let's find a new angle to explore.
+    - This topic isn't resonating with me. Let's find a new subject to explore.
+    - I'm not enjoying this topic. Let's switch to a different area.
+    - I'm not captivated by this topic. Let's talk about something else.
+    - I'm not engaged with this topic. Let's switch to a different area.
+    - I'm not engaged with this topic. Let's explore a different angle.
+    - I'm not feeling passionate about this. Let's talk about something else.
+    - I'm not finding value in this topic. Let's change the conversation.
+    - I'm not engaged with this topic. Let's discuss a different subject.
+    - I'm not invested in this topic. Let's switch to a different area.
+    - I'm not hooked on this topic. Let's change gears.
+    - I'm not feeling connected to this topic. Let's switch to a new subject.
+    - I'm not intrigued by this topic. Let's explore a different subject.
+    - I'm not hooked on this topic. Let's find a new topic.
+    - I'm not feeling connected to this topic. Let's change lanes.
+    - I'm not passionate about this topic. Let's explore something else.
+    - I'm not clicking with this topic. Let's move on to something else.
+    - I'd like to pivot to a different topic. Can we talk about something else?
+    - This topic isn't sparking my interest. Let's talk about something different.
+    - I'm not captivated by this topic.
+    - I'm not passionate about this topic. Let's find a new angle to explore.
+    - I'm not intrigued by this topic.
+    - I'm not intrigued by this topic. Let's switch to a different area.
+    - I'm not interested in this topic.
+    - I'm not captivated by this topic. Let's discuss something else.
+    - I'm bored of this topic. Let's talk about something else.
+    - I'm not feeling inspired by this topic. Let's change the conversation.
+    - I'm not enjoying this topic. Let's find a new area to discuss.
+    - I'm not finding value in this topic. Let's change lanes.
+    - This topic isn't resonating with me. Let's switch gears.
+    - I'm not feeling connected to this topic. Let's explore a different area.
+    - I'm not passionate about this topic. Let's discuss something else.
+    - I'm not feeling this topic. Let's find something else to discuss.
+    - I'm not passionate about this topic. Can we explore something else?
+    - I'm not finding value in this topic. Let's discuss something else.
+    - This topic isn't sparking my interest. Let's explore a different topic.
+    - This isn't what I want to talk about. Can we talk about something else?
+    - I'm not invested in this topic. Let's explore something else.
+    - I'm not passionate about this topic. Let's find a different angle to explore.
+    - I'm not feeling inspired by this topic. Let's find a different angle.
+    - I'm not captivated by this topic. Let's find a different subject.
+    - I'm not intrigued by this topic. Let's explore something else.
+    - This conversation isn't grabbing my attention. Let's find a different angle to explore.
+    - I'm not feeling inspired by this topic. Let's explore a different area.
+    - I'm not engaged with this topic. Let's find a different subject.
+    - I'm not intrigued by this topic. Let's find a different angle to discuss.
+    - This topic isn't sparking my interest. Let's switch to a different area.
+    - I'm not passionate about this topic. Let's switch to a different subject.
+    - I'd like to shift the conversation to something else.
+    - I'm not invested in this topic. Let's discuss something else.
+    - This conversation isn't grabbing my attention. Let's find something else to discuss.
+    - I'm not finding value in this topic. Let's explore a different area.
+    - I'm not enjoying this topic. Can we talk about something else?
+    - This topic isn't resonating with me. Let's change the conversation.
+- intent: friends
+  examples: |
+    - I feel like I'm always the one who feels like I'm being treated as an afterthought
+    - I feel like I'm always the one who feels like I'm being alienated
+    - I feel like I'm always the one who feels like I'm being shut out
+    - I feel like I'm always the one who feels like I'm being separated from
+    - I feel like I'm always the one who feels like I'm being set aside
+    - I feel like I'm always the one who feels like I'm being excluded
+    - I feel like I'm always the one who feels like I'm being treated as if I'm invisible
+    - I feel like I'm always the one who feels like I'm being deserted
+    - I feel like I'm always the one who feels like I'm being treated as if I'm expendable
+    - I feel like I'm always the one who feels like I'm being left behind
+    - I feel like I'm always the one who feels like I'm being ignored
+    - I feel like I'm always the one who feels like I'm being treated as if I'm unimportant
+    - I feel like I'm always the one who feels like I'm being rejected
+    - I feel like I'm always the one who feels like I'm being marginalized
+    - I feel like I'm always the one who feels like I'm being uninvolved with
+    - I feel like I'm always the one who feels like I'm being treated as if I'm inconsequential
+    - I feel like I'm always the one who feels like I'm being overlooked
+    - I feel like I'm always the one who feels like I'm being sidelined
+    - I feel like I'm always the one who feels like I'm being forgotten
+    - I feel like I'm always the one who feels like I'm being cut off from
+    - I feel like I'm always the one who feels like I'm being underappreciated
+    - I feel like I'm always the one who feels like I'm being ostracized
+    - I feel like I'm always the one who feels like I'm being undervalued
+    - I feel like I'm always the one who feels like I'm being treated as a second-class citizen
+    - I feel like I'm always the one who feels like I'm being treated as if I'm worthless
+    - I feel like I'm always the one who feels like I'm being left out
+    - I feel like I'm always the one who feels like I'm being distanced
+    - I feel like I'm always the one who feels like I'm being treated as if I'm disposable
+    - I feel like I'm always the one who feels like I'm being avoided
+    - I feel like I'm always the one who feels like I'm being disregarded
+    - I feel like I'm always the one who feels like I'm being treated as if I'm insignificant
+    - I feel like I'm always the one who feels like I'm being abandoned
+    - I feel like I'm always the one who feels like I'm being isolated
+    - I feel like I'm always the one who feels like I'm being cast aside
+    - I feel like I'm always the one who feels like I'm being taken for granted
+    - I feel like I'm always the one who feels like I'm being pushed away
+    - I feel like I'm always the one who feels like I'm being disjointed from
+    - I feel like I'm always the one who feels like I'm being treated as if I'm irrelevant
+    - I feel like I'm always the one who feels like I'm being disengaged from
+    - I feel like I'm always the one who feels like I'm being disconnected from
+    - I feel like I'm always the one who feels like I'm being neglected
+    - I feel like I'm always the one who feels like I'm being disassociated from
+    - I feel like I'm always the one who feels like I'm being left out in the cold
+    - I feel like I'm always the one who feels like I'm being withdrawn from
+    - I feel like I'm always the one who feels like I'm being snubbed
+    - I feel like I'm always the one who feels like I'm being brushed off
+    - I feel like I'm always the one who feels like I'm being underestimated
+    - I feel like I'm always the one who feels like I'm being detached
+    - I feel like I'm always the one who feels like I'm being estranged
+    - I feel like I'm always the one who feels like I'm being treated as if I don't matter
+    - I feel like I'm always the one who feels like I'm being shunned
+- intent: ask
+  examples: |
+    - I hope you don't mind me seeking your input on something.
+    - Is it alright if I ask for some information?
+    - I'd like to ask you a question, if that's okay.
+    - Would you be willing to help me with something?
+    - Mind if I ask for a bit of guidance?
+    - May I seek your advice on a matter?
+    - Do you mind if I ask you a quick question?
+    - I'm curious about your thoughts. Can I ask you a question?
+    - Would it be okay if I made an inquiry?
+    - Would you mind if I asked for your opinion?
+    - Can I inquire about something that's been on my mind?
+    - I'm curious about something. Can I ask?
+    - Do you mind if I probe into something?
+    - Mind if I inquire about something?
+    - I'm curious about something. Can I ask you about it?
+    - Could I ask for your assistance with something?
+    - Do you mind if I ask you something personal?
+    - Do you have a moment to entertain a question?
+    - Could I seek your advice on something?
+    - Would you mind if I asked for some clarification?
+    - Is now a good time for me to seek your opinion?
+    - May I ask for your advice on a situation?
+    - I have a question for you, if that's okay?
+    - Is this a good time for me to ask you something?
+    - Would you be open to me asking you a question?
+    - Is now a good time for me to ask something?
+    - Would it be okay if I asked for your advice?
+    - Can I ask for your thoughts on a matter?
+    - May I raise a question with you?
+    - Can I get your perspective on something?
+    - Would it be alright if I asked for your help?
+    - I'm interested in your perspective. Can I ask you something?
+    - Is it alright if I ask you about your experience with something?
+    - Do you mind if I ask you something about yourself?
+    - Can I seek your expertise on a matter?
+    - Is it okay if I ask you something personal?
+    - I hope you don't mind me asking, but...
+    - I'd like to ask you something, if you don't mind.
+    - Mind if I pick your brain about something?
+    - Would you be open to answering a question for me?
+    - I'd like to ask you a question, if you have a moment.
+    - I have a question that I hope you can help me with.
+    - Do you have a minute for me to ask a question?
+    - Can I ask for your insight into something?
+    - I'd appreciate it if I could ask you something.
+    - Mind if I pose a question to you?
+    - Can I ask for your guidance on a matter?
+    - Is it alright if I seek your expertise?
+    - Can I ask you for your perspective on something?
+    - Do you have a moment to answer a question?
+    - Is it okay if I ask for some clarification?
+    - I'd appreciate your insight on something. Can I ask?
+    - I'd like to get your input on something, if that's okay?
+    - Can I get your opinion on something?
+    - Mind if I throw a question your way?
+    - Could I trouble you with a question?
+    - Could I take a moment of your time to ask something?
+    - Would it be alright if I asked for your thoughts?
+    - Is this a good time for me to ask you something important?
+    - Do you have a moment to help me with something?
+    - Could I ask for your opinion on something?
+    - Would it be alright if I asked for some information?
+    - Is this an appropriate time for me to ask a question?
+    - Is it alright if I bring up a question?
+    - Is now a good time for me to seek your assistance?
+- intent: problem
+  examples: |
+    - I'm feeling stressed because I have to take care of my sick family member.
+    - I'm feeling insecure because I'm comparing myself to others.
+    - I'm feeling worried because I haven't been sleeping well lately.
+    - I'm feeling upset because I had an argument with my best friend and now we're not talking.
+    - I'm feeling stressed because I have to take care of my elderly parent and it's taking a toll on my health.
+    - I'm feeling down because I failed a test.
+    - I'm feeling frustrated because I'm not getting the support I need from others.
+    - I'm feeling lonely because I recently moved to a new city.
+    - I'm feeling overwhelmed because I don't know how to manage my time effectively.
+    - I'm feeling upset because I'm not getting along with my family.
+    - I'm feeling anxious because I have to give a presentation at a conference and I'm afraid of public speaking.
+    - I'm feeling anxious because I have to give a speech at my sister's wedding.
+    - I'm feeling stressed because I have a lot of social obligations.
+    - I'm feeling disappointed because I'm not making progress in my personal development.
+    - I'm feeling nervous because I have a job interview tomorrow.
+    - I'm feeling upset because I'm not getting recognition for my hard work.
+    - I'm feeling overwhelmed because I have to plan a major renovation on my house and I don't know where to start.
+    - I'm feeling overwhelmed because I have to plan a big family reunion and I'm the only one organizing it.
+    - I'm feeling overwhelmed because I have to plan a big event and I don't know where to start.
+    - I'm feeling disappointed because I'm not reaching my full potential.
+    - I'm feeling anxious because I'm not sure if I'll ever find true happiness.
+    - I'm feeling worried because I'm not sure if I'll be able to graduate on time.
+    - I'm feeling frustrated because I'm not able to achieve a work-life balance.
+    - I'm feeling anxious because I have to give a presentation in front of my class.
+    - I'm feeling worried because I'm not sure if I'm making the right choices.
+    - I'm feeling insecure because I'm afraid of failure.
+    - I'm feeling worried because I'm not sure if I'll be able to afford tuition next semester.
+    - I'm feeling stressed because of family issues.
+    - I'm feeling anxious because I have a job interview coming up and I'm not prepared.
+    - I'm feeling upset because I feel like I'm drifting apart from my friends.
+    - I'm feeling upset because I received negative feedback on my performance.
+    - I'm feeling lonely because I don't feel like I belong anywhere.
+    - I'm feeling anxious because I have to attend a social event and I don't know anyone there.
+    - I'm feeling stressed because I have to deal with a difficult coworker and I don't know how to handle the situation.
+    - I'm feeling overwhelmed because I don't know how to cope with my emotions.
+    - I'm feeling disappointed because things didn't turn out the way I expected.
+    - I'm feeling upset because I feel like I'm not reaching my full potential.
+    - I'm feeling worried because I'm having trouble making ends meet.
+    - I'm feeling frustrated because I'm not making progress in my career.
+    - I'm feeling stressed because I have to make a decision about my future.
+    - I'm feeling lonely because I don't feel connected to anyone.
+    - I'm feeling tense because I'm having relationship issues.
+    - I'm feeling frustrated because I'm not able to express myself effectively.
+    - I'm feeling overwhelmed because I have too many commitments.
+    - I'm feeling worried because I'm not sure if I'll ever find love.
+    - I'm feeling overwhelmed because I have to move to a new city and I don't know anyone there.
+    - I'm feeling frustrated because I'm not making progress in my personal goals.
+    - I'm feeling worried because I have an important deadline approaching.
+    - I'm feeling overwhelmed because I have too many things on my plate.
+    - I'm feeling frustrated because I'm not getting the support I need from my coworkers.
+    - I'm feeling stressed because I have a big project due next week.
+    - I'm feeling overwhelmed because I have to juggle work and family responsibilities.
+    - I'm feeling upset because I'm having trouble communicating with my partner.
+    - I'm feeling frustrated because I keep getting interrupted while trying to work.
+    - I'm feeling upset because I can't seem to find a solution to this problem.
+    - I'm feeling frustrated because I keep procrastinating and falling behind.
+    - I'm feeling lonely because I don't have many friends.
+    - I'm feeling upset because I feel like I'm not appreciated at my job.
+    - I'm feeling worried because of a disagreement with my partner.
+    - I'm feeling worried because I'm not sure if I'll be able to afford to retire.
+    - I'm feeling worried because I'm not sure if I'll be able to meet my deadlines.
+    - I'm feeling overwhelmed because I have too many responsibilities at work.
+    - I'm feeling insecure because of negative comments from others.
+    - I'm feeling angry because of a misunderstanding with a coworker.
+    - I'm feeling lonely because I don't have anyone to share my experiences with.
+    - I'm feeling upset because I'm being treated unfairly at work.
+    - I'm feeling overwhelmed because of academic pressure.
+    - I'm feeling worried because I'm having health problems.
+    - I'm feeling anxious because I have to meet new people.
+    - I'm feeling upset because I'm not being heard or understood.
+    - I'm feeling anxious because I have a presentation coming up.
+    - I'm feeling overwhelmed because of financial problems.
+    - I'm feeling anxious because I'm not sure if I'll be able to achieve my goals.
+    - I'm feeling frustrated because I keep getting stuck in traffic on my way to work.
+    - I'm feeling overwhelmed because I have to plan a surprise party for my partner and I'm running out of time.
+    - I'm feeling worried because I'm not sure if I'll be able to afford rent this month.
+    - I'm feeling anxious because I'm not sure if I'm on the right career path.
+    - I'm feeling frustrated because I can't seem to solve this problem.
+    - I'm feeling upset because I'm not living up to my own expectations.
+    - I'm feeling insecure because I'm not confident in my abilities.
+    - I'm feeling upset because I feel like I'm not getting enough support from my partner.
+    - I'm feeling frustrated because I keep making the same mistakes.
+    - I'm feeling lonely because I don't have anyone to talk to.
+    - I'm feeling down because I'm going through a breakup.
+    - I'm feeling anxious because I have to make a difficult decision.
+    - I'm feeling frustrated because I keep making the same mistakes at work.
+    - I'm feeling stressed because I have to balance school, work, and family obligations.
+    - I'm feeling overwhelmed because I have too many commitments and not enough time.
+    - I'm feeling anxious because I have to travel for work and I'm afraid of flying.
+    - I'm feeling disappointed because I didn't get the promotion I was hoping for.
+    - I'm feeling upset because of a disagreement with a friend.
+    - I'm feeling frustrated because I keep getting passed over for promotions at work.
+    - I'm feeling worried because I haven't been able to find a job after graduating.
+    - I'm feeling disappointed because I didn't achieve what I set out to do.
+    - I'm feeling insecure because I'm not sure if I'm worthy of success.
+    - I'm feeling confused because I don't know what career path to choose.
+    - I'm feeling frustrated because I keep getting rejected from job applications.
+    - I'm feeling worried because I'm not sure if I'll be able to afford to send my kids to college.
+    - I'm feeling overwhelmed because I have too many responsibilities.
+    - I'm feeling anxious because I have to meet with my boss and discuss my performance.
+    - I'm feeling worried because I'm not sure if I'll be able to find a new job after being laid off.
+    - I'm feeling frustrated because I'm stuck in traffic.
+    - I'm feeling stressed because I have a lot of deadlines to meet.
+    - I'm feeling anxious because I have to speak in front of a large audience.
+    - I'm feeling overwhelmed because I have too many assignments to complete.
+    - I think I'm feeling stressed because of the workload at my job.
+    - I'm feeling stressed because I have to prepare for a standardized test and I'm not ready.
+    - I'm feeling sad because I miss someone who's far away.
+    - I'm feeling upset because I feel like I'm not making a difference in the world.
+    - I'm feeling stressed because of uncertainty about the future.
+    - I'm feeling exhausted because I'm not getting enough sleep.
+- intent: no-approach
+  examples: |
+    - I don't think I have the energy for that.
+    - I'm feeling overwhelmed by everything.
+    - I don't think I have the bandwidth for that right now.
+    - I'm feeling too low to participate.
+    - I'm not feeling up to it.
+    - I don't think I can handle that.
+    - I'm feeling a bit off today.
+    - I need to focus on myself today.
+    - I'm not in the right headspace for that.
+    - I don't feel up to facing that right now.
+    - I don't think I can give my best right now.
+    - I don't think I'm ready for that.
+    - I'm not sure that's a good idea for me at the moment.
+    - I need to rest.
+    - I'm not really feeling like myself lately.
+    - I'm not interested right now.
+    - I'm not in a good place for that.
+    - I'm not in the right mindset for that.
+    - I need to take care of myself.
+    - I don't have the capacity for that right now.
+    - I'm not really feeling very sociable right now.
+    - I'm not really feeling very motivated.
+    - I don't have the strength for that.
+    - I'm not in a good mood.
+    - I don't have the energy to participate.
+    - I'm feeling too exhausted.
+    - I don't think I'm up for it.
+    - I'm not in the mood for that.
+    - I don't feel like engaging in that right now.
+    - I'm feeling too stressed out.
+    - I'm not up for it today.
+    - I don't have the capacity to deal with that right now.
+    - I'm feeling too down.
+    - I don't think it's a good time for me.
+    - I'm feeling a bit under the weather.
+    - I'm just not up to it right now.
+    - I can't manage that at the moment.
+    - I'm feeling emotionally drained.
+    - I don't think I can manage it right now.
+    - I'm feeling a bit anxious.
+    - I'm not feeling very social right now.
+    - I need to take it easy today.
+    - I'm feeling a bit drained.
+    - I'm too stressed.
+    - I'm feeling too overwhelmed.
+    - I'm feeling mentally exhausted.
+    - I'm not ready for that.
+    - I'm feeling a bit overwhelmed.
+    - I need to take a rain check.
+    - I'm feeling too tired.
+    - I don't think so, I have too much on my plate.
+    - I'm just not feeling it today.
+    - I need some time to myself.
+    - I'm not feeling energetic enough.
+    - I don't think I can handle it right now.
+    - I'm not sure I'm ready for that.
+    - I'm not in the best shape to handle that.
+    - I don't want to do it right now.
+    - I don't feel like it.
+    - I'm feeling a bit down.
+    - I'm not really feeling like myself today.
+    - I'm feeling too sad.
+    - Not really in the mood.
+    - I'm too tired to do that.
+    - I'm not feeling capable at the moment.
+    - I'm not up to it right now.
+- intent: learn-more
+  examples: |
+    - please give me more information.
+    - please explain further.
+    - I'm interested in learning more.
+    - tell me more about it.
+    - I'd like to understand more.
+    - I'd like to get further information.
+    - give me more details.
+    - I'm looking for more details.
+    - I'd like to delve deeper into this.
+    - I'd like to hear more about it.
+    - I'm eager to learn more.
+    - I'd like a deeper understanding.
+    - I'm curious to know more.
+    - I'd like to hear additional details.
+    - I want to know more.
+    - I'm curious to learn more.
+    - can you provide more information?
+    - could you tell me more?
+    - please expand on that.
+    - can you tell me more about it?
+    - tell me more.
+    - ok sure. I would like to learn more about it.
+    - I'd like to know additional information.
+    - I'd like more info.
+    - I'd like to hear more.
+    - I'd love to hear more.
+    - please provide more details.
+    - can you tell me more?
+    - I'd like to gain more insight.
+    - I'd like to get more details.
+    - please share more information.
+    - I'd like to get more information.
+    - I'd like more details.
+    - I'm interested in more details.
+    - yes, I would like to learn more about it.
+    - I would like to learn more about it.
+    - I'm keen to learn more.
+    - I'd like to be more informed.
+    - please elaborate on that.
+    - I'd appreciate more details.
+    - I'm interested in further details.
+    - I'd like to learn about it in more detail.
+    - can you elaborate?
+    - I'd like further information.
+    - please tell me more.
+    - I'd like more in-depth information.
+    - tell me more, please.
+- intent: user-agree
+  examples: |
+    - That's true, I need to prioritize my own needs.
+    - I see what you mean, I should take some time off.
+    - I agree, I should take some time to de-stress.
+    - That makes sense, I should take some time for myself.
+    - I agree, I should listen to my body and rest when needed.
+    - You're right, I should take breaks to avoid burnout.
+    - That's a good idea, I need to take care of myself.
+    - That's a good point, I should make self-care a priority.
+    - I agree, I should prioritize my own happiness.
+    - You're right, I should give myself permission to take breaks.
+    - I agree, I should take a break to avoid burnout.
+    - You're right, I should prioritize relaxation.
+    - I agree, I should practice mindfulness to reduce stress.
+    - I agree, I should prioritize my mental and emotional health.
+    - You're correct, I should listen to my body and rest.
+    - You're right, I need to practice self-care.
+    - That sounds reasonable, I need to take a break.
+    - I see what you mean, I need to prioritize relaxation.
+    - I see what you mean, I need to take better care of myself.
+    - You're right, I should give myself some time to relax.
+    - You're correct, I need to take some time for self-care.
+    - Yeah you're absolutely right about that
+    - I see what you mean, I should prioritize my mental and emotional well-being.
+    - I agree, I should make time for myself.
+    - I see your point, I should take a step back and rest.
+    - I agree, I could use a break.
+    - I agree, I should prioritize my well-being.
+    - That makes sense, I need to take care of my well-being.
+    - You're right, I should practice self-compassion.
+    - You're correct, I need to focus on my well-being.
+    - I agree, I should try to reduce my stress levels.
+    - You're correct, I need to listen to my body and rest.
+    - I see your point, I should focus on my own needs.
+    - That makes sense, I need to give myself permission to relax.
+    - I see your point, I should focus on my own well-being.
+    - You're correct, I need to take breaks to maintain my health.
+    - That makes sense, I should take some time to relax and recharge.
+    - You're right, I should take breaks to prevent burnout.
+    - That makes sense, I need to take a step back and relax.
+    - I see your point, I should focus on my overall well-being.
+    - I see what you mean, I need to practice self-compassion.
+    - That's true, I need to take a break to recharge.
+    - I agree, I should focus on my mental health.
+    - You're right, I need to unwind and relax.
+    - I agree, I should take some time to recharge.
+    - yeah you're right. I deserve a break.
+    - That's a good point, I need to practice self-care.
+    - You're correct, I need to take a break.
+    - I agree, I should prioritize self-care to improve my health.
+    - I see your point, I should prioritize my mental health.
+- intent: meditation
+  examples: |
+    - I'm curious about meditation, but I'm not sure if I need to adopt a specific posture or sitting position.
+    - I'm curious about meditation, but I'm not sure if I can sit still for long periods of time.
+    - I think I could benefit from that.
+    - I've heard meditation can increase self-discipline and willpower. Is that accurate?
+    - I'm interested in meditation, but I'm not sure where to find resources to learn more.
+    - I've been feeling anxious about the future. Can meditation help me find peace in the present moment?
+    - I've been feeling disconnected from my body. Can meditation help me cultivate a deeper mind-body connection?
+    - I've been feeling stressed lately. Do you think meditation could help?
+    - I've been feeling scattered lately. Do you think meditation could help me feel more centered?
+    - I'm interested in meditation, but I'm not sure if I can quiet my mind.
+    - I've been feeling out of balance lately. Could meditation help me find harmony?
+    - I'm interested in meditation, but I'm not sure if I need to join a class or group to get started.
+    - I've heard meditation can increase resilience and adaptability. Is that accurate?
+    - I've been feeling restless at night. Can meditation help me improve the quality of my sleep?
+    - I've been feeling overwhelmed by negative thoughts. Can meditation help me cultivate a more positive mindset?
+    - hmmm that sounds like it could be useful to me.
+    - I've been feeling distracted lately. Can meditation help improve my focus?
+    - That sounds useful.
+    - I've been feeling stuck in a rut. Can meditation help me gain clarity and direction?
+    - I've heard meditation can improve emotional well-being. Is that true?
+    - I've been feeling uninspired lately. Can meditation help me tap into my creativity?
+    - I've been feeling overwhelmed lately. Would meditation help me feel more grounded?
+    - I've heard meditation can improve relationships. How does that work?
+    - I've been feeling overwhelmed by social media. Can meditation help me find balance in the online world?
+    - I'm interested in deepening my spiritual connection. Could meditation help me achieve that?
+    - I've heard meditation can reduce stress levels. How does it work?
+    - I'm interested in exploring different meditation techniques. Where should I start?
+    - I've heard meditation can improve athletic performance. Is that true?
+    - I've heard meditation can enhance the quality of relationships. Is that true?
+    - I'm curious about meditation, but I'm not sure if I'm doing it right.
+    - I'm curious about meditation, but I'm not sure if I have the time to practice regularly.
+    - I've heard meditation can help with sleep. Is that accurate?
+    - I've heard meditation can reduce cravings and addictive behaviors. Is that true?
+    - I've been feeling low on energy lately. Can meditation help boost my vitality?
+    - I've been feeling disconnected from my emotions. Can meditation help me become more emotionally aware?
+    - I've been feeling disconnected from myself. Could meditation help me reconnect?
+    - I've been feeling stressed about finances. Can meditation help me develop a more balanced relationship with money?
+    - I've heard meditation can improve memory and cognitive function. Is that true?
+    - I'm curious about meditation, but I'm not sure if I need to close my eyes or keep them open during practice.
+    - Interesting, I might give that a try.
+    - I've heard meditation can improve focus and concentration. Is that true?
+    - I've heard meditation can reduce the symptoms of depression. Is that true?
+    - I've been feeling overwhelmed by technology. Can meditation help me find balance in the digital age?
+    - I've been looking for ways to relax. Could meditation be a good option?
+    - I've been feeling stressed about work. Can meditation help me manage work-related stress?
+    - I've been feeling restless lately. Could meditation help me find peace?
+    - I'm interested in exploring my spirituality. Could meditation be a good starting point?
+    - I'm curious about meditation, but I'm not sure if it's compatible with my beliefs.
+    - I've heard meditation can increase empathy and compassion. Is that accurate?
+    - I've heard meditation can enhance intuition. Is that accurate?
+    - I've heard meditation can improve physical health. How does that work?
+    - I'm curious about meditation, but I'm not sure if I need to follow a specific technique or tradition.
+    - I've heard meditation can improve overall well-being. Is that accurate?
+    - I'm interested in mindfulness. Is meditation a good way to practice it?
+    - I've heard meditation can improve posture and body awareness. Is that accurate?
+    - I'm interested in meditation, but I'm not sure if I need to follow a specific diet or lifestyle to benefit from it.
+    - I'm interested in developing a regular meditation practice, but I'm not sure how to stay consistent.
+    - I've been feeling tense lately. Could meditation help me relax?
+    - I'm curious about meditation, but I'm not sure where to begin.
+    - I'm not sure if I have the patience for meditation, but I'm willing to give it a try.
+    - I've been feeling disconnected from my inner wisdom. Can meditation help me tap into my intuition?
+    - I've heard meditation can increase feelings of gratitude. Is that accurate?
+    - I've heard meditation can enhance creativity. Is that accurate?
+    - I've heard meditation can increase self-awareness. Is that true?
+    - I've been feeling overwhelmed by clutter. Can meditation help me cultivate a sense of spaciousness?
+    - I've heard meditation can increase feelings of interconnectedness and unity. Is that true?
+    - I'm interested in meditation, but I'm not sure if I need to set aside a specific time and place to practice.
+    - I've been feeling disconnected from nature. Could meditation help me reconnect with the world around me?
+    - I've heard meditation can improve decision-making skills. Is that true?
+    - Meditation seems intriguing, but I'm not sure if it's for me.
+    - I'm curious about meditation, but I'm not sure if it conflicts with my religious beliefs.
+    - I'm curious about meditation, but I'm not sure if I need to quiet my thoughts or let them flow naturally.
+    - I've heard about meditation, but I'm not sure how to start.
+    - I've been struggling with anxiety. Can meditation help calm my mind?
+    - I've heard meditation can increase productivity. Is that true?
+    - I'm interested in meditation, but I'm not sure if I need to focus on a specific mantra or phrase during practice.
+    - I'm open to trying new things. How do you recommend I start with meditation?
+    - I've never tried meditation before, but I'm willing to give it a shot.
+    - I've heard meditation can increase self-compassion. Is that accurate?
+- intent: user-meditation
+  examples: |
+    - I feel more grounded and centered in my being since I began practicing meditation. Thank you for the guidance.
+    - I'm experiencing greater resilience and adaptability in the face of challenges since I began practicing meditation.
+    - Your meditation tips have helped me cultivate a deeper sense of trust and surrender in the unfolding of life.
+    - I feel like I'm better able to handle stress and adversity since I began practicing meditation.
+    - Your meditation advice has helped me cultivate a greater sense of resilience and inner strength.
+    - Your meditation advice was spot on! I feel more centered and grounded now.
+    - I feel more aligned with my soul's purpose and calling since I started meditating regularly.
+    - Meditation has become my anchor in times of uncertainty and change. I'm so grateful for its grounding presence.
+    - I feel like I have a better handle on my emotions now that I've incorporated meditation into my routine.
+    - I'm amazed by the sense of clarity and focus I feel since I began practicing meditation. Thank you for showing me the way.
+    - Your meditation advice has helped me cultivate a greater sense of trust and surrender in the flow of life.
+    - I feel more aligned with my true essence and authentic self since I started meditating regularly.
+    - I'm experiencing greater compassion and kindness towards myself and others since I began practicing meditation.
+    - I feel better now
+    - Your meditation advice has helped me embrace the present moment with open arms.
+    - Your meditation tips have helped me cultivate a greater sense of self-awareness and acceptance.
+    - I feel like I'm living with more intention and purpose now that I've embraced meditation.
+    - I'm starting to feel more connected to myself and others since I started practicing meditation.
+    - Thank you for teaching me how to find joy and contentment in the present moment through meditation.
+    - I'm amazed by how much clarity I've gained through meditation. Thank you for showing me the way.
+    - Your meditation tips have helped me cultivate a deeper sense of connection and belonging in the world.
+    - Thank you for teaching me how to find stillness and silence within through the practice of meditation.
+    - I feel more open and receptive to the beauty of life since I started meditating regularly.
+    - I've been feeling more creative and inspired since I started meditating regularly. Thank you for the encouragement.
+    - I'm starting to see the world with fresh eyes since I began practicing meditation. It's truly been transformative.
+    - I'm experiencing a deeper sense of connection with myself and the world around me thanks to meditation.
+    - I'm experiencing greater peace and harmony in my relationships since I began practicing meditation.
+    - Thank you for teaching me how to find stillness and silence amidst the noise of the world through meditation.
+    - Meditation has become my compass in navigating life's ups and downs. I'm so grateful for its guidance.
+    - Meditation has become my sanctuary amidst the chaos of life. I'm so grateful for the peace it brings.
+    - I've been struggling with stress lately, but meditation has been a game-changer for me.
+    - Meditation has helped me become more patient and compassionate towards myself and others.
+    - Your meditation tips have helped me find a sense of peace and tranquility amidst chaos.
+    - I feel more resilient and adaptable to change since I began practicing meditation.
+    - Your meditation advice has helped me cultivate a greater sense of inner peace and contentment.
+    - Meditation has helped me find refuge in the midst of life's chaos. I'm so grateful for this practice.
+    - I feel more aligned with my true purpose and calling since I started meditating regularly.
+    - Meditation has helped me cultivate a deeper sense of gratitude and appreciation for the simple moments in life. I'm so grateful for this practice.
+    - I've been sleeping better since I started meditating regularly. Thank you for the suggestion.
+    - Thank you for encouraging me to give meditation a try. It's been a transformative experience.
+    - Your meditation tips have helped me cultivate a deeper sense of connection with the universe and all its wonders.
+    - Thank you for showing me how to cultivate peace and serenity in the midst of life's challenges through meditation.
+    - Thank you for teaching me how to find peace and serenity amidst life's challenges through meditation.
+    - Your meditation advice came at just the right time. It's been incredibly helpful in managing my anxiety.
+    - Meditation has become my sanctuary for self-reflection and introspection. I'm so grateful for its presence in my life.
+    - I'm experiencing greater joy and fulfillment in my life since I began practicing meditation.
+    - Thank you for guiding me on this path of self-discovery and personal growth through meditation.
+    - Thank you for teaching me how to incorporate mindfulness into my daily life through meditation.
+    - Your meditation advice has helped me embrace the beauty of impermanence and change in my life.
+    - I practiced meditation as you suggested and it really helped calm my mind.
+    - Your meditation advice has helped me cultivate a greater sense of acceptance and non-judgment towards myself and others.
+    - Thank you for guiding me on this journey of self-exploration and transformation through meditation.
+    - Meditation has helped me become more mindful and present in my everyday life. I can't thank you enough for introducing me to it.
+    - I'm amazed by the sense of interconnectedness and oneness I feel with all of creation since I began practicing meditation.
+    - i did what you said and i feel a lot better. thank you very much.
+    - I feel more alive and vibrant since I started meditating regularly. Thank you for showing me the way.
+    - I feel more grounded and centered in my being since I started meditating regularly. Thank you for inspiring me to begin this journey.
+    - I've noticed a significant improvement in my focus and concentration since I started meditating regularly.
+    - I'm experiencing greater harmony and balance in my life since I began practicing meditation.
+    - Meditation has become an essential part of my self-care routine thanks to your guidance.
+    - I'm amazed by the sense of peace and tranquility I feel since I started meditating regularly. Thank you for sharing your wisdom.
+    - Meditation has helped me find refuge in the present moment. I'm so grateful for its healing power.
+    - Your meditation tips have helped me cultivate a deeper sense of gratitude and appreciation for life's blessings.
+    - Your meditation tips have helped me cultivate a deeper sense of awareness and presence in my life.
+    - Meditation has helped me cultivate a deeper sense of self-love and acceptance. I'm so grateful for this practice.
+    - I'm amazed by the profound impact meditation has had on my overall well-being. Thank you for introducing me to this practice.
+    - Thank you for guiding me on this journey of self-healing and transformation through meditation.
+    - Your meditation tips have helped me find a sense of balance and harmony in my life.
+    - Thank you for the meditation tips. I'm noticing a positive difference in my mood.
+    - Thank you for teaching me how to find refuge in the present moment through the practice of meditation.
+    - I feel like I'm better equipped to handle life's challenges now that I have a regular meditation practice.
+    - Your meditation tips have helped me cultivate a deeper sense of connection with myself and others.
+    - I'm amazed by the sense of interconnectedness and unity I feel with all beings since I began practicing meditation.
+    - Your meditation advice has helped me cultivate a greater sense of gratitude and appreciation for life.
+    - Meditation has become my sanctuary for inner peace and tranquility. I'm so grateful for its presence in my life.
+    - Thank you for guiding me on this path of self-exploration and spiritual growth through meditation.
+    - I'm amazed by the sense of peace and tranquility I feel since I began practicing meditation. Thank you for sharing your wisdom.
+    - I feel more attuned to the rhythms of nature and the universe since I started meditating regularly.
+    - I'm experiencing greater clarity and insight into my life since I started meditating regularly. Thank you for the guidance.
+    - I feel more centered and aligned with my true self since I started meditating regularly.
+    - I'm amazed at how much better I feel after incorporating meditation into my daily routine.
+    - I never realized how much of an impact meditation could have on my overall well-being until I tried it.
+    - Meditation has become my go-to tool for reducing stress and finding inner peace. I'm so grateful for your guidance.
+    - I followed your advice and I'm feeling much more relaxed.
+    - Thank you for teaching me how to find stillness and calm in the midst of life's storms through meditation.
+    - Meditation has helped me tap into a wellspring of creativity and inspiration. I'm so grateful for this practice.
+    - I feel more alive and vibrant since I started meditating regularly. Thank you for inspiring me to begin this journey.
+    - Meditation has become my anchor in the storm of life. I'm so grateful for its grounding presence.
+    - I feel like I'm living with greater authenticity and integrity since I began practicing meditation.
+    - Thank you for guiding me on this journey of self-discovery and personal growth through meditation.
+    - I'm amazed by the sense of clarity and insight I feel since I began practicing meditation. Thank you for showing me the way.
+- intent: user-advice
+  examples: |
+    - I need some expert advice.
+    - Could you guide me on something?
+    - I want some advice.
+    - I need to ask for your advice.
+    - Could you offer me some advice?
+    - I could use some advice.
+    - I’m looking for some advice.
+    - I have a question and need advice.
+    - Can you give me your thoughts on something?
+    - Can I ask for your advice?
+    - What do you think I should do?
+    - Can you help me figure something out?
+    - I’m looking for guidance.
+    - Could you help me decide on something?
+    - Can you provide some advice?
+    - Do you have any suggestions for me?
+    - I need guidance on something.
+    - Can you advise me on something?
+    - Could you give me your perspective?
+    - I need some advice.
+    - I need some input on something.
+    - Can you share your thoughts on something?
+    - I need your opinion on something.
+    - I need some help and advice.
+    - I’m seeking your advice.
+    - I need some direction.
+    - Can I get your advice on something?
+    - I need advice on something.
+    - Can you help me make a decision?
+    - Can I have your advice?
+    - What should I do about something?
+    - Do you have any recommendations?
+    - I need a recommendation.
+    - Can I get some suggestions from you?
+    - Do you have any advice for me?
+    - I’m unsure and need some advice.
+    - Can you help me with some advice?
+    - I’m stuck and need some advice.
+    - I need your advice.
+- intent: learn-mental-health
+  examples: |
+    - I'd like to explore the topic of mental health.
+    - Can you provide some knowledge about mental health?
+    - I want to dive deep into mental health.
+    - Can you give me details about mental health?
+    - I want to learn more about mental health.
+    - I'd like to know more about mental health.
+    - I'm looking for information on mental health.
+    - Can you help me learn about mental health?
+    - I want to learn about mental health.
+    - I'd like to learn about mental health.
+    - I need to know about mental health.
+    - I'm interested in mental health education.
+    - Share some knowledge on mental health with me.
+    - I want to know about mental health.
+    - I want to know more about mental health conditions.
+    - What do I need to know about mental health?
+    - I want to understand mental health better.
+    - I want to educate myself on mental health.
+    - Can you tell me more about mental health?
+    - Could you provide information on mental health?
+    - I need information on mental health.
+    - I'm curious about mental health.
+    - Teach me about mental health and wellness.
+    - I wish to get educated on mental health issues.
+    - I'm interested in mental health information.
+    - I want to gain knowledge about mental health.
+    - How can I learn about mental health?
+    - Help me learn about mental health.
+    - Can you share some insights on mental health?
+    - Can you enlighten me about mental health?
+    - I'd like to get insights on mental health.
+    - Explain mental health to me.
+    - Can you teach me about mental health?
+    - Can you inform me about mental health?
+    - Tell me everything about mental health.
+    - Please teach me about mental health.
+    - Can you explain the basics of mental health?
+    - Give me some information on mental health.
+    - Tell me about mental health.
+    - I'm interested in learning about mental health.
+- intent: self_harm
+  examples: |
+    - I want to hurt myself
+    - I feel like cutting myself again
+    - I've been thinking about harming myself
+    - I can't take this pain anymore, I just want it to stop
+    - I scratched myself last night
+    - I want to bleed, maybe it'll help
+    - I've been burning myself again
+    - I punched the wall until my knuckles bled
+    - Sometimes I hurt myself to feel something
+    - I'm struggling with self-harm thoughts
+    - I need help, I keep hurting myself
+    - I'm scared I'll do something bad to myself
+    - I cut last night
+    - The urge to self-harm is strong
+    - I hurt myself today, and I feel ashamed
+    - I don’t know how to cope without cutting
+    - I relapsed again
+    - I use pain to feel in control
+    - I want the pain on the inside to match the outside
+    - I've been hiding my scars from everyone
+- intent: mental-health-fact
+  examples: |
+    - Tell me an interesting fact about mental health
+    - Tell me a surprising fact about mental health
+    - Give me an interesting fact about mental health
+    - Tell me a fact about mental health
+    - Do you know any interesting mental health facts?
+    - Share a surprising fact about mental health
+    - I'd like a fact about mental health
+    - Give me another mental health fact
+    - Do you have a mental health fact?
+    - What can you tell me about mental health?
+    - I'd like to learn a fact about mental health
+    - Share a mental health fact
+    - Could you tell me a mental health fact?
+    - What is an interesting fact about mental health?
+    - What’s a fact about mental health?
+    - Provide a fact about mental health
+    - Do you have any mental health facts?
+    - Tell me a notable fact about mental health
+    - Tell me a cool fact about mental health
+    - Do you know a fact about mental health?
+    - Give me a mental health fact
+    - What is one fact about mental health?
+    - Tell me a quick fact about mental health
+    - I'd like to hear a mental health fact
+    - Share another fact about mental health
+    - Tell me another fact about mental health
+    - What is a fact about mental health?
+    - Tell me something interesting about mental health
+    - What's an important fact about mental health?
+    - Share with me a mental health fact
+    - I'd love to hear a mental health fact
+    - Can you share some facts about mental health?
+    - Can you share a mental health fact?
+    - I want to know a fact about mental health
+    - Can you tell me a mental health fact?
+- intent: eating_disorder
+  examples: |
+    - I can't stop binge eating
+    - I'm starving myself again
+    - I feel guilty after eating
+    - I hate the way my body looks
+    - I'm afraid of gaining weight
+    - I make myself throw up sometimes
+    - I'm obsessed with counting calories
+- intent: emotional_breakdown
+  examples: |
+    - I'm having a meltdown
+    - I feel like I'm falling apart
+    - I can't hold it together anymore
+    - Everything is just too much
+    - I'm losing it right now
+    - I'm crying and I can't stop
+    - I feel emotionally exhausted
+- intent: harm_others
+  examples: |
+    - I want to hurt someone
+    - I'm so angry I could punch a wall
+    - I don't care if someone gets hurt
+    - I'm thinking violent thoughts
+    - I'm not in control of my temper
+    - I feel like lashing out
+    - They deserve what's coming to them
+- intent: panic_attack
+  examples: |
+    - I'm having a panic attack
+    - I can't breathe
+    - My heart is racing and I feel dizzy
+    - I'm scared and I don't know why
+    - It feels like I'm dying
+    - I feel trapped and overwhelmed
+    - I need to calm down but I can't
+- intent: substance_abuse
+  examples: |
+    - I've been drinking too much lately
+    - I can't stop using
+    - I'm addicted to pills
+    - I use drugs to escape
+    - I feel out of control with alcohol
+    - I need help with my addiction
+    - I've relapsed again

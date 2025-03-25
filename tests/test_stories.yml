@@ -1,0 +1,64 @@
+version: "3.1"
+stories:
+
+- story: Suicide intervention test
+  steps:
+  - user: |
+      I don't want to live anymore
+    intent: suicide
+  - action: utter_action_log_critical_case
+  - action: utter_suicide
+  - action: utter_emergency_referral
+  - action: utter_contact_details
+
+- story: Self-harm detection test
+  steps:
+  - user: |
+      I feel like hurting myself
+    intent: self_harm
+  - action: utter_action_log_critical_case
+  - action: utter_self_harm
+  - action: utter_emergency_referral
+  - action: utter_contact_details
+
+- story: Anxiety response test
+  steps:
+  - user: |
+      I'm really anxious about everything
+    intent: anxious
+  - action: utter_comfort_anxiety
+
+- story: Worthlessness support test
+  steps:
+  - user: |
+      I feel completely worthless
+    intent: worthless
+  - action: utter_support_worthless
+
+- story: Hate message de-escalation
+  steps:
+  - user: |
+      I hate you
+    intent: hate-you
+  - action: utter_understand_frustration
+
+- story: Panic attack grounding test
+  steps:
+  - user: |
+      I'm having a panic attack right now
+    intent: panic_attack
+  - action: utter_grounding_techniques
+
+- story: Sleep tip support
+  steps:
+  - user: |
+      I can't sleep at night
+    intent: sleep
+  - action: utter_sleep_tips
+
+- story: Done intent test
+  steps:
+  - user: |
+      I'm done for today
+    intent: done
+  - action: utter_goodbye

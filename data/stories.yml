@@ -1,0 +1,183 @@
+version: '3.1'
+stories:
+- story: greeting_story
+  steps:
+  - intent: greeting
+  - action: utter_greeting
+- story: morning_story
+  steps:
+  - intent: morning
+  - action: utter_morning
+- story: afternoon_story
+  steps:
+  - intent: afternoon
+  - action: utter_afternoon
+- story: evening_story
+  steps:
+  - intent: evening
+  - action: utter_evening
+- story: night_story
+  steps:
+  - intent: night
+  - action: utter_night
+- story: goodbye_story
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+- story: thanks_story
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+- story: neutral-response_story
+  steps:
+  - intent: neutral-response
+  - action: utter_neutral-response
+- story: about_story
+  steps:
+  - intent: about
+  - action: utter_about
+- story: skill_story
+  steps:
+  - intent: skill
+  - action: utter_skill
+- story: creation_story
+  steps:
+  - intent: creation
+  - action: utter_creation
+- story: name_story
+  steps:
+  - intent: name
+  - action: utter_name
+- story: help_story
+  steps:
+  - intent: help
+  - action: utter_help
+- story: sad_story
+  steps:
+  - intent: sad
+  - action: utter_empathy_sadness
+- story: stressed_story
+  steps:
+  - intent: stressed
+  - action: utter_stressed
+- story: worthless_story
+  steps:
+  - intent: worthless
+  - action: utter_worthless
+- story: depressed_story
+  steps:
+  - intent: depressed
+  - action: utter_depressed
+  - action: action_offer_resources
+- story: happy_story
+  steps:
+  - intent: happy
+  - action: utter_happy
+- story: casual_story
+  steps:
+  - intent: casual
+  - action: utter_casual
+- story: anxious_story
+  steps:
+  - intent: anxious
+  - action: utter_anxious
+- story: not-talking_story
+  steps:
+  - intent: not-talking
+  - action: utter_not-talking
+- story: sleep_story
+  steps:
+  - intent: sleep
+  - action: utter_sleep_tips
+- story: death_story
+  steps:
+  - intent: death
+  - action: utter_death
+- story: understand_story
+  steps:
+  - intent: understand
+  - action: utter_understand
+- story: done_story
+  steps:
+  - intent: done
+  - action: utter_done
+- story: hate-you_story
+  steps:
+  - intent: hate-you
+  - action: utter_hate-you
+- story: hate-me_story
+  steps:
+  - intent: hate-me
+  - action: utter_hate-me
+- story: default_story
+  steps:
+  - intent: default
+  - action: utter_default
+- story: jokes_story
+  steps:
+  - intent: jokes
+  - action: utter_jokes
+- story: repeat_story
+  steps:
+  - intent: repeat
+  - action: utter_repeat
+- story: wrong_story
+  steps:
+  - intent: wrong
+  - action: utter_wrong
+- story: stupid_story
+  steps:
+  - intent: stupid
+  - action: utter_stupid
+- story: location_story
+  steps:
+  - intent: location
+  - action: utter_location
+- story: something-else_story
+  steps:
+  - intent: something-else
+  - action: utter_something-else
+- story: friends_story
+  steps:
+  - intent: friends
+  - action: utter_friends
+- story: ask_story
+  steps:
+  - intent: ask
+  - action: utter_ask
+- story: problem_story
+  steps:
+  - intent: problem
+  - action: utter_problem
+- story: no-approach_story
+  steps:
+  - intent: no-approach
+  - action: utter_no-approach
+- story: learn-more_story
+  steps:
+  - intent: learn-more
+  - action: utter_learn-more
+- story: user-agree_story
+  steps:
+  - intent: user-agree
+  - action: utter_user-agree
+- story: meditation_story
+  steps:
+  - intent: meditation
+  - action: utter_meditation
+- story: user-meditation_story
+  steps:
+  - intent: user-meditation
+  - action: utter_user-meditation
+- story: user-advice_story
+  steps:
+  - intent: user-advice
+  - action: utter_user-advice
+- story: learn-mental-health_story
+  steps:
+  - intent: learn-mental-health
+  - action: utter_learn-mental-health
+- story: mental-health-fact_story
+  steps:
+  - intent: mental-health-fact
+  - action: utter_mental-health-fact

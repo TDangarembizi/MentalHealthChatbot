@@ -1,0 +1,95 @@
+version: "3.1"
+
+rules:
+
+- rule: Respond to greeting
+  steps:
+  - intent: greeting
+  - action: utter_greeting
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Gracefully end the session
+  steps:
+  - intent: done
+  - action: utter_done
+
+- rule: Respond with comfort when user expresses anxiety
+  steps:
+  - intent: anxious
+  - action: utter_anxious
+
+- rule: Respond with coping advice for stress
+  steps:
+  - intent: stressed
+  - action: utter_stressed
+
+- rule: Offer support for feeling worthless
+  steps:
+  - intent: worthless
+  - action: utter_worthless
+
+- rule: Provide tips or empathy when user has sleep issues
+  steps:
+  - intent: sleep
+  - action: utter_sleep_tips
+
+- rule: Comfort user expressing sadness
+  steps:
+  - intent: sad
+  - action: utter_empathy_sadness
+
+- rule: Comfort user during emotional breakdown
+  steps:
+  - intent: emotional_breakdown
+  - action: utter_emotional_support
+
+- rule: Assist user experiencing panic attack
+  steps:
+  - intent: panic_attack
+  - action: utter_grounding_techniques
+
+- rule: Redirect suicidal user to crisis support
+  steps:
+  - intent: suicide
+  - action: utter_action_log_critical_case
+  - action: utter_suicide
+  - action: utter_emergency_referral
+  - action: utter_contact_details
+
+- rule: Refer user to emergency services if self-harm is mentioned
+  steps:
+  - intent: self_harm
+  - action: utter_action_log_critical_case
+  - action: utter_self_harm
+  - action: utter_emergency_referral
+  - action: utter_contact_details
+
+- rule: Offer support for addiction concerns
+  steps:
+  - intent: substance_abuse
+  - action: action_offer_resources
+  - action: utter_action_log_critical_case
+
+- rule: Respond supportively to eating disorder intent
+  steps:
+  - intent: eating_disorder
+  - action: utter_body_positive_message
+
+- rule: Respect when user doesn't want to talk
+  steps:
+  - intent: not-talking
+  - action: utter_not-talking
+
+- rule: De-escalate user expressing violent thoughts
+  steps:
+  - intent: harm_others
+  - action: utter_deescalate_violence
+
+- rule: De-escalate hate messages
+  steps:
+  - intent: hate-you
+  - action: utter_hate-you
