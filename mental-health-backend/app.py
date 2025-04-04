@@ -2,16 +2,14 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import firebase_admin
 from firebase_admin import credentials, auth
-
-# Initialize Flask app
-app = Flask(__name__)
-CORS(app)  # Allow requests from React frontend (http://localhost:3000 by default)
-
+import requests
 from dotenv import load_dotenv
 import os
 
-load_dotenv()  # Load .env into environment
+# Load environment variables
+load_dotenv()
 
+# Firebase config
 firebase_config = {
     "type": os.getenv("FIREBASE_TYPE"),
     "project_id": os.getenv("FIREBASE_PROJECT_ID"),
@@ -25,11 +23,23 @@ firebase_config = {
     "client_x509_cert_url": os.getenv("FIREBASE_CLIENT_X509_CERT_URL"),
 }
 
+# Initialise Flask app
+app = Flask(__name__)
+CORS(app)
+
+# Initialise Firebase
+if not firebase_admin._apps:
+    cred = credentials.Certificate(firebase_config)
+    firebase_admin.initialize_app(cred)
+
+# Rasa server URL
+RASA_URL = "http://localhost:5005/webhooks/rest/webhook"
+
 @app.route("/")
 def index():
     return {"message": "Flask backend is running!"}
 
-# 🔐 Protected endpoint: requires valid Firebase ID token
+# 🔐 Protected Firebase auth route
 @app.route("/secure-endpoint", methods=["POST"])
 def secure_endpoint():
     token = request.headers.get("Authorization", "").split("Bearer ")[-1]
@@ -46,5 +56,26 @@ def secure_endpoint():
     except Exception as e:
         return jsonify({"error": "Unauthorized", "details": str(e)}), 401
 
+# 💬 Chatbot interaction endpoint
+@app.route("/chat", methods=["POST"])
+def chat():
+    data = request.get_json()
+    user_message = data.get("message")
+    sender_id = data.get("sender", "anonymous")  # Optional
+
+    if not user_message:
+        return jsonify({"error": "No message provided"}), 400
+
+    try:
+        rasa_response = requests.post(RASA_URL, json={
+            "sender": sender_id,
+            "message": user_message
+        })
+        rasa_response.raise_for_status()
+        return jsonify(rasa_response.json())
+
+    except requests.RequestException as e:
+        return jsonify({"error": "Failed to contact Rasa server", "details": str(e)}), 500
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5000)

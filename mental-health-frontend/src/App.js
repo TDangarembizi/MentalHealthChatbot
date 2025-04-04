@@ -12,8 +12,6 @@ function App() {
     <div>
       <ThemeToggle />
 
-
-
       {isLoggedIn ? (
         <ChatPage />
       ) : (

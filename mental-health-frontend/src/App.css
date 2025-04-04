@@ -73,13 +73,14 @@ input:focus {
 button {
   background-color: var(--accent-color);
   border: none;
-  padding: 10px 20px;
-  margin-top: 1rem;
+  padding: 10px 24px;
+  margin: 1rem auto 0 auto; /* top auto bottom auto = centre horizontally */
   color: white;
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
-  width: 100%;
+  display: block; /* required for margin: auto to work */
+  width: fit-content;
   transition: background-color 0.3s ease;
 }
 
