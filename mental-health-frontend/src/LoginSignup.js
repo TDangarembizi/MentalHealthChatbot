@@ -49,15 +49,22 @@ const LoginSignup = ({ onLogin }) => {
   };
 
   const handleLogin = async () => {
-    try {
-      const email = fakeEmail(alias);
-      await signInWithEmailAndPassword(auth, email, password);
-      setMessage("Login successful.");
-      onLogin(); // Just flip the state in App
-    } catch (err) {
-      setMessage(err.message);
-    }
-  };
+  try {
+    const email = fakeEmail(alias);
+
+    await signInWithEmailAndPassword(auth, email, password);
+
+    //Store the generated email
+    localStorage.setItem("userEmail", email);
+
+    setMessage("Login successful.");
+    onLogin();  // Triggers the logged-in state
+
+  } catch (err) {
+    setMessage(err.message);
+  }
+};
+
 
   const handleRecovery = async () => {
     try {

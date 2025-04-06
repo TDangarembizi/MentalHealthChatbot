@@ -2,9 +2,11 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import firebase_admin
 from firebase_admin import credentials, auth
+from firebase_admin import firestore
 import requests
 from dotenv import load_dotenv
 import os
+from datetime import datetime
 
 # Load environment variables
 load_dotenv()
@@ -31,6 +33,7 @@ CORS(app)
 if not firebase_admin._apps:
     cred = credentials.Certificate(firebase_config)
     firebase_admin.initialize_app(cred)
+    db = firestore.client()
 
 # Rasa server URL
 RASA_URL = "http://localhost:5005/webhooks/rest/webhook"
@@ -39,7 +42,7 @@ RASA_URL = "http://localhost:5005/webhooks/rest/webhook"
 def index():
     return {"message": "Flask backend is running!"}
 
-# 🔐 Protected Firebase auth route
+#Protected Firebase auth route
 @app.route("/secure-endpoint", methods=["POST"])
 def secure_endpoint():
     token = request.headers.get("Authorization", "").split("Bearer ")[-1]
@@ -56,7 +59,7 @@ def secure_endpoint():
     except Exception as e:
         return jsonify({"error": "Unauthorized", "details": str(e)}), 401
 
-# 💬 Chatbot interaction endpoint
+#Chatbot interaction endpoint
 @app.route("/chat", methods=["POST"])
 def chat():
     data = request.get_json()
@@ -76,6 +79,68 @@ def chat():
 
     except requests.RequestException as e:
         return jsonify({"error": "Failed to contact Rasa server", "details": str(e)}), 500
+
+@app.route("/journal", methods=["POST"])
+def create_journal():
+    data = request.get_json()
+    db.collection("journals").add(data)
+    return jsonify({"message": "Journal entry saved"}), 201
+
+@app.route("/journal", methods=["GET"])
+def get_journals():
+    entries = db.collection("journals").stream()
+    results = [{**entry.to_dict(), "id": entry.id} for entry in entries]
+    return jsonify(results), 200
+
+
+@app.route("/assessment", methods=["POST"])
+def submit_assessment():
+    data = request.get_json()
+    user_id = data.get("user_id", "anonymous").replace('.', '_')
+
+    phq9_score = data.get("score", {}).get("phq9", 0)
+    gad7_score = data.get("score", {}).get("gad7", 0)
+
+    assessment_data = {
+        "phq9": phq9_score,
+        "gad7": gad7_score,
+        "responses": data.get("responses", {}),
+        "timestamp": datetime.utcnow().isoformat()
+    }
+
+    try:
+        print(f"[DEBUG] Submitting to users/{user_id}/assessments")
+
+        # Ensure user doc exists
+        user_doc = db.collection("users").document(user_id)
+        user_doc.set({}, merge=True)
+
+        # Add to assessments subcollection
+        user_doc.collection("assessments").add(assessment_data)
+
+        return jsonify({"message": "Assessment submitted"}), 201
+
+    except Exception as e:
+        print("Firestore error:", str(e))
+        return jsonify({"error": "Failed to submit assessment", "details": str(e)}), 500
+
+@app.route("/assessment/results", methods=["GET"])
+def get_assessments():
+    user_id = request.args.get("user_id")
+    query = db.collection("assessments")
+
+    if user_id:
+        query = query.where("user_id", "==", user_id)
+
+    results = query.stream()
+    assessments_list = [{**doc.to_dict(), "id": doc.id} for doc in results]
+    return jsonify(assessments_list), 200
+
+@app.route("/feedback", methods=["POST"])
+def submit_feedback():
+    data = request.get_json()
+    db.collection("feedback").add(data)
+    return jsonify({"message": "Feedback received"}), 201
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
