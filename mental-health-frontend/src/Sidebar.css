@@ -154,3 +154,8 @@
     transform: translateY(0);
   }
 }
+
+.sidebar li.active {
+  background-color: var(--accent-color);
+  color: white;
+}

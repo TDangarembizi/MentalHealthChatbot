@@ -124,17 +124,20 @@ def submit_assessment():
         print("Firestore error:", str(e))
         return jsonify({"error": "Failed to submit assessment", "details": str(e)}), 500
 
+
 @app.route("/assessment/results", methods=["GET"])
 def get_assessments():
-    user_id = request.args.get("user_id")
-    query = db.collection("assessments")
+    user_id = request.args.get("user_id", "anonymous").replace('.', '_')
 
-    if user_id:
-        query = query.where("user_id", "==", user_id)
+    try:
+        user_ref = db.collection("users").document(user_id)
+        assessments = user_ref.collection("assessments").order_by("timestamp").stream()
+        results = [{**doc.to_dict(), "id": doc.id} for doc in assessments]
+        return jsonify(results), 200
 
-    results = query.stream()
-    assessments_list = [{**doc.to_dict(), "id": doc.id} for doc in results]
-    return jsonify(assessments_list), 200
+    except Exception as e:
+        print("Error fetching assessments:", str(e))
+        return jsonify({"error": "Failed to retrieve assessments", "details": str(e)}), 500
 
 @app.route("/feedback", methods=["POST"])
 def submit_feedback():

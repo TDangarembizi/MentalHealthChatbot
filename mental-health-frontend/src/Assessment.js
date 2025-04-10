@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Assessment.css';
+import Sidebar from './Sidebar';
 
 const PHQ9_QUESTIONS = [
   "Little interest or pleasure in doing things?",
@@ -30,10 +31,25 @@ const OPTIONS = [
   { label: "Nearly every day", value: 3 }
 ];
 
+const interpretPHQ9 = (score) => {
+  if (score <= 4) return { label: "Minimal Depression", severity: "low" };
+  if (score <= 9) return { label: "Mild Depression", severity: "low" };
+  if (score <= 14) return { label: "Moderate Depression", severity: "moderate" };
+  if (score <= 19) return { label: "Moderately Severe Depression", severity: "high" };
+  return { label: "Severe Depression", severity: "critical" };
+};
+
+const interpretGAD7 = (score) => {
+  if (score <= 4) return { label: "Minimal Anxiety", severity: "low" };
+  if (score <= 9) return { label: "Mild Anxiety", severity: "low" };
+  if (score <= 14) return { label: "Moderate Anxiety", severity: "moderate" };
+  return { label: "Severe Anxiety", severity: "critical" };
+};
+
 const Assessment = () => {
   const [phq9, setPhq9] = useState({});
   const [gad7, setGad7] = useState({});
-  const [message, setMessage] = useState("");
+  const [result, setResult] = useState(null);
 
   const handleChange = (setFunc, state, id, value) => {
     setFunc({ ...state, [id]: parseInt(value) });
@@ -65,10 +81,14 @@ const Assessment = () => {
       }
 
       const data = await res.json();
-      setMessage(`Submitted! PHQ-9: ${phq9Score}, GAD-7: ${gad7Score}`);
+setResult({
+  phq9: phq9Score,
+  gad7: gad7Score,
+  phq9Result: interpretPHQ9(phq9Score),
+  gad7Result: interpretGAD7(gad7Score)
+});
     } catch (error) {
       console.error("Assessment submission failed:", error.message);
-      setMessage(`Error: ${error.message}`);
     }
   };
 
@@ -101,7 +121,36 @@ const Assessment = () => {
       ))}
 
       <button className="assessment-submit-btn" onClick={handleSubmit}>Submit Assessments</button>
-      {message && <p className="assessment-message">{message}</p>}
+{result && (
+  <div className="assessment-message">
+    <h3>🧾 Assessment Results</h3>
+    <p>
+      <strong>PHQ-9:</strong> {result.phq9} –
+      <span className={`severity ${result.phq9Result.severity}`}>
+        {result.phq9Result.label}
+      </span>
+    </p>
+    <p>
+      <strong>GAD-7:</strong> {result.gad7} –
+      <span className={`severity ${result.gad7Result.severity}`}>
+        {result.gad7Result.label}
+      </span>
+    </p>
+
+    {(result.phq9Result.severity === "high" || result.phq9Result.severity === "critical" ||
+      result.gad7Result.severity === "high" || result.gad7Result.severity === "critical") && (
+      <div className="support-section">
+        <h4>📌 Support Resources</h4>
+        <p>If you're experiencing moderate to severe symptoms, consider reaching out:</p>
+        <ul>
+          <li><a href="https://www.mind.org.uk" target="_blank" rel="noreferrer">Mind UK</a></li>
+          <li><a href="https://www.samaritans.org" target="_blank" rel="noreferrer">Samaritans</a></li>
+          <li><a href="https://www.nhs.uk/mental-health/" target="_blank" rel="noreferrer">NHS Mental Health</a></li>
+        </ul>
+      </div>
+    )}
+  </div>
+)}
     </div>
   );
 };

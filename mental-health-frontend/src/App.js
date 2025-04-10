@@ -4,28 +4,35 @@ import ThemeToggle from './ThemeToggle';
 import LoginSignup from './LoginSignup';
 import ChatPage from './ChatPage';
 import Assessment from './Assessment';
+import Dashboard from './Dashboard';
+import Sidebar from "./Sidebar";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [view, setView] = useState('chat'); // 'chat' or 'assessment'
+  const [view, setView] = useState('dashboard');
 
   return (
-    <div>
-      <ThemeToggle />
+  <div className="app-container">
+    <ThemeToggle />
+    {isLoggedIn ? (
+      <>
+        <Sidebar setView={setView} currentView={view} />
 
-      {isLoggedIn ? (
-        <>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
-            <button onClick={() => setView('chat')}>Chat</button>
-            <button onClick={() => setView('assessment')}>Assessment</button>
-          </div>
-          {view === 'chat' ? <ChatPage /> : <Assessment />}
-        </>
-      ) : (
-        <LoginSignup onLogin={() => setIsLoggedIn(true)} />
-      )}
-    </div>
-  );
+        <div className="main-content">
+          {view === 'dashboard' && <Dashboard />}
+          {view === 'chat' && <ChatPage />}
+          {view === 'assessment' && <Assessment />}
+        </div>
+      </>
+    ) : (
+      <LoginSignup onLogin={() => {
+        setIsLoggedIn(true);
+        setView('dashboard');
+      }} />
+    )}
+  </div>
+);
+
 }
 
 export default App;

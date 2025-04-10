@@ -1,13 +1,12 @@
 import React from 'react';
-import Sidebar from './Sidebar';
 import ChatWindow from './ChatWindow';
-import logo from './logo.svg'; // 👈 don't forget to import it
+import logo from './logo.svg';
 import './ChatPage.css';
 
 const ChatPage = () => {
   return (
     <div className="chat-layout">
-      <Sidebar />
+
       <div className="chat-main">
         <div className="chat-header">
           <img src={logo} alt="Logo" className="app-logo" />
