@@ -1,0 +1,40 @@
+.mood-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.mood-content {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  color: var(--text-color);
+  max-width: 400px;
+  width: 100%;
+}
+
+.mood-options button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  transition: 0.2s;
+}
+
+.mood-options button:hover,
+.mood-options .selected {
+  background-color: var(--accent-color);
+  color: white;
+}

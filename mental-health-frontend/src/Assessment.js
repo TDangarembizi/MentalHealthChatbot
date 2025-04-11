@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Assessment.css';
-import Sidebar from './Sidebar';
 
 const PHQ9_QUESTIONS = [
   "Little interest or pleasure in doing things?",
@@ -80,7 +79,6 @@ const Assessment = () => {
         throw new Error(`Server error: ${res.status} - ${errorText}`);
       }
 
-      const data = await res.json();
 setResult({
   phq9: phq9Score,
   gad7: gad7Score,

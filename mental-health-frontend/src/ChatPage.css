@@ -1,34 +1,37 @@
-.chat-layout {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-/* Chat content area (next to sidebar) */
 .chat-main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   overflow: hidden;
   padding: 2rem;
   box-sizing: border-box;
+  min-height: 0; /* Prevents overflow issues */
 }
 
-/* Logo and title */
-.chat-header {
-  text-align: center;
+/* Scrollable chat area */
+.message-container {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
   margin-bottom: 1rem;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.app-logo {
-  height: 80px;
-  margin-bottom: 0.5rem;
-}
-
-.app-title {
-  color: var(--text-color);
-  font-size: 2rem;
+/* Chat input pinned at bottom */
+.chat-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-color); /* Ensures visibility when scrolling */
+  position: sticky;
+  bottom: 0;
 }

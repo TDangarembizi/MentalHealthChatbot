@@ -92,6 +92,26 @@ def get_journals():
     results = [{**entry.to_dict(), "id": entry.id} for entry in entries]
     return jsonify(results), 200
 
+@app.route("/mood", methods=["POST"])
+def submit_mood():
+    data = request.get_json()
+    user_id = data.get("user_id", "anonymous").replace('.', '_')
+
+    mood_entry = {
+        "mood": data.get("mood"),
+        "timestamp": data.get("timestamp")
+    }
+
+    try:
+        user_doc = db.collection("users").document(user_id)
+        user_doc.set({}, merge=True)
+        user_doc.collection("mood").add(mood_entry)
+
+        return jsonify({"message": "Mood saved"}), 201
+
+    except Exception as e:
+        print("Mood save error:", str(e))
+        return jsonify({"error": "Failed to save mood", "details": str(e)}), 500
 
 @app.route("/assessment", methods=["POST"])
 def submit_assessment():

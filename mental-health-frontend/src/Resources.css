@@ -1,0 +1,27 @@
+.resource-section {
+  margin-top: 3rem;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.tip-card {
+  background-color: var(--card-bg);
+  padding: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.tip-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tip-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
