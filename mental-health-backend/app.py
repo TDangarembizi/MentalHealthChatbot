@@ -159,6 +159,26 @@ def get_assessments():
         print("Error fetching assessments:", str(e))
         return jsonify({"error": "Failed to retrieve assessments", "details": str(e)}), 500
 
+@app.route("/journal", methods=["POST"])
+def submit_journal():
+    data = request.get_json()
+    user_id = data.get("user_id", "anonymous").replace('.', '_')
+
+    entry = {
+        "text": data.get("text"),
+        "timestamp": data.get("timestamp")
+    }
+
+    try:
+        user_doc = db.collection("users").document(user_id)
+        user_doc.set({}, merge=True)
+        user_doc.collection("journal").add(entry)
+        return jsonify({"message": "Journal entry saved"}), 201
+
+    except Exception as e:
+        return jsonify({"error": "Failed to save entry", "details": str(e)}), 500
+
+
 @app.route("/feedback", methods=["POST"])
 def submit_feedback():
     data = request.get_json()

@@ -9,6 +9,7 @@ import Sidebar from "./Sidebar";
 import MoodPopup from './MoodPopup';
 import Resources from './Resources';
 import Emergency from "./Emergency";
+import Coping from "./Coping";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,6 +30,7 @@ function App() {
           {view === 'assessment' && <Assessment />}
           {view === 'resources' && <Resources />}
           {view === 'emergency' && <Emergency />}
+          {view === 'coping' && <Coping />}
 
 
         </div>
