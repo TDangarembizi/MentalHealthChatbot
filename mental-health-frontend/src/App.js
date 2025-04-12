@@ -10,6 +10,7 @@ import MoodPopup from './MoodPopup';
 import Resources from './Resources';
 import Emergency from "./Emergency";
 import Coping from "./Coping";
+import Progress from './Progress';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -31,7 +32,7 @@ function App() {
           {view === 'resources' && <Resources />}
           {view === 'emergency' && <Emergency />}
           {view === 'coping' && <Coping />}
-
+          {view === 'progress' && <Progress />}
 
         </div>
       </>
