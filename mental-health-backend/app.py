@@ -80,18 +80,6 @@ def chat():
     except requests.RequestException as e:
         return jsonify({"error": "Failed to contact Rasa server", "details": str(e)}), 500
 
-@app.route("/journal", methods=["POST"])
-def create_journal():
-    data = request.get_json()
-    db.collection("journals").add(data)
-    return jsonify({"message": "Journal entry saved"}), 201
-
-@app.route("/journal", methods=["GET"])
-def get_journals():
-    entries = db.collection("journals").stream()
-    results = [{**entry.to_dict(), "id": entry.id} for entry in entries]
-    return jsonify(results), 200
-
 @app.route("/mood", methods=["POST"])
 def submit_mood():
     data = request.get_json()
@@ -106,12 +94,31 @@ def submit_mood():
         user_doc = db.collection("users").document(user_id)
         user_doc.set({}, merge=True)
         user_doc.collection("mood").add(mood_entry)
-
+        print("[DEBUG] Saving mood for:", user_id)
         return jsonify({"message": "Mood saved"}), 201
 
     except Exception as e:
         print("Mood save error:", str(e))
         return jsonify({"error": "Failed to save mood", "details": str(e)}), 500
+
+@app.route("/mood", methods=["GET"])
+def get_mood_entries():
+    user_id = request.args.get("user_id", "anonymous").replace('.', '_')
+
+    try:
+        mood_ref = db.collection("users").document(user_id).collection("mood")
+        moods = mood_ref.order_by("timestamp", direction=firestore.Query.DESCENDING).stream()
+
+        mood_data = []
+        for doc in moods:
+            item = doc.to_dict()
+            item["id"] = doc.id
+            mood_data.append(item)
+
+        return jsonify(mood_data), 200
+
+    except Exception as e:
+        return jsonify({"error": "Failed to fetch mood entries", "details": str(e)}), 500
 
 @app.route("/assessment", methods=["POST"])
 def submit_assessment():
@@ -173,10 +180,30 @@ def submit_journal():
         user_doc = db.collection("users").document(user_id)
         user_doc.set({}, merge=True)
         user_doc.collection("journal").add(entry)
+
         return jsonify({"message": "Journal entry saved"}), 201
 
     except Exception as e:
         return jsonify({"error": "Failed to save entry", "details": str(e)}), 500
+
+@app.route("/journal", methods=["GET"])
+def get_journal_entries():
+    user_id = request.args.get("user_id", "anonymous").replace('.', '_')
+
+    try:
+        journal_ref = db.collection("users").document(user_id).collection("journal")
+        entries = journal_ref.order_by("timestamp", direction=firestore.Query.DESCENDING).stream()
+
+        journal_data = []
+        for doc in entries:
+            item = doc.to_dict()
+            item["id"] = doc.id
+            journal_data.append(item)
+
+        return jsonify(journal_data), 200
+
+    except Exception as e:
+        return jsonify({"error": "Failed to fetch journal entries", "details": str(e)}), 500
 
 
 @app.route("/feedback", methods=["POST"])
