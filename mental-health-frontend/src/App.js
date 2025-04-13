@@ -29,7 +29,7 @@ function App() {
           {view === 'dashboard' && <Dashboard />}
           {view === 'chat' && <ChatPage />}
           {view === 'assessment' && <Assessment />}
-          {view === 'resources' && <Resources />}
+          {view === 'resources' && <Resources setView={setView}/>}
           {view === 'emergency' && <Emergency />}
           {view === 'coping' && <Coping />}
           {view === 'progress' && <Progress />}

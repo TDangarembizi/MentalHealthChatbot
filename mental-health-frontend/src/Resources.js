@@ -1,77 +1,163 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Resources.css';
 
-const externalLinks = [
+const Resources = ({ setView }) => {
+  const [phq9, setPhq9] = useState(null);
+  const [gad7, setGad7] = useState(null);
+  const [moodStreak, setMoodStreak] = useState(0);
+  const [tips, setTips] = useState([]);
+
+  const userEmail = localStorage.getItem("userEmail")?.replace(/\./g, "_");
+
+  useEffect(() => {
+    if (!userEmail) return;
+
+    // Fetch assessments
+    fetch(`http://localhost:5000/assessment/results?user_id=${userEmail}`)
+      .then(res => res.json())
+      .then(data => {
+        const latest = data[data.length - 1];
+        setPhq9(latest?.phq9 || 0);
+        setGad7(latest?.gad7 || 0);
+      });
+
+    // Fetch moods
+    fetch(`http://localhost:5000/mood?user_id=${userEmail}`)
+      .then(res => res.json())
+      .then(data => {
+        const streak = calculateStreak(data);
+        setMoodStreak(streak);
+      });
+  }, [userEmail]);
+
+  useEffect(() => {
+    const suggestions = [];
+
+    if (phq9 >= 15) suggestions.push({
+      title: "💡 Managing Severe Depression",
+      description: "Explore professional strategies and support for managing depression.",
+      link: "https://www.nhs.uk/mental-health/conditions/clinical-depression/"
+    });
+
+    if (gad7 >= 10) suggestions.push({
+      title: "🧘 Grounding Techniques for Anxiety",
+      description: "Step-by-step calming exercises when feeling overwhelmed.",
+      link: "https://www.healthline.com/health/grounding-techniques"
+    });
+
+    if (moodStreak < 3) suggestions.push({
+      title: "🔁 Build Your Self-Care Streak",
+      description: "Get back on track with small habits and rewards.",
+      link: "https://www.headspace.com/mindfulness"
+    });
+
+    if (suggestions.length === 0) {
+      suggestions.push({
+        title: "🌱 Boost Everyday Wellbeing",
+        description: "Ideas for daily positivity, study breaks and social connection.",
+        link: "https://www.mentalhealth.org.uk/explore-mental-health/a-z-topics/ways-wellbeing"
+      });
+    }
+
+    setTips(suggestions);
+  }, [phq9, gad7, moodStreak]);
+
+  const calculateStreak = (entries) => {
+    const dates = new Set(entries.map(entry => new Date(entry.timestamp).toDateString()));
+    let streak = 0;
+    let today = new Date();
+    while (true) {
+      if (dates.has(today.toDateString())) {
+        streak++;
+        today.setDate(today.getDate() - 1);
+      } else {
+        break;
+      }
+    }
+    return streak;
+  };
+
+  const generalAdvice = [
   {
-    title: "Mind UK",
-    url: "https://www.mind.org.uk",
-    description: "Mental health charity offering information and support for people in England and Wales."
+    title: "📚 Study Skills & Focus",
+    description: "Time management, dealing with procrastination, and building study motivation.",
+    link: "/resources/study-skills"
   },
   {
-    title: "NHS Mental Health",
-    url: "https://www.nhs.uk/mental-health/",
-    description: "Official NHS advice and mental health services."
+    title: "🎤 Presentation & Exam Anxiety",
+    description: "Learn how to manage performance pressure and anxiety.",
+    link: "/resources/presentation-anxiety"
   },
   {
-    title: "Samaritans",
-    url: "https://www.samaritans.org",
-    description: "Free 24/7 helpline for emotional support and crisis assistance."
-  }
+    title: "🏠 Homesickness & Culture Shock",
+    description: "Tips to adjust, connect and thrive while far from home.",
+    link: "/resources/homesickness"
+  },
+  {
+    title: "💸 Budgeting & Financial Stress",
+    description: "Understand how to manage money and reduce financial worry.",
+    link: "/resources/finance"
+  },
+  {
+    title: "😴 Sleep Hygiene & Routines",
+    description: "Build healthy sleep habits to support mood and energy.",
+    link: "/resources/sleep"
+  },
+  {
+    title: "🤝 Making Friends & Social Support",
+    description: "Ways to overcome isolation and connect with others at uni.",
+    link: "/resources/friendship"
+  },
+  {
+    title: "🌍 Navigating UK Student Life",
+    description: "International student guide to healthcare, culture, and survival tips.",
+    link: "/resources/international"
+  },
+  {
+    title: "🆘 Crisis & Emergency Help",
+    description: "What to do in a mental health crisis and who to contact.",
+    action: () => setView('emergency')  }
 ];
 
-const tips = [
-  {
-    topic: "Sleep Hygiene",
-    content: "Go to bed and wake up at consistent times. Avoid screens before bed, and keep your room cool and dark to improve sleep quality."
-  },
-  {
-    topic: "Study Techniques",
-    content: "Use the Pomodoro method: 25 minutes of focused work followed by 5-minute breaks. Plan your day the night before and avoid multitasking."
-  },
-  {
-    topic: "Presentation Anxiety",
-    content: "Practice aloud, visualise success, and breathe deeply before speaking. Reframe nerves as excitement to stay positive."
-  },
-  {
-    topic: "Homesickness",
-    content: "Keep in touch with family, personalise your space, and build new routines. Don’t isolate yourself — join clubs or talk to peers."
-  },
-  {
-    topic: "Dealing with Feeling Overwhelmed",
-    content: "Break tasks into small, achievable steps. Prioritise 1–3 key actions per day and allow time to rest without guilt."
-  }
-];
-
-const Resources = () => {
   return (
-    <div className="resources-container">
-      <h2>📚 Mental Health & Wellbeing Resources</h2>
+      <div className="resources-container">
 
-      <section className="resource-section">
-        <h3>🌐 External Support Links</h3>
-        <div className="resources-grid">
-          {externalLinks.map((res, i) => (
-            <div key={i} className="resource-card">
-              <h4>{res.title}</h4>
-              <p>{res.description}</p>
-              <a href={res.url} target="_blank" rel="noreferrer">Visit Site →</a>
-            </div>
+        <h1>Personalised Wellbeing Tips</h1>
+        <p>Based on your recent check-ins and assessments</p>
+        <div className="resource-grid">
+          {tips.map((tip, idx) => (
+              <div key={idx} className="resource-card">
+                <h3>{tip.title}</h3>
+                <p>{tip.description}</p>
+                <a href={tip.link} target="_blank" rel="noopener noreferrer">Learn more</a>
+              </div>
           ))}
         </div>
-      </section>
+        <hr style={{margin: '3rem 0'}}/>
+        <h1>General Advice for Students</h1>
+        <p>Explore common challenges students face and how to manage them.</p>
 
-      <section className="resource-section">
-        <h3>💡 Wellbeing Tips</h3>
-        <div className="tips-grid">
-          {tips.map((tip, i) => (
-            <div key={i} className="tip-card">
-              <h4>{tip.topic}</h4>
-              <p>{tip.content}</p>
-            </div>
+        <div className="resource-grid">
+          {generalAdvice.map((item, idx) => (
+              <div key={idx} className="resource-card">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+{item.link ? (
+  <a href={item.link} target="_blank" rel="noopener noreferrer">View advice</a>
+) : item.action ? (
+  <a href="#" onClick={(e) => {
+    e.preventDefault();
+    item.action();
+  }}>View advice</a>
+) : null}
+
+              </div>
           ))}
+
         </div>
-      </section>
-    </div>
+
+      </div>
+
   );
 };
 

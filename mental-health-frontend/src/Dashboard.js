@@ -76,7 +76,6 @@ useEffect(() => {
               <div className="dashboard-card">
                   <h3>📊 Assessment Trends</h3>
                   <div className="dashboard-card">
-                      <h3>📊 Assessment Trends</h3>
                       {assessments.length > 0 ? (
                           <Line
                               data={{
@@ -123,15 +122,6 @@ useEffect(() => {
                   <p>{lastEntry || "No entries yet."}</p>
               </div>
 
-              <div className="dashboard-card">
-                  <h3>👤 Profile</h3>
-                  <p>Email: {userEmail?.replace(/_/g, '.')}</p>
-                  <button onClick={() => {
-                      localStorage.clear();
-                      window.location.reload();
-                  }}>Sign Out
-                  </button>
-              </div>
           </div>
       </div>
   );
