@@ -28,25 +28,29 @@ const LoginSignup = ({ onLogin }) => {
   const generateRecoveryKey = () =>
     Math.random().toString(36).slice(2, 10) + '-' + Math.random().toString(36).slice(2, 10);
 
-  const handleSignup = async () => {
-    try {
-      const email = fakeEmail(alias);
-      const recovery = generateRecoveryKey();
-      const hashedRecovery = await bcrypt.hash(recovery, 10);
+const handleSignup = async () => {
+  try {
+    const email = fakeEmail(alias); // e.g., hey@alias.local
+    const recovery = generateRecoveryKey();
+    const hashedRecovery = await bcrypt.hash(recovery, 10);
 
-      await createUserWithEmailAndPassword(auth, email, password);
-      await updateProfile(auth.currentUser, { displayName: alias });
-      await setDoc(doc(db, "user_meta", alias), {
-        recoveryHash: hashedRecovery,
-      });
+    await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(auth.currentUser, { displayName: alias });
 
-      setNewRecoveryKey(recovery);
-      setShowRecovery(true);
-      setMessage('Account created. Save your recovery key!');
-    } catch (err) {
-      setMessage(err.message);
-    }
-  };
+    const userId = auth.currentUser.uid;
+
+await setDoc(doc(db, "users", userId, "meta", "recovery"), {
+  recoveryHash: hashedRecovery,
+});
+
+
+    setNewRecoveryKey(recovery);
+    setShowRecovery(true);
+    setMessage("Account created. Save your recovery key!");
+  } catch (err) {
+    setMessage(err.message);
+  }
+};
 
   const handleLogin = async () => {
   try {

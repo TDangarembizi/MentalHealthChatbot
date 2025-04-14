@@ -150,14 +150,10 @@ const Resources = ({ setView }) => {
     item.action();
   }}>View advice</a>
 ) : null}
-
               </div>
           ))}
-
         </div>
-
       </div>
-
   );
 };
 
