@@ -1,0 +1,29 @@
+.progress-container {
+  padding: 2rem;
+  color: var(--text-color);
+}
+
+.progress-section {
+  margin-top: 2rem;
+}
+
+.progress-summary {
+  margin-top: 2rem;
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.progress-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.progress-table th,
+.progress-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
