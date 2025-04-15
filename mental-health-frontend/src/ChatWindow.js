@@ -1,11 +1,15 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ChatMessage from './ChatMessage';
 import './ChatWindow.css';
 
 const ChatWindow = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  const [isListening, setIsListening] = useState(false);
+  const [isVoiceInput, setIsVoiceInput] = useState(false);
   const recognitionRef = useRef(null);
+
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
   const addMessage = (message) => {
     setMessages((prev) => [...prev, message]);
@@ -16,62 +20,86 @@ const ChatWindow = () => {
     speechSynthesis.speak(utterance);
   };
 
-  const sendMessage = async () => {
-    if (!input.trim()) return;
+  const messagesEndRef = useRef(null);
 
-    const userText = input.trim();
-    addMessage({ text: userText, sender: 'user' });
-    setInput('');
+  const sendMessage = async (customInput = null) => {
+  const rawInput = customInput ?? input;
+  const messageToSend = typeof rawInput === 'string' ? rawInput.trim() : '';
+  if (!messageToSend) return;
 
-    try {
-      const response = await fetch('http://localhost:5000/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userText, sender: 'user123' })
+  const isVoice = !!customInput;  // Use local flag instead of state
+
+  addMessage({ text: messageToSend, sender: 'user' });
+  setInput('');
+
+  try {
+    const response = await fetch('http://localhost:5000/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: messageToSend, sender: 'user123' })
+    });
+
+    const botReplies = await response.json();
+    if (Array.isArray(botReplies)) {
+      botReplies.forEach((botMsg) => {
+        if (botMsg.text) {
+          addMessage({ text: botMsg.text, sender: 'bot' });
+          if (isVoice) speak(botMsg.text); // ✅ use local flag
+        }
       });
-
-      const botReplies = await response.json();
-      if (Array.isArray(botReplies)) {
-        botReplies.forEach((botMsg) => {
-          if (botMsg.text) {
-            addMessage({ text: botMsg.text, sender: 'bot' });
-            speak(botMsg.text);
-          }
-        });
-      } else {
-        addMessage({ text: 'Unexpected response from bot.', sender: 'bot' });
-        speak('Unexpected response from bot.');
-      }
-    } catch (error) {
-      console.error('Chat error:', error);
-      addMessage({ text: 'Bot is currently unavailable. Try again later.', sender: 'bot' });
-      speak('Bot is currently unavailable. Try again later.');
+    } else {
+      addMessage({ text: 'Unexpected response from bot.', sender: 'bot' });
     }
-  };
+  } catch (err) {
+    console.error('Chat error:', err);
+    addMessage({ text: 'Bot is currently unavailable. Try again later.', sender: 'bot' });
+  }
+};
 
-  const startListening = () => {
+useEffect(() => {
+  messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+}, [messages]);
+
+  useEffect(() => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
-      alert("Your browser doesn't support speech recognition.");
+      console.warn("SpeechRecognition not supported in this browser.");
       return;
     }
 
-    if (!recognitionRef.current) {
-      recognitionRef.current = new SpeechRecognition();
-      recognitionRef.current.lang = 'en-GB';
-      recognitionRef.current.interimResults = false;
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'en-GB';
 
-      recognitionRef.current.onresult = (e) => {
-        const transcript = e.results[0][0].transcript;
-        setInput(transcript);
-      };
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript.trim();
+      setInput(transcript);
+      setIsListening(false);
+      sendMessage(transcript);
+    };
 
-      recognitionRef.current.onerror = (e) => {
-        console.error('Speech recognition error:', e.error);
-      };
+    recognition.onerror = (e) => {
+      console.error('Speech recognition error:', e.error);
+      setIsListening(false);
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+
+    recognitionRef.current = recognition;
+  }, []);
+
+  const handleMicClick = () => {
+    if (!recognitionRef.current) return;
+    if (!isListening) {
+      recognitionRef.current.start();
+      setIsListening(true);
+    } else {
+      recognitionRef.current.stop();
+      setIsListening(false);
     }
-
-    recognitionRef.current.start();
   };
 
   return (
@@ -80,6 +108,7 @@ const ChatWindow = () => {
         {messages.map((msg, i) => (
           <ChatMessage key={i} text={msg.text} sender={msg.sender} />
         ))}
+        <div ref={messagesEndRef} />  {/* 👈 Scroll target */}
       </div>
       <div className="chat-input-row">
         <input
@@ -88,8 +117,12 @@ const ChatWindow = () => {
           placeholder="Type or speak..."
           onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
         />
-        <button onClick={sendMessage}>Send</button>
-        <button onClick={startListening}>🎤</button>
+        <button onClick={() => sendMessage()}>Send</button>
+        {!isSafari && (
+          <button onClick={handleMicClick}>
+            {isListening ? "🎙️ Listening..." : "🎤"}
+          </button>
+        )}
       </div>
     </div>
   );
