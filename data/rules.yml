@@ -6,6 +6,8 @@ rules:
   steps:
   - intent: greeting
   - action: utter_greeting
+  - action: action_log_sentiment
+
 
 - rule: Say goodbye anytime the user says goodbye
   steps:
@@ -71,7 +73,6 @@ rules:
 - rule: Offer support for addiction concerns
   steps:
   - intent: substance_abuse
-  - action: action_offer_resources
   - action: utter_action_log_critical_case
 
 - rule: Respond supportively to eating disorder intent

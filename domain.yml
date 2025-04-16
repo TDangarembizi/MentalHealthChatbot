@@ -52,7 +52,12 @@ intents:
   - harm_others
   - panic_attack
   - substance_abuse
+  - study_skills
 responses:
+  utter_study_skills:
+  - text: It’s completely normal to struggle with study routines — you’re not alone. Would you like help with creating a time management plan, tackling procrastination, or staying motivated?
+  - text: Study challenges can feel overwhelming, especially with deadlines piling up. I can share techniques to improve focus and build productive habits if you'd like.
+  - text: Feeling stuck is a common part of academic life. Let’s explore some study strategies that might make things easier.
   utter_greeting:
   - text: Guten tag! What brings you here?
   - text: Ciao! What's on your mind?
@@ -3028,5 +3033,6 @@ responses:
       or contact emergency services immediately. You can also talk to someone at 
       [Mind](https://www.mind.org.uk/) or [Samaritans](https://www.samaritans.org/). You are not alone.
 actions:
-  - action_offer_resources
+  - action_log_sentiment
+  - action_fetch_study_tips
 

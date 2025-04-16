@@ -3123,3 +3123,19 @@ nlu:
     - I feel out of control with alcohol
     - I need help with my addiction
     - I've relapsed again
+- intent: study_skills
+  examples: |
+    - I can't concentrate when I study.
+    - I always leave assignments until the last minute.
+    - I'm struggling to stay motivated to study.
+    - I don't know how to manage my study time.
+    - I need better study habits.
+    - I can't seem to get into a good routine.
+    - Studying feels overwhelming.
+    - I don’t know how to start revising.
+    - I want to improve my focus.
+    - I get distracted so easily while studying.
+    - I keep procrastinating and falling behind.
+    - My study sessions aren’t productive.
+    - I need help building better academic routines.
+    - I feel unprepared for exams even though I try to study.

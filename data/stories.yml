@@ -1,9 +1,15 @@
 version: '3.1'
 stories:
+- story: study skills with api support
+  steps:
+  - intent: study_skills
+  - action: utter_study_skills
+  - action: action_fetch_study_tips
 - story: greeting_story
   steps:
   - intent: greeting
   - action: utter_greeting
+  - action: action_log_sentiment
 - story: morning_story
   steps:
   - intent: morning
@@ -68,7 +74,6 @@ stories:
   steps:
   - intent: depressed
   - action: utter_depressed
-  - action: action_offer_resources
 - story: happy_story
   steps:
   - intent: happy
