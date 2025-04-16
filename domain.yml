@@ -3034,5 +3034,5 @@ responses:
       [Mind](https://www.mind.org.uk/) or [Samaritans](https://www.samaritans.org/). You are not alone.
 actions:
   - action_log_sentiment
-  - action_fetch_study_tips
+  - action_provide_study_resources
 

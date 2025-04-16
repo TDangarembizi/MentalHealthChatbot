@@ -1,0 +1,72 @@
+
+.advice-container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-radius: 12px;
+  box-shadow: 0 3px 10px var(--card-shadow);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.advice-container h1 {
+  font-size: 2.4rem;
+  color: var(--heading-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.advice-container section {
+  margin-top: 2rem;
+}
+
+.advice-container h2 {
+  font-size: 1.8rem;
+  color: var(--section-heading-color);
+  border-left: 4px solid var(--section-heading-color);
+  padding-left: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.advice-container ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.advice-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px var(--card-shadow);
+  transition: transform 0.2s ease;
+}
+
+.advice-card:hover {
+  transform: translateY(-4px);
+}
+
+.advice-card strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .advice-container {
+    padding: 1.5rem;
+  }
+
+  .advice-container h1 {
+    font-size: 2rem;
+  }
+
+  .advice-container h2 {
+    font-size: 1.5rem;
+  }
+}

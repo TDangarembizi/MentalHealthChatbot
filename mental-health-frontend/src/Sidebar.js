@@ -32,13 +32,6 @@ const Sidebar = ({ setView, currentView }) => {
   // Clear user data, tokens, session, etc.
   console.log("User logged out");
 
-  // If you're using Firebase Auth:
-  // import { getAuth, signOut } from "firebase/auth";
-  // const auth = getAuth();
-  // signOut(auth).then(() => {
-  //   console.log("Signed out successfully");
-  // });
-
   // Redirect to login screen if needed
   window.location.href = '/login';
 };

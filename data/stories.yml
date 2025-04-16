@@ -4,7 +4,7 @@ stories:
   steps:
   - intent: study_skills
   - action: utter_study_skills
-  - action: action_fetch_study_tips
+  - action: action_provide_study_resources
 - story: greeting_story
   steps:
   - intent: greeting
