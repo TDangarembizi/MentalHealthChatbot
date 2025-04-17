@@ -88,7 +88,55 @@ const StarRating = () => {
 };
 
 const Sidebar = ({ setView, currentView }) => {
-  const [showSettings, setShowSettings] = useState(false);
+const [showSettings, setShowSettings] = useState(false);
+const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+const handleThemeChange = (selectedTheme) => {
+  setTheme(selectedTheme);
+  document.body.classList.toggle('dark', selectedTheme === 'dark');
+};
+
+const savePreferences = () => {
+  const user_id = localStorage.getItem("userEmail") || "anonymous";
+
+  localStorage.setItem("theme", theme);
+
+  document.body.classList.remove("light-mode");
+  if (theme === "light") {
+    document.body.classList.add("light-mode");
+  }
+
+  fetch("http://localhost:5000/save-preferences", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      user_id,
+      preferences: { theme }
+    })
+  })
+    .then(res => res.json())
+    .then((data) => {
+      alert("Preferences saved to Firebase!");
+    })
+    .catch(() => {
+      alert("Saved locally, but failed to sync with server.");
+    });
+};
+
+React.useEffect(() => {
+  const user_id = localStorage.getItem("userEmail") || "anonymous";
+
+  fetch(`http://localhost:5000/get-preferences?user_id=${user_id}`)
+    .then(res => res.json())
+    .then(data => {
+      const savedTheme = data.preferences?.theme || "dark";
+      setTheme(savedTheme);
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+      } else {
+        document.body.classList.remove("light-mode");
+      }
+    });
+}, []);
 
   const handleSettingsClick = () => {
     setShowSettings(!showSettings);
@@ -113,14 +161,21 @@ const Sidebar = ({ setView, currentView }) => {
       </div>
 
       {showSettings && (
-        <div className="settings-panel">
-          <h4>Settings</h4>
-          <ul>
-            <li>Profile</li>
-            <li>Preferences</li>
-            <li onClick={handleLogout}>Logout</li>
-          </ul>
-        </div>
+          <div className="settings-panel">
+            <h4>Settings</h4>
+
+            <label>
+              Theme:
+              <select value={theme} onChange={(e) => handleThemeChange(e.target.value)}>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+              </select>
+            </label>
+
+            <button onClick={savePreferences}>Save</button>
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+
       )}
 
       <ul>

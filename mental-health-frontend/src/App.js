@@ -21,6 +21,7 @@ import UKGuide from "./UKGuide"
 import Depression from "./Depression";
 import Anxiety from "./Anxiety"
 import Wellbeing from "./Wellbeing";
+import About from "./About";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -53,7 +54,7 @@ function App() {
           {view === 'depression' && <Depression setView={setView}/>}
           {view === 'anxiety' && <Anxiety setView={setView}/>}
           {view === 'wellbeing' && <Wellbeing setView={setView}/>}
-
+          {view === 'about' && <About setView={setView}/>}
 
         </div>
       </>

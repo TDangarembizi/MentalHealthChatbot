@@ -59,6 +59,34 @@ def secure_endpoint():
     except Exception as e:
         return jsonify({"error": "Unauthorized", "details": str(e)}), 401
 
+@app.route("/save-preferences", methods=["POST"])
+def save_preferences():
+    data = request.get_json()
+    user_id = data.get("user_id", "anonymous").replace('.', '_')
+    preferences = data.get("preferences", {})
+
+    try:
+        db.collection("users").document(user_id).set(
+            {"preferences": preferences}, merge=True
+        )
+        return jsonify({"message": "Preferences saved to Firebase"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/get-preferences", methods=["GET"])
+def get_preferences():
+    user_id = request.args.get("user_id", "anonymous").replace('.', '_')
+
+    try:
+        doc = db.collection("users").document(user_id).get()
+        if doc.exists:
+            prefs = doc.to_dict().get("preferences", {})
+            return jsonify({"preferences": prefs}), 200
+        else:
+            return jsonify({"preferences": {}}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 #Chatbot interaction endpoint
 @app.route("/chat", methods=["POST"])
 def chat():
