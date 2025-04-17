@@ -209,8 +209,40 @@ def get_journal_entries():
 @app.route("/feedback", methods=["POST"])
 def submit_feedback():
     data = request.get_json()
-    db.collection("feedback").add(data)
-    return jsonify({"message": "Feedback received"}), 201
+    user_id = data.get("user_id", "anonymous").replace('.', '_')
+
+    feedback = {
+        "user_id": user_id,
+        "rating": data.get("rating"),
+        "comment": data.get("comment"),
+        "timestamp": data.get("timestamp")
+    }
+
+    try:
+        user_doc = db.collection("users").document(user_id)
+        user_doc.set({}, merge=True)
+        user_doc.collection("feedback").add(feedback)
+
+        return jsonify({"message": "Feedback submitted"}), 201
+
+    except Exception as e:
+        return jsonify({"error": "Failed to submit feedback", "details": str(e)}), 500
+
+@app.route("/feedback", methods=["GET"])
+def get_feedback():
+    admin_key = request.args.get("admin_key")
+    if admin_key != "secret_admin_key":
+        return jsonify({"error": "Unauthorized"}), 401
+
+    feedback_collection = db.collection("feedback").stream()
+    feedback_list = []
+
+    for doc in feedback_collection:
+        entry = doc.to_dict()
+        entry["id"] = doc.id
+        feedback_list.append(entry)
+
+    return jsonify(feedback_list), 200
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
