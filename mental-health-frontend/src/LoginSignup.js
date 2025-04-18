@@ -54,6 +54,12 @@ await setDoc(doc(db, "users", userId, "meta", "recovery"), {
 
   const handleLogin = async () => {
   try {
+    if (!localStorage.getItem("sessionId")) {
+  const now = new Date();
+  const sessionId = `${String(now.getDate()).padStart(2, '0')}-${String(now.getMonth() + 1).padStart(2, '0')} ${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
+  localStorage.setItem("sessionId", sessionId);
+}
+
     const email = fakeEmail(alias);
 
     await signInWithEmailAndPassword(auth, email, password);

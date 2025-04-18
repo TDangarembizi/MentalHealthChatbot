@@ -1,37 +1,30 @@
+.chat-layout {
+  display: flex;
+  height: 100%;
+}
+
+.chat-history-column {
+  width: 150px;
+  padding: 1rem;
+  overflow-y: auto;
+  border-right: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.chat-history-list {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.chat-history-item {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
 .chat-main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  padding: 2rem;
-  box-sizing: border-box;
-  min-height: 0; /* Prevents overflow issues */
-}
-
-/* Scrollable chat area */
-.message-container {
-  flex: 1;
-  overflow-y: auto;
-  padding-right: 10px;
-  margin-bottom: 1rem;
-  width: 100%;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Chat input pinned at bottom */
-.chat-input-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding-top: 0.5rem;
-  border-top: 1px solid var(--border-color);
-  background-color: var(--bg-color); /* Ensures visibility when scrolling */
-  position: sticky;
-  bottom: 0;
+  padding: 1rem;
 }

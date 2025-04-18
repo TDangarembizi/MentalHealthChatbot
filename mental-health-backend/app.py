@@ -88,25 +88,82 @@ def get_preferences():
         return jsonify({"error": str(e)}), 500
 
 #Chatbot interaction endpoint
+from datetime import datetime
+import uuid
+
 @app.route("/chat", methods=["POST"])
 def chat():
     data = request.get_json()
-    user_message = data.get("message")
-    sender_id = data.get("sender", "anonymous")  # Optional
 
-    if not user_message:
-        return jsonify({"error": "No message provided"}), 400
+    # Extract values from the request
+    user_message = data.get("message")
+    sender_id = data.get("sender", "anonymous")
+    session_id = data.get("session_id")
+
+    if not user_message or not session_id:
+        return jsonify({"error": "Both 'message' and 'session_id' are required."}), 400
 
     try:
+        # Send message to Rasa
         rasa_response = requests.post(RASA_URL, json={
             "sender": sender_id,
             "message": user_message
         })
         rasa_response.raise_for_status()
-        return jsonify(rasa_response.json())
+        rasa_data = rasa_response.json()
+
+        # Build message entry with timestamp
+        entry = {
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "user_message": user_message,
+            "bot_response": rasa_data
+        }
+
+        # Reference to Firestore path: users/{sender_id}/messages/{session_id}
+        doc_ref = db.collection("users").document(sender_id).collection("messages").document(session_id)
+
+        # Append to the "messages" array in the session document
+        doc_ref.set({
+            "messages": firestore.ArrayUnion([entry])
+        }, merge=True)
+
+        # Return bot response to client
+        return jsonify(rasa_data)
 
     except requests.RequestException as e:
-        return jsonify({"error": "Failed to contact Rasa server", "details": str(e)}), 500
+        return jsonify({
+            "error": "Failed to contact Rasa server",
+            "details": str(e)
+        }), 500
+
+    except Exception as e:
+        return jsonify({
+            "error": "Unexpected server error",
+            "details": str(e)
+        }), 500
+
+@app.route("/chat-history", methods=["GET"])
+def chat_history():
+    user_id = request.args.get("user_id", "anonymous").replace('.', '_')
+    session_id = request.args.get("session_id")
+
+    if not session_id:
+        return jsonify({"error": "Session ID is required"}), 400
+
+    try:
+        messages_ref = db.collection("users") \
+                         .document(user_id) \
+                         .collection("chat_sessions") \
+                         .document(session_id) \
+                         .collection("messages") \
+                         .order_by("timestamp")
+
+        messages = [doc.to_dict() for doc in messages_ref.stream()]
+        return jsonify({"messages": messages})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 @app.route("/mood", methods=["POST"])
 def submit_mood():

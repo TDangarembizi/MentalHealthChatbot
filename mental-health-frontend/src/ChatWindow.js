@@ -3,6 +3,8 @@ import ChatMessage from './ChatMessage';
 import './ChatWindow.css';
 
 const ChatWindow = () => {
+  const userEmail = localStorage.getItem("userEmail")?.replace(/\./g, "_");
+
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isListening, setIsListening] = useState(false);
@@ -33,18 +35,24 @@ const ChatWindow = () => {
   setInput('');
 
   try {
-    const response = await fetch('http://localhost:5000/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: messageToSend, sender: 'user123' })
-    });
+const sessionId = sessionStorage.getItem("chatSessionId");
+
+const response = await fetch('http://localhost:5000/chat', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    message: messageToSend,
+    sender: userEmail,
+    session_id: sessionId
+  })
+});
 
     const botReplies = await response.json();
     if (Array.isArray(botReplies)) {
       botReplies.forEach((botMsg) => {
         if (botMsg.text) {
           addMessage({ text: botMsg.text, sender: 'bot' });
-          if (isVoice) speak(botMsg.text); // ✅ use local flag
+          if (isVoice) speak(botMsg.text);
         }
       });
     } else {

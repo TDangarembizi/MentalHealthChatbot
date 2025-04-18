@@ -87,7 +87,7 @@ const StarRating = () => {
   );
 };
 
-const Sidebar = ({ setView, currentView }) => {
+const Sidebar = ({ setView, currentView, setIsLoggedIn }) => {
 const [showSettings, setShowSettings] = useState(false);
 const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 const handleThemeChange = (selectedTheme) => {
@@ -143,8 +143,13 @@ React.useEffect(() => {
   };
 
   const handleLogout = () => {
-    console.log("User logged out");
-    window.location.href = '/login';
+     sessionStorage.removeItem('isLoggedIn');
+     sessionStorage.removeItem('view');
+     sessionStorage.removeItem('sessionId');
+     sessionStorage.removeItem("chatSessionId");
+     sessionStorage.clear();
+
+      setIsLoggedIn(false);
   };
 
   return (
@@ -201,7 +206,7 @@ React.useEffect(() => {
           Emergency Contacts
         </li>
         <li className={currentView === 'about' ? 'active' : ''} onClick={() => setView('about')}>
-          FAQs/About
+          About
         </li>
       </ul>
 
