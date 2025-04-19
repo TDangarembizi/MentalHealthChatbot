@@ -72,25 +72,27 @@ await fetch("http://localhost:5000/recovery", {
 
 
   const handleRecovery = async () => {
-    try {
-      const metaRef = doc(db, "user_meta", alias);
-      const snapshot = await getDoc(metaRef);
+  try {
+    const response = await fetch("http://localhost:5000/forgot-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        alias,
+        recovery_key: recoveryKey,
+        new_password: password
+      })
+    });
 
-      if (!snapshot.exists()) throw new Error("User not found");
+    const result = await response.json();
 
-      const storedHash = snapshot.data().recoveryHash;
-      const isMatch = await bcrypt.compare(recoveryKey, storedHash);
-
-      if (!isMatch) throw new Error("Invalid recovery key");
-
-      const email = fakeEmail(alias);
-      await signInWithEmailAndPassword(auth, email, password);
-      await auth.currentUser && auth.currentUser.updatePassword(password);
-      setMessage("Password reset successful.");
-    } catch (err) {
-      setMessage(err.message);
+    if (!response.ok) {
+      throw new Error(result.error || "Password reset failed");
     }
-  };
+    setMessage("Password reset successful.");
+  } catch (err) {
+    setMessage(err.message);
+  }
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();

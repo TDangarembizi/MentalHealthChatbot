@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import bcrypt
 import firebase_admin
 from firebase_admin import credentials, auth
 from firebase_admin import firestore
@@ -27,7 +28,7 @@ firebase_config = {
 
 # Initialise Flask app
 app = Flask(__name__)
-CORS(app,origins=["http://localhost:3000"])
+CORS(app, origins=["http://localhost:3000"], supports_credentials=True)
 
 # Initialise Firebase
 if not firebase_admin._apps:
@@ -196,6 +197,42 @@ def save_recovery_key():
     except Exception as e:
         print("Recovery key save error:", str(e))
         return jsonify({"error": "Failed to save recovery key", "details": str(e)}), 500
+
+@app.route("/forgot-password", methods=["POST"])
+def forgot_password():
+    data = request.get_json()
+    alias = data.get("alias")
+    recovery_key = data.get("recovery_key")
+    new_password = data.get("new_password")
+
+    if not alias or not recovery_key or not new_password:
+        return jsonify({"error": "Missing fields"}), 400
+
+    raw_email = f"{alias}@alias.local"
+    safe_email = raw_email.replace(".", "_")
+
+    try:
+        # Fetch stored hash from Firestore
+        recovery_ref = firestore.client().collection("users").document(safe_email).collection("meta").document("recovery")
+        doc = recovery_ref.get()
+
+        if not doc.exists:
+            return jsonify({"error": "Recovery key not set"}), 404
+
+        stored_hash = doc.to_dict().get("recoveryHash")
+
+        if not bcrypt.checkpw(recovery_key.encode(), stored_hash.encode()):
+            return jsonify({"error": "Invalid recovery key"}), 403
+
+        # Get user by email and update password
+        user = auth.get_user_by_email(raw_email)
+        auth.update_user(user.uid, password=new_password)
+
+        return jsonify({"message": "Password reset successful"}), 200
+
+    except Exception as e:
+        print("[ERROR] Password reset failed:", e)
+        return jsonify({"error": str(e)}), 500
 
 @app.route("/mood", methods=["POST"])
 def submit_mood():
