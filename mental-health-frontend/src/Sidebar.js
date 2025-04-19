@@ -26,7 +26,8 @@ const StarRating = () => {
   };
 
   const handleSubmit = () => {
-    const user_id = localStorage.getItem("userEmail") || "anonymous";
+    const user_id = localStorage.getItem("userEmail")?.replace(/\./g, "_");
+
     fetch('http://localhost:5000/feedback', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
