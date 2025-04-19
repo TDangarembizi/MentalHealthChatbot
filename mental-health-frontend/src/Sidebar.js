@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
 import userlogo from './userlogo.png';
+import { getAuth, deleteUser } from "firebase/auth";
+import { getFirestore, doc, deleteDoc, collection, getDocs } from "firebase/firestore";
+
+const userEmail=localStorage.getItem("userEmail");
 
 const StarRating = () => {
   const [rating, setRating] = useState(0);
@@ -23,7 +27,6 @@ const StarRating = () => {
 
   const handleSubmit = () => {
     const user_id = localStorage.getItem("userEmail") || "anonymous";
-
     fetch('http://localhost:5000/feedback', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -96,7 +99,6 @@ const handleThemeChange = (selectedTheme) => {
 };
 
 const savePreferences = () => {
-  const user_id = localStorage.getItem("userEmail") || "anonymous";
 
   localStorage.setItem("theme", theme);
 
@@ -104,7 +106,7 @@ const savePreferences = () => {
   if (theme === "light") {
     document.body.classList.add("light-mode");
   }
-
+    const user_id = localStorage.getItem("userEmail") || "anonymous";
   fetch("http://localhost:5000/save-preferences", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -123,7 +125,7 @@ const savePreferences = () => {
 };
 
 React.useEffect(() => {
-  const user_id = localStorage.getItem("userEmail") || "anonymous";
+    const user_id = localStorage.getItem("userEmail") || "anonymous";
 
   fetch(`http://localhost:5000/get-preferences?user_id=${user_id}`)
     .then(res => res.json())
@@ -148,9 +150,66 @@ React.useEffect(() => {
      sessionStorage.removeItem('sessionId');
      sessionStorage.removeItem("chatSessionId");
      sessionStorage.clear();
-
+     localStorage.clear();
       setIsLoggedIn(false);
   };
+
+ const deleteAcc = async () => {
+  const auth = getAuth();
+  const db = getFirestore();
+  const user = auth.currentUser
+  const user_id = localStorage.getItem("userEmail");
+  const safe_id=user_id?.replace(/\./g, "_");
+
+  if (!user) {
+    alert("No authenticated user found.");
+    return;
+  }
+
+  const subcollections = ["assessments", "journal", "messages", "mood"];
+
+  try {
+    for (const sub of subcollections) {
+
+      const colRef = collection(db, "users", safe_id, sub);
+      const snapshot = await getDocs(colRef);
+      for (const docSnap of snapshot.docs) {
+        await deleteDoc(docSnap.ref);
+      }
+    }
+
+    await deleteDoc(doc(db, "users", safe_id));
+
+    await deleteUser(user);
+    alert("Account deleted successfully.");
+    localStorage.clear();
+    sessionStorage.clear();
+    setIsLoggedIn(false);
+  } catch (error) {
+    if (error.code === "auth/requires-recent-login") {
+      alert("Please log in again before deleting your account.");
+    } else {
+      console.error("Error deleting account:", error);
+      alert("An error occurred while deleting your account.");
+    }
+  }
+};
+
+const handleDeleteAccount = () => {
+    const user_id = localStorage.getItem("userEmail") || "anonymous";
+
+  if (user_id === "anonymous") {
+    alert("No user is currently signed in.");
+    return;
+  }
+
+  const confirmed = window.confirm(`Are you sure you want to delete the account for ${user_id}? This action cannot be undone.`);
+  if (confirmed) {
+    deleteAcc();
+  } else {
+    console.log("Deletion cancelled by user.");
+  }
+};
 
   return (
     <div className="sidebar">
@@ -168,7 +227,7 @@ React.useEffect(() => {
       {showSettings && (
           <div className="settings-panel">
             <h4>Settings</h4>
-
+            <p>Account: {userEmail}</p>
             <label>
               Theme:
               <select value={theme} onChange={(e) => handleThemeChange(e.target.value)}>
@@ -176,9 +235,9 @@ React.useEffect(() => {
                 <option value="dark">Dark</option>
               </select>
             </label>
-
             <button onClick={savePreferences}>Save</button>
             <button onClick={handleLogout}>Logout</button>
+            <button onClick={handleDeleteAccount}>Delete Account</button>
           </div>
 
       )}

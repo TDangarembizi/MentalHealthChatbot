@@ -9,7 +9,7 @@ const moods = [
   { label: "😫 Exhausted", value: "exhausted" }
 ];
 
-const MoodPopup = ({ onClose }) => {
+const MoodPopup = ({ onClose,setMoodUpdated }) => {
   const [selected, setSelected] = useState(null);
 
   const handleSubmit = async () => {
@@ -27,8 +27,9 @@ const MoodPopup = ({ onClose }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ user_id: userEmail, ...payload })
     });
+    setMoodUpdated(true);
 
-    onClose(); // Hide modal
+    onClose();
   };
 
   return (

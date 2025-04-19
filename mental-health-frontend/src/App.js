@@ -33,6 +33,7 @@ function App() {
   });
 
   const [showMood, setShowMood] = useState(false);
+  const [moodUpdated, setMoodUpdated] = useState(false);
 
   // Persist login state
   useEffect(() => {
@@ -54,10 +55,10 @@ function App() {
             currentView={view}
             setIsLoggedIn={setIsLoggedIn}
           />
-          {showMood && <MoodPopup onClose={() => setShowMood(false)} />}
+          {showMood && <MoodPopup onClose={() => setShowMood(false)} setMoodUpdated={setMoodUpdated} />}
 
           <div className="main-content">
-            {view === 'dashboard' && <Dashboard />}
+            {view === 'dashboard' && <Dashboard moodUpdated={moodUpdated} setMoodUpdated={setMoodUpdated} />}
             {view === 'chat' && <ChatPage />}
             {view === 'assessment' && <Assessment />}
             {view === 'resources' && <Resources setView={setView} />}

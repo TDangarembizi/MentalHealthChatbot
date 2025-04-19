@@ -5,9 +5,11 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip);
 
 const moodScale = {
-  happy: 3,
-  neutral: 2,
-  sad: 1
+  happy: 5,
+  okay: 4,
+  sad: 3,
+  stressed: 2,
+  exhausted: 1
 };
 
 const MoodChart = () => {
@@ -32,7 +34,6 @@ const MoodChart = () => {
     const avgDiff = values.slice(1).map((v, i) => v - values[i]);
 
     const trendScore = avgDiff.reduce((a, b) => a + b, 0);
-
     if (trendScore > 1) setTrend("📈 Mood is improving");
     else if (trendScore < -1) setTrend("📉 Mood is declining");
     else setTrend("➡️ Mood is stable");

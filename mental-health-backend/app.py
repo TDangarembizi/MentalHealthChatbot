@@ -27,7 +27,7 @@ firebase_config = {
 
 # Initialise Flask app
 app = Flask(__name__)
-CORS(app)
+CORS(app,origins=["http://localhost:3000"])
 
 # Initialise Firebase
 if not firebase_admin._apps:
@@ -62,7 +62,7 @@ def secure_endpoint():
 @app.route("/save-preferences", methods=["POST"])
 def save_preferences():
     data = request.get_json()
-    user_id = data.get("user_id", "anonymous").replace('.', '_')
+    user_id = data.get("user_id")
     preferences = data.get("preferences", {})
 
     try:
@@ -164,11 +164,43 @@ def chat_history():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route("/recovery", methods=["POST"])
+def save_recovery_key():
+    data = request.get_json()
+    raw_email = data.get("user_email")
+
+    if not raw_email:
+        return jsonify({"error": "Missing user_email"}), 400
+
+    safe_email = raw_email.replace('.', '_')
+    hashed_key = data.get("recovery_hash")
+
+    if not hashed_key:
+        return jsonify({"error": "Missing recovery_hash"}), 400
+
+    try:
+        # Ensure the user document exists
+        user_doc = db.collection("users").document(safe_email)
+        user_doc.set({}, merge=True)
+
+        # Save under meta → recovery
+        recovery_doc = user_doc.collection("meta").document("recovery")
+        recovery_doc.set({
+            "recoveryHash": hashed_key,
+            "updatedAt": firestore.SERVER_TIMESTAMP
+        })
+
+        print("[DEBUG] Recovery key stored for:", safe_email)
+        return jsonify({"message": "Recovery key saved"}), 201
+
+    except Exception as e:
+        print("Recovery key save error:", str(e))
+        return jsonify({"error": "Failed to save recovery key", "details": str(e)}), 500
 
 @app.route("/mood", methods=["POST"])
 def submit_mood():
     data = request.get_json()
-    user_id = data.get("user_id", "anonymous").replace('.', '_')
+    user_id = data.get("user_id")
 
     mood_entry = {
         "mood": data.get("mood"),
@@ -208,7 +240,7 @@ def get_mood_entries():
 @app.route("/assessment", methods=["POST"])
 def submit_assessment():
     data = request.get_json()
-    user_id = data.get("user_id", "anonymous").replace('.', '_')
+    user_id = data.get("user_id")
 
     phq9_score = data.get("score", {}).get("phq9", 0)
     gad7_score = data.get("score", {}).get("gad7", 0)
@@ -254,7 +286,7 @@ def get_assessments():
 @app.route("/journal", methods=["POST"])
 def submit_journal():
     data = request.get_json()
-    user_id = data.get("user_id", "anonymous").replace('.', '_')
+    user_id = data.get("user_id")
 
     entry = {
         "text": data.get("text"),
@@ -294,7 +326,7 @@ def get_journal_entries():
 @app.route("/feedback", methods=["POST"])
 def submit_feedback():
     data = request.get_json()
-    user_id = data.get("user_id", "anonymous").replace('.', '_')
+    user_id = data.get("user_id")
 
     feedback = {
         "user_id": user_id,

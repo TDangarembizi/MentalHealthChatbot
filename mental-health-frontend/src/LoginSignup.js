@@ -37,12 +37,14 @@ const handleSignup = async () => {
     await createUserWithEmailAndPassword(auth, email, password);
     await updateProfile(auth.currentUser, { displayName: alias });
 
-    const userId = auth.currentUser.uid;
-
-await setDoc(doc(db, "users", userId, "meta", "recovery"), {
-  recoveryHash: hashedRecovery,
+await fetch("http://localhost:5000/recovery", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    user_email: email,
+    recovery_hash: hashedRecovery
+  })
 });
-
 
     setNewRecoveryKey(recovery);
     setShowRecovery(true);
@@ -54,19 +56,12 @@ await setDoc(doc(db, "users", userId, "meta", "recovery"), {
 
   const handleLogin = async () => {
   try {
-    if (!localStorage.getItem("sessionId")) {
-  const now = new Date();
-  const sessionId = `${String(now.getDate()).padStart(2, '0')}-${String(now.getMonth() + 1).padStart(2, '0')} ${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
-  localStorage.setItem("sessionId", sessionId);
-}
-
     const email = fakeEmail(alias);
 
     await signInWithEmailAndPassword(auth, email, password);
 
     //Store the generated email
     localStorage.setItem("userEmail", email);
-
     setMessage("Login successful.");
     onLogin();  // Triggers the logged-in state
 
