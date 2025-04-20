@@ -2490,8 +2490,8 @@ responses:
   - text: Balancing everything is exhausting. Let's look at how you might lighten the load or build a healthier routine.
 actions:
   - action_log_sentiment
-  - action_provide_study_resources
   - action_handle_user_reply
   - action_analyse_user_message
   - action_analyse_emotion
+  - action_provide_support_resources
 

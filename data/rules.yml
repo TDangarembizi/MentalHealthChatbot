@@ -23,11 +23,6 @@ rules:
   - intent: done
   - action: utter_done
 
-- rule: Respond with comfort when user expresses anxiety
-  steps:
-  - intent: anxious
-  - action: utter_anxious
-
 - rule: Assist user experiencing panic attack
   steps:
   - intent: panic_attack

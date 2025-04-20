@@ -1,10 +1,112 @@
-import TextBlob
+from textblob import TextBlob
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 import requests
 from typing import Any, Text, Dict, List
 from datetime import datetime
+
+def resources(intent_name: str) -> str:
+    resource_links = {
+        "academic_stress": [
+            ("😌 Coping with Academic Pressure", "https://www.counselling-directory.org.uk/blog/2020/09/01/dealing-with-academic-stress"),
+            ("🧘 Study-Life Balance", "https://www.mind.org.uk/information-support/types-of-mental-health-problems/stress/"),
+        ],
+        "study_skills": [
+            ("📚 Time Blocking for Students", "https://todoist.com/productivity-methods/time-blocking"),
+            ("🧠 Spaced Repetition Explained", "https://www.supermemo.com/en/articles/20rules"),
+        ],
+        "work_life_balance": [
+            ("⚖️ Managing Uni, Work, and Life", "https://www.bbc.com/worklife/article/20220504-how-to-achieve-a-work-study-life-balance"),
+        ],
+        "career": [
+            ("💼 Graduate Career Guide", "https://www.prospects.ac.uk/careers-advice"),
+            ("📈 Building a Student CV", "https://targetjobs.co.uk/careers-advice/cvs-and-cover-letters"),
+        ],
+        "homesick": [
+            ("🏠 Coping with Homesickness", "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/homesickness/"),
+        ],
+        "sleep": [
+            ("😴 Sleep Tips for Students", "https://www.sleepfoundation.org/sleep-hygiene"),
+        ],
+        "meditation": [
+            ("🧘 Headspace Basics", "https://www.headspace.com/meditation/meditation-for-beginners"),
+            ("🎧 Guided Meditation", "https://www.youtube.com/watch?v=inpok4MKVLM"),
+        ],
+        "financial_struggle": [
+            ("💸 Student Budgeting Advice", "https://www.moneyhelper.org.uk/en/everyday-money/budgeting/budgeting-for-students"),
+        ],
+        "accommodation_issues": [
+            ("🏡 Tenancy Rights in the UK", "https://england.shelter.org.uk/housing_advice"),
+        ],
+        "imposter_syndrome": [
+            ("🌱 Overcoming Imposter Syndrome", "https://hbr.org/2021/02/what-to-do-when-you-feel-like-a-fraud"),
+        ],
+        "anxious": [
+            ("🫁 Breathing Exercises", "https://www.headspace.com/meditation/breathing-exercises"),
+            ("🎧 Soothing Sounds", "https://www.calm.com/sleep"),
+        ],
+        "depressed": [
+            ("💬 Student Minds Support", "https://www.studentminds.org.uk/"),
+        ],
+        "emotional_breakdown": [
+            ("🛟 Emergency Coping Kit", "https://www.mentalhealth.org.uk/explore-mental-health/publications/how-manage-and-reduce-stress"),
+        ],
+        "sad": [
+            ("📘 Tips to Boost Your Mood", "https://www.nhs.uk/every-mind-matters/"),
+        ],
+        "worthless": [
+            ("🤝 You're Not Alone — Read This", "https://www.samaritans.org/"),
+        ],
+        "panic_attack": [
+            ("🌀 How to Ground Yourself", "https://www.healthline.com/health/how-to-stop-a-panic-attack"),
+        ],
+        "substance_abuse": [
+            ("📞 Talk to Talk to Frank", "https://www.talktofrank.com/"),
+        ],
+        "suicide": [
+            ("🚨 Crisis Support (UK)", "https://www.samaritans.org/"),
+            ("📞 Call 116 123 for free, 24/7 help", "https://www.samaritans.org/how-we-can-help/contact-samaritan/"),
+        ],
+        "self_harm": [
+            ("💔 Coping Without Self-Harm", "https://www.nshn.co.uk/"),
+        ],
+        "eating_disorder": [
+            ("🍽️ Beat Eating Disorders UK", "https://www.beateatingdisorders.org.uk/"),
+        ],
+        "social_struggles": [
+            ("👥 Making Friends at Uni", "https://www.ucas.com/connect/blogs/how-make-friends-university"),
+        ],
+        "friends": [
+            ("🤗 Building Healthy Friendships", "https://www.mentalhealth.org.uk/explore-mental-health/publications/guide-making-and-maintaining-friendships"),
+        ],
+        "death": [
+            ("🕊️ Grief Support for Students", "https://www.cruse.org.uk/get-help/for-young-people/students/"),
+        ],
+        "harm_others": [
+            ("📞 Need urgent help? Contact emergency services or [Samaritans](https://www.samaritans.org/)"),
+        ]
+    }
+
+    if intent_name not in resource_links:
+        return "I'm here to support you. Can you tell me more about what's going on?"
+
+    return "Here are some helpful resources:\n\n" + "\n".join([f"[{label}]({url})" for label, url in resource_links[intent_name]])
+
+
+class ActionProvideSupportResources(Action):
+    def name(self) -> Text:
+        return "action_provide_support_resources"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        intent = tracker.latest_message['intent'].get('name')
+        message = resources(intent)
+
+        dispatcher.utter_message(text=message)
+        return []
 
 class ActionAnalyseEmotion(Action):
     def name(self):
@@ -128,15 +230,3 @@ class ActionLogSentiment(Action):
             dispatcher.utter_message(text="Thanks for sharing how you're feeling.")
 
         return [SlotSet("sentiment", sentiment), SlotSet("sentiment_score", score), SlotSet("mood", mood)]
-
-class ActionProvideStudyResources(Action):
-    def name(self) -> Text:
-        return "action_provide_study_resources"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        resource_link = "https://www.mindtools.com/pages/main/newMN_HTE.htm"  # example: time management for students
-        dispatcher.utter_message(text=f"You can also check out this resource for study strategies: {resource_link}")
-        return []
