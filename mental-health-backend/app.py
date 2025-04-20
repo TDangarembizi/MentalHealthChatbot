@@ -108,7 +108,10 @@ def chat():
         # Send message to Rasa
         rasa_response = requests.post(RASA_URL, json={
             "sender": sender_id,
-            "message": user_message
+            "message": user_message,
+            "metadata": {
+                "email": sender_id  # or raw email, depending on your system
+            }
         })
         rasa_response.raise_for_status()
         rasa_data = rasa_response.json()

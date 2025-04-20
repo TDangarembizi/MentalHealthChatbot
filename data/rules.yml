@@ -8,6 +8,10 @@ rules:
   - action: utter_greeting
   - action: action_log_sentiment
 
+- rule: Handle NLU fallback via emotion detection
+  steps:
+    - intent: nlu_fallback
+    - action: action_analyse_emotion
 
 - rule: Say goodbye anytime the user says goodbye
   steps:
@@ -23,31 +27,6 @@ rules:
   steps:
   - intent: anxious
   - action: utter_anxious
-
-- rule: Respond with coping advice for stress
-  steps:
-  - intent: stressed
-  - action: utter_stressed
-
-- rule: Offer support for feeling worthless
-  steps:
-  - intent: worthless
-  - action: utter_worthless
-
-- rule: Provide tips or empathy when user has sleep issues
-  steps:
-  - intent: sleep
-  - action: utter_sleep_tips
-
-- rule: Comfort user expressing sadness
-  steps:
-  - intent: sad
-  - action: utter_empathy_sadness
-
-- rule: Comfort user during emotional breakdown
-  steps:
-  - intent: emotional_breakdown
-  - action: utter_emotional_support
 
 - rule: Assist user experiencing panic attack
   steps:

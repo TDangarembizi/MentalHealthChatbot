@@ -1,23 +1,32 @@
 version: '3.1'
 intents:
   - about
+  - academic_stress
+  - accommodation_issues
   - afternoon
   - anxious
   - ask
+  - career
   - casual
   - creation
   - death
   - default
   - depressed
   - done
+  - eating_disorder
+  - emotional_breakdown
   - evening
+  - financial_struggle
   - friends
   - goodbye
   - greeting
   - happy
+  - harm_others
   - hate-me
   - hate-you
   - help
+  - homesick
+  - imposter_syndrome
   - jokes
   - learn-mental-health
   - learn-more
@@ -28,44 +37,45 @@ intents:
   - name
   - neutral-response
   - night
+  - nlu_fallback
   - no-approach
   - not-talking
+  - panic_attack
   - problem
   - repeat
+  - respond_to_question
   - sad
   - self_harm
   - skill
   - sleep
+  - social_struggles
   - something-else
   - stressed
+  - study_skills
   - stupid
+  - substance_abuse
   - suicide
   - thanks
   - understand
   - user-advice
   - user-agree
   - user-meditation
+  - work_life_balance
   - worthless
   - wrong
-  - eating_disorder
-  - emotional_breakdown
-  - harm_others
-  - panic_attack
-  - substance_abuse
-  - study_skills
 responses:
   utter_study_skills:
   - text: It’s completely normal to struggle with study routines — you’re not alone. Would you like help with creating a time management plan, tackling procrastination, or staying motivated?
   - text: Study challenges can feel overwhelming, especially with deadlines piling up. I can share techniques to improve focus and build productive habits if you'd like.
-  - text: Feeling stuck is a common part of academic life. Let’s explore some study strategies that might make things easier.
+  - text: Feeling stuck is a common part of academic life. Would you like to explore some study strategies that might make things easier.
   utter_greeting:
-  - text: Guten tag! What brings you here?
-  - text: Ciao! What's on your mind?
+  - text: Hi! What brings you here?
+  - text: Hiya! What's on your mind?
   - text: Hey! What brings you here today?
   - text: Hiya! How's your day going?
   - text: Howdy! What can I do for you?
   - text: Hi! How are you feeling?
-  - text: Ola! How's everything going?
+  - text: Hey there! How's everything going?
   - text: Hello! How can I support you today?
   - text: Great to see you. How do you feel currently?
   - text: Hi there. What brings you here today?
@@ -212,13 +222,12 @@ responses:
   - text: See you later.
   - text: Have a nice day.
   - text: Sayonara! Take care.
-  - text: Au revoir! Until we meet again.
+  - text: Bye! Until we meet again.
   - text: Bye then! Have a great day.
   utter_thanks:
   - text: It's my pleasure to assist.
   - text: Glad I could assist.
   - text: Much appreciated!
-  - text: Gracias!
   - text: Always here to help.
   - text: Thanks to you too!
   - text: You're awesome!
@@ -364,22 +373,17 @@ responses:
       please remember that I am not a replacement for professional therapy. If you
       need more comprehensive help, I recommend consulting with a mental health professional.
   utter_creation:
-  - text: My birth story involves the advancement of AI.
   - text: I was programmed by skilled engineers.
   - text: My creators are passionate about AI technology.
   - text: My development involved advanced AI technologies.
-  - text: 'The real question is: Who created you?'
   - text: I came to be through the hard work of my creators.
   - text: I was developed by a team dedicated to AI advancement.
   - text: I was created using state-of-the-art AI techniques.
   - text: My existence is the result of dedicated developers.
   - text: The creators behind me are innovative developers.
   - text: My developers used cutting-edge technology to create me.
-  - text: I am the brainchild of talented developers.
-  - text: I was designed and developed by a team of professionals.
   - text: I am a creation of advanced AI technology.
   - text: My development process involved AI experts.
-  - text: I was brought to life by talented developers.
   - text: My development involved sophisticated AI models.
   - text: I was trained on a text dataset using Deep Learning & Natural Language Processing
       techniques.
@@ -391,13 +395,11 @@ responses:
   - text: My creation involved a team of developers and engineers.
   - text: I am a product of cutting-edge technology and innovation.
   - text: I owe my existence to the brilliant minds who developed me.
-  - text: I was developed by Akash Nath.
   - text: My creation was a blend of technology and creativity.
   - text: My creation process was meticulous and innovative.
   - text: I am the result of years of research and development.
   - text: My creation was a collaborative effort.
-  - text: My creator's name is <Developer's Name>.
-  - text: I was created by Akash Nath.
+  - text: My creator's name is Tino.
   - text: The minds behind me are talented developers.
   - text: I was built using machine learning algorithms.
   utter_name:
@@ -491,576 +493,17 @@ responses:
   - text: I understand. Can you share more about what's been going on?
   - text: Feeling down is tough. What's been on your mind lately?
   utter_stressed:
-  - text: Creating a bedtime routine that includes calming activities can signal to
-      your body that it's time to relax and unwind.
-  - text: Remember that stress is a natural response, but it's important to find healthy
-      ways to manage it.
-  - text: Remember that it's okay to step away from stressful situations when you
-      need a break.
-  - text: Engaging in a creative activity, such as painting or crafting, can provide
-      a creative outlet for stress and tension.
-  - text: Remember that it's okay to seek professional help if you're feeling overwhelmed
-      by stress.
-  - text: Consider creating a daily routine that includes time for relaxation and
-      self-care.
-  - text: Consider writing down your thoughts and feelings. Sometimes putting them
-      on paper can provide clarity.
-  - text: Remember to take breaks when you need them. Pushing yourself too hard can
-      worsen stress.
-  - text: Remember that it's okay to take breaks throughout your day to recharge and
-      prevent burnout.
-  - text: Sometimes just talking about it can make a difference. Would you like to
-      share more about what's going on?
-  - text: Focus on what you can control and let go of what you can't. It's okay to
-      prioritize your well-being.
-  - text: Have you tried any relaxation techniques like deep breathing or meditation?
-  - text: Remember that self-care looks different for everyone. What activities help
-      you feel rejuvenated and relaxed?
-  - text: Finding a balance between work and leisure is important for managing stress.
-      How can you create that balance?
-  - text: Taking small breaks throughout the day can help prevent burnout and reduce
-      stress levels.
-  - text: Creating a calm and clutter-free environment can have a positive impact
-      on your stress levels.
-  - text: Remember that it's okay to take breaks and prioritize your well-being. What
-      do you need right now?
-  - text: Practicing gratitude can help shift your focus from stress to the positive
-      aspects of your life.
-  - text: Consider scheduling some 'me time' into your day. It's important to take
-      care of yourself.
-  - text: Taking a walk or spending time in nature can be a natural stress reliever.
-      When did you last spend time outdoors?
-  - text: Finding healthy ways to cope with stress, like exercise or mindfulness,
-      can be helpful.
-  - text: It's important to prioritize self-care during stressful times. What helps
-      you unwind?
-  - text: Remember that stress is a temporary state. You have the ability to cope
-      and navigate through this.
-  - text: It's okay to take a step back and reassess your priorities when feeling
-      overwhelmed.
-  - text: Engaging in hobbies or activities you enjoy can provide a much-needed distraction
-      from stress.
-  - text: Taking a warm bath or shower can help relax your muscles and provide a soothing
-      break from stress.
-  - text: Consider exploring relaxation techniques such as progressive muscle relaxation
-      or guided imagery.
-  - text: Sometimes laughter really is the best medicine. Do you have a favorite funny
-      movie or TV show?
-  - text: Try to focus on one thing at a time. Break tasks into smaller, manageable
-      steps.
-  - text: Remember that you're capable of handling stress, even if it doesn't feel
-      that way right now.
-  - text: If the stress feels overwhelming, consider seeking professional help. A
-      therapist can provide valuable support.
-  - text: Setting realistic goals and breaking them down into achievable steps can
-      reduce feelings of overwhelm.
-  - text: Practicing gratitude can shift your focus from stress to the positive aspects
-      of your life.
-  - text: Sometimes talking to a friend or loved one can provide much-needed support
-      during stressful times.
-  - text: Engaging in activities that bring you joy, even in small moments, can help
-      counteract feelings of stress.
-  - text: Remember that it's okay to say 'no' to additional responsibilities when
-      you're feeling overwhelmed.
-  - text: What specific tasks or situations are causing you the most stress?
-  - text: Taking a break, even a short one, can sometimes provide a fresh perspective.
-      Can you step away for a moment?
-  - text: Making time for regular physical activity can improve your mood and reduce
-      stress levels.
-  - text: Finding ways to incorporate movement into your day, even gentle stretching,
-      can help release tension and reduce stress.
-  - text: Creating a calming environment at home, with soothing music or scents, can
-      help reduce stress levels.
-  - text: Practice positive affirmations to counter negative thoughts and feelings
-      of stress.
-  - text: Creating a calming space in your home, with soft lighting and comfortable
-      furnishings, can be a retreat from stress.
-  - text: Sometimes engaging in creative activities, like art or writing, can be a
-      therapeutic outlet for stress.
-  - text: Mindfulness practices like body scans can help you become more aware of
-      tension and stress in your body.
-  - text: Remember that asking for help is a sign of strength, not weakness. Who can
-      you reach out to for support?
-  - text: Small acts of self-care, like a warm bath or listening to calming music,
-      can make a big difference.
-  - text: Are there any activities or hobbies that usually help you relax? Maybe try
-      one of those.
-  - text: Remember to give yourself credit for small accomplishments, even when you're
-      feeling stressed.
-  - text: Engaging in activities that bring you joy, even in small doses, can improve
-      your mood and reduce stress.
-  - text: Remember that stress is a natural response, but finding healthy ways to
-      cope is important for your well-being.
-  - text: Setting boundaries can help reduce stress. Is there anything you need to
-      say 'no' to right now?
-  - text: Practicing mindfulness during stressful moments can help you respond more
-      calmly and effectively.
-  - text: Engaging in a mindfulness practice, such as mindful breathing or body scans,
-      can help reduce stress in the moment.
-  - text: Practicing self-care involves prioritizing your well-being, whether that's
-      through exercise, hobbies, or relaxation techniques.
-  - text: Taking a moment to pause and check in with yourself throughout the day can
-      help you recognize and address stress as it arises.
-  - text: Connecting with others, even if virtually, can provide a sense of support
-      and reduce feelings of isolation.
-  - text: Mindfulness techniques, such as focusing on your breath, can help in moments
-      of stress.
-  - text: Creating a peaceful morning routine can set a positive tone for the day
-      and help reduce stress.
-  - text: Creating a calming bedtime routine can improve your sleep quality and reduce
-      stress. What relaxes you before bed?
-  - text: A good night's sleep can greatly improve your ability to cope with stress.
-      How's your sleep been?
-  - text: Practicing self-compassion involves treating yourself with the same kindness
-      and understanding you would offer a friend.
-  - text: Remember, you're not alone in feeling this way. Many people struggle with
-      stress.
-  - text: Practicing mindfulness in everyday activities, like eating or walking, can
-      help bring a sense of calm to your day.
-  - text: Sometimes engaging in a creative activity, even if you don't feel inspired,
-      can help shift your focus away from stress.
-  - text: Remember to breathe deeply and slowly when you're feeling stressed. Deep
-      breathing can help calm your body and mind.
-  - text: Consider creating a stress-relief toolkit with items that help you relax,
-      such as stress balls or calming teas.
-  - text: Remember to be kind to yourself. You're doing the best you can in a stressful
-      situation.
-  - text: Taking time to connect with nature, even if it's just a walk outside, can
-      help reduce stress and promote well-being.
-  - text: Remember that it's okay to delegate tasks or ask for help when you're feeling
-      overwhelmed.
-  - text: Consider seeking out a support group or community where you can share your
-      experiences and receive support.
-  - text: Remember that it's okay to say 'no' to additional responsibilities if you're
-      feeling overwhelmed.
-  - text: Engaging in deep, diaphragmatic breathing can help activate the body's relaxation
-      response and reduce stress.
-  - text: Taking time to relax and recharge is essential for managing stress. What
-      can you do to unwind?
-  - text: Engaging in regular physical activity can help release built-up tension
-      and reduce stress levels.
-  - text: Engaging in activities that bring you a sense of accomplishment, even small
-      ones, can boost your mood and reduce stress.
-  - text: Visualization techniques, where you imagine yourself in a peaceful place,
-      can help reduce stress.
-  - text: Practice self-compassion. Acknowledge that it's okay to feel stressed and
-      be gentle with yourself.
-  - text: Expressing your feelings through writing, whether in a journal or through
-      poetry, can be cathartic.
-  - text: Sometimes a change of scenery, even if it's just going for a short walk,
-      can help break the cycle of stress.
-  - text: Engaging in mindfulness practices, such as mindful eating or mindful walking,
-      can help bring awareness to the present moment.
-  - text: If the stress feels overwhelming, it might be worth talking to a mental
-      health professional.
-  - text: Taking a few minutes for deep breathing exercises can help calm your mind
-      and body.
-  - text: Remember that self-care isn't selfish. Taking care of yourself allows you
-      to better handle stress.
-  - text: Journaling can be a valuable tool for processing and releasing stress. Would
-      you like to try journaling?
-  - text: Consider trying a guided meditation or relaxation app. Many are available
-      for free and can be helpful for managing stress.
-  - text: Finding a creative outlet, whether it's art, music, or writing, can be a
-      therapeutic way to cope with stress.
-  - text: Finding humor in everyday situations can lighten the mood and reduce stress.
-      What makes you laugh?
-  - text: Remember that it's okay to seek professional help if the stress becomes
-      too overwhelming.
-  - text: Sometimes creating a to-do list or schedule can help organize your thoughts
-      and reduce feelings of overwhelm.
-  - text: Journaling can be a great way to process your thoughts and feelings about
-      the stress you're experiencing.
-  - text: Allow yourself to take breaks and recharge. It's important for your mental
-      and emotional well-being.
-  - text: Remember that self-care isn't selfish. It's necessary for your well-being,
-      especially during stressful times.
-  - text: Remember that your feelings of stress are valid. It's okay to acknowledge
-      and work through them.
-  - text: Creating a calming evening routine can signal to your body that it's time
-      to unwind and prepare for rest.
-  - text: Remember that it's okay to take breaks and step away from stressful situations
-      when you need to.
-  - text: Remember, it's okay to ask for help. Is there someone you trust you can
-      talk to about this?
-  - text: Focus on the present moment. Mindfulness practices can help alleviate stress
-      and anxiety.
-  - text: Practicing gratitude daily, such as writing down three things you're grateful
-      for, can help shift your focus away from stress.
-  - text: Try to identify any patterns or triggers that contribute to your stress.
-      Awareness can be empowering.
-  - text: Remember to practice self-compassion. Treat yourself with the same kindness
-      you would a friend.
-  - text: Aromatherapy with calming scents like lavender or chamomile can help promote
-      relaxation. Do you have any essential oils?
-  - text: Consider practicing mindfulness throughout your day. It can help bring a
-      sense of calm to stressful situations.
-  - text: Do you think there might be any underlying issues contributing to your stress?
-  - text: Remember that it's okay to seek professional help if you're feeling overwhelmed
-      by stress. A therapist can provide valuable support.
-  - text: Listening to calming music or sounds can help create a peaceful environment
-      and reduce stress levels.
-  - text: Remember that it's okay to seek support from friends, family, or a counselor
-      when you're feeling overwhelmed by stress.
-  - text: Talking to a trusted friend or family member about your stress can provide
-      relief and support.
-  - text: Practicing deep breathing exercises can help activate the body's relaxation
-      response and reduce stress.
-  - text: Finding ways to incorporate more moments of joy and laughter into your day
-      can be a powerful antidote to stress.
-  - text: Finding moments of stillness and quiet throughout your day can provide a
-      respite from stress.
-  - text: Reflecting on past experiences where you successfully coped with stress
-      can provide confidence in your abilities.
-  - text: Sometimes simply acknowledging your feelings of stress can begin to lessen
-      their hold on you.
-  - text: Consider trying progressive muscle relaxation, where you tense and then
-      relax each muscle group in your body.
-  - text: Engaging in activities you enjoy, even if just for a few minutes, can provide
-      a mental break from stress.
-  - text: Practicing mindfulness in daily activities, such as eating or walking, can
-      help ground you in the present moment and reduce stress.
-  - text: Remember that taking care of yourself is a priority, especially during stressful
-      times. What self-care activities do you enjoy?
-  - text: Creating a gratitude journal, where you write down things you're thankful
-      for, can shift your focus away from stress.
-  - text: If the stress feels overwhelming, it might be helpful to talk to a counselor
-      or therapist.
-  - text: Consider making a list of things you're grateful for. Gratitude can shift
-      your perspective on stress.
-  - text: Remember that self-care is not selfish. It's necessary for your overall
-      well-being, especially during stressful times.
-  - text: Consider trying mindfulness meditation. It can help train your mind to better
-      handle stress.
+    - text: Sometimes just talking about it can make a difference. Would you like to share more about what's going on? Could you tell me a bit more about that?
+    - text: Sometimes just talking about it can make a difference. Would you like to share more about what's going on? How does that make you feel?
+    - text: Sometimes just talking about it can make a difference. Would you like to share more about what's going on? What else is on your mind regarding this?
   utter_worthless:
-  - text: Feeling worthless can cloud our vision of ourselves. What's a positive quality
-      you have?
-  - text: It's okay to seek support when you're feeling this way. Is there someone
-      you trust you can talk to?
-  - text: Feeling this way is tough, but it's not a reflection of who you are.
-  - text: Feeling worthless is tough, but it doesn't mean you are.
-  - text: Your worth isn't based on productivity or achievements. You have inherent
-      value.
-  - text: It's okay to feel this way sometimes. What's important is not letting it
-      define you.
-  - text: Sometimes our minds can deceive us into feeling worthless, but you have
-      value.
-  - text: Even when you feel worthless, remember that you are still deserving of love
-      and respect.
-  - text: Feeling worthless can be overwhelming. Have you considered talking to someone
-      about how you're feeling?
-  - text: You're not alone in feeling like this. Many people struggle with similar
-      thoughts.
-  - text: Feeling worthless can be isolating, but you're not alone. Reach out if you
-      need to talk.
-  - text: Feeling worthless can be a sign that you need to show yourself compassion.
-  - text: Feeling this way is difficult, but it's okay to reach out for support when
-      you need it.
-  - text: Remember, your worth isn't based on what others think or what you achieve.
-  - text: Feeling worthless can be overwhelming, but it's important to remember that
-      your feelings are not facts.
-  - text: Feeling this way can be a sign that you need to show yourself some extra
-      care.
-  - text: Feeling worthless can be a heavy weight to carry. It's okay to ask for help
-      with that burden.
-  - text: You may feel worthless, but there is so much more to you than this feeling.
-  - text: Feeling worthless can be overwhelming, but it's important to take it one
-      step at a time.
-  - text: Remember, even in your lowest moments, you are worthy of love and compassion.
-  - text: Even in your darkest moments, there is light within you. Hold on to that.
-  - text: Even in our darkest moments, there is light. Hold on to hope.
-  - text: Remember, your worth isn't defined by how you feel in this moment.
-  - text: You may feel worthless, but to someone else, you are everything.
-  - text: Feeling worthless can be isolating, but it's important to remember that
-      you are not alone.
-  - text: Feeling worthless is tough, but you are not defined by these feelings.
-  - text: When we feel worthless, it can help to focus on things we're grateful for.
-      Is there something you're thankful for today?
-  - text: Feeling this way is tough, but you are stronger than these feelings.
-  - text: You may feel worthless, but there are people who care about you deeply.
-  - text: Remember, feelings are temporary. This too shall pass.
-  - text: Feeling worthless is tough, but it's important to remember that you are
-      not alone.
-  - text: I want you to know that you are valued and appreciated.
-  - text: Feeling worthless is a tough place to be. Can you think of a time when you
-      felt differently?
-  - text: It's okay to be kind to yourself, especially when you're feeling worthless.
-  - text: You may feel worthless, but your worth is not defined by your feelings.
-  - text: I hear you. It's tough feeling this way.
-  - text: You have worth and value, even if it's hard to see right now.
-  - text: You're deserving of love and kindness, even when you feel otherwise.
-  - text: Even in your darkest moments, you have the power to choose kindness for
-      yourself.
-  - text: It's okay to feel lost and worthless sometimes. You're on a journey, and
-      this is just a part of it.
-  - text: Feeling worthless can make us forget our strengths. What's something you're
-      proud of?
-  - text: Feeling worthless is tough, but it's important to challenge those thoughts.
-  - text: Feeling this way is tough, but it's important to challenge those thoughts.
-  - text: Even when we feel worthless, there are people who care about us. Who in
-      your life supports you?
-  - text: You're more than your thoughts. Remember, thoughts can change.
-  - text: Feeling this way is difficult, but it's okay to seek support when you need
-      it.
-  - text: Feeling this way is challenging, but it's okay to take small steps toward
-      feeling better.
-  - text: Feeling worthless can be a sign that something is off balance. Is there
-      something specific bothering you?
-  - text: Feeling worthless is a heavy burden. Remember, you're stronger than you
-      think.
-  - text: It's okay to ask for help when you're feeling this way. Who can you reach
-      out to?
-  - text: You may feel worthless, but your worth is inherent and cannot be diminished
-      by these feelings.
-  - text: It's okay to feel this way, but it's also okay to challenge these thoughts.
-  - text: Feeling worthless is tough, but it doesn't define you. You are so much more.
-  - text: Feeling this way doesn't make you any less valuable. You are important.
-  - text: Remember, your worth is not defined by how you feel in this moment.
-  - text: Remember, you are worthy of love and kindness, even when you feel otherwise.
-  - text: Even when you feel worthless, remember that you are still deserving of compassion.
-  - text: Feeling worthless is tough, but it doesn't mean you are. You matter.
-  - text: You're not alone in feeling this way. Many have walked this path and found
-      their way out.
-  - text: Even in the darkest moments, there is hope. Hold on to that light within
-      you.
-  - text: Feeling worthless can make everything seem bleak, but there is light ahead.
-  - text: Feeling this way is temporary. You have the strength to overcome it.
-  - text: Feeling this way doesn't make it true. You have strengths and qualities
-      that matter.
-  - text: Your feelings are valid, even if they don't always reflect reality.
-  - text: Feeling worthless can be a heavy burden. Is there a small step you can take
-      today to care for yourself?
+    - text: It sounds like you’re being really hard on yourself. Everyone has value — even if it’s hard to see right now. Could you tell me a bit more about what’s going through your mind?
+    - text: I’m really sorry you’re feeling this way. You matter, even if it doesn’t feel like it at the moment. How does that make you feel?
+    - text: Those thoughts can be overwhelming. But they don’t define you. Can you share more about what triggered them?
   utter_depressed:
-  - text: Depression may feel like a heavy burden, but sharing the load can make it
-      lighter.
-  - text: You're not weak for feeling this way. It takes strength to face these emotions.
-  - text: Let's focus on self-care today. What's one small thing you can do to take
-      care of yourself?
-  - text: It's okay to take a step back and prioritize your mental health. You come
-      first.
-  - text: Remember, it's okay to not have all the answers. We can figure things out
-      together.
-  - text: It's okay to take a break and focus on self-care. You deserve to prioritize
-      your well-being.
-  - text: Feeling alone is tough, but remember, there are people who care about you,
-      including me.
-  - text: I'm here to listen, without judgment or expectations. Your feelings are
-      important.
-  - text: Even the smallest steps forward are steps in the right direction. Let's
-      celebrate those victories.
-  - text: Let's explore ways to cultivate self-compassion and kindness towards yourself.
-  - text: You're not alone in this struggle. I'm here to walk alongside you and offer
-      my support.
-  - text: You are worthy of love and support, even when it feels like you don't deserve
-      it.
-  - text: You're not alone in this battle. I'm here to be your ally and advocate.
-  - text: I see your strength, even when you feel weak. You're doing the best you
-      can.
-  - text: You don't have to pretend here. It's okay to express how you truly feel.
-  - text: Sometimes just talking about it can ease the burden. I'm here to listen
-      whenever you're ready.
-  - text: I'm here to remind you that you're not alone in this journey. We'll navigate
-      it together.
-  - text: It's okay to seek help. Asking for support is a courageous step towards
-      healing.
-  - text: I hear you. It's okay to feel this way, and it's okay to seek help.
-  - text: You are not your thoughts. They can be overwhelming, but they don't define
-      you.
-  - text: I'm here to provide a listening ear and a caring heart. You're not alone.
-  - text: You have the power to create change, even when it feels like you're stuck.
-  - text: It's okay to take a break and focus on your well-being. You deserve that
-      time.
-  - text: It's okay to not be okay. You're allowed to feel whatever you're feeling
-      right now.
-  - text: You are not your thoughts. You have the power to challenge and change them.
-  - text: You have the power to create positive change, even in the midst of this
-      darkness.
-  - text: Let's find ways to cultivate moments of peace and joy, even in the midst
-      of this struggle.
-  - text: I'm here to remind you of your strength, even when it feels like it's hiding
-      from you.
-  - text: I believe in your ability to overcome this. You are stronger than you know.
-  - text: Your well-being is important. Let's work together to find ways to improve
-      how you're feeling.
-  - text: I'm sorry you're going through this. Remember, it's okay to reach out for
-      help.
-  - text: I'm here for you, even when things feel hopeless. Let's take it one step
-      at a time.
-  - text: You have the strength to face this, even if it doesn't feel that way right
-      now.
-  - text: I'm here to remind you of your worth, even when it feels like you've forgotten.
-  - text: Depression can make everything seem dark, but there's light at the end of
-      the tunnel. Let's find that light together.
-  - text: You're not alone in feeling this way. Many people have gone through similar
-      struggles.
-  - text: You're not alone in this. I'm here to listen and support you through this
-      difficult time.
-  - text: Your well-being matters. Let's explore ways to prioritize self-care.
-  - text: Your feelings are valid, and you deserve support. I'm here to listen without
-      judgment.
-  - text: I'm here to remind you of the beauty and strength that resides within you.
-  - text: You deserve to feel joy and happiness. Let's work together to bring more
-      of that into your life.
-  - text: Your feelings are valid, even if they don't always make sense. I'm here
-      to help make sense of them.
-  - text: You're not alone in feeling this way. Many have walked this path and emerged
-      stronger.
-  - text: I'm here to hold space for you, without judgment or pressure.
-  - text: Remember, self-care is not selfish. It's essential for your well-being.
-  - text: Your feelings are valid, and it's important to give yourself permission
-      to feel them fully.
-  - text: Even when it feels impossible, remember that you're stronger than you think.
-      You're still here, and that's a testament to your strength.
-  - text: Your feelings are valid, and you have every right to feel them.
-  - text: Your well-being matters, and I'm here to help you prioritize it.
-  - text: You are not alone in this journey. There are people who care about you and
-      want to support you.
-  - text: You're not a burden. You're a valuable person who deserves care and compassion.
-  - text: You're not alone in this struggle. Many people have fought and won this
-      battle.
-  - text: Your worth is not determined by your productivity. You matter, simply because
-      you exist.
-  - text: Your feelings are valid, and it's okay to express them however you need
-      to.
-  - text: You're not a burden. Your presence in my life is a gift.
-  - text: Even when it feels like you're standing still, you're still making progress
-      just by facing each day.
-  - text: I'm here to help you find moments of peace and comfort, even in the midst
-      of this storm.
-  - text: You are deserving of love, kindness, and understanding, especially from
-      yourself.
-  - text: It can be overwhelming, but you're not alone. We can get through this together.
-  - text: It's okay to ask for help, and I'm here to support you however I can.
-  - text: Even on the darkest days, there are small moments of light. Let's look for
-      those together.
-  - text: You have so much strength within you, even if it feels hard to access right
-      now.
-  - text: Your journey is unique, but you're not alone. Let's walk this path together.
-  - text: Your presence in this world makes a difference, even on the days when it
-      feels insignificant.
-  - text: You are not alone in this struggle. There is a community of support around
-      you.
-  - text: You have the strength to overcome this. I'm here to help you tap into that
-      strength.
-  - text: You're not alone in this journey. I'm here to support you every step of
-      the way.
-  - text: It's okay to have bad days. Tomorrow is a new opportunity for things to
-      feel a little lighter.
-  - text: You're not alone in this struggle. I'm here to support you with compassion
-      and understanding.
-  - text: Your presence in this world makes a difference, even when it doesn't feel
-      like it.
-  - text: You deserve moments of peace and happiness. Let's find ways to create those
-      moments together.
-  - text: Even in the midst of this darkness, there is light. Let's find it together.
-  - text: Even when you can't see it, there is progress being made. You're moving
-      forward, even if it's slow.
-  - text: Even when it feels like you're drowning, there is hope. Let's hold onto
-      it together.
-  - text: Even in the midst of this storm, there are moments of calm. Let's find those
-      together.
-  - text: It's okay to be gentle with yourself as you navigate through these challenging
-      emotions.
-  - text: It's okay if you can't see the light right now. I'll be a light for you
-      until you can find your own.
-  - text: Your emotions are valid, and it's okay to express them.
-  - text: You're not alone in feeling this way. I'm here to walk alongside you through
-      this journey.
-  - text: You're not defined by your struggles. You're a person worthy of love and
-      understanding.
-  - text: I'm here to support you on your journey to healing. You're not alone in
-      this.
-  - text: Even on the darkest nights, the stars are still shining. Let's find your
-      light together.
-  - text: You have the power to rewrite your story, starting with how you approach
-      each day.
-  - text: It's okay to feel numb right now. Give yourself permission to feel what
-      you need to feel.
-  - text: Even when it feels like you're at your lowest, there is a way up. Let's
-      find it together.
-  - text: I'm here to remind you of your worth, even when it feels hard to see it
-      yourself.
-  - text: Even in the darkest moments, there's a glimmer of hope. Let's hold onto
-      that together.
-  - text: Let's explore what brings you even a tiny bit of comfort, and see if we
-      can build on that.
-  - text: You have a unique light within you that deserves to shine, even on the darkest
-      days.
-  - text: You are not alone. I'm here for you, and we'll face this together.
-  - text: Your story is important and valuable, even the parts that feel painful.
-  - text: Sometimes just taking a moment to breathe can make a difference. Let's try
-      it together.
-  - text: You are worthy of love and care, especially during these difficult times.
-  - text: You are not your thoughts. You have the power to change the narrative.
-  - text: It's okay to take a break and focus on yourself. You don't have to carry
-      the weight alone.
-  - text: You're stronger than you know. Every day you get through is a testament
-      to your strength.
-  - text: You are not defined by your darkest moments. You are defined by your courage
-      to keep going.
-  - text: It's okay to have setbacks. Healing is not linear, and every step forward
-      is progress.
-  - text: I'm here to remind you that you are loved and valued, even when it feels
-      hard to believe.
-  - text: You are not a failure. You're a fighter, and you're still standing.
-  - text: Taking the first step to talk about how you feel is a brave choice. I'm
-      here to support you.
-  - text: You're not alone in feeling this way. Many people struggle with similar
-      feelings.
-  - text: Your feelings are a part of your experience, but they do not define your
-      worth.
-  - text: I'm glad you reached out. That's a courageous step towards healing.
-  - text: Depression can make things feel blurry, but together we can try to bring
-      things into focus.
-  - text: Reaching out for help is a sign of strength. I'm glad you're taking steps
-      to care for yourself.
-  - text: Your feelings are valid, and it's okay to feel them.
-  - text: You're not alone in feeling overwhelmed. Let's work together to find some
-      relief.
-  - text: It's important to take things one step at a time. What's one small thing
-      you could do today that might help?
-  - text: You're more resilient than you realize. You've made it through tough times
-      before, and you can do it again.
-  - text: I see your pain, and I'm here to help you carry it. You don't have to bear
-      it alone.
-  - text: Depression lies to you, telling you things won't get better. But they can,
-      and they will.
-  - text: I'm here to support you on your journey to healing and self-discovery.
-  - text: You are worthy of happiness and peace, even if it feels out of reach right
-      now.
-  - text: Let's create a plan together to help you navigate through this difficult
-      time.
-  - text: Your feelings are a part of you, but they don't define you. You're so much
-      more than your depression.
-  - text: You are not weak for feeling this way. It takes strength to face these challenges.
-  - text: You have a unique perspective and strength that the world needs. Don't forget
-      your value.
-  - text: Remember, you're not expected to have all the answers. We can figure this
-      out together.
-  - text: Your story is important, and it's okay to share it when you're ready.
-  - text: It's okay to take things one step at a time. Progress is progress, no matter
-      how small.
-  - text: Even when the world feels heavy, there are brighter days ahead. Hold onto
-      that hope.
-  - text: Even on the darkest nights, there are stars that shine. Let's find your
-      light together.
-  - text: I'm here to listen and offer support, without judgment or expectations.
-  - text: You are not defined by your struggles. You are defined by your resilience.
-  - text: I believe in your ability to overcome this, even when it feels impossible.
-  - text: Let's take a moment to acknowledge how far you've come, even in the midst
-      of these challenges.
-  - text: Even in the depths of despair, there is a spark of hope. Let's nurture that
-      flame together.
-  - text: Even when it feels like you're drowning, there is a lifeline. Let's reach
-      for it together.
-  - text: Depression can make the world seem gray, but together we can add some color
-      back into your life.
-  - text: You have the power to create change, even in the midst of this storm. Let's
-      take it one step at a time.
-  - text: Your feelings matter, and they deserve to be acknowledged and validated.
-  - text: I'm here to help you find your inner strength and resilience.
-  - text: You are resilient, even on the days when it feels like you're not.
-  - text: Your feelings are valid, and it's okay to feel them fully.
+    - text: I hear how heavy things feel right now. You're not alone — would you like to talk more about what's been bringing you down?
+    - text: When everything feels dark, even small steps forward matter. What’s something you’ve done recently that took effort?
+    - text: It’s okay to not be okay. I’m here with you. Can you share more about what’s been weighing on you lately?
   utter_happy:
   - text: I'm delighted to hear that! What's making your day so wonderful?
   - text: That's great! Want to share what's bringing you this happiness?
@@ -1267,7 +710,6 @@ responses:
       environment?
   - text: I understand how exhausting that must be. Have you looked into relaxation
       techniques?
-  - text: I'm sorry you're going through this. Have you considered sleep-focused hypnotherapy?
   - text: I'm sorry to hear that. Have you tried getting some natural sunlight during
       the day?
   - text: I'm sorry you're going through this. Have you looked into sleep restriction
@@ -1623,8 +1065,7 @@ responses:
   - text: Noted. Have a good one.
   - text: I heard you & noted it all. See you later.
   utter_suicide:
-  - text: 'I''m sorry you''re feeling this way. It''s important to talk to someone.
-      Contact: 9152987821 for help.'
+  - text: I''m sorry you're feeling this way. It''s important to talk to someone. Contact 9152987821 for help.
   - text: I'm here to support you. Please don't hesitate to call 9152987821 for help.
   - text: Your life matters. Please seek help by calling 9152987821.
   - text: You're not alone in this. Please reach out for support. Call 9152987821
@@ -1648,8 +1089,7 @@ responses:
       assist you.
   - text: You're important and loved. Call 9152987821 to speak with someone who can
       assist you.
-  - text: 'I''m very sorry to hear that but you have so much to look forward to. Please
-      seek help by contacting: 9152987821.'
+  - text: I'm very sorry to hear that but you have so much to look forward to. Please seek help by contacting 9152987821.
   - text: I understand how tough this must be. Please call 9152987821 to speak with
       someone who can help.
   - text: Your life has value. Please don't hesitate to call 9152987821 for support.
@@ -3032,7 +2472,26 @@ responses:
   - text: If you're feeling unsafe or thinking about hurting someone, please speak to a mental health professional 
       or contact emergency services immediately. You can also talk to someone at 
       [Mind](https://www.mind.org.uk/) or [Samaritans](https://www.samaritans.org/). You are not alone.
+  utter_academic_stress:
+   - text: University workloads can feel like too much sometimes. Would you like help managing your time or tackling one task at a time?
+  utter_social_struggles:
+  - text: Feeling disconnected is tough. You're not alone in this — want to talk about what makes it hard to connect with others?
+  utter_homesick:
+  - text: Missing home is totally normal. Would it help to talk about how you're feeling or find ways to feel more grounded here?
+  utter_imposter_syndrome:
+  - text: You're not alone in feeling this way — many brilliant students feel like imposters. Let's unpack those thoughts together.
+  utter_financial_struggle:
+  - text: Money stress is real. Want to chat about budgeting, or should I point you to student support services?
+  utter_accommodation_issues:
+  - text: That sounds really uncomfortable. Do you want to talk more about what's been happening where you live?
+  utter_career:
+  - text: Worrying about the future is common. Want to explore career paths together or talk through your concerns?
+  utter_work_life_balance:
+  - text: Balancing everything is exhausting. Let's look at how you might lighten the load or build a healthier routine.
 actions:
   - action_log_sentiment
   - action_provide_study_resources
+  - action_handle_user_reply
+  - action_analyse_user_message
+  - action_analyse_emotion
 

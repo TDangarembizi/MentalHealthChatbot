@@ -1,5 +1,128 @@
-version: '3.1'
+version: "3.1"
 stories:
+- story: Emotion-based follow-up
+  steps:
+    - intent: respond_to_question
+    - action: action_analyse_user_message
+
+- story: Academic stress flow (stressed)
+  steps:
+    - intent: academic_stress
+    - action: utter_academic_stress
+    - intent: stressed
+    - action: utter_academic_stress
+
+- story: Academic stress flow (study_skills)
+  steps:
+    - intent: academic_stress
+    - action: utter_academic_stress
+    - intent: study_skills
+    - action: utter_academic_stress
+
+- story: Social struggle flow (friends)
+  steps:
+    - intent: social_struggles
+    - action: utter_social_struggles
+    - intent: friends
+    - action: utter_social_struggles
+
+- story: Social struggle flow (casual)
+  steps:
+    - intent: social_struggles
+    - action: utter_social_struggles
+    - intent: casual
+    - action: utter_social_struggles
+
+- story: Homesick flow (sad)
+  steps:
+    - intent: homesick
+    - action: utter_homesick
+    - intent: sad
+    - action: utter_homesick
+
+- story: Homesick flow (neutral-response)
+  steps:
+    - intent: homesick
+    - action: utter_homesick
+    - intent: neutral-response
+    - action: utter_homesick
+
+- story: Imposter syndrome flow (worthless)
+  steps:
+    - intent: imposter_syndrome
+    - action: utter_imposter_syndrome
+    - intent: worthless
+    - action: utter_imposter_syndrome
+
+- story: Imposter syndrome flow (stupid)
+  steps:
+    - intent: imposter_syndrome
+    - action: utter_imposter_syndrome
+    - intent: stupid
+    - action: utter_imposter_syndrome
+
+- story: Financial struggle flow (default)
+  steps:
+    - intent: financial_struggle
+    - action: utter_financial_struggle
+    - intent: default
+    - action: utter_financial_struggle
+
+- story: Financial struggle flow (problem)
+  steps:
+    - intent: financial_struggle
+    - action: utter_financial_struggle
+    - intent: problem
+    - action: utter_financial_struggle
+
+- story: Accommodation issues flow (problem)
+  steps:
+    - intent: accommodation_issues
+    - action: utter_accommodation_issues
+    - intent: problem
+    - action: utter_accommodation_issues
+
+- story: Comfort user during emotional breakdown
+  steps:
+  - intent: emotional_breakdown
+  - action: utter_emotional_support
+
+- story: Accommodation issues flow (emotional_breakdown)
+  steps:
+    - intent: accommodation_issues
+    - action: utter_accommodation_issues
+    - intent: emotional_breakdown
+    - action: utter_accommodation_issues
+
+- story: Career anxiety flow (ask)
+  steps:
+    - intent: career
+    - action: utter_career
+    - intent: ask
+    - action: utter_career
+
+- story: Career anxiety flow (future)
+  steps:
+    - intent: career
+    - action: utter_career
+
+- story: Work-life balance flow (stressed)
+  steps:
+    - intent: work_life_balance
+    - action: utter_work_life_balance
+    - intent: stressed
+    - action: utter_work_life_balance
+
+- story: Provide tips or empathy when user has sleep issues
+  steps:
+  - intent: sleep
+  - action: utter_sleep_tips
+- story: Work-life balance flow (sleep)
+  steps:
+    - intent: work_life_balance
+    - action: utter_work_life_balance
+    - intent: sleep
+    - action: utter_work_life_balance
 - story: study skills with api support
   steps:
   - intent: study_skills

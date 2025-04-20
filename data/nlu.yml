@@ -2,19 +2,13 @@ version: '3.1'
 nlu:
 - intent: greeting
   examples: |
-    - Namaste
     - Howdy
     - Hey there
     - Hey
     - Hi
-    - Hola
     - Hi there
-    - Salut
     - Hello
-    - Guten tag
     - Is anyone there?
-    - Bonjour
-    - Ola
 - intent: morning
   examples: |
     - Top of the morning to you
@@ -47,14 +41,11 @@ nlu:
     - Goodnight
     - Until next time
     - Fare thee well
-    - Au revoir
+    - Farewell
     - Take care
     - Goodbye
-    - Adios
-    - Sayonara
     - Catch you later
     - Later
-    - Ciao
     - See you later
     - ok bye
     - Bye then
@@ -63,7 +54,6 @@ nlu:
     - You rock
     - Thanks for the help
     - Thanks a bunch
-    - Gracias
     - Appreciate it
     - Cheers
     - That's helpful
@@ -74,7 +64,7 @@ nlu:
     - Thank you
 - intent: neutral-response
   examples: |
-    - just chillin'
+    - just chilling
     - nothing new
     - just the usual
     - same old, same old
@@ -3139,3 +3129,72 @@ nlu:
     - My study sessions aren’t productive.
     - I need help building better academic routines.
     - I feel unprepared for exams even though I try to study.
+- intent: academic_stress
+  examples: |
+    - I'm overwhelmed by my coursework
+    - I can't keep up with all my assignments
+    - My exams are stressing me out
+    - I'm scared I'll fail my modules
+    - I'm drowning in deadlines
+    - I'm falling behind in class
+    - Uni is just too much right now
+- intent: social_struggles
+  examples: |
+    - I feel like I don’t fit in at uni
+    - I haven’t made any real friends here
+    - I'm always alone on campus
+    - I feel invisible in lectures
+    - Everyone else seems to be having fun except me
+- intent: homesick
+  examples: |
+    - I really miss my family
+    - I feel homesick all the time
+    - I want to go back home
+    - Uni doesn’t feel like home
+    - Being away from home is harder than I thought
+- intent: imposter_syndrome
+  examples: |
+    - I feel like I don't belong in this course
+    - Everyone else is smarter than me
+    - I'm faking it and soon they'll find out
+    - I don’t feel good enough for this university
+    - I got in by luck, not by merit
+- intent: financial_struggle
+  examples: |
+    - I’m broke and can’t focus on my studies
+    - I’m stressing over tuition fees
+    - I don’t have enough money for rent and food
+    - I can't afford textbooks
+    - I might have to drop out because of money
+- intent: accommodation_issues
+  examples: |
+    - My flatmates are making life hell
+    - I can’t sleep because of noise in the dorm
+    - My uni accommodation is depressing
+    - I feel unsafe where I live
+    - Living conditions are making my mental health worse
+- intent: career
+  examples: |
+    - I’m scared I won’t get a job after uni
+    - I have no idea what to do after graduation
+    - What if I don’t make it in the real world?
+    - I don’t feel ready for life after uni
+    - I'm anxious about my future career
+- intent: work_life_balance
+  examples: |
+    - I’m working too much and falling behind in class
+    - My job is ruining my grades
+    - I can’t balance work and university
+    - I’m burning out trying to do everything
+    - I need my job but I’m too tired to study
+- intent: respond_to_question
+  examples: |
+    - Yeah, that sounds good
+    - Maybe
+    - Not right now
+    - I’m not sure
+    - Definitely
+    - I don’t want that
+    -No
+    -Yes
+- intent: nlu_fallback
