@@ -7,7 +7,10 @@ from firebase_admin import firestore
 import requests
 from dotenv import load_dotenv
 import os
+from flask import Flask, request, jsonify
+from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
 from datetime import datetime
+import uuid
 
 # Load environment variables
 load_dotenv()
@@ -87,10 +90,6 @@ def get_preferences():
             return jsonify({"preferences": {}}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
-#Chatbot interaction endpoint
-from datetime import datetime
-import uuid
 
 @app.route("/chat", methods=["POST"])
 def chat():

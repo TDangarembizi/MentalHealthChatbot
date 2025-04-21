@@ -1,17 +1,16 @@
 version: "3.1"
 
 rules:
+- rule: Handle fallback with GPT + Emotion
+  steps:
+    - intent: nlu_fallback
+    - action: action_gpt_emotion_fallback
 
 - rule: Respond to greeting
   steps:
   - intent: greeting
   - action: utter_greeting
   - action: action_log_sentiment
-
-- rule: Handle NLU fallback via emotion detection
-  steps:
-    - intent: nlu_fallback
-    - action: action_analyse_emotion
 
 - rule: Say goodbye anytime the user says goodbye
   steps:

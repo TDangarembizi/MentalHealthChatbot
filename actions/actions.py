@@ -5,6 +5,47 @@ from rasa_sdk.events import SlotSet
 import requests
 from typing import Any, Text, Dict, List
 from datetime import datetime
+from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
+import torch
+
+# Load models globally (once)
+emotion_classifier = pipeline("text-classification", model="bhadresh-savani/bert-base-uncased-emotion")
+tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-medium")
+model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-medium")
+
+class ActionGptEmotionFallback(Action):
+    def name(self):
+        return "action_gpt_emotion_fallback"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker, domain: dict):
+
+        user_input = tracker.latest_message.get("text", "")
+
+        # Detect emotion
+        try:
+            emotion_result = emotion_classifier(user_input)[0]
+            emotion = emotion_result["label"]
+        except Exception:
+            emotion = "unknown"
+
+        # Generate GPT response
+        input_ids = tokenizer.encode(user_input + tokenizer.eos_token, return_tensors='pt')
+        output_ids = model.generate(
+            input_ids,
+            max_length=100,
+            pad_token_id=tokenizer.eos_token_id,
+            do_sample=True,
+            temperature=0.7,
+            top_k=50
+        )
+        gpt_reply = tokenizer.decode(output_ids[:, input_ids.shape[-1]:][0], skip_special_tokens=True)
+
+        # Send final reply
+        reply = gpt_reply
+        dispatcher.utter_message(text=reply)
+
+        return []
 
 def resources(intent_name: str) -> str:
     resource_links = {
@@ -108,56 +149,6 @@ class ActionProvideSupportResources(Action):
         dispatcher.utter_message(text=message)
         return []
 
-class ActionAnalyseEmotion(Action):
-    def name(self):
-        return "action_analyse_emotion"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker, domain: dict):
-
-        user_message = tracker.latest_message.get("text", "")
-
-        # Call Hugging Face emotion model
-        payload = {"inputs": user_message}
-        headers = {"Authorization": "Bearer YOUR_HUGGINGFACE_API_KEY"}
-
-        response = requests.post(
-            "https://api-inference.huggingface.co/models/bhadresh-savani/distilbert-base-uncased-emotion",
-            headers=headers,
-            json=payload
-        )
-
-        if not response.ok:
-            dispatcher.utter_message(text="I'm having trouble analysing your message right now, but I'm still here for you.")
-            return []
-
-        result = response.json()[0]
-        top_emotion = result[0]["label"].lower()
-        confidence = result[0]["score"]
-
-        # Emotion to utterance mapping
-        emotion_to_utter = {
-            "sadness": "utter_empathy_sadness",
-            "joy": "utter_happy",
-            "anger": "utter_deescalate_violence",
-            "fear": "utter_anxious",
-            "love": "utter_user-meditation",
-            "surprise": "utter_ask",
-            "neutral": "utter_neutral-response",
-            "anxiety": "utter_anxious"
-        }
-
-        utter_response = emotion_to_utter.get(top_emotion)
-
-        confidence_threshold = 0.6
-        if confidence < confidence_threshold or top_emotion not in emotion_to_utter:
-            dispatcher.utter_message(
-                text="Thanks for sharing that. Would you like to talk more about how you're feeling?")
-        else:
-            utter_response = emotion_to_utter[top_emotion]
-            dispatcher.utter_message(response=utter_response)
-
-        return []
 
 class ActionHandleUserReply(Action):
     def name(self):

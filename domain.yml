@@ -2492,6 +2492,6 @@ actions:
   - action_log_sentiment
   - action_handle_user_reply
   - action_analyse_user_message
-  - action_analyse_emotion
+  - action_gpt_emotion_fallback
   - action_provide_support_resources
 
