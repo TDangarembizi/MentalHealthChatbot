@@ -2,10 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import ChatMessage from './ChatMessage';
 import './ChatWindow.css';
 
-const ChatWindow = () => {
+const ChatWindow = ({messages, setMessages, sessionId, setSessionId}) => {
   const userEmail = localStorage.getItem("userEmail")?.replace(/\./g, "_");
 
-  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isListening, setIsListening] = useState(false);
   const [isVoiceInput, setIsVoiceInput] = useState(false);
@@ -110,30 +109,54 @@ useEffect(() => {
     }
   };
 
-  return (
+  useEffect(() => {
+  console.log("Rendering messages:", messages);
+}, [messages]);
+
+ return (
     <div className="chat-window-container">
       <div className="chat-box">
-        {messages.map((msg, i) => (
-          <ChatMessage key={i} text={msg.text} sender={msg.sender} />
-        ))}
-        <div ref={messagesEndRef} />  {/* 👈 Scroll target */}
+        {messages.map((msg, i) => {
+          return (
+              <div key={i}>
+                {/* Historical format */}
+                {msg.user_message && (
+                    <ChatMessage text={msg.user_message} sender="user"/>
+                )}
+                {Array.isArray(msg.bot_response) &&
+                    msg.bot_response.map((reply, j) => (
+                        <ChatMessage key={`${i}-bot-${j}`} text={reply.text} sender="bot"/>
+                    ))}
+
+                {/* Live format */}
+                {msg.sender === 'user' && msg.text && !msg.user_message && (
+                    <ChatMessage text={msg.text} sender="user"/>
+                )}
+                {msg.sender === 'bot' && msg.text && !msg.bot_response && (
+                    <ChatMessage text={msg.text} sender="bot"/>
+                )}
+              </div>
+          );
+        })}
+        <div ref={messagesEndRef}/>
       </div>
+
       <div className="chat-input-row">
         <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Type or speak..."
-          onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Type or speak..."
+            onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
         />
         <button onClick={() => sendMessage()}>Send</button>
         {!isSafari && (
-          <button onClick={handleMicClick}>
-            {isListening ? "🎙️ Listening..." : "🎤"}
-          </button>
+            <button onClick={handleMicClick}>
+              {isListening ? "🎙️ Listening..." : "🎤"}
+            </button>
         )}
       </div>
     </div>
-  );
+ );
 };
 
 export default ChatWindow;

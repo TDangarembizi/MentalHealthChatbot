@@ -45,6 +45,9 @@ function App() {
     sessionStorage.setItem('view', view);
   }, [view]);
 
+  const [sessionId, setSessionId] = useState(null);
+  const [messages, setMessages] = useState([]);
+
   return (
     <div className="app-container">
       <ThemeToggle />
@@ -59,7 +62,7 @@ function App() {
 
           <div className="main-content">
             {view === 'dashboard' && <Dashboard moodUpdated={moodUpdated} setMoodUpdated={setMoodUpdated} />}
-            {view === 'chat' && <ChatPage />}
+            {view === 'chat' && <ChatPage sessionId={sessionId} setSessionId={setSessionId} messages={messages} setMessages={setMessages}/>}
             {view === 'assessment' && <Assessment />}
             {view === 'resources' && <Resources setView={setView} />}
             {view === 'emergency' && <Emergency />}

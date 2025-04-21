@@ -132,7 +132,8 @@ def resources(intent_name: str) -> str:
     if intent_name not in resource_links:
         return "I'm here to support you. Can you tell me more about what's going on?"
 
-    return "Here are some helpful resources:\n\n" + "\n".join([f"[{label}]({url})" for label, url in resource_links[intent_name]])
+    return "Here are some helpful resources:\n\n"+"\n\n".join([f"{title}:\n{url}" for title, url in resource_links.get(intent_name, [])])
+
 
 
 class ActionProvideSupportResources(Action):

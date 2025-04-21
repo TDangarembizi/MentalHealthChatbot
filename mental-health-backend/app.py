@@ -8,7 +8,6 @@ import requests
 from dotenv import load_dotenv
 import os
 from flask import Flask, request, jsonify
-from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
 from datetime import datetime
 import uuid
 
@@ -145,24 +144,44 @@ def chat():
             "details": str(e)
         }), 500
 
+@app.route("/chat-sessions", methods=["GET"])
+def list_message_sessions():
+    user_id = request.args.get("user_id", "anonymous")
+
+    try:
+        messages_ref = db.collection("users") \
+                         .document(user_id) \
+                         .collection("messages")
+
+        sessions = messages_ref.stream()
+        session_ids = [doc.id for doc in sessions]
+
+        return jsonify({"sessions": session_ids})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 @app.route("/chat-history", methods=["GET"])
 def chat_history():
-    user_id = request.args.get("user_id", "anonymous").replace('.', '_')
+    user_id = request.args.get("user_id", "anonymous")
     session_id = request.args.get("session_id")
 
     if not session_id:
         return jsonify({"error": "Session ID is required"}), 400
 
     try:
-        messages_ref = db.collection("users") \
-                         .document(user_id) \
-                         .collection("chat_sessions") \
-                         .document(session_id) \
-                         .collection("messages") \
-                         .order_by("timestamp")
+        session_doc = db.collection("users") \
+            .document(user_id) \
+            .collection("messages") \
+            .document(session_id) \
+            .get()
 
-        messages = [doc.to_dict() for doc in messages_ref.stream()]
-        return jsonify({"messages": messages})
+        if session_doc.exists:
+            data = session_doc.to_dict()
+            messages = data.get("messages", [])  # ← this is what you're seeing in Firebase
+            return jsonify({"messages": messages}), 200
+        else:
+            return jsonify({"error": "Session not found"}), 404
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -190,7 +209,7 @@ def save_recovery_key():
         recovery_doc = user_doc.collection("meta").document("recovery")
         recovery_doc.set({
             "recoveryHash": hashed_key,
-            "updatedAt": firestore.SERVER_TIMESTAMP
+            "createdAt": firestore.SERVER_TIMESTAMP
         })
 
         print("[DEBUG] Recovery key stored for:", safe_email)

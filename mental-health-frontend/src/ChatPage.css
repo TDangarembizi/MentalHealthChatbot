@@ -4,22 +4,37 @@
 }
 
 .chat-history-column {
-  width: 150px;
+  width: 20%;
+  background-color: #1e1e1e;
   padding: 1rem;
+  color: white;
+  border-right: 1px solid #333;
   overflow-y: auto;
-  border-right: 1px solid var(--border-color);
-  background-color: var(--bg-color);
-  color: var(--text-color);
 }
 
 .chat-history-list {
-  max-height: 100%;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
 .chat-history-item {
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
+  background-color: #2a2a2a;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: #f0f0f0;
+}
+
+.chat-history-item:hover {
+  background-color: #444;
+}
+
+.chat-history-item.active {
+  background-color: #007bff;
+  color: white;
 }
 
 .chat-main {
