@@ -5,46 +5,36 @@ from rasa_sdk.events import SlotSet
 import requests
 from typing import Any, Text, Dict, List
 from datetime import datetime
-from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
-import torch
 
-# Load models globally (once)
-emotion_classifier = pipeline("text-classification", model="bhadresh-savani/bert-base-uncased-emotion")
-tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-medium")
-model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-medium")
+def ask_llama(prompt):
+    instructions="You are an empathetic mental health chatbot. Respond with warmth, understanding, and keep replies brief (1–2 sentences max). "
+    prompt=instructions+prompt.strip()
+    url = "http://localhost:11434/api/generate"
+    payload = {
+        "model": "llama3.2",
+        "prompt": prompt,
+        "stream": False
+    }
 
+    try:
+        res = requests.post(url, json=payload, timeout=15)
+        res.raise_for_status()
+        data = res.json()
+        return data.get("response", "I'm here to listen. Tell me more.")
+    except Exception as e:
+        print("LLaMA fallback error:", e)
+        return "I'm here for you, even when it's hard to talk."
 class ActionGptEmotionFallback(Action):
-    def name(self):
+    def name(self) -> Text:
         return "action_gpt_emotion_fallback"
 
     def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker, domain: dict):
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        user_message = tracker.latest_message.get("text", "")
+        fallback_response = ask_llama(user_message)
 
-        user_input = tracker.latest_message.get("text", "")
-
-        # Detect emotion
-        try:
-            emotion_result = emotion_classifier(user_input)[0]
-            emotion = emotion_result["label"]
-        except Exception:
-            emotion = "unknown"
-
-        # Generate GPT response
-        input_ids = tokenizer.encode(user_input + tokenizer.eos_token, return_tensors='pt')
-        output_ids = model.generate(
-            input_ids,
-            max_length=100,
-            pad_token_id=tokenizer.eos_token_id,
-            do_sample=True,
-            temperature=0.7,
-            top_k=50
-        )
-        gpt_reply = tokenizer.decode(output_ids[:, input_ids.shape[-1]:][0], skip_special_tokens=True)
-
-        # Send final reply
-        reply = gpt_reply
-        dispatcher.utter_message(text=reply)
-
+        dispatcher.utter_message(text=fallback_response)
         return []
 
 def resources(intent_name: str) -> str:
