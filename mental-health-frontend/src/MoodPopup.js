@@ -13,9 +13,9 @@ const MoodPopup = ({ onClose,setMoodUpdated }) => {
   const [selected, setSelected] = useState(null);
 
   const handleSubmit = async () => {
-    const userEmail = localStorage.getItem("userEmail")?.replace(/\./g, "_");
+    const user_id = localStorage.getItem("uid");
 
-    if (!selected || !userEmail) return;
+    if (!selected || !user_id) return;
 
     const payload = {
       mood: selected,
@@ -25,7 +25,7 @@ const MoodPopup = ({ onClose,setMoodUpdated }) => {
     await fetch(`http://localhost:5000/mood`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ user_id: userEmail, ...payload })
+      body: JSON.stringify({ user_id: user_id, ...payload })
     });
     setMoodUpdated(true);
 

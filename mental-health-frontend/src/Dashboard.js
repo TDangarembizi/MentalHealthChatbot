@@ -15,17 +15,19 @@ ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Legend, 
 
 const Dashboard = ({ moodUpdated, setMoodUpdated }) => {
     const [assessments, setAssessments] = useState([]);
-    const userEmail = localStorage.getItem("userEmail")?.replace(/\./g, "_");
+    const user_id = localStorage.getItem("uid");
+    const userEmail = localStorage.getItem("userEmail");
+
 
     useEffect(() => {
         const fetchAssessments = async () => {
-            const res = await fetch(`http://localhost:5000/assessment/results?user_id=${userEmail}`);
+            const res = await fetch(`http://localhost:5000/assessment/results?user_id=${user_id}`);
             const data = await res.json();
             setAssessments(data);
         };
 
         fetchAssessments();
-    }, [userEmail]);
+    }, [user_id]);
 
     const latest = assessments[assessments.length - 1];
 
@@ -47,20 +49,19 @@ const Dashboard = ({ moodUpdated, setMoodUpdated }) => {
     const [lastEntry, setLastEntry] = useState(null);
 
     useEffect(() => {
-  fetch(`http://localhost:5000/journal?user_id=${userEmail}`)
+  fetch(`http://localhost:5000/journal?user_id=${user_id}`)
     .then(res => res.json())
     .then(data => {
       if (data.length > 0) setLastEntry(data[0].text);
     });
-}, [userEmail]);
+}, [user_id]);
 
     useEffect(() => {
   if (!moodUpdated) return;
 
-  const userEmail = localStorage.getItem("userEmail")?.replace(/\./g, "_");
-  if (!userEmail) return;
+  if (!user_id) return;
 
-  fetch(`http://localhost:5000/mood?user_id=${userEmail}`)
+  fetch(`http://localhost:5000/mood?user_id=${user_id}`)
     .then(res => res.json())
     .then(data => {
       const sorted = data.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
@@ -85,10 +86,10 @@ const Dashboard = ({ moodUpdated, setMoodUpdated }) => {
     const [moodData, setMoodData] = useState([]);
 
     useEffect(() => {
-  const userEmail = localStorage.getItem("userEmail")?.replace(/\./g, "_");
-  if (!userEmail) return;
 
-  fetch(`http://localhost:5000/mood?user_id=${userEmail}`)
+  if (!user_id) return;
+
+  fetch(`http://localhost:5000/mood?user_id=${user_id}`)
     .then(res => res.json())
     .then(data => {
       const sorted = data.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));

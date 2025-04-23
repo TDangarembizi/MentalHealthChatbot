@@ -57,11 +57,12 @@ const Assessment = () => {
   const safeSum = (obj) => Object.values(obj).reduce((a, b) => a + (isNaN(b) ? 0 : b), 0);
 
   const handleSubmit = async () => {
+    const user_id=localStorage.getItem("uid");
     const phq9Score = safeSum(phq9);
     const gad7Score = safeSum(gad7);
 
     const payload = {
-      user_id: (localStorage.getItem("userEmail") || "anonymous").replace(/\./g, "_"),
+      user_id: user_id,
       responses: { phq9, gad7 },
       score: { phq9: phq9Score, gad7: gad7Score },
       timestamp: new Date().toISOString()

@@ -37,11 +37,17 @@ const handleSignup = async () => {
     await createUserWithEmailAndPassword(auth, email, password);
     await updateProfile(auth.currentUser, { displayName: alias });
 
+    const uid = auth.currentUser.uid;
+
+    localStorage.setItem("uid", uid);
+    localStorage.setItem("userEmail", email);
+
 await fetch("http://localhost:5000/recovery", {
+
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
-    user_email: email,
+    user_email: uid,
     recovery_hash: hashedRecovery
   })
 });
@@ -62,9 +68,17 @@ await fetch("http://localhost:5000/recovery", {
 
     //Store the generated email
     localStorage.setItem("userEmail", email);
+    localStorage.setItem("uid", auth.currentUser.uid);
+
     setMessage("Login successful.");
     onLogin();  // Triggers the logged-in state
 
+    console.log("Logging in as alias:", alias);
+    console.log("Derived email:", fakeEmail(alias));
+    console.log("UID: ", localStorage.getItem("uid"));
+
+    const token = await auth.currentUser.getIdToken();
+    console.log("Firebase ID Token:", token);
   } catch (err) {
     setMessage(err.message);
   }
@@ -72,6 +86,7 @@ await fetch("http://localhost:5000/recovery", {
 
 
   const handleRecovery = async () => {
+
   try {
     const response = await fetch("http://localhost:5000/forgot-password", {
       method: "POST",

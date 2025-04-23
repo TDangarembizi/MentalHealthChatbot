@@ -3,7 +3,7 @@ import ChatMessage from './ChatMessage';
 import './ChatWindow.css';
 
 const ChatWindow = ({messages, setMessages, sessionId, setSessionId}) => {
-  const userEmail = localStorage.getItem("userEmail")?.replace(/\./g, "_");
+  const user_id = localStorage.getItem("uid");
 
   const [input, setInput] = useState('');
   const [isListening, setIsListening] = useState(false);
@@ -41,7 +41,7 @@ const response = await fetch('http://localhost:5000/chat', {
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
     message: messageToSend,
-    sender: userEmail,
+    sender: user_id,
     session_id: sessionId
   })
 });

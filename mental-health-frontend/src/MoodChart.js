@@ -17,10 +17,10 @@ const MoodChart = () => {
   const [trend, setTrend] = useState("");
 
   useEffect(() => {
-    const userEmail = localStorage.getItem("userEmail")?.replace(/\./g, "_");
-    if (!userEmail) return;
+    const user_id = localStorage.getItem("uid");
+    if (!user_id) return;
 
-    fetch(`http://localhost:5000/mood?user_id=${userEmail}`)
+    fetch(`http://localhost:5000/mood?user_id=${user_id}`)
       .then(res => res.json())
       .then(data => {
         const sorted = data.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));

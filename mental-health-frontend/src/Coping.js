@@ -6,9 +6,9 @@ const Coping = () => {
   const [saveMsg, setSaveMsg] = useState("");
 
   const handleJournalSave = async () => {
-    const userEmail = localStorage.getItem("userEmail")?.replace(/\./g, "_");
+    const user_id = localStorage.getItem("uid");
 
-    if (!journalText || !userEmail) return;
+    if (!journalText || !user_id) return;
 
     const payload = {
       text: journalText,
@@ -18,7 +18,7 @@ const Coping = () => {
     const res = await fetch("http://localhost:5000/journal", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ user_id: userEmail, ...payload })
+      body: JSON.stringify({ user_id: user_id, ...payload })
     });
 
     if (res.ok) {

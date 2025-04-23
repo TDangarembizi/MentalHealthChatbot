@@ -7,26 +7,26 @@ const Progress = () => {
   const [journalCount, setJournalCount] = useState(0);
   const [moodCount, setMoodCount] = useState(0);
 
-  const userId = localStorage.getItem("userEmail")?.replace(/\./g, "_");
+  const user_id = localStorage.getItem("uid");
 
   useEffect(() => {
-    if (!userId) return;
+    if (!user_id) return;
 
     // Fetch assessments
-    fetch(`http://localhost:5000/assessment/results?user_id=${userId}`)
+    fetch(`http://localhost:5000/assessment/results?user_id=${user_id}`)
       .then(res => res.json())
       .then(setAssessments);
 
     // Fetch journal entries
-    fetch(`http://localhost:5000/journal?user_id=${userId}`)
+    fetch(`http://localhost:5000/journal?user_id=${user_id}`)
       .then(res => res.json())
       .then(data => setJournalCount(data.length));
 
     // Fetch moods
-    fetch(`http://localhost:5000/mood?user_id=${userId}`)
+    fetch(`http://localhost:5000/mood?user_id=${user_id}`)
       .then(res => res.json())
       .then(data => setMoodCount(data.length));
-  }, [userId]);
+  }, [user_id]);
 
   return (
     <div className="progress-container">

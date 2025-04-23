@@ -4,9 +4,7 @@ import userlogo from './userlogo.png';
 import { getAuth, deleteUser } from "firebase/auth";
 import { getFirestore, doc, deleteDoc, collection, getDocs } from "firebase/firestore";
 
-const userEmail=localStorage.getItem("userEmail");
-
-const StarRating = () => {
+const StarRating =({ userId }) => {
   const [rating, setRating] = useState(0);
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [comment, setComment] = useState('');
@@ -26,8 +24,7 @@ const StarRating = () => {
   };
 
   const handleSubmit = () => {
-    const user_id = localStorage.getItem("userEmail")?.replace(/\./g, "_");
-
+    const user_id = userId;
     fetch('http://localhost:5000/feedback', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -92,14 +89,25 @@ const StarRating = () => {
 };
 
 const Sidebar = ({ setView, currentView, setIsLoggedIn }) => {
-const [showSettings, setShowSettings] = useState(false);
-const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [showSettings, setShowSettings] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [userId, setUserId] = useState(() => localStorage.getItem("uid"));
+  const [userEmail, setUserEmail] = useState(() => localStorage.getItem("userEmail"));
+
+React.useEffect(() => {
+  const uid = localStorage.getItem("uid");
+  const email = localStorage.getItem("userEmail");
+  if (uid) setUserId(uid);
+  if (email) setUserEmail(email);
+}, []);
+
 const handleThemeChange = (selectedTheme) => {
   setTheme(selectedTheme);
   document.body.classList.toggle('dark', selectedTheme === 'dark');
 };
 
 const savePreferences = () => {
+  const user_id = userId;
 
   localStorage.setItem("theme", theme);
 
@@ -107,7 +115,6 @@ const savePreferences = () => {
   if (theme === "light") {
     document.body.classList.add("light-mode");
   }
-    const user_id = localStorage.getItem("userEmail") || "anonymous";
   fetch("http://localhost:5000/save-preferences", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -126,7 +133,7 @@ const savePreferences = () => {
 };
 
 React.useEffect(() => {
-    const user_id = localStorage.getItem("userEmail") || "anonymous";
+  const user_id = localStorage.getItem("uid");
 
   fetch(`http://localhost:5000/get-preferences?user_id=${user_id}`)
     .then(res => res.json())
@@ -155,14 +162,13 @@ React.useEffect(() => {
       setIsLoggedIn(false);
   };
 
- const deleteAcc = async () => {
+const deleteAcc = async () => {
+  const user_id = localStorage.getItem("uid");
   const auth = getAuth();
   const db = getFirestore();
-  const user = auth.currentUser
-  const user_id = localStorage.getItem("userEmail");
-  const safe_id=user_id?.replace(/\./g, "_");
+  const user = auth.currentUser;
 
-  if (!user) {
+  if (!user || !user_id) {
     alert("No authenticated user found.");
     return;
   }
@@ -171,21 +177,21 @@ React.useEffect(() => {
 
   try {
     for (const sub of subcollections) {
-
-      const colRef = collection(db, "users", safe_id, sub);
+      const colRef = collection(db, "users", user_id, sub);
       const snapshot = await getDocs(colRef);
       for (const docSnap of snapshot.docs) {
         await deleteDoc(docSnap.ref);
       }
     }
 
-    await deleteDoc(doc(db, "users", safe_id));
-
+    await deleteDoc(doc(db, "users", user_id));
     await deleteUser(user);
+
     alert("Account deleted successfully.");
     localStorage.clear();
     sessionStorage.clear();
     setIsLoggedIn(false);
+
   } catch (error) {
     if (error.code === "auth/requires-recent-login") {
       alert("Please log in again before deleting your account.");
@@ -197,14 +203,18 @@ React.useEffect(() => {
 };
 
 const handleDeleteAccount = () => {
-    const user_id = localStorage.getItem("userEmail") || "anonymous";
+const user_id = localStorage.getItem("uid");
+const userEmail = localStorage.getItem("userEmail");
 
   if (user_id === "anonymous") {
     alert("No user is currently signed in.");
     return;
   }
 
-  const confirmed = window.confirm(`Are you sure you want to delete the account for ${user_id}? This action cannot be undone.`);
+  const confirmed = window.confirm(
+    `Are you sure you want to delete the account for ${userEmail}? This action cannot be undone.`
+  );
+
   if (confirmed) {
     deleteAcc();
   } else {
@@ -272,7 +282,7 @@ const handleDeleteAccount = () => {
 
       <div className="rating">
         <p>Rate the app!</p>
-        <StarRating />
+        <StarRating userId={userId} />
       </div>
     </div>
   );

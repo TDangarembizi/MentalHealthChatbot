@@ -22,13 +22,13 @@ const Resources = ({ setView }) => {
   const [moodStreak, setMoodStreak] = useState(0);
   const [tips, setTips] = useState([]);
 
-  const userEmail = localStorage.getItem("userEmail")?.replace(/\./g, "_");
+  const user_id = localStorage.getItem("uid");
 
   useEffect(() => {
-    if (!userEmail) return;
+    if (!user_id) return;
 
     // Fetch assessments
-    fetch(`http://localhost:5000/assessment/results?user_id=${userEmail}`)
+    fetch(`http://localhost:5000/assessment/results?user_id=${user_id}`)
       .then(res => res.json())
       .then(data => {
         if (!data || data.length === 0) return;
@@ -38,13 +38,13 @@ const Resources = ({ setView }) => {
       });
 
     // Fetch moods
-    fetch(`http://localhost:5000/mood?user_id=${userEmail}`)
+    fetch(`http://localhost:5000/mood?user_id=${user_id}`)
       .then(res => res.json())
       .then(data => {
         const streak = calculateStreak(data);
         setMoodStreak(streak);
       });
-  }, [userEmail]);
+  }, [user_id]);
 
   useEffect(() => {
     const suggestions = [];

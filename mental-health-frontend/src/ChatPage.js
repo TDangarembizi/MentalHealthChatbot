@@ -4,10 +4,17 @@ import logo from './logo.svg';
 import './ChatPage.css';
 
 const ChatPage = () => {
-  const userEmail = localStorage.getItem("userEmail")?.replace(/\./g, "_");
+  const [user_id, setUserId] = useState(() => localStorage.getItem("uid"));
   const [sessionId, setSessionId] = useState(() => sessionStorage.getItem("chatSessionId") || null);
   const [messages, setMessages] = useState([]);
     const [sessions, setSessions] = useState([]);  // ← renamed from messages
+
+    useEffect(() => {
+  const storedUid = localStorage.getItem("uid");
+  if (storedUid && storedUid !== user_id) {
+    setUserId(storedUid);
+  }
+}, [user_id]);
 
     useEffect(() => {
   if (!sessionId) {
@@ -31,10 +38,9 @@ const ChatPage = () => {
   }
 }, []);
 
-
  useEffect(() => {
-  if (userEmail) {
-    fetch(`/chat-sessions?user_id=${userEmail}`)
+     if (user_id) {
+    fetch(`/chat-sessions?user_id=${user_id}`)
       .then((res) => res.json())
       .then((data) => {
   const sorted = (data.sessions || []).sort((a, b) => {
@@ -47,12 +53,12 @@ const ChatPage = () => {
 });
 
   }
-}, [userEmail]);
+}, [user_id]);
 
 
  useEffect(() => {
-  if (userEmail && sessionId) {
-    fetch(`/chat-history?user_id=${userEmail}&session_id=${sessionId}`)
+  if (user_id && sessionId) {
+    fetch(`/chat-history?user_id=${user_id}&session_id=${sessionId}`)
       .then((res) => res.json())
       .then((data) => {
   const normalised = (data.messages || []).flatMap((entry) => {
@@ -70,7 +76,7 @@ const ChatPage = () => {
 })
       .catch((err) => console.error("Failed to load messages:", err));
   }
-}, [userEmail, sessionId]);
+}, [user_id, sessionId]);
 
  const startNewChat = () => {
   const now = new Date();

@@ -1,4 +1,3 @@
-from flask import Flask, request, jsonify
 from flask_cors import CORS
 import bcrypt
 import firebase_admin
@@ -9,7 +8,23 @@ from dotenv import load_dotenv
 import os
 from flask import Flask, request, jsonify
 from datetime import datetime
-import uuid
+from functools import wraps
+from firebase_admin import auth
+
+# Replace with the UID of the admin user
+auth.set_custom_user_claims("Kl2v9O4ilfQc5FBdlEoj5kiza9s1", {"admin": True})
+
+def require_auth(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        token = request.headers.get("Authorization", "").split("Bearer ")[-1]
+        try:
+            decoded_token = auth.verify_id_token(token)
+            request.uid = decoded_token["uid"]
+            return f(*args, **kwargs)
+        except Exception as e:
+            return jsonify({"error": "Unauthorized", "details": str(e)}), 401
+    return decorated_function
 
 # Load environment variables
 load_dotenv()
@@ -66,6 +81,10 @@ def secure_endpoint():
 def save_preferences():
     data = request.get_json()
     user_id = data.get("user_id")
+
+    if user_id != request.uid:
+        return jsonify({"error": "Permission denied: UID mismatch"}), 403
+
     preferences = data.get("preferences", {})
 
     try:
@@ -78,8 +97,10 @@ def save_preferences():
 
 @app.route("/get-preferences", methods=["GET"])
 def get_preferences():
-    user_id = request.args.get("user_id", "anonymous").replace('.', '_')
+    user_id = request.args.get("user_id")
 
+    if user_id != request.uid:
+        return jsonify({"error": "Permission denied: UID mismatch"}), 403
     try:
         doc = db.collection("users").document(user_id).get()
         if doc.exists:
@@ -93,11 +114,13 @@ def get_preferences():
 @app.route("/chat", methods=["POST"])
 def chat():
     data = request.get_json()
-
-    # Extract values from the request
+    user_id = data.get("user_id")
     user_message = data.get("message")
-    sender_id = data.get("sender", "anonymous")
     session_id = data.get("session_id")
+
+    if user_id != request.uid:
+        return jsonify({"error": "Permission denied: UID mismatch"}), 403
+
 
     if not user_message or not session_id:
         return jsonify({"error": "Both 'message' and 'session_id' are required."}), 400
@@ -105,10 +128,10 @@ def chat():
     try:
         # Send message to Rasa
         rasa_response = requests.post(RASA_URL, json={
-            "sender": sender_id,
+            "sender": user_id,
             "message": user_message,
             "metadata": {
-                "email": sender_id  # or raw email, depending on your system
+                "userid": user_id  # or raw email, depending on your system
             }
         })
         rasa_response.raise_for_status()
@@ -122,7 +145,7 @@ def chat():
         }
 
         # Reference to Firestore path: users/{sender_id}/messages/{session_id}
-        doc_ref = db.collection("users").document(sender_id).collection("messages").document(session_id)
+        doc_ref = db.collection("users").document(user_id).collection("messages").document(session_id)
 
         # Append to the "messages" array in the session document
         doc_ref.set({
@@ -146,7 +169,10 @@ def chat():
 
 @app.route("/chat-sessions", methods=["GET"])
 def list_message_sessions():
-    user_id = request.args.get("user_id", "anonymous")
+    user_id = request.args.get("user_id")
+
+    if user_id != request.uid:
+        return jsonify({"error": "Permission denied: UID mismatch"}), 403
 
     try:
         messages_ref = db.collection("users") \
@@ -163,7 +189,11 @@ def list_message_sessions():
 
 @app.route("/chat-history", methods=["GET"])
 def chat_history():
-    user_id = request.args.get("user_id", "anonymous")
+    user_id = request.args.get("user_id")
+
+    if user_id != request.uid:
+        return jsonify({"error": "Permission denied: UID mismatch"}), 403
+
     session_id = request.args.get("session_id")
 
     if not session_id:
@@ -189,12 +219,11 @@ def chat_history():
 @app.route("/recovery", methods=["POST"])
 def save_recovery_key():
     data = request.get_json()
-    raw_email = data.get("user_email")
+    user_id = data.get("user_id")
 
-    if not raw_email:
-        return jsonify({"error": "Missing user_email"}), 400
+    if user_id != request.uid:
+        return jsonify({"error": "Permission denied: UID mismatch"}), 403
 
-    safe_email = raw_email.replace('.', '_')
     hashed_key = data.get("recovery_hash")
 
     if not hashed_key:
@@ -202,7 +231,7 @@ def save_recovery_key():
 
     try:
         # Ensure the user document exists
-        user_doc = db.collection("users").document(safe_email)
+        user_doc = db.collection("users").document(user_id)
         user_doc.set({}, merge=True)
 
         # Save under meta → recovery
@@ -212,7 +241,7 @@ def save_recovery_key():
             "createdAt": firestore.SERVER_TIMESTAMP
         })
 
-        print("[DEBUG] Recovery key stored for:", safe_email)
+        print("[DEBUG] Recovery key stored for:", user_id)
         return jsonify({"message": "Recovery key saved"}), 201
 
     except Exception as e:
@@ -230,11 +259,12 @@ def forgot_password():
         return jsonify({"error": "Missing fields"}), 400
 
     raw_email = f"{alias}@alias.local"
-    safe_email = raw_email.replace(".", "_")
 
     try:
+        user = auth.get_user_by_email(raw_email)
+        uid = user.uid
         # Fetch stored hash from Firestore
-        recovery_ref = firestore.client().collection("users").document(safe_email).collection("meta").document("recovery")
+        recovery_ref = firestore.client().collection("users").document(uid).collection("meta").document("recovery")
         doc = recovery_ref.get()
 
         if not doc.exists:
@@ -260,6 +290,9 @@ def submit_mood():
     data = request.get_json()
     user_id = data.get("user_id")
 
+    if user_id != request.uid:
+        return jsonify({"error": "Permission denied: UID mismatch"}), 403
+
     mood_entry = {
         "mood": data.get("mood"),
         "timestamp": data.get("timestamp")
@@ -278,7 +311,10 @@ def submit_mood():
 
 @app.route("/mood", methods=["GET"])
 def get_mood_entries():
-    user_id = request.args.get("user_id", "anonymous").replace('.', '_')
+    user_id = request.args.get("user_id")
+
+    if user_id != request.uid:
+        return jsonify({"error": "Permission denied: UID mismatch"}), 403
 
     try:
         mood_ref = db.collection("users").document(user_id).collection("mood")
@@ -299,6 +335,9 @@ def get_mood_entries():
 def submit_assessment():
     data = request.get_json()
     user_id = data.get("user_id")
+
+    if user_id != request.uid:
+        return jsonify({"error": "Permission denied: UID mismatch"}), 403
 
     phq9_score = data.get("score", {}).get("phq9", 0)
     gad7_score = data.get("score", {}).get("gad7", 0)
@@ -329,7 +368,10 @@ def submit_assessment():
 
 @app.route("/assessment/results", methods=["GET"])
 def get_assessments():
-    user_id = request.args.get("user_id", "anonymous").replace('.', '_')
+    user_id = request.args.get("user_id")
+
+    if user_id != request.uid:
+        return jsonify({"error": "Permission denied: UID mismatch"}), 403
 
     try:
         user_ref = db.collection("users").document(user_id)
@@ -345,6 +387,9 @@ def get_assessments():
 def submit_journal():
     data = request.get_json()
     user_id = data.get("user_id")
+
+    if user_id != request.uid:
+        return jsonify({"error": "Permission denied: UID mismatch"}), 403
 
     entry = {
         "text": data.get("text"),
@@ -363,7 +408,10 @@ def submit_journal():
 
 @app.route("/journal", methods=["GET"])
 def get_journal_entries():
-    user_id = request.args.get("user_id", "anonymous").replace('.', '_')
+    user_id = request.args.get("user_id")
+
+    if user_id != request.uid:
+        return jsonify({"error": "Permission denied: UID mismatch"}), 403
 
     try:
         journal_ref = db.collection("users").document(user_id).collection("journal")
@@ -386,6 +434,9 @@ def submit_feedback():
     data = request.get_json()
     user_id = data.get("user_id")
 
+    if user_id != request.uid:
+        return jsonify({"error": "Permission denied: UID mismatch"}), 403
+
     feedback = {
         "user_id": user_id,
         "rating": data.get("rating"),
@@ -405,19 +456,28 @@ def submit_feedback():
 
 @app.route("/feedback", methods=["GET"])
 def get_feedback():
-    admin_key = request.args.get("admin_key")
-    if admin_key != "secret_admin_key":
-        return jsonify({"error": "Unauthorized"}), 401
+    token = request.headers.get("Authorization", "").split("Bearer ")[-1]
 
-    feedback_collection = db.collection("feedback").stream()
-    feedback_list = []
+    try:
+        decoded_token = auth.verify_id_token(token)
+        is_admin = decoded_token.get("admin", False)
 
-    for doc in feedback_collection:
-        entry = doc.to_dict()
-        entry["id"] = doc.id
-        feedback_list.append(entry)
+        if not is_admin:
+            return jsonify({"error": "Forbidden: Admin access required"}), 403
 
-    return jsonify(feedback_list), 200
+        feedback_collection = db.collection_group("feedback").stream()
+        feedback_list = []
+
+        for doc in feedback_collection:
+            entry = doc.to_dict()
+            entry["id"] = doc.id
+            feedback_list.append(entry)
+
+        return jsonify(feedback_list), 200
+
+    except Exception as e:
+        print("[ERROR] Admin feedback access failed:", e)
+        return jsonify({"error": "Unauthorized", "details": str(e)}), 401
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
