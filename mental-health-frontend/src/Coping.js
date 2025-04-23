@@ -15,9 +15,12 @@ const Coping = () => {
       timestamp: new Date().toISOString()
     };
 
+    const token=localStorage.getItem("token")
     const res = await fetch("http://localhost:5000/journal", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`  // ← KEY LINE
+},
       body: JSON.stringify({ user_id: user_id, ...payload })
     });
 

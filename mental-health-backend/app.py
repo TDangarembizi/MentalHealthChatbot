@@ -12,9 +12,6 @@ from functools import wraps
 from firebase_admin import auth
 import bcrypt
 
-# Replace with the UID of the admin user
-auth.set_custom_user_claims("Kl2v9O4ilfQc5FBdlEoj5kiza9s1", {"admin": True})
-
 def require_auth(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -54,6 +51,8 @@ if not firebase_admin._apps:
     firebase_admin.initialize_app(cred)
     db = firestore.client()
 
+# UID of the admin user
+auth.set_custom_user_claims("Kl2v9O4ilfQc5FBdlEoj5kiza9s1", {"admin": True})
 # Rasa server URL
 RASA_URL = "http://localhost:5005/webhooks/rest/webhook"
 
@@ -79,6 +78,7 @@ def secure_endpoint():
         return jsonify({"error": "Unauthorized", "details": str(e)}), 401
 
 @app.route("/save-preferences", methods=["POST"])
+@require_auth
 def save_preferences():
     data = request.get_json()
     user_id = data.get("user_id")
@@ -97,6 +97,7 @@ def save_preferences():
         return jsonify({"error": str(e)}), 500
 
 @app.route("/get-preferences", methods=["GET"])
+@require_auth
 def get_preferences():
     user_id = request.args.get("user_id")
 
@@ -113,6 +114,7 @@ def get_preferences():
         return jsonify({"error": str(e)}), 500
 
 @app.route("/chat", methods=["POST"])
+@require_auth
 def chat():
     data = request.get_json()
     user_id = data.get("user_id")
@@ -169,6 +171,7 @@ def chat():
         }), 500
 
 @app.route("/chat-sessions", methods=["GET"])
+@require_auth
 def list_message_sessions():
     user_id = request.args.get("user_id")
 
@@ -189,6 +192,7 @@ def list_message_sessions():
         return jsonify({"error": str(e)}), 500
 
 @app.route("/chat-history", methods=["GET"])
+@require_auth
 def chat_history():
     user_id = request.args.get("user_id")
 
@@ -285,6 +289,7 @@ def forgot_password():
         return jsonify({"error": str(e)}), 500
 
 @app.route("/mood", methods=["POST"])
+@require_auth
 def submit_mood():
     data = request.get_json()
     user_id = data.get("user_id")
@@ -309,6 +314,7 @@ def submit_mood():
         return jsonify({"error": "Failed to save mood", "details": str(e)}), 500
 
 @app.route("/mood", methods=["GET"])
+@require_auth
 def get_mood_entries():
     user_id = request.args.get("user_id")
 
@@ -331,6 +337,7 @@ def get_mood_entries():
         return jsonify({"error": "Failed to fetch mood entries", "details": str(e)}), 500
 
 @app.route("/assessment", methods=["POST"])
+@require_auth
 def submit_assessment():
     data = request.get_json()
     user_id = data.get("user_id")
@@ -366,6 +373,7 @@ def submit_assessment():
 
 
 @app.route("/assessment/results", methods=["GET"])
+@require_auth
 def get_assessments():
     user_id = request.args.get("user_id")
 
@@ -383,6 +391,7 @@ def get_assessments():
         return jsonify({"error": "Failed to retrieve assessments", "details": str(e)}), 500
 
 @app.route("/journal", methods=["POST"])
+@require_auth
 def submit_journal():
     data = request.get_json()
     user_id = data.get("user_id")
@@ -406,6 +415,7 @@ def submit_journal():
         return jsonify({"error": "Failed to save entry", "details": str(e)}), 500
 
 @app.route("/journal", methods=["GET"])
+@require_auth
 def get_journal_entries():
     user_id = request.args.get("user_id")
 
@@ -429,6 +439,7 @@ def get_journal_entries():
 
 
 @app.route("/feedback", methods=["POST"])
+@require_auth
 def submit_feedback():
     data = request.get_json()
     user_id = data.get("user_id")

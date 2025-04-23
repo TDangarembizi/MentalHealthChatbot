@@ -39,43 +39,74 @@ const ChatPage = () => {
 }, []);
 
  useEffect(() => {
-     if (user_id) {
-    fetch(`/chat-sessions?user_id=${user_id}`)
-      .then((res) => res.json())
-      .then((data) => {
-  const sorted = (data.sessions || []).sort((a, b) => {
-    // Convert strings like "21-04 19:22" into Date objects for comparison
-    const dateA = new Date(`2025-${a.slice(3, 5)}-${a.slice(0, 2)}T${a.slice(6)}:00`);
-    const dateB = new Date(`2025-${b.slice(3, 5)}-${b.slice(0, 2)}T${b.slice(6)}:00`);
-    return dateB - dateA; // Most recent first
-  });
-  setSessions(sorted);
-});
+  const loadChatSessions = async () => {
+    if (user_id) {
+      try {
+        const token = localStorage.getItem("token");
 
-  }
+        const res = await fetch(`/chat-sessions?user_id=${user_id}`, {
+          method: "GET",
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        });
+
+        const data = await res.json();
+
+        const sorted = (data.sessions || []).sort((a, b) => {
+          // Convert strings like "21-04 19:22" to Date objects for sorting
+          const dateA = new Date(`2025-${a.slice(3, 5)}-${a.slice(0, 2)}T${a.slice(6)}:00`);
+          const dateB = new Date(`2025-${b.slice(3, 5)}-${b.slice(0, 2)}T${b.slice(6)}:00`);
+          return dateB - dateA; // Most recent session first
+        });
+
+        setSessions(sorted);
+      } catch (err) {
+        console.error("Failed to fetch chat sessions:", err);
+      }
+    }
+  };
+
+  loadChatSessions();
 }, [user_id]);
 
 
- useEffect(() => {
-  if (user_id && sessionId) {
-    fetch(`/chat-history?user_id=${user_id}&session_id=${sessionId}`)
-      .then((res) => res.json())
-      .then((data) => {
-  const normalised = (data.messages || []).flatMap((entry) => {
-    const parts = [{ text: entry.user_message, sender: "user" }];
-    if (Array.isArray(entry.bot_response)) {
-      parts.push(...entry.bot_response.map((res) => ({
-        text: res.text,
-        sender: "bot"
-      })));
-    }
-    return parts;
-  });
+useEffect(() => {
+  const loadChatHistory = async () => {
+    if (user_id && sessionId) {
+      try {
+        const token = localStorage.getItem("token");
 
-  setMessages(normalised);
-})
-      .catch((err) => console.error("Failed to load messages:", err));
-  }
+        const res = await fetch(`/chat-history?user_id=${user_id}&session_id=${sessionId}`, {
+          method: "GET",
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        });
+
+        const data = await res.json();
+
+        const normalised = (data.messages || []).flatMap((entry) => {
+          const parts = [{ text: entry.user_message, sender: "user" }];
+          if (Array.isArray(entry.bot_response)) {
+            parts.push(
+              ...entry.bot_response.map((res) => ({
+                text: res.text,
+                sender: "bot",
+              }))
+            );
+          }
+          return parts;
+        });
+
+        setMessages(normalised);
+      } catch (err) {
+        console.error("Failed to load messages:", err);
+      }
+    }
+  };
+
+  loadChatHistory();
 }, [user_id, sessionId]);
 
  const startNewChat = () => {
@@ -96,6 +127,14 @@ const ChatPage = () => {
     });
   });
 };
+
+ useEffect(() => {
+  if (!sessionId && sessions.length > 0) {
+    const latest = sessions[0];
+    sessionStorage.setItem("chatSessionId", latest);
+    setSessionId(latest);
+  }
+}, [sessions, sessionId]);
 
   return (
     <div className="chat-layout">

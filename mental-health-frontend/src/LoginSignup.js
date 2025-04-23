@@ -38,7 +38,6 @@ const handleSignup = async () => {
     await updateProfile(auth.currentUser, { displayName: alias });
 
     const uid = auth.currentUser.uid;
-
     localStorage.setItem("uid", uid);
     localStorage.setItem("userEmail", email);
 
@@ -77,7 +76,8 @@ await fetch("http://localhost:5000/recovery", {
     console.log("Derived email:", fakeEmail(alias));
     console.log("UID: ", localStorage.getItem("uid"));
 
-    const token = await auth.currentUser.getIdToken();
+    const token = await auth.currentUser.getIdToken(true);
+    localStorage.setItem("token", token);
     console.log("Firebase ID Token:", token);
   } catch (err) {
     setMessage(err.message);

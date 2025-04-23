@@ -24,10 +24,13 @@ const StarRating =({ userId }) => {
   };
 
   const handleSubmit = () => {
+    const token=localStorage.getItem("token")
     const user_id = userId;
     fetch('http://localhost:5000/feedback', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json',
+          "Authorization": `Bearer ${token}`  // ← KEY LINE
+},
       body: JSON.stringify({
         user_id,
         rating,
@@ -108,7 +111,7 @@ const handleThemeChange = (selectedTheme) => {
 
 const savePreferences = () => {
   const user_id = userId;
-
+  const token=localStorage.getItem("token");
   localStorage.setItem("theme", theme);
 
   document.body.classList.remove("light-mode");
@@ -117,7 +120,9 @@ const savePreferences = () => {
   }
   fetch("http://localhost:5000/save-preferences", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`  // ← KEY LINE
+},
     body: JSON.stringify({
       user_id,
       preferences: { theme }
@@ -134,8 +139,16 @@ const savePreferences = () => {
 
 React.useEffect(() => {
   const user_id = localStorage.getItem("uid");
+  const token = localStorage.getItem("token");
 
-  fetch(`http://localhost:5000/get-preferences?user_id=${user_id}`)
+  if (!user_id || !token) return;
+
+  fetch(`http://localhost:5000/get-preferences?user_id=${user_id}`, {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  })
     .then(res => res.json())
     .then(data => {
       const savedTheme = data.preferences?.theme || "dark";
@@ -145,6 +158,9 @@ React.useEffect(() => {
       } else {
         document.body.classList.remove("light-mode");
       }
+    })
+    .catch(err => {
+      console.error("Error fetching user preferences:", err);
     });
 }, []);
 

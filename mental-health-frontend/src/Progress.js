@@ -9,24 +9,51 @@ const Progress = () => {
 
   const user_id = localStorage.getItem("uid");
 
-  useEffect(() => {
-    if (!user_id) return;
+ useEffect(() => {
+  if (!user_id) return;
 
-    // Fetch assessments
-    fetch(`http://localhost:5000/assessment/results?user_id=${user_id}`)
-      .then(res => res.json())
-      .then(setAssessments);
+  const token = localStorage.getItem("token");
 
-    // Fetch journal entries
-    fetch(`http://localhost:5000/journal?user_id=${user_id}`)
-      .then(res => res.json())
-      .then(data => setJournalCount(data.length));
+  if (!token) {
+    console.warn("No auth token found.");
+    return;
+  }
 
-    // Fetch moods
-    fetch(`http://localhost:5000/mood?user_id=${user_id}`)
-      .then(res => res.json())
-      .then(data => setMoodCount(data.length));
-  }, [user_id]);
+  const headers = {
+    "Authorization": `Bearer ${token}`
+  };
+
+  // Fetch assessments
+  fetch(`http://localhost:5000/assessment/results?user_id=${user_id}`, { headers })
+    .then(res => res.json())
+    .then(data => {
+      if (Array.isArray(data)) setAssessments(data);
+      else setAssessments([]);
+    })
+    .catch(err => {
+      console.error("Error fetching assessments:", err);
+      setAssessments([]);
+    });
+
+  // Fetch journal entries
+  fetch(`http://localhost:5000/journal?user_id=${user_id}`, { headers })
+    .then(res => res.json())
+    .then(data => setJournalCount(Array.isArray(data) ? data.length : 0))
+    .catch(err => {
+      console.error("Error fetching journal entries:", err);
+      setJournalCount(0);
+    });
+
+  // Fetch moods
+  fetch(`http://localhost:5000/mood?user_id=${user_id}`, { headers })
+    .then(res => res.json())
+    .then(data => setMoodCount(Array.isArray(data) ? data.length : 0))
+    .catch(err => {
+      console.error("Error fetching mood data:", err);
+      setMoodCount(0);
+    });
+
+}, [user_id]);
 
   return (
     <div className="progress-container">
@@ -50,13 +77,14 @@ const Progress = () => {
               </tr>
             </thead>
             <tbody>
-              {assessments.map((a, i) => (
-                <tr key={i}>
-                  <td>{new Date(a.timestamp).toLocaleDateString()}</td>
-                  <td>{a.phq9}</td>
-                  <td>{a.gad7}</td>
-                </tr>
-              ))}
+              {Array.isArray(assessments) ? assessments.map((a, i) => (
+  <tr key={i}>
+    <td>{new Date(a.timestamp).toLocaleDateString()}</td>
+    <td>{a.phq9}</td>
+    <td>{a.gad7}</td>
+  </tr>
+)) : <tr><td colSpan="3">No assessment data</td></tr>}
+
             </tbody>
           </table>
         )}

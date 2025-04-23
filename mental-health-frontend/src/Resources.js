@@ -24,27 +24,44 @@ const Resources = ({ setView }) => {
 
   const user_id = localStorage.getItem("uid");
 
-  useEffect(() => {
-    if (!user_id) return;
+useEffect(() => {
+  if (!user_id) return;
 
-    // Fetch assessments
-    fetch(`http://localhost:5000/assessment/results?user_id=${user_id}`)
-      .then(res => res.json())
-      .then(data => {
-        if (!data || data.length === 0) return;
-        const latest = data[data.length - 1];
-        setPhq9(latest?.phq9 || 0);
-        setGad7(latest?.gad7 || 0);
-      });
+  const token = localStorage.getItem("token");
+  if (!token) {
+    console.warn("No Firebase auth token found in localStorage.");
+    return;
+  }
 
-    // Fetch moods
-    fetch(`http://localhost:5000/mood?user_id=${user_id}`)
-      .then(res => res.json())
-      .then(data => {
-        const streak = calculateStreak(data);
-        setMoodStreak(streak);
-      });
-  }, [user_id]);
+  const headers = {
+    "Authorization": `Bearer ${token}`
+  };
+
+  // Fetch latest assessment
+  fetch(`http://localhost:5000/assessment/results?user_id=${user_id}`, { headers })
+    .then(res => res.json())
+    .then(data => {
+      if (!Array.isArray(data) || data.length === 0) return;
+      const latest = data[data.length - 1];
+      setPhq9(latest?.phq9 || 0);
+      setGad7(latest?.gad7 || 0);
+    })
+    .catch(err => {
+      console.error("Error fetching assessment results:", err);
+    });
+
+  // Fetch moods and calculate streak
+  fetch(`http://localhost:5000/mood?user_id=${user_id}`, { headers })
+    .then(res => res.json())
+    .then(data => {
+      const streak = Array.isArray(data) ? calculateStreak(data) : 0;
+      setMoodStreak(streak);
+    })
+    .catch(err => {
+      console.error("Error fetching mood data:", err);
+    });
+
+}, [user_id]);
 
   useEffect(() => {
     const suggestions = [];
@@ -85,19 +102,26 @@ const Resources = ({ setView }) => {
 
   // Count how many consecutive days the user logged a mood
   const calculateStreak = (entries) => {
-    const dates = new Set(entries.map(entry => new Date(entry.timestamp).toDateString()));
-    let streak = 0;
-    let today = new Date();
-    while (true) {
-      if (dates.has(today.toDateString())) {
-        streak++;
-        today.setDate(today.getDate() - 1);
-      } else {
-        break;
-      }
+  const dates = Array.isArray(entries)
+    ? entries.map(entry => new Date(entry.timestamp).toDateString())
+    : [];
+
+  const dateSet = new Set(dates);
+
+  let streak = 0;
+  let today = new Date();
+
+  while (true) {
+    if (dateSet.has(today.toDateString())) {
+      streak++;
+      today.setDate(today.getDate() - 1);
+    } else {
+      break;
     }
-    return streak;
-  };
+  }
+
+  return streak;
+};
 
   const generalAdvice = [
     {

@@ -35,13 +35,16 @@ const ChatWindow = ({messages, setMessages, sessionId, setSessionId}) => {
 
   try {
 const sessionId = sessionStorage.getItem("chatSessionId");
+const token=localStorage.getItem("token")
 
 const response = await fetch('http://localhost:5000/chat', {
   method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
+  headers: { 'Content-Type': 'application/json',
+            "Authorization": `Bearer ${token}`  // ← KEY LINE
+},
   body: JSON.stringify({
     message: messageToSend,
-    sender: user_id,
+    user_id,
     session_id: sessionId
   })
 });

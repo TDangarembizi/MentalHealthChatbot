@@ -17,17 +17,30 @@ const MoodChart = () => {
   const [trend, setTrend] = useState("");
 
   useEffect(() => {
-    const user_id = localStorage.getItem("uid");
-    if (!user_id) return;
+  const user_id = localStorage.getItem("uid");
+  const token = localStorage.getItem("token");
 
-    fetch(`http://localhost:5000/mood?user_id=${user_id}`)
-      .then(res => res.json())
-      .then(data => {
-        const sorted = data.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
-        setMoodData(sorted);
-        detectTrend(sorted);
-      });
-  }, []);
+  if (!user_id || !token) return;
+
+  fetch(`http://localhost:5000/mood?user_id=${user_id}`, {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  })
+    .then(res => res.json())
+    .then(data => {
+      const sorted = Array.isArray(data)
+        ? [...data].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
+        : [];
+
+      setMoodData(sorted);
+      detectTrend(sorted);
+    })
+    .catch(err => {
+      console.error("Failed to fetch mood data:", err);
+    });
+}, []);
 
   const detectTrend = (data) => {
     const values = data.map(entry => moodScale[entry.mood] || 2);

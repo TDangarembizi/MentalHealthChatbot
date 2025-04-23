@@ -22,9 +22,12 @@ const MoodPopup = ({ onClose,setMoodUpdated }) => {
       timestamp: new Date().toISOString()
     };
 
+    const token=localStorage.getItem("token");
     await fetch(`http://localhost:5000/mood`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json',
+                "Authorization": `Bearer ${token}`  // ← KEY LINE
+},
       body: JSON.stringify({ user_id: user_id, ...payload })
     });
     setMoodUpdated(true);

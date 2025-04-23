@@ -20,14 +20,36 @@ const Dashboard = ({ moodUpdated, setMoodUpdated }) => {
 
 
     useEffect(() => {
-        const fetchAssessments = async () => {
-            const res = await fetch(`http://localhost:5000/assessment/results?user_id=${user_id}`);
-            const data = await res.json();
-            setAssessments(data);
-        };
+  if (!user_id) return;
 
-        fetchAssessments();
-    }, [user_id]);
+  const fetchAssessments = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const res = await fetch(`http://localhost:5000/assessment/results?user_id=${user_id}`, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      });
+
+      const data = await res.json();
+
+      // Ensure data is an array before setting state
+      if (Array.isArray(data)) {
+        setAssessments(data);
+      } else {
+        console.warn("Unexpected assessment response:", data);
+        setAssessments([]);
+      }
+    } catch (err) {
+      console.error("Failed to fetch assessments:", err);
+      setAssessments([]);
+    }
+  };
+
+  fetchAssessments();
+}, [user_id]);
 
     const latest = assessments[assessments.length - 1];
 
@@ -48,31 +70,56 @@ const Dashboard = ({ moodUpdated, setMoodUpdated }) => {
 
     const [lastEntry, setLastEntry] = useState(null);
 
-    useEffect(() => {
-  fetch(`http://localhost:5000/journal?user_id=${user_id}`)
+useEffect(() => {
+  if (!user_id) return;
+
+  const token = localStorage.getItem("token");
+
+  fetch(`http://localhost:5000/journal?user_id=${user_id}`, {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  })
     .then(res => res.json())
     .then(data => {
-      if (data.length > 0) setLastEntry(data[0].text);
+      if (Array.isArray(data) && data.length > 0) {
+        setLastEntry(data[0].text);
+      }
+    })
+    .catch(err => {
+      console.error("Failed to fetch journal entries:", err);
     });
 }, [user_id]);
 
-    useEffect(() => {
-  if (!moodUpdated) return;
+   useEffect(() => {
+  if (!moodUpdated || !user_id) return;
 
-  if (!user_id) return;
+  const token = localStorage.getItem("token");
 
-  fetch(`http://localhost:5000/mood?user_id=${user_id}`)
+  fetch(`http://localhost:5000/mood?user_id=${user_id}`, {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  })
     .then(res => res.json())
     .then(data => {
-      const sorted = data.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+      const sorted = Array.isArray(data)
+        ? [...data].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
+        : [];
+
       setMoodData(sorted);
       detectTrend(sorted);
 
       // Reset flag to avoid repeat fetches
       setMoodUpdated(false);
+    })
+    .catch(err => {
+      console.error("Failed to fetch mood data:", err);
+      setMoodUpdated(false); // Reset on failure too
     });
-}, [moodUpdated]);
-
+}, [moodUpdated, user_id]); // ← added `user_id` to the dependency array
 
     const moodScale = {
   happy: 5,
@@ -86,17 +133,28 @@ const Dashboard = ({ moodUpdated, setMoodUpdated }) => {
     const [moodData, setMoodData] = useState([]);
 
     useEffect(() => {
-
   if (!user_id) return;
 
-  fetch(`http://localhost:5000/mood?user_id=${user_id}`)
+  const token = localStorage.getItem("token");
+
+  fetch(`http://localhost:5000/mood?user_id=${user_id}`, {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  })
     .then(res => res.json())
     .then(data => {
-      const sorted = data.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+      const sorted = Array.isArray(data)
+        ? [...data].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
+        : [];
       setMoodData(sorted);
       detectTrend(sorted);
+    })
+    .catch(err => {
+      console.error("Failed to fetch mood data:", err);
     });
-}, []);
+}, [user_id]);
 
 const detectTrend = (data) => {
   const values = data.map(entry => moodScale[entry.mood] || 2);
