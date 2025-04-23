@@ -10,6 +10,7 @@ from flask import Flask, request, jsonify
 from datetime import datetime
 from functools import wraps
 from firebase_admin import auth
+import bcrypt
 
 # Replace with the UID of the admin user
 auth.set_custom_user_claims("Kl2v9O4ilfQc5FBdlEoj5kiza9s1", {"admin": True})
@@ -220,14 +221,12 @@ def chat_history():
 def save_recovery_key():
     data = request.get_json()
     user_id = data.get("user_id")
+    raw_key = data.get("recovery_key")
 
-    if user_id != request.uid:
-        return jsonify({"error": "Permission denied: UID mismatch"}), 403
+    if not user_id or not raw_key:
+        return jsonify({"error": "Missing user_id or recovery_key"}), 400
 
-    hashed_key = data.get("recovery_hash")
-
-    if not hashed_key:
-        return jsonify({"error": "Missing recovery_hash"}), 400
+    hashed_key = bcrypt.hashpw(raw_key.encode(), bcrypt.gensalt()).decode()
 
     try:
         # Ensure the user document exists
