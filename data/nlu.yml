@@ -3198,3 +3198,6 @@ nlu:
     -No
     -Yes
 - intent: nlu_fallback
+  examples: |
+    - blah blah
+    - abc

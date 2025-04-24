@@ -5,54 +5,23 @@ stories:
     - intent: respond_to_question
     - action: action_analyse_user_message
 
-- story: Academic stress flow (stressed)
-  steps:
-    - intent: academic_stress
-    - action: utter_academic_stress
-    - intent: stressed
-    - action: utter_academic_stress
-    - action: action_provide_support_resources
-
-- story: Academic stress flow (study_skills)
+- story: Academic stress flow
   steps:
     - intent: academic_stress
     - action: utter_academic_stress
     - intent: study_skills
-    - action: utter_academic_stress
     - action: action_provide_support_resources
 
-- story: Social struggle flow (friends)
-  steps:
-    - intent: social_struggles
-    - action: utter_social_struggles
-    - intent: friends
-    - action: utter_social_struggles
-    - action: action_provide_support_resources
-
-- story: Social struggle flow (casual)
+- story: Social struggle flow
   steps:
     - intent: social_struggles
     - action: utter_social_struggles
     - action: action_provide_support_resources
 
-- story: Homesick flow (sad)
+- story: Homesick flow
   steps:
     - intent: homesick
     - action: utter_homesick
-    - intent: sad
-    - action: action_provide_support_resources
-
-- story: Homesick flow (neutral-response)
-  steps:
-    - intent: homesick
-    - action: utter_homesick
-    - action: action_provide_support_resources
-
-- story: Imposter syndrome flow (worthless)
-  steps:
-    - intent: imposter_syndrome
-    - action: utter_imposter_syndrome
-    - intent: worthless
     - action: action_provide_support_resources
 
 - story: Imposter syndrome flow
@@ -61,13 +30,13 @@ stories:
     - action: utter_imposter_syndrome
     - action: action_provide_support_resources
 
-- story: Financial struggle flow (default)
+- story: Financial struggle flow
   steps:
     - intent: financial_struggle
     - action: utter_financial_struggle
     - action: action_provide_support_resources
 
-- story: Accommodation issues flow (problem)
+- story: Accommodation issues flow
   steps:
     - intent: accommodation_issues
     - action: utter_accommodation_issues
@@ -79,24 +48,10 @@ stories:
   - action: utter_emotional_support
   - action: action_provide_support_resources
 
-- story: Accommodation issues flow (emotional_breakdown)
-  steps:
-    - intent: accommodation_issues
-    - action: utter_accommodation_issues
-    - intent: emotional_breakdown
-    - action: action_provide_support_resources
-
 - story: Career anxiety flow (ask)
   steps:
     - intent: career
     - action: utter_career
-    - action: action_provide_support_resources
-
-- story: Work-life balance flow (stressed)
-  steps:
-    - intent: work_life_balance
-    - action: utter_work_life_balance
-    - intent: stressed
     - action: action_provide_support_resources
 
 - story: Provide tips or empathy when user has sleep issues
@@ -105,7 +60,7 @@ stories:
   - action: utter_sleep_tips
   - action: action_provide_support_resources
 
-- story: Work-life balance flow (sleep)
+- story: Work-life balance flow
   steps:
     - intent: work_life_balance
     - action: utter_work_life_balance
