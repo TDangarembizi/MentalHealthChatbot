@@ -31,11 +31,27 @@ class ActionGptEmotionFallback(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        user_message = tracker.latest_message.get("text", "")
-        fallback_response = ask_llama(user_message)
 
-        dispatcher.utter_message(text=fallback_response)
-        return []
+        user_message = tracker.latest_message.get("text", "")
+        in_fallback = tracker.get_slot("in_llama_fallback")
+
+        # If not already in fallback mode, enter it
+        if not in_fallback:
+            llama_response = ask_llama(user_message)
+            return [SlotSet("in_llama_fallback", True),
+                    SlotSet("latest_llama_reply", llama_response),
+                    dispatcher.utter_message(text=llama_response)]
+
+        # Already in fallback, continue conversation
+        if in_fallback:
+            # Optional: exit on exit keywords
+            if user_message.lower() in ["thanks", "thank you", "that helps", "okay"]:
+                dispatcher.utter_message(text="You're welcome. If you need anything else, I'm here.")
+                return [SlotSet("in_llama_fallback", False)]
+
+            # Continue with Ollama
+            llama_response = ask_llama(user_message)
+            return [dispatcher.utter_message(text=llama_response)]
 
 def resources(intent_name: str) -> str:
     resource_links = {

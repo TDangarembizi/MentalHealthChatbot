@@ -18,7 +18,6 @@ const Dashboard = ({ moodUpdated, setMoodUpdated }) => {
     const user_id = localStorage.getItem("uid");
     const userEmail = localStorage.getItem("userEmail");
 
-
     useEffect(() => {
   if (!user_id) return;
 
@@ -46,10 +45,13 @@ const Dashboard = ({ moodUpdated, setMoodUpdated }) => {
       console.error("Failed to fetch assessments:", err);
       setAssessments([]);
     }
+    if (moodUpdated){
+        setMoodUpdated(false);
+    }
   };
 
   fetchAssessments();
-}, [user_id]);
+}, [user_id,moodUpdated]);
 
     const latest = assessments[assessments.length - 1];
 
@@ -90,7 +92,7 @@ useEffect(() => {
     .catch(err => {
       console.error("Failed to fetch journal entries:", err);
     });
-}, [user_id]);
+}, [user_id,moodUpdated]);
 
    useEffect(() => {
   if (!moodUpdated || !user_id) return;

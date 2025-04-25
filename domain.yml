@@ -1,4 +1,19 @@
 version: '3.1'
+slots:
+  in_llama_fallback:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  latest_llama_reply:
+    type: text
+    initial_value: ""
+    influence_conversation: false
+    mappings:
+      - type: custom
+
 intents:
   - about
   - academic_stress
@@ -2488,10 +2503,13 @@ responses:
   - text: Worrying about the future is common. Want to explore career paths together or talk through your concerns?
   utter_work_life_balance:
   - text: Balancing everything is exhausting. Let's look at how you might lighten the load or build a healthier routine.
+
 actions:
   - action_log_sentiment
   - action_handle_user_reply
   - action_analyse_user_message
   - action_gpt_emotion_fallback
   - action_provide_support_resources
+
+
 

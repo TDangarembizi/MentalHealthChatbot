@@ -210,7 +210,7 @@ await fetch("http://localhost:5000/recovery", {
         {message && <p style={{color: "blue", marginTop: "1rem"}}>{message}</p>}
 
         {showRecovery && (
-            <div style={{marginTop: "1rem", border: "1px dashed #999", padding: "1rem"}}>
+            <div style={{marginTop: "1rem", border: "1px #999", padding: "1rem"}}>
               <h4>🎯 Your Recovery Key (SAVE THIS!):</h4>
               <code>{newRecoveryKey}</code>
             </div>
