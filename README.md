@@ -100,19 +100,19 @@ rasa run
 rasa run actions
 ```
 ---
-##📈 Future Improvements
+## 📈 Future Improvements
 
-Integration with GPT-based models for more advanced conversations
-Mobile app version
-Real-time crisis detection and escalation system
-Improved emotion detection using deep learning models
-Multi-language support
+-Integration with GPT-based models for more advanced conversations
+-Mobile app version
+-Real-time crisis detection and escalation system
+-Improved emotion detection using deep learning models
+-Multi-language support
 ---
-##👤 Author
+## 👤 Author
 
 Tinotenda Dangarembizi
 GitHub: https://github.com/TDangarembizi
 ---
-##📄 License
+## 📄 License
 
 This project is intended for educational and research purposes.
