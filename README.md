@@ -109,9 +109,10 @@ rasa run actions
 - Multi-language support
 ---
 ## 👤 Author
-- 
 Tinotenda Dangarembizi
+
 GitHub: https://github.com/TDangarembizi
+
 ---
 ## 📄 License
 
