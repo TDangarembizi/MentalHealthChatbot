@@ -88,7 +88,17 @@ cd MentalHealthChatbot
 ```
 ### 2. Install dependencies
 ```bash
-pip install -r requirements.txt
+pip install flask
+pip install rasa
+pip install firebase-admin
+pip install requests
+pip install numpy
+pip install pandas
+pip install scikit-learn
+pip install nltk
+npm install react react-dom
+npm install axios
+npm install react-router-dom
 ```
 ### 3. Run Flask backend
 ```bash
@@ -98,6 +108,10 @@ python app.py
 ```bash
 rasa run
 rasa run actions
+```
+### 5. Run the frontend:
+```bash
+npm start
 ```
 ---
 ## 📈 Future Improvements
